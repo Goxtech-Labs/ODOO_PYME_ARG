@@ -23,7 +23,8 @@ Aplicar el [perfil del autor](GONZALO-SARUBILO.md) sin sustituir la identidad AR
 Usar YouTube para presentar el proyecto, demostrar gestión básica y facilitar aprendizaje autónomo.
 Vincular videos y documentación para que cada recorrido pueda repetirse con ejemplos públicos.
 Mantener repositorio y guías como fuente de requisitos y versiones; usar videos como complemento práctico.
-Definir nombre, URL y responsable del canal antes de publicar. No asumir un canal existente.
+Canal confirmado por el titular: [Goxtech Argentina](https://www.youtube.com/@Goxtech_Arg),
+presentado por Gonzalo Sarubilo. Los tutoriales específicos ARG siguen pendientes.
 
 ## Serie inicial propuesta
 

@@ -1,6 +1,6 @@
 {
  'name': 'Interfaz ARG', 'summary': 'Gestión documental simple, identidad argentina y ayuda central',
- 'version': '20.0.1.0.1', 'author': 'Gonzalo Sarubilo · GoxtechLabs', 'license': 'AGPL-3',
+ 'version': '20.0.1.0.2', 'author': 'Gonzalo Sarubilo · GoxtechLabs', 'license': 'AGPL-3',
  'website': 'https://github.com/Goxtech-Labs/ODOO_PYME_ARG',
  'depends': ['arg_pyme_base', 'web', 'mail_bot'],
  'data': ['views/help_support.xml', 'data/branding.xml'],

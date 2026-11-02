@@ -1,62 +1,38 @@
-# Odoo Pymes ARG — 0.1.1-dev
+# Odoo Pymes ARG — 0.1.2-dev
 
-Fecha del corte técnico:2026-11-01. Núcleo genérico desarrollado e instalado técnicamente en demo.
-Código y documentación publicados por decisión del titular; el
-[PR #1](https://github.com/Goxtech-Labs/ODOO_PYME_ARG/pull/1) registra su integración a main.
-QA funcional/visual y aceptación pendientes; no se presenta como versión productiva validada.
-Publicar el código no acredita aceptación funcional ni constituye un tag de release.
+Núcleo genérico desarrollado, publicado en main e instalado técnicamente en demo. La revisión
+0.1.2-dev incorpora los canales oficiales Goxtech elegidos por el titular. QA funcional/visual
+y aceptación siguen pendientes; no se presenta como versión productiva validada.
 
 [Composición](../../composition/versions.lock.json):91 módulos,79 nativos/dependencias y12 addons ARG.
-Paquete de 185 archivos desplegado: SHA256 `b4501c7bb1befdc6fac6c77596271bae6ceb9f7320fad60fcee013902affbb2c`.
-Versiones en fuente, paquete y runtime coinciden. La procedencia del paquete Odoo y el SHA de
-investigación son referencias distintas. Ver [controles](CONTROLES-TECNICOS.md) y
-[correcciones de cierre](CIERRE-DE-CONTRATOS.md).
+Paquete de185 archivos, SHA256 `9465b28581d1d6e082234da2db3a185ec367f4a3c99980332269d9c3a9df6a31`.
+Base20.0.1.0.4 e Interfaz20.0.1.0.2 actualizados en aislado y demo. Los185 hashes coinciden.
 
-## Contenido
+Los cinco circuitos, maestros y documentos conservan el alcance de la
+[entrega anterior](RELEASE-0.1.1-dev.md). PRE y PED son documentos distintos, con numeración y
+trazabilidad propias; stock y contabilidad nativos conservan sus efectos. Informes no atribuye
+importes cuando falta evidencia. [Cobertura de requisitos](COBERTURA-REQUISITOS.md).
 
-Base, Interfaz, Terceros, Catálogo, Documentos, Ventas, Compras, Stock, Administración, Informes y
-dos puentes físicos. Cinco circuitos genéricos con documentos propios, código corto, estados y
-pendientes independientes. PRE conserva identidad distinta del PED que genera; stock y contabilidad
-nativos son las fuentes de efecto. Informes no mezcla etapas ni inventa atribuciones monetarias.
+## Web, aprendizaje y soporte
 
-Manuales funcionales/técnicos, ejemplos ficticios, quince specs con contratos/tareas, guías de
-instalación, backup, exportación y personalización; portada y comunidad. [Cobertura de 125 requisitos](COBERTURA-REQUISITOS.md)
-identifica fuente, evidencia y límites de resultado sin sustituir QA por presencia de archivos.
+[Canales y controles de esta revisión](CANALES-GOXTECH.md): web y canal general configurables,
+WhatsApp principal y correo alternativo. Accesibles desde Ayuda, Soporte y Acerca de.
+El canal general no equivale a un tutorial específico compatible. Los videos ARG siguen pendientes.
+No se envían mensajes ni se activan proveedores automáticamente. Cada instalación puede elegir
+sus propios destinos sin una cuenta Goxtech obligatoria.
+
+Se verificaron instalación/upgrade de dos addons, versión y185 archivos, cinco parámetros públicos,
+servicios y renderizado HTTP200 de las tres páginas. La demo mantiene cero operaciones de negocio,
+cron y correo desactivados. Respaldo previo completo con integridad verificada; su recuperación
+no se ensayó en esta revisión. La restauración anterior se conserva identificada por su propia composición.
+
+## Licencias y pendientes
 
 AGPL-3.0-only para código original y CC-BY-SA-4.0 para documentación/recursos originales.
-[NOTICE](../../NOTICE.md) conserva alcance, atribuciones y excepciones. Cada addon incorpora sus avisos.
-Para empaquetar, [package_release.py](../../ops/package_release.py) genera tar determinista, SHA por archivo,
-controles sintácticos y Gitleaks redactado. Conservar recibos junto al respaldo privado.
-No distribuir dumps, configuración protegida, filestore ni credenciales en el Git público.
+[NOTICE](../../NOTICE.md) conserva atribuciones y excepciones. Sin dumps, filestore, credenciales
+ni configuración privada en el Git público.
 
-## Instalación y verificación técnica
-
-Actualización exacta de nueve addons afectados en aislado y demo; sin actualización global.
-La [guía](../site/INSTALACION.md) incluye instalación nueva y actualización desde 0.1.0-dev.
-Instalación mínima limpia 31 módulos sin Contabilidad/Stock; perfil de servicios 74 sin Stock actualizado.
-Home/Ayuda/Soporte/Acerca de HTTP 200 sin errores JS; Informes vacío HTML/CSV/PDF 200.
-Ocho verificaciones del helper numérico puro, sin DB ni operaciones de negocio.
-Cron/correo desactivados; sólo maestros ficticios y filtros transitorios, cero documentos/asientos/pagos/stock.
-Estos controles no prueban los recorridos funcionales ni todos los roles/compañías.
-
-## Recuperación de esta composición
-
-Respaldo completo de1401399991bytes, con Odoo detenido, integridad zstd y SHA256
-`4cb85cbcc4ecd7d2220dbd110411bb10354002aa873aa8a16f96ac1c70ffbcc4`. Restaurado en un contenedor nuevo sin interfaz de red y con el túnel bloqueado.
-Antes del primer arranque de Odoo se normalizó la URL de la copia a loopback y se desactivaron cron/correo.
-Se recuperaron 91 módulos, los 185 archivos de código del paquete y 78/78 adjuntos con checksum correcto;
-AJU referencia el modelo correcto y el login local responde HTTP 200. Se dejó el contenedor apagado.
-La demo no contiene documentos de negocio: su recuperación funcional no se prueba por un conteo de cero.
-El respaldo de 0.1.0-dev también fue restaurado, como hito histórico diferente.
-
-## Pendientes separados
-
-La publicación y su integración a main se siguen mediante el PR enlazado arriba.
-La publicación de una versión estable es un hito posterior. GitHub Pages no está activado por esta entrega.
-Manuales escritos disponibles; videos/canal real, destinos de soporte y contacto privado de seguridad
-se configuran cuando sean aportados. No se inventan URLs ni se envían mensajes.
-Integraciones, ARCA y rubros son incrementos posteriores, sin activación ni emisión fiscal en el núcleo.
-
-[QA posterior](QA.md): permisos/ACL, múltiples compañías, teclado/temas, parciales/revisiones,
-concurrencia, reversión, cálculos y recuperación con documentos, según quickstarts.
-Registrar resultados y aceptación con el usuario después de la instalación autorizada.
+[QA posterior](QA.md): permisos, compañías, teclado/temas, parciales, concurrencia, reversión,
+cálculos y recuperación con documentos. Registrar resultados y aceptación con el usuario.
+Integraciones, ARCA y rubros son incrementos posteriores; tickets todavía sin definir.
+La portada y los manuales están publicados en el repositorio; GitHub Pages y un tag estable son hitos distintos.

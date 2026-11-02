@@ -56,3 +56,7 @@ Usar ejemplos, resolver controles técnicos y realizar QA funcional/visual en la
 - [x] T011 Corregir registro AJU al modelo de ajuste e incorporar migración que preserve identidades existentes en addons/arg_pyme_base/migrations/. (FR-001 FR-002)
 
 Controles de instalación/arranque en docs/entregas/CIERRE-DE-CONTRATOS.md; QA y aceptación posteriores.
+
+## Canales públicos elegidos por el titular
+
+- [x] T012 Agregar web y canal general editables a la configuración central; aplicar contactos públicos Goxtech elegidos por el titular sin guardar ajustes ajenos. (FR-005 FR-006)

@@ -1,5 +1,13 @@
 # Cambios
 
+## 0.1.2-dev
+
+- Web y canal general editables desde Gestión ARG; enlaces compartidos en Ayuda, Soporte y Acerca de.
+- Contactos oficiales Goxtech elegidos por el titular, con WhatsApp principal y correo alternativo.
+- Canal general separado de los tutoriales específicos aún pendientes.
+- Registro de publicación actualizado tras integrar el núcleo a main.
+
+
 ## 0.1.1-dev — 2026-11-01
 
 Correcciones de cierre contractual: registro/migración AJU, pendientes físicos antes de validar,

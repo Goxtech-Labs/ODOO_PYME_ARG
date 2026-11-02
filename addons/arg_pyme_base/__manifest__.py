@@ -1,6 +1,6 @@
 {
     'name': 'Base ARG', 'summary': 'Identidad documental, roles, ayuda y soporte comunitario',
-    'version': '20.0.1.0.3', 'category': 'Administration',
+    'version': '20.0.1.0.4', 'category': 'Administration',
     'author': 'Gonzalo Sarubilo · GoxtechLabs', 'license': 'AGPL-3',
     'website': 'https://github.com/Goxtech-Labs/ODOO_PYME_ARG',
     'depends': ['base', 'web'],

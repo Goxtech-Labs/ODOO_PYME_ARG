@@ -12,3 +12,9 @@ Runtime y operación en docs/tecnica/ENTORNO-DEMO.md y OPERACION-Y-RECUPERACION.
 No ejecutar este cargador sobre datos productivos ni interpretar sus maestros como validación de circuitos ARG.
 
 seed_finance_demo.py se ejecuta por odoo shell sólo en arg_demo identificado como ejemplo, sin asientos/pagos/REC/OPA existentes. Crea diarios Caja/Banco y medios/cuentas de ejemplo, configura predeterminados y desactiva cron/correo; no registra operaciones. Rechaza sobrescribir configuración personalizada. En instalaciones nuevas crear PostgreSQL con template0/UTF8 explícito: no heredar SQL_ASCII de template1.
+
+`configure_public_contacts.py` aplica un perfil JSON elegido mediante `ARG_PUBLIC_CONTACTS_JSON`
+dentro de `odoo shell`. Valida web, canal, correo, WhatsApp y canal principal mediante los campos
+de Ajustes, y escribe sólo esos cinco parámetros. No llama al guardado global de Ajustes, no
+configura proveedores ni envía mensajes. El perfil público elegido para ARG está en
+[canales.json](../docs/comunidad/canales.json); cada operador puede utilizar su propio perfil.

@@ -1,6 +1,6 @@
 # Estado de módulos ARG
 
-2026-11-01. 91 módulos instalados: 79 nativos/dependencias y 12 addons ARG (incluidos dos puentes físicos). Código, instalación, QA y aceptación son hitos distintos.
+2026-11-02. 91 módulos instalados: 79 nativos/dependencias y 12 addons ARG (incluidos dos puentes físicos). Código, instalación, QA y aceptación son hitos distintos.
 
 | Feature | Spec/plan/tareas | Código ARG | QA funcional |
 | --- | --- | --- | --- |
@@ -20,3 +20,6 @@
 | 015-documentos | Preparados | Desarrollado e instalado demo | Pendiente |
 
 Integraciones y rubros son etapas posteriores. Las tareas generales resumen el producto y no se suman como entregas duplicadas a las tareas de módulo.
+
+Base20.0.1.0.4 e Interfaz20.0.1.0.2 incorporan los [canales oficiales Goxtech](comunidad/CONTACTO.md),
+configurados en demo. [Controles y límites de0.1.2-dev](entregas/CANALES-GOXTECH.md).

@@ -56,3 +56,7 @@ Usar ejemplos, resolver controles técnicos y realizar QA funcional/visual en la
 - [x] T011 Completar SVG originales con texto en áreas/acciones y Acerca de ARG autenticado, preservando atribuciones. (FR-001 FR-003 FR-005)
 
 Controles de instalación/arranque en docs/entregas/CIERRE-DE-CONTRATOS.md; QA y aceptación posteriores.
+
+## Canales públicos elegidos por el titular
+
+- [x] T012 Mostrar web/canal configurados en Ayuda, Soporte y Acerca de sin confundir el canal con un tutorial compatible. (FR-005 FR-006)

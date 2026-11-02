@@ -50,7 +50,8 @@ Permitir seleccionar canal principal y habilitar canales alternativos.
 | Tickets | URL del sistema propio o administrado por el responsable | Abrir formulario de incidencia o consulta |
 | Centro de ayuda | URL propia o pantalla interna ARG | Encontrar tutoriales, manuales y canales disponibles |
 
-Mantener correo, número, URLs y herramienta de tickets pendientes hasta su definición real.
+El titular eligió los [canales oficiales Goxtech](comunidad/CONTACTO.md) para este proyecto.
+El sistema de tickets sigue sin definir; cada instalación puede reemplazar los destinos públicos.
 Evitar asumir proveedores, cuentas, costos o infraestructura ya existentes.
 Mostrar únicamente canales habilitados y configurados; ofrecer ayuda interna cuando falten destinos.
 Mantener tutoriales públicos disponibles independientemente del canal de soporte elegido.

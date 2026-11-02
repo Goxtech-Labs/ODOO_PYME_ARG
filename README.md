@@ -77,15 +77,15 @@ La factura interna y la autorización fiscal son estados distintos; ARCA corresp
 
 Las primeras contribuciones pueden describir recorridos de gestión, necesidades de pymes y mejoras documentales.
 Usá ejemplos ficticios e identificados; evitá compartir datos de clientes, certificados o credenciales.
-La guía de contribución está disponible; el destino de contacto privado de seguridad está pendiente de configuración.
+La guía de contribución y el [contacto privado para reportes de seguridad](SECURITY.md) están disponibles.
 
 Usaremos YouTube para demostrar cada circuito, enseñar instalación y compartir mejoras.
-Cada tutorial enlazará su versión, guía y ejemplos. El canal y los videos están por definir.
+Cada tutorial enlazará su versión, guía y ejemplos. El [canal Goxtech Argentina](https://www.youtube.com/@Goxtech_Arg) ya está definido; los videos específicos ARG están pendientes.
 Cada módulo tendrá sus tutoriales vinculados desde la ayuda, con estado y versión compatibles.
 El soporte general ARG será administrado por el responsable mediante correo, WhatsApp o tickets configurables.
 GOXTECHBOT aportará el branding suave del bot dentro de la identidad general ARG.
 
-[Ayuda, tutoriales y soporte](docs/AYUDA-TUTORIALES-SOPORTE.md)
+[Ayuda, tutoriales y soporte](docs/AYUDA-TUTORIALES-SOPORTE.md) · [Web, WhatsApp y contacto](docs/comunidad/CONTACTO.md)
 
 El software del proyecto será gratuito. Alojamiento, proveedores externos y asistencia podrán tener costos opcionales.
 Código original: **AGPL-3.0**. Documentación y recursos originales: **CC BY-SA 4.0**.

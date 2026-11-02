@@ -10,3 +10,10 @@ Un mismo usuario puede combinar roles por circuito. La configuración avanzada d
 Manuales/tutoriales permiten versión, revisión, reemplazo y guía escrita. Sólo un video vigente/compatible se abre como tutorial.
 Soporte general: el administrador de Odoo configura correo, WhatsApp o tickets en Ajustes/Gestión ARG; sin destinos inventados.
 No se envían mensajes por guardar ajustes ni por abrir ayuda. Los botones y acceso contextual se completan con Interfaz ARG.
+
+## Web, canal y contactos públicos
+
+Ajustes → Gestión ARG permite editar web del responsable y canal general de YouTube, además
+de correo, WhatsApp y tickets. La demo usa los [canales oficiales elegidos](../comunidad/CONTACTO.md).
+Ayuda, Soporte y Acerca de muestran los enlaces configurados. El canal general no se presenta
+como un tutorial específico compatible; las fichas de video conservan sus estados y versiones.

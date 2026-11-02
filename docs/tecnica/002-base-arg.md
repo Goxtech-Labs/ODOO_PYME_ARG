@@ -18,3 +18,10 @@ Base20.0.1.0.3 registra AJU como arg.pyme.inventory.adjustment. La migración s�
 configuración antigua sin identidades; si existen referencias AJU al modelo viejo, aborta y pide
 migración explícita. No cambia secuencia ni renumera. El registro sigue siendo una referencia
 a documento operativo, no un movimiento físico adicional.
+
+## Web, canal y contactos públicos
+
+Ajustes → Gestión ARG permite editar web del responsable y canal general de YouTube, además
+de correo, WhatsApp y tickets. La demo usa los [canales oficiales elegidos](../comunidad/CONTACTO.md).
+Ayuda, Soporte y Acerca de muestran los enlaces configurados. El canal general no se presenta
+como un tutorial específico compatible; las fichas de video conservan sus estados y versiones.

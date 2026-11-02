@@ -1,7 +1,7 @@
 # Tasks: Portada y documentación pública ARG
 
 **Input**: spec.md, plan.md, research.md, data-model.md y contracts/.
-**Estado**: Entrega documental implementada; controles técnicos registrados en docs/entregas/011-web-comunidad.md. Publicación remota y aceptación pendientes.
+**Estado**: Entrega documental implementada; controles técnicos registrados en docs/entregas/011-web-comunidad.md. Publicación integrada a main mediante PR #1; aceptación pendiente.
 **Tests**: Escenarios preparados para QA posterior; controles técnicos durante instalación.
 
 ## Phase 1: Setup

@@ -1,5 +1,5 @@
 {
-  "recorded_at": "2026-11-01",
+  "recorded_at": "2026-11-02",
   "environment": "arg_demo",
   "edition": "Community",
   "packages": {
@@ -120,7 +120,7 @@
   "note": "Package provenance and research SHA are distinct; no claim of identical source trees.",
   "arg_addon_versions": {
     "arg_pyme_administracion": "20.0.1.1.1",
-    "arg_pyme_base": "20.0.1.0.3",
+    "arg_pyme_base": "20.0.1.0.4",
     "arg_pyme_catalogo": "20.0.1.0.5",
     "arg_pyme_compras": "20.0.1.0.3",
     "arg_pyme_compras_stock": "20.0.1.0.1",
@@ -128,11 +128,11 @@
     "arg_pyme_informes": "20.0.1.0.1",
     "arg_pyme_stock": "20.0.1.0.3",
     "arg_pyme_terceros": "20.0.1.0.0",
-    "arg_pyme_ui": "20.0.1.0.1",
+    "arg_pyme_ui": "20.0.1.0.2",
     "arg_pyme_ventas": "20.0.1.0.4",
     "arg_pyme_ventas_stock": "20.0.1.0.1"
   },
-  "arg_release_sha256": "b4501c7bb1befdc6fac6c77596271bae6ceb9f7320fad60fcee013902affbb2c",
-  "source_uncommitted": true,
-  "functional_qa": "pending"
+  "arg_release_sha256": "9465b28581d1d6e082234da2db3a185ec367f4a3c99980332269d9c3a9df6a31",
+  "functional_qa": "pending",
+  "source_control": "Git history records publication and integration revisions; installed addons are identified by arg_release_sha256."
 }

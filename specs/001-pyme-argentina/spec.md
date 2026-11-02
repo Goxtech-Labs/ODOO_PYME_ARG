@@ -329,3 +329,10 @@ o personalizados por separado según necesidad.
 - Priorizar compartir experiencia y aprender de la comunidad como propósito del proyecto.
 - Usar la experiencia profesional aportada por Gonzalo Sarubilo sin inferir titulaciones, certificaciones ni antecedentes adicionales.
 
+
+### Canales públicos confirmados · 2026-11-02
+
+El titular eligió los datos oficiales de Goxtech para web, YouTube, WhatsApp y correo.
+El [perfil de canales](../../docs/comunidad/CONTACTO.md) registra destinos verificados.
+Mostrar el canal general por separado de los tutoriales específicos todavía pendientes; permitir
+que cada instalación edite sus destinos sin dependencia de Goxtech ni envíos automáticos.

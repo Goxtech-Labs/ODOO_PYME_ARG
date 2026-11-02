@@ -3,13 +3,13 @@
 Comprobación de cierre del núcleo. Cada fila apunta a fuente o contrato inspeccionado; no declara
 aceptación funcional. Instalación, disponibilidad, comprobaciones técnicas y QA son hitos distintos.
 Los resultados de instalación y sus hashes se registran en [controles](CONTROLES-TECNICOS.md) y
-[cierre contractual](CIERRE-DE-CONTRATOS.md). La publicación remota sigue pendiente de decisión.
+[cierre contractual](CIERRE-DE-CONTRATOS.md). La publicación se integró a main en el [PR #1](https://github.com/Goxtech-Labs/ODOO_PYME_ARG/pull/1).
 
 ## Producto general
 
 | Requisito | Evidencia inspeccionada | Estado y límite |
 | --- | --- | --- |
-| FR-001 | [NOTICE.md](../../NOTICE.md)<br>[docs/MANIFIESTO.md](../MANIFIESTO.md) | Código/documentación presentes y licencias adoptadas; difusión pública pendiente. |
+| FR-001 | [NOTICE.md](../../NOTICE.md)<br>[docs/MANIFIESTO.md](../MANIFIESTO.md) | Código/documentación publicados en main con licencias adoptadas; aceptación posterior. |
 | FR-002 | [docs/tecnica/OPERACION-Y-RECUPERACION.md](../tecnica/OPERACION-Y-RECUPERACION.md)<br>[docs/tecnica/exportacion.md](../tecnica/exportacion.md) | Instalación/exportación documentadas; demo restaurada técnicamente. Restauración con documentos de negocio para QA posterior. |
 | FR-003 | [docs/CATALOGO-MODULOS.md](../CATALOGO-MODULOS.md)<br>[composition/versions.lock.json](../../composition/versions.lock.json) | Implementación presente; controles técnicos; QA funcional/visual posterior. |
 | FR-004 | [addons/arg_pyme_base/views/menu_views.xml](../../addons/arg_pyme_base/views/menu_views.xml)<br>[addons/arg_pyme_ui/static/src/navigation/areas.js](../../addons/arg_pyme_ui/static/src/navigation/areas.js) | Implementación presente; controles técnicos; QA funcional/visual posterior. |
@@ -25,10 +25,10 @@ Los resultados de instalación y sus hashes se registran en [controles](CONTROLE
 | FR-014 | [addons/arg_pyme_documentos/report/document_templates.xml](../../addons/arg_pyme_documentos/report/document_templates.xml) | Implementación presente; controles técnicos; QA funcional/visual posterior. |
 | FR-015 | [specs/012-integraciones/spec.md](../../specs/012-integraciones/spec.md) | Contrato de etapa posterior; addon de integraciones/rubro no implementado en el núcleo. |
 | FR-016 | [addons/arg_pyme_base/security/ir.access.csv](../../addons/arg_pyme_base/security/ir.access.csv)<br>[addons/arg_pyme_informes/security/ir.access.csv](../../addons/arg_pyme_informes/security/ir.access.csv) | Implementación presente; controles técnicos; QA funcional/visual posterior. |
-| FR-017 | [README.md](../../README.md)<br>[docs/site/README.md](../site/README.md)<br>[CONTRIBUTING.md](../../CONTRIBUTING.md) | Portada/manuales preparados localmente; publicación GitHub pendiente. |
+| FR-017 | [README.md](../../README.md)<br>[docs/site/README.md](../site/README.md)<br>[CONTRIBUTING.md](../../CONTRIBUTING.md) | Portada y manuales publicados en main; PR #1 fusionado. |
 | FR-018 | [docs/ESTADO-MODULOS.md](../ESTADO-MODULOS.md)<br>[docs/entregas/RELEASE.md](RELEASE.md) | Implementación presente; controles técnicos; QA funcional/visual posterior. |
 | FR-019 | [specs/014-rubros/spec.md](../../specs/014-rubros/spec.md) | Contrato de etapa posterior; addon de integraciones/rubro no implementado en el núcleo. |
-| FR-020 | [docs/MANIFIESTO.md](../MANIFIESTO.md)<br>[NOTICE.md](../../NOTICE.md) | Código/documentación presentes y licencias adoptadas; difusión pública pendiente. |
+| FR-020 | [docs/MANIFIESTO.md](../MANIFIESTO.md)<br>[NOTICE.md](../../NOTICE.md) | Código/documentación publicados en main con licencias adoptadas; aceptación posterior. |
 | FR-021 | [addons/arg_pyme_base/models/document_identity.py](../../addons/arg_pyme_base/models/document_identity.py) | Implementación presente; controles técnicos; QA funcional/visual posterior. |
 | FR-022 | [addons/arg_pyme_documentos/models/document_mixin.py](../../addons/arg_pyme_documentos/models/document_mixin.py)<br>[addons/arg_pyme_ventas/models/account_move.py](../../addons/arg_pyme_ventas/models/account_move.py) | Implementación presente; controles técnicos; QA funcional/visual posterior. |
 | FR-023 | [docs/tecnica/HECHOS-Y-DIMENSIONES.md](../tecnica/HECHOS-Y-DIMENSIONES.md)<br>[docs/tecnica/ESTADOS-Y-PENDIENTES.md](../tecnica/ESTADOS-Y-PENDIENTES.md) | Implementación presente; controles técnicos; QA funcional/visual posterior. |
@@ -38,16 +38,16 @@ Los resultados de instalación y sus hashes se registran en [controles](CONTROLE
 | FR-027 | [addons/arg_pyme_ui/static/src/navigation/areas.xml](../../addons/arg_pyme_ui/static/src/navigation/areas.xml)<br>[addons/arg_pyme_ventas/views/quotation_views.xml](../../addons/arg_pyme_ventas/views/quotation_views.xml) | Implementación presente; controles técnicos; QA funcional/visual posterior. |
 | FR-028 | [specs/012-integraciones/plan.md](../../specs/012-integraciones/plan.md) | Contrato de etapa posterior; addon de integraciones/rubro no implementado en el núcleo. |
 | FR-029 | [docs/ALCANCE-YOUTUBE.md](../ALCANCE-YOUTUBE.md)<br>[addons/arg_pyme_ui/static/src/navigation/areas.xml](../../addons/arg_pyme_ui/static/src/navigation/areas.xml) | Implementación presente; controles técnicos; QA funcional/visual posterior. |
-| FR-030 | [docs/comunidad/youtube/PLAN-EDITORIAL.md](../comunidad/youtube/PLAN-EDITORIAL.md)<br>[docs/comunidad/youtube/001-presentacion.md](../comunidad/youtube/001-presentacion.md) | Guion, miniatura, serie y ejemplos preparados; canal/video real pendientes. |
+| FR-030 | [docs/comunidad/youtube/PLAN-EDITORIAL.md](../comunidad/youtube/PLAN-EDITORIAL.md)<br>[docs/comunidad/youtube/001-presentacion.md](../comunidad/youtube/001-presentacion.md) | Guion, miniatura, serie y ejemplos preparados; canal Goxtech confirmado; videos específicos ARG pendientes. |
 | FR-031 | [addons/arg_pyme_base/models/help_resource.py](../../addons/arg_pyme_base/models/help_resource.py)<br>[docs/comunidad/youtube/catalogo.json](../comunidad/youtube/catalogo.json) | Catálogo editable implementado; guías escritas; videos reales pendientes. |
 | FR-032 | [addons/arg_pyme_base/models/help_resource.py](../../addons/arg_pyme_base/models/help_resource.py)<br>[docs/comunidad/youtube/MANTENIMIENTO.md](../comunidad/youtube/MANTENIMIENTO.md) | Catálogo editable implementado; guías escritas; videos reales pendientes. |
-| FR-033 | [addons/arg_pyme_ui/models/ir_http.py](../../addons/arg_pyme_ui/models/ir_http.py)<br>[addons/arg_pyme_ui/controllers/help_support.py](../../addons/arg_pyme_ui/controllers/help_support.py)<br>[docs/tecnica/INVENTARIO-AYUDA-SOPORTE-BOT.md](../tecnica/INVENTARIO-AYUDA-SOPORTE-BOT.md) | Centro y configuración implementados; sin destinos reales configurados; cobertura funcional posterior. |
-| FR-034 | [addons/arg_pyme_base/models/support_config.py](../../addons/arg_pyme_base/models/support_config.py)<br>[addons/arg_pyme_ui/controllers/help_support.py](../../addons/arg_pyme_ui/controllers/help_support.py) | Centro y configuración implementados; sin destinos reales configurados; cobertura funcional posterior. |
+| FR-033 | [addons/arg_pyme_ui/models/ir_http.py](../../addons/arg_pyme_ui/models/ir_http.py)<br>[addons/arg_pyme_ui/controllers/help_support.py](../../addons/arg_pyme_ui/controllers/help_support.py)<br>[docs/tecnica/INVENTARIO-AYUDA-SOPORTE-BOT.md](../tecnica/INVENTARIO-AYUDA-SOPORTE-BOT.md) | Centro implementado con contactos Goxtech configurados; renderizado técnico verificado; cobertura funcional posterior. |
+| FR-034 | [addons/arg_pyme_base/models/support_config.py](../../addons/arg_pyme_base/models/support_config.py)<br>[addons/arg_pyme_ui/controllers/help_support.py](../../addons/arg_pyme_ui/controllers/help_support.py) | Centro implementado con contactos Goxtech configurados; renderizado técnico verificado; cobertura funcional posterior. |
 | FR-035 | [addons/arg_pyme_ui/models/branding.py](../../addons/arg_pyme_ui/models/branding.py)<br>[addons/arg_pyme_ui/models/mail_bot.py](../../addons/arg_pyme_ui/models/mail_bot.py) | Identidad y adaptación presentes; fuente nativa inventariada; revisión visual de superficies pendiente. |
-| FR-036 | [docs/comunidad/CONOCIMIENTO-COMPARTIDO.md](../comunidad/CONOCIMIENTO-COMPARTIDO.md) | Código/documentación presentes y licencias adoptadas; difusión pública pendiente. |
-| FR-037 | [docs/tecnica/PERSONALIZACION.md](../tecnica/PERSONALIZACION.md)<br>[AGENTS.md](../../AGENTS.md) | Código/documentación presentes y licencias adoptadas; difusión pública pendiente. |
-| FR-038 | [specs/index.json](../../specs/index.json)<br>[docs/INDICE.md](../INDICE.md) | Código/documentación presentes y licencias adoptadas; difusión pública pendiente. |
-| FR-039 | [docs/GONZALO-SARUBILO.md](../GONZALO-SARUBILO.md)<br>[addons/arg_pyme_ui/views/help_support.xml](../../addons/arg_pyme_ui/views/help_support.xml) | Código/documentación presentes y licencias adoptadas; difusión pública pendiente. |
+| FR-036 | [docs/comunidad/CONOCIMIENTO-COMPARTIDO.md](../comunidad/CONOCIMIENTO-COMPARTIDO.md) | Código/documentación publicados en main con licencias adoptadas; aceptación posterior. |
+| FR-037 | [docs/tecnica/PERSONALIZACION.md](../tecnica/PERSONALIZACION.md)<br>[AGENTS.md](../../AGENTS.md) | Código/documentación publicados en main con licencias adoptadas; aceptación posterior. |
+| FR-038 | [specs/index.json](../../specs/index.json)<br>[docs/INDICE.md](../INDICE.md) | Código/documentación publicados en main con licencias adoptadas; aceptación posterior. |
+| FR-039 | [docs/GONZALO-SARUBILO.md](../GONZALO-SARUBILO.md)<br>[addons/arg_pyme_ui/views/help_support.xml](../../addons/arg_pyme_ui/views/help_support.xml) | Código/documentación publicados en main con licencias adoptadas; aceptación posterior. |
 | FR-040 | [addons/arg_pyme_ventas/models/quotation.py](../../addons/arg_pyme_ventas/models/quotation.py)<br>[addons/arg_pyme_ventas/models/sale_order.py](../../addons/arg_pyme_ventas/models/sale_order.py) | Implementación presente; controles técnicos; QA funcional/visual posterior. |
 | FR-041 | [addons/arg_pyme_documentos/models/document_mixin.py](../../addons/arg_pyme_documentos/models/document_mixin.py)<br>[docs/entregas/CIERRE-DE-CONTRATOS.md](CIERRE-DE-CONTRATOS.md) | Implementación presente; controles técnicos; QA funcional/visual posterior. |
 
@@ -160,12 +160,12 @@ los escenarios de resultado y aceptación no se ejecutaron anticipadamente.
 
 | Requisito | Fuente o contrato | Estado |
 | --- | --- | --- |
-| FR-001 — Presentar ARG y soberanía con branding Goxtech discreto. | [docs/site/README.md](../site/README.md) | Documentación preparada; publicación/aceptación pendientes. |
-| FR-002 — Mostrar estados de desarrollo y experiencia de Gonzalo Sarubilo como aporte declarado. | [docs/GONZALO-SARUBILO.md](../GONZALO-SARUBILO.md) | Documentación preparada; publicación/aceptación pendientes. |
-| FR-003 — Centralizar catálogo versionado de tutoriales y revisiones. | [docs/comunidad/youtube/catalogo.json](../comunidad/youtube/catalogo.json)<br>[docs/site/tutoriales/catalogo.yml](../site/tutoriales/catalogo.yml) | Documentación preparada; publicación/aceptación pendientes. |
-| FR-004 — Vincular documentos a cada módulo y conservar contenido anterior identificado. | [docs/site/MANUALES.md](../site/MANUALES.md) | Documentación preparada; publicación/aceptación pendientes. |
-| FR-005 — Documentar flujo de contribución y reconocimiento comunitario. | [CONTRIBUTING.md](../../CONTRIBUTING.md)<br>[docs/site/comunidad/PROPUESTA.md](../site/comunidad/PROPUESTA.md) | Documentación preparada; publicación/aceptación pendientes. |
-| FR-006 — Mantener servicios profesionales opcionales y secundarios al objetivo. | [docs/MANIFIESTO.md](../MANIFIESTO.md) | Documentación preparada; publicación/aceptación pendientes. |
+| FR-001 — Presentar ARG y soberanía con branding Goxtech discreto. | [docs/site/README.md](../site/README.md) | Documentación publicada en main; aceptación pendiente. |
+| FR-002 — Mostrar estados de desarrollo y experiencia de Gonzalo Sarubilo como aporte declarado. | [docs/GONZALO-SARUBILO.md](../GONZALO-SARUBILO.md) | Documentación publicada en main; aceptación pendiente. |
+| FR-003 — Centralizar catálogo versionado de tutoriales y revisiones. | [docs/comunidad/youtube/catalogo.json](../comunidad/youtube/catalogo.json)<br>[docs/site/tutoriales/catalogo.yml](../site/tutoriales/catalogo.yml) | Documentación publicada en main; aceptación pendiente. |
+| FR-004 — Vincular documentos a cada módulo y conservar contenido anterior identificado. | [docs/site/MANUALES.md](../site/MANUALES.md) | Documentación publicada en main; aceptación pendiente. |
+| FR-005 — Documentar flujo de contribución y reconocimiento comunitario. | [CONTRIBUTING.md](../../CONTRIBUTING.md)<br>[docs/site/comunidad/PROPUESTA.md](../site/comunidad/PROPUESTA.md) | Documentación publicada en main; aceptación pendiente. |
+| FR-006 — Mantener servicios profesionales opcionales y secundarios al objetivo. | [docs/MANIFIESTO.md](../MANIFIESTO.md) | Documentación publicada en main; aceptación pendiente. |
 
 ### 012-integraciones
 
@@ -220,20 +220,20 @@ los escenarios de resultado y aceptación no se ejecutaron anticipadamente.
 | SC-003 | Generación/vínculos en fuente; recorrido con derivados para QA posterior. |
 | SC-004 | Restauración técnica de demo y adjuntos registrada. La demo no contiene documentos de negocio; no se prueba su recuperación por un conteo de cero. |
 | SC-005 | Callbacks/listas nativas y guardas de matriz presentes; recorrido de teclado pendiente. |
-| SC-006 | Manuales funcionales/técnicos preparados y vinculados a composición; publicación remota pendiente. |
+| SC-006 | Manuales funcionales/técnicos publicados y vinculados a composición; aceptación posterior. |
 | SC-007 | Ejes y calidad de dato en fuente; parciales/reversiones con documentos para QA posterior. |
-| SC-008 | Enlaces y contenido local comprobados; portada pública de GitHub aún sin actualizar. |
+| SC-008 | Enlaces y contenido comprobados; portada pública en main tras PR #1 fusionado. |
 | SC-009 | Secuencias y unicidades declaradas; concurrencia real pendiente de QA. |
 | SC-010 | Lote conciliable escrito; no se crearon operaciones ni se concilió un lote ejecutado. |
 | SC-011 | Fichas editoriales versionadas; no hay tutorial publicado aún. |
 | SC-012 | Ayuda editable y manuales implementados; enlaces reales de video pendientes. |
-| SC-013 | Accesos inventariados y redirección en fuente; canales reales y recorrido de todos los accesos pendientes. |
+| SC-013 | Accesos inventariados y redirección en fuente; contactos reales configurados; recorrido de todos los accesos pendiente. |
 | SC-014 | Nombre/avatar/textos adaptados por fuente e inventario; legibilidad y superficies en QA posterior. |
-| SC-015 | Specs/contratos/ejemplos locales vinculados desde personalización e índice; disponibilidad pública pendiente. |
+| SC-015 | Specs/contratos/ejemplos publicados en main y vinculados desde personalización e índice. |
 
 ## Conclusión de alcance
 
 La evidencia técnica acredita la entrega de código instalado con ejemplos, no el cumplimiento
 funcional de cada escenario. Las correcciones de cierre resuelven incumplimientos concretos de
-fuente antes de continuar. Quedan separados publicación remota, configuración de canales reales,
+fuente antes de continuar. Quedan separados publicación verificada, configuración de canales reales,
 QA/aceptación e incrementos futuros. El conocimiento de estos pendientes no redefine los requisitos.

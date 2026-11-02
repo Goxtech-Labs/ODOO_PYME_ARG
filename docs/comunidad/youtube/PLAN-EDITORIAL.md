@@ -1,6 +1,7 @@
 # Serie YouTube ARG
 
-Canal/URL: pendiente de indicar por Gonzalo; no crear enlaces falsos.
+Canal elegido por Gonzalo: [Goxtech Argentina](https://www.youtube.com/@Goxtech_Arg).
+Web y soporte: [canales oficiales del proyecto](../CONTACTO.md). Los videos específicos ARG siguen pendientes.
 Audiencia: dueños, operadores y responsables de micropymes y pymes con poco personal.
 Presentador: Gonzalo Sarubilo. Marca principal ARG, firma GoxtechLabs discreta.
 

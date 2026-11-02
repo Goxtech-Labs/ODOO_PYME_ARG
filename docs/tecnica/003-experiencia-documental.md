@@ -16,3 +16,10 @@ UI20.0.1.0.1 incluye SVG originales con texto para controles comunes/áreas. Doc
 estados mediante texto e icono y explica alcance indeterminado tanto en pantalla como PDF.
 GET /arg/acerca requiere usuario interno y ofrece autoría, plataforma y licencias sin consultar
 configuración privada. La disponibilidad de estas rutas es control técnico, no revisión visual.
+
+## Web, canal y contactos públicos
+
+Ajustes → Gestión ARG permite editar web del responsable y canal general de YouTube, además
+de correo, WhatsApp y tickets. La demo usa los [canales oficiales elegidos](../comunidad/CONTACTO.md).
+Ayuda, Soporte y Acerca de muestran los enlaces configurados. El canal general no se presenta
+como un tutorial específico compatible; las fichas de video conservan sus estados y versiones.

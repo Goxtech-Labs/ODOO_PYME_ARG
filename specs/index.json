@@ -2,7 +2,7 @@
   {
     "feature": "002-base-arg",
     "title": "Base ARG",
-    "tasks": 11,
+    "tasks": 12,
     "requirements": 6,
     "phase": "núcleo",
     "addon": "addons/arg_pyme_base",
@@ -14,7 +14,7 @@
   {
     "feature": "003-experiencia-documental",
     "title": "Experiencia y presentación ARG",
-    "tasks": 11,
+    "tasks": 12,
     "requirements": 6,
     "phase": "núcleo",
     "addon": "addons/arg_pyme_ui",

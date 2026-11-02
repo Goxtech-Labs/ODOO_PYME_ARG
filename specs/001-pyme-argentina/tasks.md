@@ -91,7 +91,7 @@
 **Goal / Independent Test**: Reconocer identidad ARG y seguir un tutorial hasta su guía y ejemplos de la misma versión.
 
 - [x] T039 [US8] Aplicar nombres visibles ARG y namespace arg_pyme_* en docs/CATALOGO-MODULOS.md y la composición de addons nuevos; limitar cambios a este proyecto. (FR-029)
-- [ ] T040 [US8] Definir canal, audiencia, serie y recorridos de demostración en docs/comunidad/youtube/PLAN-EDITORIAL.md, siguiendo docs/ALCANCE-YOUTUBE.md. (FR-030)
+- [x] T040 [US8] Definir canal, audiencia, serie y recorridos de demostración en docs/comunidad/youtube/PLAN-EDITORIAL.md, siguiendo docs/ALCANCE-YOUTUBE.md. (FR-030)
 - [x] T041 [US8] Preparar plantilla de tutorial con versión, guion, ejemplos y enlaces en docs/comunidad/youtube/PLANTILLA-TUTORIAL.md. (FR-030 SC-011)
 - [x] T042 [US8] Preparar primer guion y miniatura original ARG, marcando estado real y datos de ejemplo, en docs/comunidad/youtube/001-presentacion.md y docs/assets/youtube/001-portada.svg; reservar publicación para su encargo específico. (FR-017 FR-029 FR-030 SC-011)
 

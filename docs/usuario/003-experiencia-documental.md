@@ -10,3 +10,10 @@ Manuales y Soporte ARG abren páginas propias; sin canales configurados se muest
 GOXTECHBOT conserva identidad técnica y comportamiento del bot nativo; cambiar el nombre no incorpora IA.
 Tema claro/oscuro/sistema y densidad se eligen en las preferencias ARG del usuario; recargar para aplicarlas.
 QA visual/funcional y contraste por pantalla: pendientes. La instalación técnica comprueba arranque, no aceptación.
+
+## Web, canal y contactos públicos
+
+Ajustes → Gestión ARG permite editar web del responsable y canal general de YouTube, además
+de correo, WhatsApp y tickets. La demo usa los [canales oficiales elegidos](../comunidad/CONTACTO.md).
+Ayuda, Soporte y Acerca de muestran los enlaces configurados. El canal general no se presenta
+como un tutorial específico compatible; las fichas de video conservan sus estados y versiones.
