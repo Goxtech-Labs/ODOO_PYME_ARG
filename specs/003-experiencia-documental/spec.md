@@ -4,7 +4,7 @@
 
 **Created**: 2026-11-01
 
-**Status**: Desarrollado y desplegado en demo; QA funcional/visual y aceptación pendientes.
+**Status**: Desarrollado y desplegado en demo; revisión visual parcial realizada, aceptación y escenarios restantes pendientes.
 
 **Input**: Presentar cinco circuitos, carga mínima, orden constante, componentes comunes, identidad ARG y GOXTECHBOT.
 
@@ -65,10 +65,10 @@ Como usuario necesito identidad argentina y ayudas consistentes sin publicidad o
 - **FR-003**: Compartir guardado, descarte, retorno, foco y semántica entre formularios.
 - **FR-004**: Mantener matrices alineadas y paginadas con filtros combinables.
 - **FR-005**: Aplicar celeste/blanco, branding discreto, claro/oscuro y controles accesibles.
+- **FR-006**: Presentar GOXTECHBOT preservando identidad técnica y comportamiento del bot nativo.
 - **FR-007**: Ofrecer una cinta por circuito con pestañas estables, comandos con texto e iconos Lucide locales y grupos de documentos/datos; mostrar sólo menús permitidos y conservar Configuración según el rol.
 - **FR-008**: Distinguir campos editables, desplegables y valores de lectura mediante bordes, superficie, flecha nativa y foco visibles, en ambos temas, sin cambiar validaciones ni guardar implícitamente.
 - **FR-009**: Usar recursos argentinos de industria y gestión en Inicio/acceso, con branding Goxtech secundario, licencias y procedencia conservadas; adaptar cinta y portada al ancho disponible.
-- **FR-006**: Presentar GOXTECHBOT preservando identidad técnica y comportamiento del bot nativo.
 
 ### Key Entities
 

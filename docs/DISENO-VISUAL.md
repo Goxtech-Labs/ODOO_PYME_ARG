@@ -1,6 +1,6 @@
 # Identidad visual y objetos comunes
 
-Estado: identidad, assets y componentes comunes implementados; aplicación visual pendiente de QA posterior.
+Estado: identidad, assets y componentes comunes instalados; comprobación visual parcial realizada, aceptación pendiente.
 
 ## Identidad argentina
 

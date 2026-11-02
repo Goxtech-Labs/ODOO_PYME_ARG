@@ -1,7 +1,7 @@
 # Tasks: Experiencia y presentación ARG
 
 **Input**: spec.md, plan.md, research.md, data-model.md y contracts/.
-**Estado**: Tareas para programación; desarrollado y desplegado; QA funcional/visual posterior pendiente.
+**Estado**: Desarrollado y desplegado; incremento visual verificado parcialmente, aceptación y escenarios restantes pendientes.
 **Tests**: Escenarios preparados para QA posterior; controles técnicos durante instalación.
 
 ## Phase 1: Setup
