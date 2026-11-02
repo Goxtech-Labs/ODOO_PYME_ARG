@@ -114,7 +114,8 @@ Ver [investigación y fuentes](../specs/001-pyme-argentina/research.md).
 ## Próxima entrega
 
 Portada/documentación 011 completada. Entrega global del núcleo instalado en docs/entregas/RELEASE.md.
-La publicación remota, revisión funcional/visual y aceptación son hitos pendientes distintos.
+La publicación remota se sigue en el [PR #1](https://github.com/Goxtech-Labs/ODOO_PYME_ARG/pull/1).
+La revisión funcional/visual y la aceptación siguen pendientes como hitos distintos.
 Conservar composición, evidencias técnicas y QA posterior como estados separados.
 Usar la [plantilla de módulo](plantillas/modulo.md) y conservar la constitución como contrato común.
 No iniciar todos los módulos simultáneamente.

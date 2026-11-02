@@ -13,7 +13,7 @@
 | 008-stock | Preparados | Desarrollado e instalado demo, con ambos puentes | Pendiente |
 | 009-administracion | Preparados | Cuentas, REC/OPA, aplicaciones y caja instalados demo | Pendiente |
 | 010-informes | Preparados | Desarrollado e instalado demo | Pendiente |
-| 011-web-comunidad | Preparados | Documentación y portada publicadas en rama; [PR #1 borrador](https://github.com/Goxtech-Labs/ODOO_PYME_ARG/pull/1), pendiente de fusión a main | Pendiente |
+| 011-web-comunidad | Preparados | Documentación y portada publicadas; integración a main registrada en [PR #1](https://github.com/Goxtech-Labs/ODOO_PYME_ARG/pull/1) | Pendiente |
 | 012-integraciones | Preparados | Pendiente | Pendiente |
 | 013-arca | Preparados | Pendiente | Pendiente |
 | 014-rubros | Preparados | Pendiente | Pendiente |
