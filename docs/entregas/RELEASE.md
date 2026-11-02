@@ -1,8 +1,9 @@
 # Odoo Pymes ARG — 0.1.1-dev
 
-Fecha:2026-11-01. Núcleo genérico desarrollado e instalado técnicamente en demo. QA funcional/visual,
-aceptación y publicación remota pendientes. Sin commit, tag ni PR de esta entrega; no se presenta
-como versión productiva validada.
+Fecha del corte técnico:2026-11-01. Núcleo genérico desarrollado e instalado técnicamente en demo.
+Rama publicada y [PR #1](https://github.com/Goxtech-Labs/ODOO_PYME_ARG/pull/1) abierto como borrador
+por decisión del titular. QA funcional/visual y aceptación pendientes; no se presenta como versión
+productiva validada. La publicación en rama no implica fusión a main ni tag de release.
 
 [Composición](../../composition/versions.lock.json):91 módulos,79 nativos/dependencias y12 addons ARG.
 Paquete de 185 archivos desplegado: SHA256 `b4501c7bb1befdc6fac6c77596271bae6ceb9f7320fad60fcee013902affbb2c`.
@@ -49,7 +50,8 @@ El respaldo de 0.1.0-dev también fue restaurado, como hito histórico diferente
 
 ## Pendientes separados
 
-Publicación GitHub según modalidad elegida por el titular. No se activa GitHub Pages automáticamente.
+La entrega está disponible en la rama `codex-notebook/plan-001` y en el PR borrador enlazado arriba.
+La fusión a main y la publicación de una versión estable son hitos posteriores. GitHub Pages no está activado por esta entrega.
 Manuales escritos disponibles; videos/canal real, destinos de soporte y contacto privado de seguridad
 se configuran cuando sean aportados. No se inventan URLs ni se envían mensajes.
 Integraciones, ARCA y rubros son incrementos posteriores, sin activación ni emisión fiscal en el núcleo.

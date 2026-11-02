@@ -77,7 +77,7 @@ La factura interna y la autorización fiscal son estados distintos; ARCA corresp
 
 Las primeras contribuciones pueden describir recorridos de gestión, necesidades de pymes y mejoras documentales.
 Usá ejemplos ficticios e identificados; evitá compartir datos de clientes, certificados o credenciales.
-La guía de contribución está disponible; el destino de contacto privado de seguridad se configurará antes de publicación del código.
+La guía de contribución está disponible; el destino de contacto privado de seguridad está pendiente de configuración.
 
 Usaremos YouTube para demostrar cada circuito, enseñar instalación y compartir mejoras.
 Cada tutorial enlazará su versión, guía y ejemplos. El canal y los videos están por definir.
