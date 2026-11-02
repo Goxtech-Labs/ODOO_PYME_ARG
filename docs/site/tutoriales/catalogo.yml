@@ -1,0 +1,7 @@
+# Índice editorial: una sola fuente de fichas, sin duplicar URLs ni estados.
+format_version: 1
+source: ../../comunidad/youtube/catalogo.json
+source_format: json
+runtime_catalog: arg.pyme.help.resource
+runtime_sync: manual_explicit
+fallback: manual_written

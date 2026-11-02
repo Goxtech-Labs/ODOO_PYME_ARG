@@ -1,0 +1,11 @@
+<odoo>
+<menuitem id="menu_arg_root" name="Gestión ARG" sequence="1" groups="arg_pyme_base.group_operator"/>
+<menuitem id="menu_arg_ventas" name="Ventas" parent="menu_arg_root" sequence="10" groups="arg_pyme_base.group_ventas,arg_pyme_base.group_admin"/>
+<menuitem id="menu_arg_compras" name="Compras" parent="menu_arg_root" sequence="20" groups="arg_pyme_base.group_compras,arg_pyme_base.group_admin"/>
+<menuitem id="menu_arg_stock" name="Stock" parent="menu_arg_root" sequence="30" groups="arg_pyme_base.group_stock,arg_pyme_base.group_admin"/>
+<menuitem id="menu_arg_administracion" name="Administración" parent="menu_arg_root" sequence="40" groups="arg_pyme_base.group_administracion,arg_pyme_base.group_admin"/>
+<menuitem id="menu_arg_informes" name="Informes" parent="menu_arg_root" sequence="50" groups="arg_pyme_base.group_informes,arg_pyme_base.group_admin"/>
+<menuitem id="menu_arg_help" name="Ayuda" parent="menu_arg_root" action="action_help_resources" sequence="80"/>
+<menuitem id="menu_arg_config" name="Configuración" parent="menu_arg_root" sequence="90" groups="arg_pyme_base.group_admin"/>
+<menuitem id="menu_arg_types" name="Tipos documentales" parent="menu_arg_config" action="action_document_types" sequence="10"/>
+</odoo>

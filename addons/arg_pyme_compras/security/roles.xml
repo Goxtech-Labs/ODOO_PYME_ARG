@@ -1,0 +1,8 @@
+<odoo>
+    <record id="arg_pyme_base.group_compras" model="res.groups">
+        <field name="implied_ids" eval="[(4,ref('purchase.group_purchase_user'))]"/>
+    </record>
+    <record id="arg_pyme_base.group_admin" model="res.groups">
+        <field name="implied_ids" eval="[(4,ref('arg_pyme_base.group_compras')),(4,ref('purchase.group_purchase_manager'))]"/>
+    </record>
+</odoo>

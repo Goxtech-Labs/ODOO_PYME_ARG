@@ -1,0 +1,188 @@
+[
+  {
+    "feature": "002-base-arg",
+    "title": "Base ARG",
+    "tasks": 11,
+    "requirements": 6,
+    "phase": "núcleo",
+    "addon": "addons/arg_pyme_base",
+    "dependencies": [
+      "base",
+      "web"
+    ]
+  },
+  {
+    "feature": "003-experiencia-documental",
+    "title": "Experiencia y presentación ARG",
+    "tasks": 11,
+    "requirements": 6,
+    "phase": "núcleo",
+    "addon": "addons/arg_pyme_ui",
+    "dependencies": [
+      "arg_pyme_base",
+      "web",
+      "mail_bot"
+    ]
+  },
+  {
+    "feature": "004-terceros",
+    "title": "Terceros ARG",
+    "tasks": 10,
+    "requirements": 6,
+    "phase": "núcleo",
+    "addon": "addons/arg_pyme_terceros",
+    "dependencies": [
+      "arg_pyme_base",
+      "arg_pyme_ui",
+      "contacts"
+    ]
+  },
+  {
+    "feature": "005-catalogo",
+    "title": "Catálogo y precios ARG",
+    "tasks": 10,
+    "requirements": 6,
+    "phase": "núcleo",
+    "addon": "addons/arg_pyme_catalogo",
+    "dependencies": [
+      "arg_pyme_base",
+      "arg_pyme_ui",
+      "product"
+    ]
+  },
+  {
+    "feature": "006-ventas",
+    "title": "Circuito Ventas ARG",
+    "tasks": 14,
+    "requirements": 6,
+    "phase": "núcleo",
+    "addon": "addons/arg_pyme_ventas",
+    "dependencies": [
+      "arg_pyme_base",
+      "arg_pyme_ui",
+      "arg_pyme_terceros",
+      "arg_pyme_catalogo",
+      "arg_pyme_documentos",
+      "sale_management"
+    ]
+  },
+  {
+    "feature": "007-compras",
+    "title": "Circuito Compras ARG",
+    "tasks": 13,
+    "requirements": 6,
+    "phase": "núcleo",
+    "addon": "addons/arg_pyme_compras",
+    "dependencies": [
+      "arg_pyme_base",
+      "arg_pyme_ui",
+      "arg_pyme_terceros",
+      "arg_pyme_catalogo",
+      "arg_pyme_documentos",
+      "purchase"
+    ]
+  },
+  {
+    "feature": "008-stock",
+    "title": "Circuito Stock ARG",
+    "tasks": 13,
+    "requirements": 6,
+    "phase": "núcleo",
+    "addon": "addons/arg_pyme_stock",
+    "dependencies": [
+      "arg_pyme_base",
+      "arg_pyme_ui",
+      "arg_pyme_catalogo",
+      "arg_pyme_documentos",
+      "stock"
+    ]
+  },
+  {
+    "feature": "009-administracion",
+    "title": "Circuito Administración ARG",
+    "tasks": 12,
+    "requirements": 6,
+    "phase": "núcleo",
+    "addon": "addons/arg_pyme_administracion",
+    "dependencies": [
+      "arg_pyme_base",
+      "arg_pyme_ui",
+      "arg_pyme_terceros",
+      "arg_pyme_documentos",
+      "account"
+    ]
+  },
+  {
+    "feature": "010-informes",
+    "title": "Circuito Informes ARG",
+    "tasks": 12,
+    "requirements": 6,
+    "phase": "núcleo",
+    "addon": "addons/arg_pyme_informes",
+    "dependencies": [
+      "arg_pyme_base",
+      "arg_pyme_ui"
+    ]
+  },
+  {
+    "feature": "011-web-comunidad",
+    "title": "Portada y documentación pública ARG",
+    "tasks": 10,
+    "requirements": 6,
+    "phase": "documentación comunitaria",
+    "addon": "docs/site",
+    "dependencies": [
+      "documentacion"
+    ]
+  },
+  {
+    "feature": "012-integraciones",
+    "title": "Integraciones ARG",
+    "tasks": 11,
+    "requirements": 6,
+    "phase": "posterior al núcleo",
+    "addon": "addons/arg_pyme_integraciones",
+    "dependencies": [
+      "arg_pyme_base",
+      "arg_pyme_ui"
+    ]
+  },
+  {
+    "feature": "013-arca",
+    "title": "Contrato futuro ARCA dentro de Integraciones ARG",
+    "tasks": 11,
+    "requirements": 6,
+    "phase": "posterior al núcleo; homologación pendiente",
+    "addon": "addons/arg_pyme_integraciones",
+    "dependencies": [
+      "arg_pyme_base",
+      "arg_pyme_ui",
+      "account",
+      "l10n_ar"
+    ]
+  },
+  {
+    "feature": "014-rubros",
+    "title": "Extensiones por rubro y personalizaciones ARG",
+    "tasks": 10,
+    "requirements": 6,
+    "phase": "posterior al núcleo",
+    "addon": "docs/rubros",
+    "dependencies": [
+      "nucleo_ARG"
+    ]
+  },
+  {
+    "feature": "015-documentos",
+    "title": "Motor documental e impresión ARG",
+    "tasks": 12,
+    "requirements": 6,
+    "phase": "núcleo",
+    "addon": "addons/arg_pyme_documentos",
+    "dependencies": [
+      "arg_pyme_base",
+      "arg_pyme_ui",
+      "web"
+    ]
+  }
+]

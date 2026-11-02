@@ -1,0 +1,4 @@
+<odoo>
+<record id="action_report_query" model="ir.actions.act_window"><field name="name">Informes ARG</field><field name="res_model">arg.pyme.report.query</field><field name="view_mode">form</field><field name="view_id" ref="report_query_form"/><field name="target">current</field></record>
+<menuitem id="menu_report_query" name="Consultas por hechos" parent="arg_pyme_base.menu_arg_informes" action="action_report_query" sequence="10" groups="arg_pyme_base.group_informes,arg_pyme_base.group_admin"/>
+</odoo>

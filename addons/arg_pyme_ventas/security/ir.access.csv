@@ -1,0 +1,24 @@
+id,name,model_id,group_id/id,operation,domain
+quotes_sales,Presupuestos ventas ARG,arg.pyme.quotation,arg_pyme_base.group_ventas,cru,
+quotes_admin,Presupuestos admin ARG,arg.pyme.quotation,arg_pyme_base.group_admin,cru,
+quotes_finance,Presupuestos consulta administración ARG,arg.pyme.quotation,arg_pyme_base.group_administracion,r,
+quotes_company,Presupuestos compañía ARG,arg.pyme.quotation,,crud,"[('company_id','in',company_ids)]"
+quote_lines_sales,Líneas presupuesto ARG,arg.pyme.quotation.line,arg_pyme_base.group_ventas,cru,
+quote_lines_admin,Líneas presupuesto admin ARG,arg.pyme.quotation.line,arg_pyme_base.group_admin,cru,
+quote_lines_finance,Líneas presupuesto consulta administración ARG,arg.pyme.quotation.line,arg_pyme_base.group_administracion,r,
+quote_lines_company,Líneas presupuesto compañía ARG,arg.pyme.quotation.line,,crud,"[('company_id','in',company_ids)]"
+acceptance_read,Aceptaciones ARG,arg.pyme.quotation.acceptance,arg_pyme_base.group_ventas,r,
+acceptance_admin,Aceptaciones admin ARG,arg.pyme.quotation.acceptance,arg_pyme_base.group_admin,r,
+acceptance_finance,Aceptaciones consulta administración ARG,arg.pyme.quotation.acceptance,arg_pyme_base.group_administracion,r,
+acceptance_company,Aceptaciones compañía ARG,arg.pyme.quotation.acceptance,,crud,"[('company_id','in',company_ids)]"
+release_read,Liberaciones ARG,arg.pyme.quotation.release,arg_pyme_base.group_ventas,r,
+release_admin,Liberaciones admin ARG,arg.pyme.quotation.release,arg_pyme_base.group_admin,r,
+release_finance,Liberaciones consulta administración ARG,arg.pyme.quotation.release,arg_pyme_base.group_administracion,r,
+release_company,Liberaciones compañía ARG,arg.pyme.quotation.release,,crud,"[('company_id','in',company_ids)]"
+derived_orders_sales,Pedidos derivados compartidos ARG,sale.order,arg_pyme_base.group_ventas,cru,"[('arg_quotation_id','!=',False)]"
+derived_order_lines_sales,Líneas pedido derivado compartidas ARG,sale.order.line,arg_pyme_base.group_ventas,cru,"[('order_id.arg_quotation_id','!=',False)]"
+derived_orders_finance,Pedidos derivados consulta administración ARG,sale.order,arg_pyme_base.group_administracion,r,"[('arg_quotation_id','!=',False)]"
+derived_order_lines_finance,Líneas derivadas consulta administración ARG,sale.order.line,arg_pyme_base.group_administracion,r,"[('order_id.arg_quotation_id','!=',False)]"
+operation_sales,Operación parcial ARG,arg.pyme.quotation.operation,arg_pyme_base.group_ventas,cru,
+operation_lines_sales,Cantidades parciales ARG,arg.pyme.quotation.operation.line,arg_pyme_base.group_ventas,cru,
+release_wizard_sales,Liberar compromiso ARG,arg.pyme.quotation.release.wizard,arg_pyme_base.group_ventas,cru,

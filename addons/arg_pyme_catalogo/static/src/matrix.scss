@@ -1,0 +1,6 @@
+.arg_price_matrix {
+    .table thead th {position:sticky; top:0; background:var(--arg-surface, var(--body-bg)); z-index:1;}
+    .table input {min-width:8rem;}
+    .arg_price_pending {border-inline-start:3px solid var(--arg-accent, #1479b8);}
+    form label {font-size:.9rem;}
+}

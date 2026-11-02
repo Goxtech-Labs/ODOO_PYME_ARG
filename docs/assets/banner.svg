@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="360" viewBox="0 0 1280 360" role="img" aria-labelledby="title desc">
+<title id="title">ODOO PYMES ARG</title><desc id="desc">Gestión comunitaria para pymes argentinas. Celeste, blanco y un sol geométrico original.</desc>
+<rect width="1280" height="360" rx="18" fill="#FFFFFF"/>
+<path d="M18 0h1244a18 18 0 0 1 18 18v66H0V18A18 18 0 0 1 18 0Z" fill="#74ACDF"/>
+<path d="M0 276h1280v66a18 18 0 0 1-18 18H18a18 18 0 0 1-18-18Z" fill="#74ACDF"/>
+<g transform="translate(1110 180)" stroke="#A66B00" stroke-width="4" stroke-linecap="round">
+<path d="M0-48v-14M0 48v14M-48 0h-14M48 0h14M-34-34l-10-10M34 34l10 10M34-34l10-10M-34 34l-10 10"/>
+<circle r="30" fill="#F6C344" stroke="none"/>
+</g>
+<g font-family="Arial, Helvetica, sans-serif" fill="#172B3A">
+<text x="64" y="158" font-size="54" font-weight="700">ODOO PYMES ARG</text>
+<text x="66" y="205" font-size="24">Gestión gratuita y comunitaria para pymes argentinas</text>
+<text x="66" y="239" font-size="18" fill="#526474">Documentos claros · Módulos propios · Datos bajo tu control</text>
+<text x="66" y="328" font-size="15">LIBRE · MODULAR · COMUNITARIO · ARGENTINO</text>
+</g></svg>

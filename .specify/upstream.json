@@ -1,0 +1,50 @@
+{
+  "repository": "https://github.com/github/spec-kit",
+  "commit": "7370e592f3cd9c06e5b698983957e227c75b30e2",
+  "files": [
+    {
+      "path": ".specify/scripts/bash/common.sh",
+      "sha256": "53cb1c23e349db4586c272436ce35c6e2f36a9c0b5351a85e0b216d9887a26b7"
+    },
+    {
+      "path": ".specify/scripts/bash/resolve-template.sh",
+      "sha256": "829e227096abc8bf0889889ec9f792f503ca5d395b7836a8a7eb739ee75214e7"
+    },
+    {
+      "path": ".specify/scripts/bash/setup-plan.sh",
+      "sha256": "d378ec66ba20d2da01c71dad8935062c1c27f0bba890be9a6d3dda52ea056a4e"
+    },
+    {
+      "path": ".specify/scripts/bash/setup-tasks.sh",
+      "sha256": "0f7d7e996ed4a26ab7bf09bf10540366ee402b930a4a9cbc0ee7bc6a8bd0013b"
+    },
+    {
+      "path": ".specify/scripts/bash/check-prerequisites.sh",
+      "sha256": "38f5e2c8150ee35ee62a5ae3aec66be8bdb15a9805ba20cc3974acdecb6c5e10"
+    },
+    {
+      "path": ".specify/templates/spec-template.md",
+      "sha256": "3945437fc35cd30a5b2bf7beea680337c3516826d3efa5a6b92c4a7eca1ba28e"
+    },
+    {
+      "path": ".specify/templates/plan-template.md",
+      "sha256": "dfba43da2b2a207ff8c177a0fba03af074fd45e261696b4b64172041fad2e992"
+    },
+    {
+      "path": ".specify/templates/tasks-template.md",
+      "sha256": "1e448e9153462e8c5b5a55231a54c756d870a82950d4dd9425a2bf5b7008a0d9"
+    },
+    {
+      "path": ".specify/templates/constitution-template.md",
+      "sha256": "ce7549540fa45543cca797a150201d868e64495fdff39dc38246fb17bd4024b3"
+    },
+    {
+      "path": ".specify/templates/checklist-template.md",
+      "sha256": "c65b7f10aa9a965ea9c7f4e879d4ab0240665473731c5e9e638c4acb3ca9afc4"
+    },
+    {
+      "path": ".specify/SPEC-KIT-LICENSE",
+      "sha256": "2510b446bc1f0cf9702453075d20cd88631e20e5642658edb7325d9c1eb534f7"
+    }
+  ]
+}

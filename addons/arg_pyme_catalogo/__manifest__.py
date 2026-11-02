@@ -1,0 +1,12 @@
+{
+ 'name': 'Catálogo ARG', 'summary': 'Productos, servicios y precios con carga mínima',
+ 'version': '20.0.1.0.5', 'license': 'AGPL-3', 'author': 'Gonzalo Sarubilo · GoxtechLabs',
+ 'website': 'https://github.com/Goxtech-Labs/ODOO_PYME_ARG',
+ 'depends': ['arg_pyme_base', 'arg_pyme_ui', 'product'],
+ 'data': ['security/ir.access.csv', 'views/product_template_views.xml',
+          'views/product_attribute_views.xml', 'views/pricelist_matrix_views.xml'],
+ 'assets': {'web.assets_backend': ['arg_pyme_catalogo/static/src/matrix.js',
+                                  'arg_pyme_catalogo/static/src/matrix.xml',
+                                  'arg_pyme_catalogo/static/src/matrix.scss']},
+ 'post_init_hook': 'post_init_hook', 'installable': True,
+}

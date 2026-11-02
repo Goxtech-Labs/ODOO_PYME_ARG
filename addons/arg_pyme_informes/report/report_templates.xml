@@ -1,0 +1,16 @@
+<odoo>
+<record id="paperformat_reports" model="report.paperformat"><field name="name">Informe ARG apaisado</field><field name="format">A4</field><field name="orientation">Landscape</field><field name="margin_top">15</field><field name="margin_bottom">15</field><field name="margin_left">8</field><field name="margin_right">8</field><field name="header_spacing">10</field></record>
+<record id="action_report_pdf" model="ir.actions.report"><field name="name">Informe ARG</field><field name="model">arg.pyme.report.query</field><field name="report_type">qweb-pdf</field><field name="report_name">arg_pyme_informes.report_document</field><field name="paperformat_id" ref="paperformat_reports"/><field name="print_report_name">'Informe ARG'</field></record>
+<template id="report_document"><t t-call="web.html_container"><t t-foreach="docs" t-as="o"><t t-call="web.external_layout"><div class="page" style="font-size:9px">
+<h2 t-out="report['title']"/><p t-if="report['demo']">DATOS DE EJEMPLO</p>
+<p><span t-out="report['company']"/> · <span t-out="report['currency']"/> · <span t-out="report['generated_at']"/></p>
+<p><span t-out="report['from']"/> → <span t-out="report['to']"/> · <span t-out="report['timezone']"/></p>
+<p>Grano: <span t-out="report['grain']"/> · Fuente: <span t-out="report['source_model']"/> · Fecha: <span t-out="report['date_basis']"/></p>
+<p>Tercero: <span t-out="report['partner']"/> · Producto: <span t-out="report['product_filter']"/> · Ubicación: <span t-out="report['location_filter']"/> · Ver por: <span t-out="report['group_by']"/></p>
+<p t-out="report['note']"/><p><span t-out="report['source_count']"/> registros fuente · <span t-out="report['result_count']"/> filas</p>
+<table class="table table-sm" style="width:100%;table-layout:fixed;word-wrap:break-word"><thead><tr><th t-foreach="report['columns']" t-as="column" t-out="column[1]"/></tr></thead>
+<tbody><tr t-foreach="report['rows']" t-as="row"><td t-foreach="report['columns']" t-as="column"><span t-out="row.get('display_values', {}).get(column[0], row.get(column[0])) if row.get(column[0]) is not None else ''"/></td></tr></tbody></table>
+<h4>Totales del corte por unidad y hecho físico</h4><table class="table table-sm" style="width:100%;table-layout:fixed;word-wrap:break-word"><thead><tr><th>Hecho físico</th><th>Unidad</th><th>Cantidad</th><th>Reservado</th><th>Disponible</th><th>Neto</th><th>Impuesto por línea</th><th>Importe</th></tr></thead><tbody>
+<tr t-foreach="report['totals']" t-as="total"><td t-out="total['flow']"/><td t-out="total['unit']"/><td t-foreach="['quantity','reserved','available','net','tax','total']" t-as="key"><span t-out="total['display_values'][key] if total[key] is not None else ''"/></td></tr></tbody></table>
+</div></t></t></t></template>
+</odoo>

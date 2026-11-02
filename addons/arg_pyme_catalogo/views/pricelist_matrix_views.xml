@@ -1,0 +1,6 @@
+<odoo>
+<record id="action_price_matrix" model="ir.actions.client"><field name="name">Matriz de precios ARG</field><field name="tag">arg_pyme.price_matrix</field></record>
+<record id="action_pricelists" model="ir.actions.act_window"><field name="name">Listas y reglas ARG</field><field name="res_model">product.pricelist</field><field name="view_mode">list,form</field></record>
+<menuitem id="menu_price_matrix" name="Precios" parent="arg_pyme_base.menu_arg_ventas" action="action_price_matrix" sequence="80"/>
+<menuitem id="menu_pricelists" name="Listas y reglas avanzadas" parent="arg_pyme_base.menu_arg_config" action="action_pricelists" sequence="60" groups="arg_pyme_base.group_manager"/>
+</odoo>
