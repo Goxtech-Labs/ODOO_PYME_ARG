@@ -1,38 +1,28 @@
-# Odoo Pymes ARG — 0.1.2-dev
+# Odoo Pymes ARG — 0.1.3-dev
 
-Núcleo genérico desarrollado, publicado en main e instalado técnicamente en demo. La revisión
-0.1.2-dev incorpora los canales oficiales Goxtech elegidos por el titular. QA funcional/visual
-y aceptación siguen pendientes; no se presenta como versión productiva validada.
+Interfaz con cinta de comandos, iconos Lucide locales, campos delimitados, portada y acceso con
+industria argentina. Preferencias personales de tema/densidad. Correcciones de compatibilidad con
+Odoo 20 para cantidades e impresión. [Cambios y pruebas](INTERFAZ-Y-VENTAS.md).
 
-[Composición](../../composition/versions.lock.json):91 módulos,79 nativos/dependencias y12 addons ARG.
-Paquete de185 archivos, SHA256 `9465b28581d1d6e082234da2db3a185ec367f4a3c99980332269d9c3a9df6a31`.
-Base20.0.1.0.4 e Interfaz20.0.1.0.2 actualizados en aislado y demo. Los185 hashes coinciden.
+Composición:91 módulos,79 nativos/dependencias y12 ARG. Paquete227 archivos,
+SHA256 `a4e0dcadaaa7a64985cda7fdf56429f9c1a904b700986d5c8c9a2b1d199d24bf`. [Versiones exactas](../../composition/versions.lock.json).
+Interfaz20.0.1.1.2, Documentos20.0.1.0.6; los consumidores de cantidades incrementan sus versiones.
+Composición actualizada explícitamente en aislado y demo, sin actualización global de módulos.
 
-Los cinco circuitos, maestros y documentos conservan el alcance de la
-[entrega anterior](RELEASE-0.1.1-dev.md). PRE y PED son documentos distintos, con numeración y
-trazabilidad propias; stock y contabilidad nativos conservan sus efectos. Informes no atribuye
-importes cuando falta evidencia. [Cobertura de requisitos](COBERTURA-REQUISITOS.md).
+Se ejecutó QA aislada del recorrido PRE→PED→REM parcial→FAC parcial con ejemplos, diario interno
+sin emisión fiscal y permisos del usuario de gestión. Dos unidades pedidas, una entregada y una
+facturada; pendientes físicos, de facturación y deuda diferenciados. HTML documental y consultas
+PED/FAC/existencias comprobados. No acredita pruebas completas de todos los circuitos.
 
-## Web, aprendizaje y soporte
+Se verificaron arranque OWL, cinta y configuración, combo de cliente, edición sin guardar,
+cambio de pestaña conservando datos, descarte sin persistencia, tema claro/oscuro y ancho390px.
+El acceso conserva autenticación/CSRF nativos. La aceptación del titular sigue pendiente.
 
-[Canales y controles de esta revisión](CANALES-GOXTECH.md): web y canal general configurables,
-WhatsApp principal y correo alternativo. Accesibles desde Ayuda, Soporte y Acerca de.
-El canal general no equivale a un tutorial específico compatible. Los videos ARG siguen pendientes.
-No se envían mensajes ni se activan proveedores automáticamente. Cada instalación puede elegir
-sus propios destinos sin una cuenta Goxtech obligatoria.
+Respaldo consistente previo con integridad verificada; no restaurado en esta revisión. La demo
+conserva sus datos; las operaciones de QA están sólo en el entorno aislado. No hubo emisión fiscal,
+pagos ni mensajes externos. Cron y correo permanecen desactivados.
 
-Se verificaron instalación/upgrade de dos addons, versión y185 archivos, cinco parámetros públicos,
-servicios y renderizado HTTP200 de las tres páginas. La demo mantiene cero operaciones de negocio,
-cron y correo desactivados. Respaldo previo completo con integridad verificada; su recuperación
-no se ensayó en esta revisión. La restauración anterior se conserva identificada por su propia composición.
-
-## Licencias y pendientes
-
-AGPL-3.0-only para código original y CC-BY-SA-4.0 para documentación/recursos originales.
-[NOTICE](../../NOTICE.md) conserva atribuciones y excepciones. Sin dumps, filestore, credenciales
-ni configuración privada en el Git público.
-
-[QA posterior](QA.md): permisos, compañías, teclado/temas, parciales, concurrencia, reversión,
-cálculos y recuperación con documentos. Registrar resultados y aceptación con el usuario.
-Integraciones, ARCA y rubros son incrementos posteriores; tickets todavía sin definir.
-La portada y los manuales están publicados en el repositorio; GitHub Pages y un tag estable son hitos distintos.
+Canales Goxtech configurados según [entrega anterior](RELEASE-0.1.2-dev.md).
+Tutoriales específicos, integraciones, ARCA y módulos por rubro continúan como etapas posteriores.
+Código original AGPL-3.0-only; documentación/recursos originales CC BY-SA 4.0; Lucide ISC/Feather MIT.
+[Recursos y procedencia](../RECURSOS-VISUALES.md). [QA y límites](QA.md).

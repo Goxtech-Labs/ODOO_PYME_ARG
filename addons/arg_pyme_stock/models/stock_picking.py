@@ -1,3 +1,4 @@
+from odoo.addons.arg_pyme_base.tools.quantity import quantity_rounding
 from odoo import api, fields, models, _
 from odoo.exceptions import AccessError, UserError
 
@@ -47,7 +48,7 @@ class StockPicking(models.Model):
         for move in self.move_ids.filtered(lambda m: m.state != 'cancel' and m.product_id and m.uom_id):
             key = str(move.product_id.id)
             row = products.setdefault(key, {'label': move.product_id.display_name, 'unit': move.product_id.uom_id.display_name,
-                                            'rounding': move.product_id.uom_id.rounding, 'target': 0})
+                                            'rounding': quantity_rounding(self.env), 'target': 0})
             row['target'] += move.uom_id._compute_quantity(move.product_uom_qty, move.product_id.uom_id, round=False)
         return {'products': products, 'company': self.company_id.name,
                 'partner': self.partner_id.name or '', 'address': self.partner_id.contact_address or ''}

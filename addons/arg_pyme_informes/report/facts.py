@@ -1,3 +1,4 @@
+from odoo.addons.arg_pyme_base.tools.quantity import quantity_rounding
 import math
 from datetime import datetime, time, timedelta
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
@@ -72,7 +73,7 @@ class ReportEngine(models.AbstractModel):
                 'original':self._origin(original)['name'] if original else '',
                 'original_url':self._origin(original)['url'] if original else '',
                 'partner':self._label(partner), 'product':self._label(product), 'unit':self._label(unit),
-                'unit_id':unit.id if unit else False, 'unit_rounding':self._read(unit, ['rounding']).get('rounding') if unit else None, 'location':self._label(location), 'state':state,
+                'unit_id':unit.id if unit else False, 'unit_rounding':quantity_rounding(self.env) if unit else None, 'location':self._label(location), 'state':state,
                 'progress':progress, 'description':'', 'quantity':None, 'reserved':None, 'available':None, 'flow':'',
                 'document_key':(doc._name,doc.id), 'partner_key':partner.id if partner else False,
                 'product_key':product.id if product else False, 'location_key':location.id if location else False,

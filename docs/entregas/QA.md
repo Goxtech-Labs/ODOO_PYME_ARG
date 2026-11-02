@@ -1,6 +1,6 @@
 # QA posterior
 
-Estado: pendiente para módulos ARG ya desarrollados e instalados técnicamente.
+Estado: revisión parcial de Ventas e interfaz ejecutada en entorno aislado; [resultados y límites](INTERFAZ-Y-VENTAS.md). Aceptación del titular y resto de escenarios pendientes.
 Cada feature tiene quickstart con recorridos preparados. Ejecutarlos con el usuario después de instalación técnica.
 Registrar pantalla/operación, esperado, observado, evidencia, corrección, revisión y aceptación.
 Cubrir permisos, compañía, parciales, reversión, concurrencia y conservación de historia según el cambio.

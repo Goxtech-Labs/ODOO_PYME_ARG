@@ -1,0 +1,10 @@
+<odoo>
+ <template id="login_layout_arg" inherit_id="web.login_layout" name="Identidad de acceso ARG">
+  <xpath expr="//t[@t-set='head']" position="inside"><link rel="stylesheet" href="/arg_pyme_ui/static/src/login.css?v=20.0.1.1.2"/></xpath>
+ </template>
+ <template id="login_arg" inherit_id="web.login" name="Bienvenida Pymes ARG">
+  <xpath expr="//form[@method='post']" position="before">
+   <div class="arg_login_brand"><img src="/arg_pyme_ui/static/icons/lucide/factory.svg" alt=""/><span>PYMES <strong>ARG</strong></span><p>Gestión simple. Conocimiento compartido.</p></div>
+  </xpath>
+ </template>
+</odoo>

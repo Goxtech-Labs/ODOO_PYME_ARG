@@ -71,3 +71,19 @@ Actualizar manual, tutoriales por versión y estado de entrega. Realizar QA func
 
 No incorporar motores, servicios ni tablas paralelas para funciones ya provistas por la fuente nativa.
 Justificar toda extensión adicional mediante una decisión documentada en esta feature.
+
+## Incremento cinta y recursos argentinos · 2026-11-02
+
+Extender `web.WebClient` tras NavBar con un componente propio OWL3 (`proxy`) registrado mediante
+patch de componentes, sin cambiar core. Obtener comandos del menuService efectivo, ejecutar
+`selectMenu` y conservar el servicio nativo de acciones. La cinta sólo se muestra dentro de ARG.
+Usar Configuración filtrada por el árbol efectivo, sin conceder permisos desde la interfaz.
+
+Servir un subconjunto Lucide 1.66.0 local, con integridad npm verificada y licencia ISC/Feather MIT.
+No usar CDN ni dependencias de ejecución externas. Incorporar ilustración IA original al addon,
+preservando el original generado. Estilos de campos sobre widgets nativos; evitar simular selects.
+Heredar QWeb de login sólo para presentación; no cambiar autenticación, CSRF ni contraseñas.
+
+Validación: paquete/sintaxis/secretos, upgrade aislado, arranque OWL, navegación real, edición y
+salida protegida, campos/selects, temas, ancho estrecho y rutas de soporte. Corrección UOM Odoo20
+se valida por recorrido PRE→PED→REM parcial→FAC parcial en el entorno aislado, sin emisión fiscal.

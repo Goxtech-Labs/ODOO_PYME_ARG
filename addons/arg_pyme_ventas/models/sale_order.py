@@ -1,3 +1,4 @@
+from odoo.addons.arg_pyme_base.tools.quantity import quantity_rounding
 import uuid
 from markupsafe import escape
 from odoo import api, fields, models, Command, _
@@ -27,7 +28,7 @@ class QuotationGeneration(models.Model):
         committed=self._committed_map()
         for line,qty in selected:
             available=line.accepted_target_total-committed.get(line.commercial_line_key,0)
-            if float_compare(qty,available,precision_rounding=line.uom_id.rounding)>0:
+            if float_compare(qty,available,precision_rounding=quantity_rounding(self.env))>0:
                 raise UserError(_('La cantidad supera el confirmado disponible para generar.'))
         snapshot=self.accepted_snapshot
         for field,keyname in [('partner_id','partner'),('invoice_partner_id','invoice_partner'),('delivery_partner_id','delivery_partner')]:
@@ -174,7 +175,7 @@ class SaleOrder(models.Model):
         if self.arg_commitment_released:raise UserError(_('Este pedido ya fue liberado mediante otra operación.'))
         if self.state!='cancel':raise UserError(_('Cancele primero el pedido y resuelva sus derivados.'))
         for line in self.order_line.filtered(lambda l:not l.display_type):
-            if float_compare(abs(line.qty_delivered),0,precision_rounding=line.product_uom_id.rounding) or float_compare(abs(line.qty_invoiced),0,precision_rounding=line.product_uom_id.rounding):
+            if float_compare(abs(line.qty_delivered),0,precision_rounding=quantity_rounding(self.env)) or float_compare(abs(line.qty_invoiced),0,precision_rounding=quantity_rounding(self.env)):
                 raise UserError(_('Quedan entregas o facturación activas. Corrija los derivados antes de liberar.'))
         if self.invoice_ids.filtered(lambda move:move.state=='draft'):
             raise UserError(_('Resuelva las facturas borrador antes de liberar.'))
@@ -208,7 +209,7 @@ class SaleOrder(models.Model):
     def _arg_get_completion_axes(self):
         rows=[]
         for line in self.order_line.filtered(lambda l:not l.display_type and not l.is_downpayment):
-            rows.append({'label':line.name,'unit':line.product_uom_id.display_name,'rounding':line.product_uom_id.rounding,
+            rows.append({'label':line.name,'unit':line.product_uom_id.display_name,'rounding':quantity_rounding(self.env),
                 'target':line.product_uom_qty,'done':line.qty_invoiced_posted,
                 'closed':max(0,line.product_uom_qty-line.qty_invoiced_posted) if self.state=='cancel' else 0})
         invoices=self.invoice_ids.filtered(lambda move:move.move_type=='out_invoice' and move.state=='posted')

@@ -1,3 +1,4 @@
+from odoo.addons.arg_pyme_base.tools.quantity import quantity_rounding
 from odoo import api, models, _
 from odoo.exceptions import AccessError, UserError
 
@@ -17,7 +18,7 @@ class CommercialOrder(models.Model):
             closed_base = sum(moves.mapped('arg_closed_quantity_base'))
             closed = line.product_id.uom_id._compute_quantity(closed_base, line.uom_id, round=False)
             closed = min(closed, max(0, line.product_qty - line.qty_received - remaining_open))
-            rows.append({'label': line.name, 'unit': line.uom_id.display_name, 'rounding': line.uom_id.rounding,
+            rows.append({'label': line.name, 'unit': line.uom_id.display_name, 'rounding': quantity_rounding(self.env),
                          'target': line.product_qty, 'done': line.qty_received, 'closed': closed})
         return [self._arg_axis('Recepción', rows)] + super()._arg_get_completion_axes()
 

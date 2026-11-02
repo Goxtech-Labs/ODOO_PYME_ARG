@@ -1,3 +1,4 @@
+from odoo.addons.arg_pyme_base.tools.quantity import quantity_rounding
 from odoo import api, fields, models, _
 from odoo.exceptions import AccessError, UserError
 from odoo.tools.float_utils import float_compare
@@ -85,11 +86,11 @@ class AccountMove(models.Model):
                            * (1 if line.move_id.move_type == 'in_invoice' else -1) for line in rows)
             net = quantity(other) + quantity(lines)
             # Credits may refund a billed quantity even if a later return has already reduced received quantity.
-            if float_compare(net, 0, precision_rounding=source.uom_id.rounding) < 0:
+            if float_compare(net, 0, precision_rounding=quantity_rounding(self.env)) < 0:
                 raise UserError(_('La nota supera las unidades facturadas netas de esta línea del pedido.'))
             if lines.filtered(lambda line: line.move_id.move_type == 'in_invoice'):
                 base = source.product_qty if source.product_id.purchase_method == 'purchase' else source.qty_received
-                if float_compare(net, base, precision_rounding=source.uom_id.rounding) > 0:
+                if float_compare(net, base, precision_rounding=quantity_rounding(self.env)) > 0:
                     raise UserError(_('Las facturas del lote superan la cantidad pendiente según la política del producto.'))
 
     def _post(self, *args, **kwargs):

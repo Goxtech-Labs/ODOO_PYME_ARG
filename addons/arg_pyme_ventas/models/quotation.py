@@ -1,3 +1,4 @@
+from odoo.addons.arg_pyme_base.tools.quantity import quantity_rounding
 import hashlib
 import json
 import math
@@ -170,7 +171,7 @@ class Quotation(models.Model):
             if carry['currency_id']!=self.currency_id.id or carry['partner_id']!=self.partner_id.id:
                 raise UserError(_('El compromiso previo conserva cliente y moneda.'))
             line=self.env['sale.order.line'].browse(carry['line_id']).exists()
-            if not line or line.order_id.arg_commitment_released or float_compare(line.product_uom_qty,carry['quantity'],precision_rounding=line.product_uom_id.rounding)!=0:
+            if not line or line.order_id.arg_commitment_released or float_compare(line.product_uom_qty,carry['quantity'],precision_rounding=quantity_rounding(self.env))!=0:
                 raise UserError(_('Cambió un compromiso arrastrado. Cree una revisión para acordar el saldo actualizado.'))
 
     def _committed_lines(self):
@@ -201,9 +202,9 @@ class Quotation(models.Model):
                 raise UserError(_('Complete producto y unidad base compatible en cada línea.'))
             if not all(math.isfinite(value) for value in (line.target_quantity_total,line.price_unit,line.discount)):
                 raise UserError(_('Revise cantidades, precios y descuentos finitos.'))
-            if float_compare(line.target_quantity_total,line.carried_committed_quantity,precision_rounding=line.uom_id.rounding)<0:
+            if float_compare(line.target_quantity_total,line.carried_committed_quantity,precision_rounding=quantity_rounding(self.env))<0:
                 raise UserError(_('La cantidad objetivo no puede ser menor al compromiso previo.'))
-            if float_compare(line.target_quantity_total,0,precision_rounding=line.uom_id.rounding)<=0 or not math.isclose(line.target_quantity_total/line.uom_id.rounding,round(line.target_quantity_total/line.uom_id.rounding),rel_tol=0,abs_tol=1e-7) or line.price_unit<0:
+            if float_compare(line.target_quantity_total,0,precision_rounding=quantity_rounding(self.env))<=0 or not math.isclose(line.target_quantity_total/quantity_rounding(self.env),round(line.target_quantity_total/quantity_rounding(self.env)),rel_tol=0,abs_tol=1e-7) or line.price_unit<0:
                 raise UserError(_('Revise cantidades y precios no negativos.'))
             if not 0<=line.discount<=100:raise UserError(_('El descuento debe estar entre cero y cien.'))
             if line.price_unit==0 and not self.allow_zero_price:
@@ -246,7 +247,7 @@ class Quotation(models.Model):
             line=self.line_ids.filtered(lambda l:l.id==raw['line_id'])
             if not line or not math.isfinite(quantity) or quantity<0:raise ValidationError(_('Línea o cantidad no válida.'))
             if quantity:
-                rounding=line.uom_id.rounding or 0.01
+                rounding=quantity_rounding(self.env) or 0.01
                 if float_compare(quantity,0,precision_rounding=rounding)<=0 or not math.isclose(quantity/rounding,round(quantity/rounding),rel_tol=0,abs_tol=1e-7):
                     raise ValidationError(_('La cantidad debe respetar el paso de la unidad.'))
                 result.append((line,quantity))
@@ -267,7 +268,7 @@ class Quotation(models.Model):
             return record.with_context(lang='en_US').read([n for n in names if n in record._fields])
         term=self.payment_term_id
         position=self.fiscal_position_id
-        raw={'payment_term':read(term,['name','write_date','early_discount','discount_percentage','early_pay_discount_computation','discount_days']),
+        raw={'quantity_precision':self.env['decimal.precision'].precision_get('Product Unit'),'payment_term':read(term,['name','write_date','early_discount','discount_percentage','early_pay_discount_computation','discount_days']),
              'payment_term_lines':read(term.line_ids.sorted('id'),['value','value_amount','nb_days','delay_type','days_next_month','months','write_date']),
              'fiscal_position':read(position,['name','write_date','country_id','state_ids','vat_required']),
              'fiscal_taxes':read(position.tax_ids.sorted('id'),['tax_src_id','tax_dest_id','write_date']),
@@ -304,7 +305,7 @@ class Quotation(models.Model):
         if self.state not in ('issued','partially_confirmed'):raise UserError(_('Emita primero el presupuesto.'))
         self._check_frozen_taxes()
         for line,qty in selected:
-            if float_compare(qty,line.target_quantity_total-line.accepted_target_total,precision_rounding=line.uom_id.rounding)>0:
+            if float_compare(qty,line.target_quantity_total-line.accepted_target_total,precision_rounding=quantity_rounding(self.env))>0:
                 raise UserError(_('La cantidad supera el pendiente de aceptación.'))
         if not self.accepted_snapshot:
             self._mutate({'accepted_snapshot':self._make_snapshot(),'confirmed_at':fields.Datetime.now(),'confirmed_by':self.env.uid})
@@ -313,7 +314,7 @@ class Quotation(models.Model):
             target=line.accepted_target_total+qty
             changes.append({'line_id':line.id,'quantity':qty,'accepted_target_total':target})
             line._mutate({'accepted_target_total':target})
-        complete=all(float_compare(l.accepted_target_total,l.target_quantity_total,precision_rounding=l.uom_id.rounding)>=0 for l in self.line_ids)
+        complete=all(float_compare(l.accepted_target_total,l.target_quantity_total,precision_rounding=quantity_rounding(self.env))>=0 for l in self.line_ids)
         self._mutate({'state':'confirmed' if complete else 'partially_confirmed'})
         return events.sudo().create({'company_id':self.company_id.id,'quotation_id':self.id,'operation_key':key,
             'payload_hash':payload_hash,'user_id':self.env.uid,'changes':changes})
@@ -324,7 +325,7 @@ class Quotation(models.Model):
             raise UserError(_('Cambió la configuración de pago, posición fiscal o moneda. Prepare una revisión compatible.'))
         for line in self.line_ids:
             snapshot=self.accepted_snapshot['lines'][str(line.id)]
-            unit=json.loads(json.dumps(line.uom_id.with_context(lang='en_US').read([n for n in ['name','factor','rounding','write_date'] if n in line.uom_id._fields]),default=str))
+            unit=json.loads(json.dumps(line.uom_id.with_context(lang='en_US').read([n for n in ['name','factor','relative_factor','relative_uom_id','write_date'] if n in line.uom_id._fields]),default=str))
             if snapshot['tax_signature']!=line._tax_signature() or snapshot['unit_definition']!=unit:
                 raise UserError(_('Cambió la definición de un impuesto. Conserve el acuerdo y prepare una revisión compatible.'))
 
@@ -369,7 +370,7 @@ class Quotation(models.Model):
         committed=self._committed_map() if self.id and self.commercial_root_id else {}
         acceptance=[];generation=[]
         for line in self.line_ids:
-            rounding=line.uom_id.rounding or 0.01
+            rounding=quantity_rounding(self.env) or 0.01
             base={'label':line.description or line.product_id.display_name,'unit':line.uom_id.display_name,'rounding':rounding}
             acceptance.append({**base,'target':line.target_quantity_total,'done':line.accepted_target_total,
                 'closed':max(0,line.target_quantity_total-line.accepted_target_total) if self.state in ('canceled','rejected','expired') else 0})
@@ -529,7 +530,7 @@ class QuotationLine(models.Model):
             'proposal_quantity':max(0,self.target_quantity_total-self.carried_committed_quantity),
             'price_unit':self.price_unit,'discount':self.discount,'tax_ids':self.tax_ids.ids,'tax_signature':self._tax_signature(),
             'tax_definitions':self.tax_ids.read(['name','amount','amount_type','price_include']),
-            'unit_definition':json.loads(json.dumps(self.uom_id.with_context(lang='en_US').read([n for n in ['name','factor','rounding','write_date'] if n in self.uom_id._fields]),default=str)),
+            'unit_definition':json.loads(json.dumps(self.uom_id.with_context(lang='en_US').read([n for n in ['name','factor','relative_factor','relative_uom_id','write_date'] if n in self.uom_id._fields]),default=str)),
             'untaxed':self.amount_untaxed,'tax':self.amount_tax,'total':self.amount_total}
 
 

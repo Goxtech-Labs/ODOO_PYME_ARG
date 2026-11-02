@@ -10,6 +10,7 @@ class IrHttp(models.AbstractModel):
             result['support_url'] = '/arg/soporte'
             result['arg_pyme'] = {'theme': user.arg_theme, 'density': user.arg_density,
                 'root_menu_id': self.env.ref('arg_pyme_base.menu_arg_root').id,
+                'config_menu_id': self.env.ref('arg_pyme_base.menu_arg_config').id,
                 'areas': [{'id': self.env.ref('arg_pyme_base.menu_arg_' + key).id, 'name': label}
                           for key, label in [('ventas','Ventas'),('compras','Compras'),('stock','Stock'),
                                               ('administracion','Administración'),('informes','Informes')]]}

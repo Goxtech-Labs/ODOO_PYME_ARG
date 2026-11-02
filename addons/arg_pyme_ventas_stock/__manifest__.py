@@ -1,1 +1,1 @@
-{'name': 'Ventas–Stock ARG', 'version': '20.0.1.0.1', 'license': 'AGPL-3', 'author': 'Gonzalo Sarubilo · GoxtechLabs', 'depends': ['arg_pyme_ventas', 'arg_pyme_stock', 'sale_stock'], 'data': ['views/bridge_views.xml'], 'auto_install': True, 'installable': True}
+{'name': 'Ventas–Stock ARG', 'version': '20.0.1.0.2', 'license': 'AGPL-3', 'author': 'Gonzalo Sarubilo · GoxtechLabs', 'depends': ['arg_pyme_ventas', 'arg_pyme_stock', 'sale_stock'], 'data': ['views/bridge_views.xml'], 'auto_install': True, 'installable': True}

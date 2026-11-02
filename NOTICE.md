@@ -11,7 +11,7 @@ Copyright 2026 Gonzalo Sarubilo. Proyecto comunitario impulsado por Gonzalo Saru
 - Los manifests usan AGPL-3 para el addon. Cada addon incluye LICENSE y NOTICE.md para distribución independiente; las imágenes conservan su aviso específico.
 - Archivos oficiales Spec Kit fijados en .specify/upstream.json: licencia MIT original conservada en .specify/SPEC-KIT-LICENSE. No se relicencian como código propio.
 - Odoo Community, sus addons, dependencias y herramientas externas conservan las licencias de sus titulares. No se convierten en código ARG por integrar la composición.
-- Las capturas de FactuSOL son referencias privadas: no se distribuyen ni se relicencian. Los SVG del proyecto son originales.
+- Las capturas de FactuSOL son referencias privadas: no se distribuyen ni se relicencian. Los SVG originales ARG conservan CC BY-SA 4.0. Los iconos Lucide incorporados conservan ISC y las atribuciones MIT de Feather; ver `addons/arg_pyme_ui/static/icons/lucide/LICENSE` y `SOURCE.json`.
 
 Los textos de licencia se conservaron desde la lista oficial SPDX, con sus avisos originales:
 [AGPL-3.0-only](https://spdx.org/licenses/AGPL-3.0-only.html) y

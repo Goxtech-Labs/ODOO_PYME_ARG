@@ -27,7 +27,11 @@ Quiero compartir esa experiencia, visibilizar mi aporte y seguir aprendiendo con
 · [ARG y YouTube](docs/ALCANCE-YOUTUBE.md)
 
 > **Estado: desarrollo en curso.** Los cinco circuitos básicos, maestros e interfaz ARG están desarrollados e instalados técnicamente en el entorno de ejemplo.
-> QA funcional/visual y aceptación están pendientes; integraciones y rubros corresponden a etapas posteriores.
+> Revisión parcial de Ventas e interfaz realizada con ejemplos; aceptación y QA de los demás circuitos pendientes. Integraciones y rubros corresponden a etapas posteriores.
+
+![Interfaz real de Odoo Pymes ARG: cinta por circuitos e industria argentina](docs/assets/inicio-arg-v1.jpg)
+
+[Qué cambió en 0.1.3-dev](docs/entregas/INTERFAZ-Y-VENTAS.md) · [Recursos gráficos y licencias](docs/RECURSOS-VISUALES.md)
 
 [![Empezar](docs/site/assets/empezar.svg)](docs/site/INSTALACION.md) [![Manuales](docs/site/assets/manuales.svg)](docs/site/MANUALES.md) [![Módulos](docs/site/assets/modulos.svg)](docs/ESTADO-MODULOS.md) [![Comunidad](docs/site/assets/comunidad.svg)](docs/site/comunidad/README.md)
 

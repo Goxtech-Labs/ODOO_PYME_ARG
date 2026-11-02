@@ -1,5 +1,13 @@
 # Cambios
 
+## 0.1.3-dev — 2026-11-02
+
+- Cinta por circuitos, Lucide local, portada/acceso industrial argentino y campos delimitados.
+- Tema/densidad en Mis preferencias; mejoras de contraste y pantalla estrecha.
+- Compatibilidad Odoo20: precisión de cantidades y valores QWeb impresos.
+- Recorrido aislado PRE→PED→REM parcial→FAC interna parcial verificado; aceptación pendiente.
+- [Pruebas y límites](docs/entregas/INTERFAZ-Y-VENTAS.md).
+
 ## 0.1.2-dev
 
 - Web y canal general editables desde Gestión ARG; enlaces compartidos en Ayuda, Soporte y Acerca de.

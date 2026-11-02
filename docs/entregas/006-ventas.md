@@ -49,3 +49,5 @@ Actualización posterior: [entrega007](007-compras.md) conserva el nuevo artefac
 Actualización posterior: [entrega008](008-stock.md) incorpora el puente físico y conserva evidencias técnicas. Dinero efectivo y QA siguen pendientes.
 
 Actualización009 posterior: Administración y ejes de dinero instalados; los pendientes físicos se entregaron con008. Este informe conserva la evidencia histórica del incremento comercial inicial. Estado vigente en docs/ESTADO-MODULOS.md y entrega009; QA posterior pendiente.
+
+Incremento posterior: [interfaz y revisión parcial de Ventas,0.1.3-dev](INTERFAZ-Y-VENTAS.md). La evidencia inicial anterior se conserva como histórica.

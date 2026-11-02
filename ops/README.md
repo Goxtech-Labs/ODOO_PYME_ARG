@@ -18,3 +18,15 @@ dentro de `odoo shell`. Valida web, canal, correo, WhatsApp y canal principal me
 de Ajustes, y escribe sólo esos cinco parámetros. No llama al guardado global de Ajustes, no
 configura proveedores ni envía mensajes. El perfil público elegido para ARG está en
 [canales.json](../docs/comunidad/canales.json); cada operador puede utilizar su propio perfil.
+
+## Revisión aislada del circuito de Ventas
+
+`qa_sales_flow.py` documenta y ejecuta el caso ficticio de la entrega0.1.3-dev. Requiere base
+`arg_demo` con modo de ejemplo, usuario de gestión y contenedor sólo con interfaz loopback,
+correo/cron desactivados y `ARG_QA_SALES_ISOLATED=1`. Nunca ejecutarlo en la demo del titular.
+
+Invocarlo dentro de `odoo shell` sin HTTP/cron, pasando `ARG_QA_SALES_PHASE` en este orden:
+`metadata`, `quote`, `order`, `delivery`, `invoice`, `checks`, `reports`. Cada fase exitosa confirma
+su transacción y emite `ARG_QA_RESULT`. Crea documentos ficticios, apertura de inventario, entrega
+parcial y factura interna no fiscal; conservar snapshot previo y evidencia, no limpiar producción.
+No envía mensajes ni solicita CAE. [Resultados y límites](../docs/entregas/INTERFAZ-Y-VENTAS.md).

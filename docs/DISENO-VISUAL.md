@@ -75,6 +75,20 @@ Planificar web documental estática usando el mismo contenido y sistema visual.
 
 Mostrar columnas/indicadores separados de confirmación, entrega/recepción, facturación y cobro/pago, con pendiente/parcial/completo y cantidades/importes. Ver docs/tecnica/ESTADOS-Y-PENDIENTES.md. No condensar ejes distintos en un solo color.
 
-Los SVG de áreas, acciones comunes y estados son originales, embebidos localmente y decorativos;
+Los iconos de áreas y acciones comunes usan Lucide 1.66.0 local (ISC/Feather MIT); los estados originales conservan su atribución. Los iconos son decorativos;
 el nombre accesible sigue siendo el texto del control. No agregan fuentes o peticiones externas.
 Acerca de ARG se ofrece desde el menú de usuario y los pies de ayuda mediante /arg/acerca.
+
+## Cinta de gestión y superficies de entrada
+
+Inicio, Ventas, Compras, Stock, Administración e Informes mantienen un orden fijo. Configuración
+se incorpora sólo para roles con acciones permitidas. Las pestañas seleccionan grupos de comandos;
+abrir un documento conserva las guardas nativas. La cinta se contrae y se desplaza horizontalmente
+en pantallas estrechas. Documentos/operaciones se separan de datos/catálogos y ayuda comunitaria.
+
+Texto, números y fechas editables usan borde visible y fondo de escritura; selecciones conservan
+flecha y autocompletar nativos. La lectura conserva etiquetas; no se convierte un valor protegido
+en entrada ni se ocultan validaciones. Foco y texto acompañan el color de cada acción.
+
+Celeste #74ACDF, azul operativo #145B91, blanco y acento solar #F6C344; superficies oscuras adaptadas.
+Lucide se sirve desde el addon sin CDN. [Recursos y procedencia](RECURSOS-VISUALES.md).

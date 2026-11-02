@@ -6,3 +6,5 @@ Sintaxis Python/XML/JS y Gitleaks correctos; revisión independiente de API/segu
 Chromium autenticado: /odoo200, .arg_home inicializado, cero pageerror; /arg/ayuda200 y /arg/soporte200.
 Se compilaron bundles CSS/JS de backend sin error de arranque. No se ejecutaron circuitos ni QA visual/funcional.
 Limitaciones de activación: videos/contactos reales pendientes; fallback escrito disponible. QA y aceptación pendientes.
+
+Incremento posterior: [interfaz y revisión parcial de Ventas,0.1.3-dev](INTERFAZ-Y-VENTAS.md). La evidencia inicial anterior se conserva como histórica.

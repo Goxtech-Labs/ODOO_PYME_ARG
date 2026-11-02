@@ -1,3 +1,4 @@
+from odoo.addons.arg_pyme_base.tools.quantity import quantity_rounding
 import hashlib
 import json
 import math
@@ -125,7 +126,7 @@ class InventoryCount(models.Model):
             raise UserError(_('Registre cada cantidad y marque Contado; cero explícito es distinto de una línea sin contar.'))
         for line in self.line_ids:
             qty = line.counted_quantity
-            rounding = line.product_id.uom_id.rounding
+            rounding = quantity_rounding(self.env)
             if not math.isfinite(qty) or qty < 0 or not math.isclose(qty / rounding, round(qty / rounding), rel_tol=0, abs_tol=1e-7):
                 raise ValidationError(_('Revise cantidades contadas no negativas y su precisión.'))
             if line.product_id.tracking == 'serial' and qty not in (0, 1):
@@ -221,7 +222,7 @@ class InventoryLine(models.Model):
                                                 ('product_id', '=', self.product_id.id), ('lot_id', '=', self.lot_id.id),
                                                 ('package_id', '=', self.package_id.id), ('owner_id', '=', self.owner_id.id)], order='id')
         data = {'quants': quants.read(['quantity', 'reserved_quantity', 'inventory_quantity', 'inventory_quantity_set', 'write_date']),
-                'product': [self.product_id.id, self.product_id.uom_id.id, self.product_id.uom_id.rounding, self.product_id.tracking, self.product_id.is_storable]}
+                'product': [self.product_id.id, self.product_id.uom_id.id, quantity_rounding(self.env), self.product_id.tracking, self.product_id.is_storable]}
         return quants, hashlib.sha256(json.dumps(data, sort_keys=True, default=str).encode()).hexdigest()
 
     @api.model_create_multi

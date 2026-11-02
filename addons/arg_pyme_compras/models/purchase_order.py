@@ -1,3 +1,4 @@
+from odoo.addons.arg_pyme_base.tools.quantity import quantity_rounding
 import hashlib
 import json
 import math
@@ -95,8 +96,8 @@ class PurchaseOrder(models.Model):
                     raise UserError(_('Complete productos o servicios con su unidad base.'))
                 if not all(math.isfinite(v) for v in (line.product_qty, line.price_unit, line.discount)):
                     raise ValidationError(_('Revise cantidades, precios y descuentos finitos.'))
-                if (float_compare(line.product_qty, 0, precision_rounding=line.uom_id.rounding) <= 0
-                        or not math.isclose(line.product_qty / line.uom_id.rounding, round(line.product_qty / line.uom_id.rounding), rel_tol=0, abs_tol=1e-7)
+                if (float_compare(line.product_qty, 0, precision_rounding=quantity_rounding(self.env)) <= 0
+                        or not math.isclose(line.product_qty / quantity_rounding(self.env), round(line.product_qty / quantity_rounding(self.env)), rel_tol=0, abs_tol=1e-7)
                         or line.price_unit < 0 or not 0 <= line.discount <= 100):
                     raise ValidationError(_('Revise cantidades positivas, precios no negativos y descuento entre cero y cien.'))
                 if not line.price_unit and not order.arg_allow_zero_price:
@@ -203,7 +204,7 @@ class PurchaseOrder(models.Model):
             if not line:
                 raise AccessError(_('La línea debe pertenecer al pedido.'))
             if qty:
-                if not math.isclose(qty / line.uom_id.rounding, round(qty / line.uom_id.rounding), rel_tol=0, abs_tol=1e-7):
+                if not math.isclose(qty / quantity_rounding(self.env), round(qty / quantity_rounding(self.env)), rel_tol=0, abs_tol=1e-7):
                     raise ValidationError(_('La cantidad no respeta la precisión de la unidad.'))
                 selected.append((line, float(qty)))
         if not selected:
@@ -226,7 +227,7 @@ class PurchaseOrder(models.Model):
         values.update(move_type='in_invoice', state='draft')
         values['invoice_line_ids'] = []
         for line, qty in selected:
-            if float_compare(qty, line.qty_to_invoice, precision_rounding=line.uom_id.rounding) > 0:
+            if float_compare(qty, line.qty_to_invoice, precision_rounding=quantity_rounding(self.env)) > 0:
                 raise UserError(_('La cantidad supera el pendiente facturable según la política del producto.'))
             row = line._prepare_account_move_line()
             row['quantity'] = qty
@@ -248,7 +249,7 @@ class PurchaseOrder(models.Model):
             posted = line.invoice_lines.filtered(lambda item: item.move_id.state == 'posted')
             quantity = sum(item.product_uom_id._compute_quantity(item.quantity, line.uom_id)
                            * (1 if item.move_id.move_type == 'in_invoice' else -1) for item in posted)
-            rows.append({'label': line.name, 'unit': line.uom_id.display_name, 'rounding': line.uom_id.rounding,
+            rows.append({'label': line.name, 'unit': line.uom_id.display_name, 'rounding': quantity_rounding(self.env),
                          'target': line.product_qty, 'done': quantity,
                          'closed': max(0, line.product_qty - quantity) if self.state == 'cancel' else 0})
         result = [self._arg_axis('Facturación recibida publicada', rows)]

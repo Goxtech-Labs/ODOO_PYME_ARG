@@ -60,3 +60,11 @@ Controles de instalación/arranque en docs/entregas/CIERRE-DE-CONTRATOS.md; QA y
 ## Canales públicos elegidos por el titular
 
 - [x] T012 Mostrar web/canal configurados en Ayuda, Soporte y Acerca de sin confundir el canal con un tutorial compatible. (FR-005 FR-006)
+
+## Incremento cinta y recursos argentinos · 2026-11-02
+
+- [x] T013 [US1] Implementar cinta contextual y pestañas con menús efectivos, configuración y navegación nativa en navigation/areas.js+xml. (FR-001 FR-007)
+- [x] T014 [US2] Delimitar escritura/selects, foco y pestañas de formularios, conservando widgets y guardas nativas en static/src/scss/tokens.scss. (FR-003 FR-008)
+- [x] T015 [US3] Incorporar Lucide local con licencia/procedencia e ilustración industrial argentina en Inicio/acceso; preservar autenticación QWeb. (FR-005 FR-009)
+- [x] T016 Verificar upgrade, render OWL, navegación/edición/selects, claro/oscuro y pantalla estrecha; registrar evidencia y desplegar la composición exacta. (FR-007 FR-008 FR-009)
+- [ ] T017 Registrar aceptación del titular sobre la nueva interfaz y los recorridos completos; no inferirla de capturas ni pruebas del agente. (FR-001 FR-003 FR-005)

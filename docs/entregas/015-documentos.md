@@ -12,3 +12,5 @@ El tar reproducible conserva mtime0; el instalador aplica mtime de despliegue a 
 Actualización transversal posterior: ver [entrega006](006-ventas.md), composición `7bf2fdf7c4951898da5d66fb768ebaa15d6730b61cd639bc691dd114de12170c`. Conserva evidencia histórica anterior.
 
 Actualización posterior: [entrega007](007-compras.md) conserva el nuevo artefacto y cambios de seguridad/composición; esta evidencia anterior permanece histórica.
+
+Incremento posterior: [interfaz y revisión parcial de Ventas,0.1.3-dev](INTERFAZ-Y-VENTAS.md). La evidencia inicial anterior se conserva como histórica.

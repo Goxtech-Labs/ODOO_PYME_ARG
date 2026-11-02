@@ -25,3 +25,133 @@ html[data-arg-theme] {
  &[data-arg-density="compact"] .o_list_table td {padding-top:.3rem;padding-bottom:.3rem;}
 }
 @media(max-width:767px) {.arg_document_actions .btn {font-size:.85rem;} .arg_areas_grid {grid-template-columns:1fr!important;}}
+/* ARG workspace: local Lucide assets, Office-inspired command groups. */
+html[data-arg-theme] {
+ --arg-input-bg:#fff; --arg-input-border:#8d9eae;
+ &[data-arg-theme="dark"] {--arg-input-bg:#152633;--arg-input-border:#8b9eae;}
+ .arg_icon {width:20px;height:20px;flex-shrink:0;vertical-align:middle;}
+ .arg_icon_white, .btn-success .arg_icon, .o_form_button_save .arg_icon {filter:brightness(0) invert(1);}
+ &[data-arg-theme="dark"] .arg_icon:not(.arg_icon_white) {filter:brightness(0) invert(.9);}
+ .arg_workspace {flex:0 0 auto;min-width:0;background:var(--arg-panel);color:var(--arg-text);border-bottom:1px solid var(--arg-border);box-shadow:0 2px 6px #153b5b0d;z-index:2;}
+ .o_navbar:has(+ .arg_workspace) .o_menu_sections {display:none!important;}
+ .arg_ribbon_tabs {display:flex;align-items:stretch;gap:3px;padding:0 16px;border-bottom:1px solid var(--arg-border);overflow-x:auto;}
+ .arg_ribbon_tabs button {border:0;background:transparent;color:var(--arg-text);white-space:nowrap;padding:10px 16px;min-height:42px;font-weight:500;border-bottom:3px solid transparent;}
+ .arg_ribbon_tabs button:hover {background:var(--arg-selected);}
+ .arg_ribbon_tabs .is-active {color:var(--arg-primary);border-bottom-color:var(--arg-primary);background:var(--arg-selected);font-weight:700;}
+ .arg_ribbon_tabs .arg_ribbon_home {padding-left:4px;color:var(--arg-primary);}
+ .arg_ribbon_collapse {margin-left:auto;}
+ .arg_ribbon_commands {display:flex;overflow-x:auto;padding:8px 16px 5px;gap:12px;max-height:134px;}
+ .arg_ribbon_group {flex:0 0 auto;display:flex;flex-direction:column;border-right:1px solid var(--arg-border);padding-right:12px;}
+ .arg_ribbon_items {display:flex;flex:1;gap:3px;}
+ .arg_ribbon_command {display:flex;flex-direction:column;justify-content:flex-start;align-items:center;gap:7px;min-width:76px;max-width:115px;padding:8px 9px;border:1px solid transparent;border-radius:4px;background:transparent;color:var(--arg-text);font-size:12px;line-height:1.25;text-align:center;text-decoration:none;}
+ .arg_ribbon_command .arg_icon {width:25px;height:25px;}
+ .arg_ribbon_command:hover {background:var(--arg-selected);border-color:var(--arg-celeste);color:var(--arg-text);text-decoration:none;}
+ .arg_ribbon_group_label {display:block;text-align:center;color:var(--arg-muted);font-size:10px;margin-top:5px;letter-spacing:.025em;}
+ .arg_ribbon_help {margin-left:auto;border-right:0;}
+ .arg_home {max-width:none;}
+ .arg_home h2 {color:var(--arg-text);}
+ .arg_document_form h1, .arg_document_form h2, .arg_document_form h3 {color:var(--arg-text);}
+ .arg_home_banner {position:relative;display:flex;isolation:isolate;overflow:hidden;min-height:285px;padding:0!important;border:1px solid var(--arg-border);border-top:4px solid var(--arg-celeste);background:#f5fbff;border-radius:10px;}
+ .arg_home_intro {position:relative;z-index:1;padding:28px 34px;min-width:330px;background:linear-gradient(90deg,#f5fbff 85%,#f5fbff00);color:#172b3a;}
+ .arg_home_industry {width:72%;height:100%;position:absolute;right:0;bottom:0;object-fit:cover;object-position:right center;z-index:0;}
+ .arg_eyebrow {font-size:10px;letter-spacing:.12em;color:#426379;font-weight:700;}
+ .arg_brand {display:flex;align-items:center;gap:10px;font-size:20px;letter-spacing:.025em;margin:13px 0;}
+ .arg_brand b {color:#145b91;}
+ .arg_flag {display:inline-flex;align-items:center;justify-content:center;width:36px;height:24px;border:1px solid #b5cbdc;background:linear-gradient(#74acdf 0 33%,white 33% 67%,#74acdf 67%);border-radius:2px;}
+ .arg_flag span {color:#b27f09;font-size:14px;line-height:1;}
+ .arg_home_intro h1 {font-size:clamp(30px,3.5vw,48px);line-height:1.06;letter-spacing:-.035em;font-weight:750;margin-bottom:14px;}
+ .arg_home_intro p {font-size:15px;line-height:1.5;color:#426379;}
+ .arg_sovereignty {font-size:11px;border-left:3px solid #e9b837;padding-left:8px;color:#426379;}
+ .arg_section_heading {display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin:24px 0 14px;}
+ .arg_section_heading h2 {font-size:19px;margin:0;font-weight:650;}
+ .arg_section_heading>span {font-size:12px;color:var(--arg-muted);}
+ .arg_areas_grid {grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;}
+ .arg_area_card {position:relative;min-height:158px;border-radius:8px;padding:18px;gap:7px;transition:border-color .15s,box-shadow .15s;}
+ .arg_area_card strong {font-size:16px;}
+ .arg_area_card:hover:not(:disabled) {border-color:var(--arg-primary);box-shadow:0 3px 10px #145b9110;}
+ .arg_area_icon {display:flex;width:38px;height:38px;background:var(--arg-selected);align-items:center;justify-content:center;border-radius:8px;margin-bottom:5px;}
+ .arg_card_arrow {position:absolute;top:20px;right:16px;width:16px;height:16px;opacity:.55;}
+ .arg_home_help {margin-top:22px;padding:18px 22px;border:1px solid var(--arg-border);border-radius:8px;background:var(--arg-panel);display:flex;justify-content:space-between;align-items:center;gap:16px;}
+ .arg_home_help h2 {font-size:16px;font-weight:650;margin:0 0 5px;}
+ .arg_home_help p {margin:0;font-size:13px;color:var(--arg-muted);}
+ .arg_advanced {font-size:13px;color:var(--arg-muted);}
+ .arg_document_actions {padding:4px 0;}
+ .arg_document_actions .btn {display:inline-flex;align-items:center;gap:4px;min-height:34px;border-radius:4px;}
+ .arg_document_actions .arg_icon {width:16px;height:16px;}
+ /* A visible writing surface, separate from read-only values. Native widgets
+    keep their dropdown arrows, autocomplete, validation and keyboard handling. */
+ .o_form_view .o_field_widget:not(.o_readonly_modifier) {
+  input.o_input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]),
+  textarea.o_input, select.o_input, select.form-select {
+   border:1px solid var(--arg-input-border)!important;border-radius:4px!important;
+   background:var(--arg-input-bg);color:var(--arg-text);padding:6px 9px!important;min-height:34px;
+   box-shadow:inset 0 1px 2px #172b3a06;
+   &:focus {border-color:var(--arg-primary)!important;outline:2px solid var(--arg-celeste);outline-offset:1px;box-shadow:none;}
+  }
+  textarea.o_input {min-height:76px;resize:vertical;}
+  .o_field_many2one_selection {position:relative;}
+  .o_field_many2one_selection input.o_input {padding-right:29px!important;}
+  .o_dropdown_button {right:7px!important;color:var(--arg-primary);opacity:1;}
+  select.o_input {appearance:auto!important;padding-right:28px!important;}
+ }
+ .o_form_view .o_readonly_modifier:not(.o_field_boolean):not(.o_field_image):not(.o_field_one2many) {color:var(--arg-text);}
+ .o_form_view .o_inner_group {row-gap:7px;}
+ .o_form_view .o_form_label {font-weight:600;color:var(--arg-muted);padding-top:7px;}
+ .arg_document_form .o_form_sheet {border:1px solid var(--arg-border);border-radius:8px;box-shadow:0 2px 9px #172b3a06;}
+ .arg_document_form .o_group .o_horizontal_separator {color:var(--arg-primary);font-size:13px;font-weight:700;border-bottom:1px solid var(--arg-border);padding-bottom:7px;margin-top:16px;}
+ .arg_document_form .o_form_statusbar {background:var(--arg-panel);border:1px solid var(--arg-border);border-radius:6px;padding:7px 10px;gap:8px;}
+ .o_form_view .o_notebook .nav-tabs {border-bottom:2px solid var(--arg-border);gap:3px;}
+ .o_form_view .o_notebook .nav-link {padding:10px 17px;border:1px solid var(--arg-border);border-bottom:0;border-radius:5px 5px 0 0;color:var(--arg-muted);background:var(--arg-bg);}
+ .o_form_view .o_notebook .nav-link.active {background:var(--arg-panel);color:var(--arg-primary);border-top:3px solid var(--arg-primary);font-weight:700;}
+ .o_list_table .o_data_row td {border-bottom:1px solid var(--arg-border);}
+ .o_list_table .o_data_cell.o_required_modifier:not(.o_readonly_modifier) {box-shadow:inset 2px 0 var(--arg-celeste);}
+ .arg_matrix input:not([type="checkbox"]), .arg_matrix select {border:1px solid var(--arg-input-border);border-radius:4px;background:var(--arg-input-bg);color:var(--arg-text);padding:6px 8px;min-height:32px;}
+}
+@media(max-width:1100px) {html[data-arg-theme] .arg_areas_grid {grid-template-columns:repeat(3,minmax(0,1fr));} html[data-arg-theme] .arg_home_industry {width:75%;opacity:.75;}}
+@media(max-width:767px) {
+ html[data-arg-theme] {
+  .arg_home_banner {min-height:290px;}.arg_home_intro {padding:22px;min-width:0;width:100%;background:linear-gradient(90deg,#f5fbff 20%,#f5fbffdc 58%,#f5fbff88);}
+  .arg_home_industry {width:100%;opacity:.55;}.arg_eyebrow {font-size:8px;}.arg_home_intro h1 {font-size:34px;}
+  .arg_section_heading {display:block;}.arg_section_heading>span {display:block;margin-top:6px;}
+  .arg_areas_grid {grid-template-columns:repeat(2,minmax(0,1fr))!important;}.arg_area_card {min-height:145px;padding:13px;}.arg_area_card strong {font-size:14px;}.arg_card_arrow {right:10px;top:15px;}
+  .arg_home_help {align-items:flex-start;flex-direction:column;padding:16px;}
+  .arg_ribbon_tabs {padding:0 5px;}.arg_ribbon_tabs button {padding:8px 10px;font-size:12px;}.arg_ribbon_commands {padding:5px 8px;}.arg_ribbon_command {min-width:66px;max-width:92px;font-size:11px;padding:6px;}.arg_ribbon_command .arg_icon {width:22px;height:22px;}
+ }
+}
+@media(prefers-reduced-motion:reduce) {.arg_area_card {transition:none!important;}}
+/* Odoo 20 also emits direct Bootstrap colors and button-based date fields. */
+html[data-arg-theme] {
+ .o_web_client .btn-primary {background:#145b91!important;border-color:#145b91!important;color:#fff!important;}
+ .o_web_client .btn-primary:hover {background:#104a76!important;border-color:#104a76!important;}
+ .o_web_client .btn-outline-primary {background:transparent;color:var(--arg-primary);border-color:var(--arg-primary);}
+ .o_web_client .btn-outline-primary:hover {background:var(--arg-selected);color:var(--arg-primary);}
+ .o_web_client .btn-outline-secondary {color:var(--arg-text);border-color:var(--arg-border);}
+ .o_web_client .btn-outline-secondary:hover {background:var(--arg-selected);}
+ &[data-arg-theme="dark"] .btn-outline-success {color:#7dd3a0;border-color:#7dd3a0;}
+ .o_list_table th {color:var(--arg-text)!important;}
+ .o_list_table tbody>tr>td {background-color:var(--arg-panel);color:var(--arg-text);}
+ .o_list_table tbody>tr:hover>td {background-color:var(--arg-selected);}
+ .o_list_table a, .o_list_table .o_field_x2many_list_row_add>a {color:var(--arg-primary);}
+ .o_form_view .o_field_widget:not(.o_readonly_modifier) button.o_input {
+  border:1px solid var(--arg-input-border)!important;border-radius:4px!important;
+  background:var(--arg-input-bg);color:var(--arg-text);padding:6px 28px 6px 9px!important;
+  min-height:34px;position:relative;
+  &::after {content:"▾";position:absolute;right:10px;color:var(--arg-primary);}
+  &:focus-visible {outline:2px solid var(--arg-celeste);outline-offset:1px;}
+ }
+ .arg_document_form .o_control_panel_breadcrumbs {flex-wrap:wrap;flex:1 1 100%;max-width:100%;min-width:0;}
+ .arg_document_form .o_control_panel_main_buttons {flex:0 0 100%;padding-right:0!important;}
+ .arg_document_form .arg_document_actions {width:100%;}
+ .arg_document_form .o_breadcrumb {color:var(--arg-text);}
+ .arg_document_form .o_form_statusbar .o_statusbar_status {background:var(--arg-panel);}
+ .arg_document_form .o_form_statusbar .o_arrow_button {color:var(--arg-muted);background:var(--arg-panel);}
+ .arg_document_form .o_form_statusbar .o_arrow_button_current {color:var(--arg-text);background:var(--arg-selected);}
+ .arg_document_form .o_form_statusbar .o_arrow_button_current::before,
+ .arg_document_form .o_form_statusbar .o_arrow_button_current::after {border-left-color:var(--arg-selected);}
+}
+html[data-arg-theme] {
+ .o_form_view .btn-link, .o_list_renderer .btn-link,
+ .o_form_view .breadcrumb-item a, .o_form_view a:not(.btn) {color:var(--arg-primary);}
+ .arg_document_form .o_form_statusbar .o_arrow_button:disabled {opacity:1;color:var(--arg-muted)!important;}
+ .arg_document_form .o_form_statusbar .o_arrow_button_current:disabled {color:var(--arg-text)!important;}
+}

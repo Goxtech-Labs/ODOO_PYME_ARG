@@ -65,6 +65,9 @@ Como usuario necesito identidad argentina y ayudas consistentes sin publicidad o
 - **FR-003**: Compartir guardado, descarte, retorno, foco y semántica entre formularios.
 - **FR-004**: Mantener matrices alineadas y paginadas con filtros combinables.
 - **FR-005**: Aplicar celeste/blanco, branding discreto, claro/oscuro y controles accesibles.
+- **FR-007**: Ofrecer una cinta por circuito con pestañas estables, comandos con texto e iconos Lucide locales y grupos de documentos/datos; mostrar sólo menús permitidos y conservar Configuración según el rol.
+- **FR-008**: Distinguir campos editables, desplegables y valores de lectura mediante bordes, superficie, flecha nativa y foco visibles, en ambos temas, sin cambiar validaciones ni guardar implícitamente.
+- **FR-009**: Usar recursos argentinos de industria y gestión en Inicio/acceso, con branding Goxtech secundario, licencias y procedencia conservadas; adaptar cinta y portada al ancho disponible.
 - **FR-006**: Presentar GOXTECHBOT preservando identidad técnica y comportamiento del bot nativo.
 
 ### Key Entities
@@ -91,3 +94,24 @@ Como usuario necesito identidad argentina y ayudas consistentes sin publicidad o
 - Usar sólo datos de ejemplo; mantener servicios externos desactivados hasta su habilitación.
 - Clasificar esta entrega como núcleo; conservar alcance definido en el plan maestro.
 - Licencias adoptadas: AGPL-3.0 para código original y CC BY-SA 4.0 para documentación/recursos; conservar avisos y licencias de terceros según NOTICE.md.
+
+## Incremento visual solicitado · 2026-11-02
+
+El titular pidió iconos Lucide, pestañas/cinta inspiradas en Office, campos delimitados y
+reconocimiento claro de escritura frente a selección, con bandera, industria y gestión argentinas.
+Se amplía esta spec existente; no cambia el orden documental ni se agregan campos obligatorios.
+
+### Escenarios del incremento
+
+1. Con permisos de Ventas, seleccionar la pestaña Compras sólo cambia los comandos disponibles;
+   abrir un comando usa la navegación nativa y sus guardas. Las acciones sin permiso no aparecen.
+2. Con permiso de configuración, acceder a Tipos documentales, Terceros y Listas avanzadas desde
+   su pestaña. Ayuda y soporte siguen disponibles; Odoo avanzado conserva su entrada.
+3. En un PRE borrador, distinguir cliente/autocompletar, fecha, texto y cantidades; abrir el
+   desplegable real, editar y descartar sin confirmar ni contabilizar. Los valores protegidos
+   siguen de lectura; teclado, foco y advertencias conservan la lógica nativa.
+4. En tema claro/oscuro y pantalla estrecha, reconocer textos, pestañas e iconos, desplazar o
+   contraer la cinta y acceder a las tarjetas. Las imágenes no sustituyen etiquetas accesibles.
+5. El acceso conserva formulario, CSRF, autenticación y ayudas nativas, con identidad ARG.
+
+La aceptación del titular se registra separada de la comprobación técnica/visual del agente.
