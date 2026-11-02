@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+report_query,Consulta informes ARG,arg.pyme.report.query,arg_pyme_base.group_informes,crud,
+report_admin,Consulta informes administrador ARG,arg.pyme.report.query,arg_pyme_base.group_admin,crud,
+report_query_company_owner,Consulta informes propia compañía ARG,arg.pyme.report.query,,crud,"[('company_id','in',company_ids),('create_uid','=',user.id)]"

@@ -1,0 +1,6 @@
+id,name,model_id,group_id/id,operation,domain
+partner_roles_read,Roles ARG consulta,arg.pyme.partner.role,arg_pyme_base.group_operator,r,
+partner_roles_admin,Roles ARG administración,arg.pyme.partner.role,arg_pyme_base.group_admin,crud,
+partners_sales,Terceros ventas ARG,res.partner,arg_pyme_base.group_ventas,cru,
+partners_purchase,Terceros compras ARG,res.partner,arg_pyme_base.group_compras,cru,
+partners_admin,Terceros administrador ARG,res.partner,arg_pyme_base.group_admin,cru,

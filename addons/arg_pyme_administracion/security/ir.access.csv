@@ -1,0 +1,11 @@
+id,name,model_id,group_id/id,operation,domain
+treasury_finance,Documentos financieros ARG,arg.pyme.treasury.document,arg_pyme_base.group_administracion,cru,
+treasury_company,Documentos financieros compañía ARG,arg.pyme.treasury.document,,crud,"[('company_id','in',company_ids)]"
+treasury_line_finance,Medios financieros ARG,arg.pyme.treasury.line,arg_pyme_base.group_administracion,crud,
+treasury_line_company,Medios financieros compañía ARG,arg.pyme.treasury.line,,crud,"[('company_id','in',company_ids)]"
+treasury_event_finance,Evidencia financiera lectura ARG,arg.pyme.treasury.audit.event,arg_pyme_base.group_administracion,r,
+treasury_event_manager,Evidencia financiera motor ARG,arg.pyme.treasury.audit.event,arg_pyme_administracion.group_finance_manager,c,
+treasury_event_company,Evidencia financiera compañía ARG,arg.pyme.treasury.audit.event,,crud,"[('company_id','in',company_ids)]"
+treasury_apply_manager,Aplicar saldo ARG,arg.pyme.treasury.apply.wizard,arg_pyme_administracion.group_finance_manager,cru,
+treasury_reverse_manager,Revertir documento ARG,arg.pyme.treasury.reverse.wizard,arg_pyme_administracion.group_finance_manager,cru,
+treasury_unapply_manager,Desaplicar documento ARG,arg.pyme.treasury.unapply.wizard,arg_pyme_administracion.group_finance_manager,cru,

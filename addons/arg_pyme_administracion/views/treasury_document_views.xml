@@ -1,0 +1,116 @@
+<odoo>
+    <record id="treasury_list" model="ir.ui.view">
+        <field name="name">arg.pyme.treasury.document.list</field><field name="model">arg.pyme.treasury.document</field>
+        <field name="arch" type="xml"><list string="Recibos y órdenes ARG" js_class="arg_list" limit="50">
+            <field name="arg_number"/><field name="partner_id"/><field name="date"/><field name="kind"/>
+            <field name="currency_id"/><field name="total"/><field name="applied_amount"/><field name="free_amount"/>
+            <field name="state" widget="badge"/><field name="company_id" groups="base.group_multi_company"/>
+        </list></field>
+    </record>
+    <record id="treasury_form" model="ir.ui.view">
+        <field name="name">arg.pyme.treasury.document.form</field><field name="model">arg.pyme.treasury.document</field>
+        <field name="arch" type="xml"><form string="Documento financiero ARG" js_class="arg_form">
+            <header>
+                <button name="action_confirm" type="object" string="Confirmar" class="oe_highlight" invisible="state != 'draft'" groups="arg_pyme_administracion.group_finance_manager"/>
+                <button name="action_apply" type="object" string="Aplicar saldo" invisible="state != 'confirmed' or free_amount == 0" groups="arg_pyme_administracion.group_finance_manager"/>
+                <button name="action_unapply" type="object" string="Desaplicar" invisible="state != 'confirmed' or not partial_ids" groups="arg_pyme_administracion.group_finance_manager"/>
+                <button name="action_reverse" type="object" string="Revertir" invisible="state not in ['confirmed','exception']" groups="arg_pyme_administracion.group_finance_manager"/>
+                <button name="action_cancel_draft" type="object" string="Cancelar borrador" invisible="state != 'draft'" groups="arg_pyme_administracion.group_finance_manager"/>
+                <button name="action_arg_print" type="object" string="Imprimir documento"/>
+                <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,reverted"/>
+            </header>
+            <sheet>
+                <widget name="arg_document_header"/>
+                <field name="company_id" invisible="True"/><field name="commercial_partner_id" invisible="True"/><group><field name="partner_id" readonly="state != 'draft'" options="{'no_create':True}"/></group>
+                <group><group><field name="kind" readonly="True"/><field name="date" readonly="state != 'draft'"/>
+                    <field name="company_id" readonly="state != 'draft'" groups="base.group_multi_company"/>
+                    <field name="currency_id" readonly="state != 'draft'"/></group>
+                    <group><field name="arg_reference" readonly="state != 'draft'"/>
+                    <field name="debt_move_ids" widget="many2many_tags" readonly="state != 'draft'"
+                        domain="[('state','=','posted'),('company_id','=',company_id),('commercial_partner_id','=',commercial_partner_id),('move_type','=', 'out_invoice' if kind == 'REC' else 'in_invoice')]"
+                        options="{'no_create':True}"/>
+                    </group></group>
+                <div class="alert alert-info" role="note" invisible="state != 'draft'">
+                    Seleccione los medios e importes. Sin facturas seleccionadas, se registra un anticipo.
+                    Confirmar registra contabilidad; una transferencia manual no se ejecuta desde esta pantalla.
+                </div>
+                <field name="line_ids" readonly="state != 'draft'">
+                    <list editable="bottom">
+                        <field name="currency_id" column_invisible="True"/>
+                        <field name="method_id" domain="[('company_id','=',parent.company_id),('code','=','manual'),('payment_type','=', 'inbound' if parent.kind == 'REC' else 'outbound')]" options="{'no_create':True}"/>
+                        <field name="amount"/><field name="payment_id" readonly="True" optional="hide"/>
+                    </list>
+                </field>
+                <group class="oe_subtotal_footer"><field name="total"/><field name="applied_amount"/><field name="free_amount"/></group>
+                <field name="note" placeholder="Observaciones" readonly="state != 'draft'"/>
+                <notebook>
+                    <page string="Aplicaciones vigentes"><field name="partial_ids" readonly="True">
+                        <list create="false" edit="false" delete="false">
+                            <field name="debit_move_id"/><field name="credit_move_id"/>
+                            <field name="debit_currency_id"/><field name="debit_amount_currency"/>
+                            <field name="credit_currency_id"/><field name="credit_amount_currency"/>
+                            <field name="max_date"/>
+                        </list>
+                    </field></page>
+                    <page string="Pagos y asientos"><field name="payment_ids" readonly="True">
+                        <list create="false" edit="false" delete="false">
+                            <field name="name"/><field name="date"/><field name="journal_id"/><field name="currency_id"/>
+                            <field name="arg_registered_amount"/><field name="arg_payment_effect"/><field name="state"/>
+                            <field name="move_id"/>
+                        </list>
+                    </field><field name="reversal_move_ids" readonly="True" widget="many2many_tags"/></page>
+                    <page string="Historial"><field name="event_ids" readonly="True">
+                        <list create="false" edit="false" delete="false">
+                            <field name="event_date"/><field name="kind"/><field name="actor_id"/>
+                            <field name="currency_id"/><field name="inverse_of_id" optional="hide"/>
+                        </list>
+                    </field></page>
+                </notebook>
+            </sheet>
+        </form></field>
+    </record>
+    <record id="treasury_search" model="ir.ui.view">
+        <field name="name">arg.pyme.treasury.document.search</field><field name="model">arg.pyme.treasury.document</field>
+        <field name="arch" type="xml"><search>
+            <field name="arg_number"/><field name="partner_id"/><field name="date"/><field name="currency_id"/>
+            <filter name="unconfirmed" string="Borradores" domain="[('confirmed_at','=',False),('canceled_at','=',False)]"/>
+            <filter name="confirmed" string="Confirmados" domain="[('confirmed_at','!=',False),('reverted_at','=',False)]"/>
+            <filter name="reverted" string="Revertidos" domain="[('reverted_at','!=',False)]"/>
+            <separator/><filter name="company" string="Compañía" context="{'group_by':'company_id'}"/>
+            <filter name="currency" string="Moneda" context="{'group_by':'currency_id'}"/>
+            <filter name="partner" string="Tercero" context="{'group_by':'partner_id'}"/>
+            <filter name="date" string="Fecha" context="{'group_by':'date:month'}"/>
+        </search></field>
+    </record>
+    <record id="action_receipts" model="ir.actions.act_window">
+        <field name="name">Recibos ARG</field><field name="res_model">arg.pyme.treasury.document</field><field name="view_mode">list,form</field>
+        <field name="view_id" ref="treasury_list"/><field name="search_view_id" ref="treasury_search"/>
+        <field name="domain">[('kind','=','REC')]</field><field name="context">{'default_kind':'REC'}</field>
+    </record>
+    <record id="action_payment_orders" model="ir.actions.act_window">
+        <field name="name">Órdenes de pago ARG</field><field name="res_model">arg.pyme.treasury.document</field><field name="view_mode">list,form</field>
+        <field name="view_id" ref="treasury_list"/><field name="search_view_id" ref="treasury_search"/>
+        <field name="domain">[('kind','=','OPA')]</field><field name="context">{'default_kind':'OPA'}</field>
+    </record>
+    <record id="receipts_list" model="ir.actions.act_window.view"><field name="act_window_id" ref="action_receipts"/><field name="sequence">1</field><field name="view_mode">list</field><field name="view_id" ref="treasury_list"/></record>
+    <record id="receipts_form" model="ir.actions.act_window.view"><field name="act_window_id" ref="action_receipts"/><field name="sequence">2</field><field name="view_mode">form</field><field name="view_id" ref="treasury_form"/></record>
+    <record id="payment_orders_list" model="ir.actions.act_window.view"><field name="act_window_id" ref="action_payment_orders"/><field name="sequence">1</field><field name="view_mode">list</field><field name="view_id" ref="treasury_list"/></record>
+    <record id="payment_orders_form" model="ir.actions.act_window.view"><field name="act_window_id" ref="action_payment_orders"/><field name="sequence">2</field><field name="view_mode">form</field><field name="view_id" ref="treasury_form"/></record>
+    <record id="treasury_event_form" model="ir.ui.view">
+        <field name="name">arg.pyme.treasury.audit.event.form</field><field name="model">arg.pyme.treasury.audit.event</field>
+        <field name="arch" type="xml"><form string="Evidencia financiera ARG" create="false" edit="false" delete="false"><sheet>
+            <group><field name="document_id"/><field name="kind"/><field name="actor_id"/><field name="event_date"/><field name="company_id"/><field name="currency_id"/>
+                <field name="inverse_of_id"/><field name="caused_by_id"/></group>
+            <notebook><page string="Detalle avanzado"><field name="evidence_text" readonly="True"/></page></notebook>
+        </sheet></form></field>
+    </record>
+    <record id="company_finance_defaults" model="ir.ui.view">
+        <field name="name">res.company.finance.defaults.arg</field><field name="model">res.company</field><field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml"><xpath expr="//notebook" position="inside"><page string="Administración ARG" groups="base.group_system">
+            <group><field name="arg_receipt_method_id" domain="[('company_id','=',id),('payment_type','=','inbound'),('code','=','manual')]"/>
+            <field name="arg_payment_method_id" domain="[('company_id','=',id),('payment_type','=','outbound'),('code','=','manual')]"/></group>
+        </page></xpath></field>
+    </record>
+    <menuitem id="menu_receipts" name="Recibos" parent="arg_pyme_base.menu_arg_administracion" action="action_receipts" sequence="30" groups="arg_pyme_base.group_administracion"/>
+    <menuitem id="menu_payment_orders" name="Órdenes de pago" parent="arg_pyme_base.menu_arg_administracion" action="action_payment_orders" sequence="40" groups="arg_pyme_base.group_administracion"/>
+</odoo>

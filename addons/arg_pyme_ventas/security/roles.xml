@@ -1,0 +1,4 @@
+<odoo>
+<record id="arg_pyme_base.group_ventas" model="res.groups"><field name="implied_ids" eval="[(4,ref('sales_team.group_sale_salesman'))]"/></record>
+<record id="arg_pyme_base.group_admin" model="res.groups"><field name="implied_ids" eval="[(4,ref('arg_pyme_base.group_ventas')),(4,ref('sales_team.group_sale_manager'))]"/></record>
+</odoo>

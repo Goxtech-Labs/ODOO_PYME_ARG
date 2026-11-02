@@ -1,0 +1,24 @@
+<odoo>
+    <record id="treasury_apply_form" model="ir.ui.view"><field name="name">arg.pyme.treasury.apply.wizard.form</field><field name="model">arg.pyme.treasury.apply.wizard</field>
+        <field name="arch" type="xml"><form string="Aplicar saldo disponible">
+            <group><field name="document_id"/><field name="company_id" invisible="True"/><field name="partner_id" invisible="True"/><field name="commercial_partner_id" invisible="True"/><field name="kind" invisible="True"/>
+            <field name="move_id" domain="[('state','=','posted'),('company_id','=',company_id),('commercial_partner_id','=',commercial_partner_id),('move_type','=', 'out_invoice' if kind == 'REC' else 'in_invoice')]" options="{'no_create':True}"/></group>
+            <div class="alert alert-info" role="note">Se aplica el menor entre saldo disponible y deuda de la factura, por vencimiento. El resto queda libre o pendiente.</div>
+            <footer><button name="action_apply" type="object" string="Aplicar saldo" class="btn-primary"/><button special="cancel" string="Cancelar"/></footer>
+        </form></field>
+    </record>
+    <record id="treasury_reverse_form" model="ir.ui.view"><field name="name">arg.pyme.treasury.reverse.wizard.form</field><field name="model">arg.pyme.treasury.reverse.wizard</field>
+        <field name="arch" type="xml"><form string="Revertir documento financiero">
+            <group><field name="document_id"/><field name="date"/><field name="reason"/></group>
+            <div class="alert alert-info" role="note">Se generan asientos inversos nativos y se liberan aplicaciones del documento. El historial se conserva.</div>
+            <footer><button name="action_reverse" type="object" string="Revertir documento" class="btn-primary"/><button special="cancel" string="Cancelar"/></footer>
+        </form></field>
+    </record>
+    <record id="treasury_unapply_form" model="ir.ui.view"><field name="name">arg.pyme.treasury.unapply.wizard.form</field><field name="model">arg.pyme.treasury.unapply.wizard</field>
+        <field name="arch" type="xml"><form string="Desaplicar documento financiero">
+            <group><field name="document_id"/><field name="target_ids" invisible="True"/><field name="reason"/></group>
+            <div class="alert alert-info" role="note">Se desaplican las conciliaciones que tenía este documento al abrir el diálogo. El dinero continúa registrado y queda disponible para aplicar.</div>
+            <footer><button name="action_unapply" type="object" string="Desaplicar" class="btn-primary"/><button special="cancel" string="Cancelar"/></footer>
+        </form></field>
+    </record>
+</odoo>

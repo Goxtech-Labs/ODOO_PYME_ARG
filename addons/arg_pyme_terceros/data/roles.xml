@@ -1,0 +1,1 @@
+<odoo noupdate="1"><record id="role_customer" model="arg.pyme.partner.role"><field name="name">Cliente</field><field name="code">customer</field></record><record id="role_supplier" model="arg.pyme.partner.role"><field name="name">Proveedor</field><field name="code">supplier</field></record></odoo>

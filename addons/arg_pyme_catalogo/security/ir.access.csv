@@ -1,0 +1,12 @@
+id,name,model_id,group_id/id,operation,domain
+products_arg,Productos ARG,product.template,arg_pyme_base.group_operator,cru,
+variants_arg,Variantes ARG,product.product,arg_pyme_base.group_operator,cru,
+categories_arg,Categorías ARG,product.category,arg_pyme_base.group_manager,crud,
+attributes_arg,Atributos ARG,product.attribute,arg_pyme_base.group_manager,crud,
+attribute_values_arg,Valores ARG,product.attribute.value,arg_pyme_base.group_manager,crud,
+attribute_lines_arg,Líneas atributos ARG,product.template.attribute.line,arg_pyme_base.group_manager,crud,
+attribute_template_values_arg,Valores producto ARG,product.template.attribute.value,arg_pyme_base.group_manager,crud,
+pricelists_arg,Listas ARG,product.pricelist,arg_pyme_base.group_manager,crud,
+prices_arg,Reglas precios ARG,product.pricelist.item,arg_pyme_base.group_manager,crud,
+price_batch_read,Lotes precios ARG,arg.pyme.price.change.batch,arg_pyme_base.group_manager,r,
+price_batch_company,Lotes precios compañía,arg.pyme.price.change.batch,,crud,"[('company_id', 'in', company_ids)]"

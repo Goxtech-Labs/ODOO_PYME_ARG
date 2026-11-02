@@ -1,0 +1,45 @@
+<odoo noupdate="1">
+    <record id="help_treasury" model="arg.pyme.help.resource">
+        <field name="name">Administración ARG 1.1 · Cuentas, recibos y pagos</field>
+        <field name="module_key">arg_pyme_administracion</field>
+        <field name="task">gestion-financiera</field>
+        <field name="version_min">20.0</field>
+        <field name="version_max">20.0</field>
+        <field name="state">current</field>
+        <field name="manual_text" type="html">
+            <div>
+                <p>Cuentas de clientes y proveedores consulta deuda y crédito publicados por vencimiento, moneda y compañía.
+            Un saldo cancelado por nota o ajuste no acredita dinero.</p>
+                <p>Recibos y Órdenes de pago: elegí tercero, medios e importes. Las facturas seleccionadas reciben aplicación nativa;
+            sin factura se registra un anticipo. Un responsable confirma. El saldo libre se puede aplicar después a una factura del mismo tercero y compañía.</p>
+                <p>Desaplicar libera únicamente las aplicaciones preparadas en el diálogo y conserva el dinero registrado y su historial.
+            Revertir genera asientos inversos con fecha y motivo, sin borrar el original. Una conciliación bancaria previa requiere revisión antes de la reversión.</p>
+                <p>Caja y banco consulta apuntes de liquidez publicados. Registros de cobro y pago distingue cuentas transitorias y efectos revertidos.
+            Una transferencia manual se registra, no se ejecuta en el banco. Los importes se consultan en su moneda.</p>
+                <p>Dinero aplicado se calcula desde conciliaciones vigentes y evidencia contable. Cuando un desglose complejo no permite determinarlo,
+            se muestra No determinado y su explicación. Se conservan los saldos de deuda disponibles.</p>
+                <p>Configurá medios manuales, cuentas transitorias y permisos antes de confirmar. Tutorial YouTube pendiente de publicación; guía escrita disponible.</p>
+            </div>
+        </field>
+    </record>
+    <record id="help_current_account" model="arg.pyme.help.resource">
+        <field name="name">Administración ARG · Cuentas corrientes</field>
+        <field name="module_key">arg_pyme_administracion</field>
+        <field name="task">cuenta-corriente</field>
+        <field name="version_min">20.0</field>
+        <field name="version_max">20.0</field>
+        <field name="state">replaced</field>
+        <field name="manual_text" type="html">
+            <div>
+                <p>Administración → Cuentas de clientes o Cuentas de proveedores muestra vencimientos publicados.
+            El saldo positivo representa deuda y el negativo crédito o anticipo. Cada fila corresponde a un apunte o cuota;
+            no repita el total de la factura al contar varias cuotas.</p>
+                <p>Filtre por tercero, moneda y compañía. No se suman monedas diferentes. Documento de origen abre el comprobante nativo.
+            Deuda saldada puede incluir notas o ajustes y no acredita dinero cobrado o pagado.</p>
+                <p>Esta entrega incorpora consulta; recibos, órdenes de pago y aplicaciones se incorporan en el siguiente incremento.
+            Tutorial YouTube pendiente de publicación; la guía escrita está disponible.</p>
+            </div>
+        </field>
+        <field name="replacement_id" ref="help_treasury" />
+    </record>
+</odoo>

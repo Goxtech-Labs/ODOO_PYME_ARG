@@ -1,0 +1,1 @@
+<odoo><record id="action_stock_matrix" model="ir.actions.client"><field name="name">Existencias ARG</field><field name="tag">arg_pyme.stock_matrix</field></record><menuitem id="menu_stock_matrix" name="Existencias" parent="arg_pyme_base.menu_arg_stock" action="action_stock_matrix" sequence="10"/></odoo>

@@ -1,0 +1,14 @@
+<odoo>
+    <record id="purchase_bill_form" model="ir.ui.view">
+        <field name="name">arg.pyme.purchase.bill.wizard.form</field><field name="model">arg.pyme.purchase.bill.wizard</field>
+        <field name="arch" type="xml"><form string="Preparar factura recibida">
+            <group><field name="order_id"/><field name="operation_key" invisible="1"/></group>
+            <p>Elegí las cantidades de esta factura. Cero excluye una línea. Se comprobará nuevamente el pendiente antes de crear el borrador; completá allí el número original del proveedor.</p>
+            <field name="line_ids"><list editable="bottom" create="0" delete="0">
+                <field name="order_line_id" column_invisible="True"/><field name="product_id"/>
+                <field name="uom_id"/><field name="available"/><field name="quantity"/>
+            </list></field>
+            <footer><button name="action_apply" type="object" string="Preparar borrador" class="btn-primary"/><button special="cancel" string="Cancelar"/></footer>
+        </form></field>
+    </record>
+</odoo>

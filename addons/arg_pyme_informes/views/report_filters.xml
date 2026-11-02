@@ -1,0 +1,14 @@
+<odoo>
+<record id="report_query_form" model="ir.ui.view"><field name="name">arg.pyme.report.query.form</field><field name="model">arg.pyme.report.query</field>
+<field name="arch" type="xml"><form string="Informes ARG" js_class="arg_form" duplicate="false">
+<header><button name="action_refresh" type="object" string="Consultar / primera página" class="oe_highlight" invisible="not source"/>
+<button name="action_csv" type="object" string="Exportar CSV" invisible="not source"/><button name="action_pdf" type="object" string="Imprimir PDF" invisible="not source"/>
+<button name="action_previous" type="object" string="Anterior" invisible="page_number == 0 or not source"/><button name="action_next" type="object" string="Siguiente" invisible="not source"/></header>
+<sheet><group><field name="partner_id" options="{'no_create':True}"/></group>
+<group><group><field name="source"/><field name="company_id" groups="base.group_multi_company" options="{'no_create':True}"/>
+<field name="currency_id" options="{'no_create':True}"/></group><group><field name="date_from"/><field name="date_to"/><field name="group_by"/></group></group>
+<group string="Filtros adicionales"><field name="product_query"/><field name="location_query"/></group>
+<div class="alert alert-info" role="note">Cada consulta mide un único hecho, una compañía y una moneda. Stock actual ignora el período; stock a fecha usa todo el historial hasta Hasta. Los saldos de deuda son actuales, por vencimiento.</div>
+<field name="page_number" invisible="True"/><field name="result_html" nolabel="1" widget="html" readonly="True"/>
+</sheet></form></field></record>
+</odoo>

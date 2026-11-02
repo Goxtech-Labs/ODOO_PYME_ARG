@@ -1,0 +1,6 @@
+<odoo>
+<record id="action_categories" model="ir.actions.act_window"><field name="name">Categorías ARG</field><field name="res_model">product.category</field><field name="view_mode">list,form</field></record>
+<record id="action_attributes" model="ir.actions.act_window"><field name="name">Atributos opcionales ARG</field><field name="res_model">product.attribute</field><field name="view_mode">list,form</field></record>
+<menuitem id="menu_categories" name="Categorías" parent="arg_pyme_base.menu_arg_stock" action="action_categories" sequence="80" groups="arg_pyme_base.group_manager"/>
+<menuitem id="menu_attributes" name="Atributos opcionales" parent="arg_pyme_base.menu_arg_stock" action="action_attributes" sequence="90" groups="arg_pyme_base.group_manager"/>
+</odoo>

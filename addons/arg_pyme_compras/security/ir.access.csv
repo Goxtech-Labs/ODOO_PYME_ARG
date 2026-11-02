@@ -1,0 +1,8 @@
+id,name,model_id,group_id/id,operation,domain
+bill_operation_purchase,Evidencia facturas compra ARG,arg.pyme.purchase.bill.operation,arg_pyme_base.group_compras,r,
+bill_operation_finance,Evidencia facturas administración ARG,arg.pyme.purchase.bill.operation,arg_pyme_base.group_administracion,r,
+bill_operation_company,Evidencia facturas compañía ARG,arg.pyme.purchase.bill.operation,,crud,"[('company_id','in',company_ids)]"
+bill_wizard_purchase,Preparar factura compra ARG,arg.pyme.purchase.bill.wizard,arg_pyme_base.group_compras,cru,
+bill_wizard_line_purchase,Cantidad factura compra ARG,arg.pyme.purchase.bill.wizard.line,arg_pyme_base.group_compras,cru,
+purchase_finance_read,Pedidos proveedor consulta administración ARG,purchase.order,arg_pyme_base.group_administracion,r,
+purchase_line_finance_read,Líneas compra consulta administración ARG,purchase.order.line,arg_pyme_base.group_administracion,r,

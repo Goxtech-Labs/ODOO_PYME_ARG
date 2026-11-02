@@ -1,0 +1,8 @@
+id,name,model_id,group_id/id,operation,domain
+access_document_type_operator,Tipos ARG consulta,arg.pyme.document.type,arg_pyme_base.group_operator,r,
+access_document_type_admin,Tipos ARG administración,arg.pyme.document.type,arg_pyme_base.group_admin,cru,
+access_document_identity_admin,Identidad ARG consulta,arg.pyme.document.identity,arg_pyme_base.group_admin,r,
+access_help_operator,Ayuda ARG consulta,arg.pyme.help.resource,arg_pyme_base.group_operator,r,
+access_help_admin,Ayuda ARG administración,arg.pyme.help.resource,arg_pyme_base.group_admin,crud,
+rule_document_type_company,Tipos ARG por compañía,arg.pyme.document.type,,crud,"[('company_id', 'in', company_ids)]"
+rule_document_identity_company,Identidad ARG por compañía,arg.pyme.document.identity,,crud,"[('company_id', 'in', company_ids)]"

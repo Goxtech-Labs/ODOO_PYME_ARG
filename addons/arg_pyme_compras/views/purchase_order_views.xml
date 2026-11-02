@@ -1,0 +1,82 @@
+<odoo>
+    <record id="purchase_list" model="ir.ui.view">
+        <field name="name">purchase.order.arg.list</field><field name="model">purchase.order</field>
+        <field name="arch" type="xml"><list js_class="arg_list">
+            <field name="arg_number" string="Pedido proveedor"/><field name="date_order"/>
+            <field name="partner_id"/><field name="partner_ref" optional="show"/>
+            <field name="state" widget="badge"/><field name="amount_total"/><field name="currency_id"/>
+            <field name="company_id" groups="base.group_multi_company"/>
+        </list></field>
+    </record>
+    <record id="purchase_form" model="ir.ui.view">
+        <field name="name">purchase.order.arg.form</field><field name="model">purchase.order</field>
+        <field name="arch" type="xml"><form js_class="arg_form">
+            <header>
+                <button name="button_confirm" type="object" string="Confirmar pedido" class="btn-primary" invisible="state not in ['draft','sent']" groups="arg_pyme_base.group_manager"/>
+                <button name="button_approve" type="object" string="Aprobar pedido" class="btn-primary" invisible="state != 'to approve'" groups="purchase.group_purchase_manager"/>
+                <button name="action_arg_prepare_bill" type="object" string="Preparar factura recibida" invisible="state != 'purchase'"/>
+                <button name="action_view_invoice" type="object" string="Ver facturas"/>
+                <button name="action_arg_print" type="object" string="Imprimir"/>
+                <button name="button_cancel" type="object" string="Cancelar" invisible="state == 'cancel'" groups="arg_pyme_base.group_manager"/>
+                <button name="button_draft" type="object" string="Volver a borrador" invisible="state not in ['cancel','to approve']" groups="arg_pyme_base.group_manager"/>
+                <button name="button_unlock" type="object" string="Desbloquear" invisible="not locked" groups="arg_pyme_base.group_manager"/>
+                <field name="state" widget="statusbar" statusbar_visible="draft,to approve,purchase"/>
+            </header>
+            <sheet>
+                <widget name="arg_document_header"/>
+                <field name="locked" invisible="1"/>
+                <group><group>
+                    <field name="partner_id" readonly="state not in ['draft','sent']"/>
+                    <field name="date_order" readonly="state not in ['draft','sent']"/>
+                    <field name="date_planned"/>
+                </group><group>
+                    <field name="company_id" groups="base.group_multi_company" readonly="arg_number"/>
+                    <field name="currency_id" readonly="state not in ['draft','sent']"/>
+                    <field name="partner_ref"/>
+                </group></group>
+                <field name="order_line" readonly="state not in ['draft','sent']">
+                    <list editable="bottom">
+                        <field name="display_type" column_invisible="True"/>
+                        <field name="product_id"/><field name="name"/><field name="product_qty"/>
+                        <field name="uom_id"/><field name="price_unit"/><field name="discount" optional="hide"/>
+                        <field name="tax_ids" widget="many2many_tags"/><field name="price_total"/>
+                        <field name="date_planned" optional="hide"/>
+                        <field name="currency_id" column_invisible="True"/>
+                    </list>
+                </field>
+                <group class="oe_subtotal_footer oe_right"><field name="amount_untaxed"/><field name="amount_tax"/><field name="amount_total"/></group>
+                <p class="text-muted">Pedido, recepción, factura y pago son documentos independientes. El número original del proveedor se conserva en la factura recibida. Deuda saldada puede incluir notas o ajustes; no equivale a dinero pagado.</p>
+                <notebook>
+                    <page string="Condiciones"><group>
+                        <field name="payment_term_id" readonly="state not in ['draft','sent']"/>
+                        <field name="fiscal_position_id" readonly="state not in ['draft','sent']"/>
+                        <field name="document_tax_mode" readonly="state not in ['draft','sent']"/>
+                        <field name="arg_allow_zero_price" readonly="state not in ['draft','sent']"/>
+                    </group><field name="note" readonly="state not in ['draft','sent']"/></page>
+                    <page string="Facturas y notas"><field name="invoice_ids" readonly="1"><list create="0" delete="0">
+                        <field name="arg_number"/><field name="ref"/><field name="invoice_date"/>
+                        <field name="state"/><field name="amount_total"/><field name="amount_residual"/><field name="currency_id"/>
+                    </list></field></page>
+                    <page string="Referencia nativa"><group><field name="name" readonly="1"/><field name="invoice_status"/><field name="date_approve"/><field name="user_id"/></group></page>
+                </notebook>
+            </sheet>
+        </form></field>
+    </record>
+    <record id="purchase_search" model="ir.ui.view">
+        <field name="name">purchase.order.arg.search</field><field name="model">purchase.order</field>
+        <field name="arch" type="xml"><search><field name="arg_number"/><field name="partner_id"/><field name="partner_ref"/>
+            <filter name="draft" string="Borradores" domain="[('state','in',['draft','sent'])]"/>
+            <filter name="approve" string="Por aprobar" domain="[('state','=','to approve')]"/>
+            <filter name="confirmed" string="Confirmados" domain="[('state','=','purchase')]"/>
+        </search></field>
+    </record>
+    <record id="action_purchase_orders" model="ir.actions.act_window">
+        <field name="name">Pedidos al proveedor ARG</field><field name="res_model">purchase.order</field>
+        <field name="view_mode">list,form</field><field name="view_id" ref="purchase_list"/><field name="search_view_id" ref="purchase_search"/>
+    </record><record id="action_purchase_orders_list" model="ir.actions.act_window.view"><field name="sequence">1</field><field name="view_mode">list</field><field name="view_id" ref="purchase_list"/><field name="act_window_id" ref="action_purchase_orders"/></record>
+    <record id="action_purchase_orders_form" model="ir.actions.act_window.view">
+        <field name="sequence">2</field><field name="view_mode">form</field><field name="view_id" ref="purchase_form"/>
+        <field name="act_window_id" ref="action_purchase_orders"/>
+    </record>
+    <menuitem id="menu_purchase_orders" name="Pedidos al proveedor" parent="arg_pyme_base.menu_arg_compras" action="action_purchase_orders" sequence="10"/>
+</odoo>
