@@ -92,3 +92,11 @@ en entrada ni se ocultan validaciones. Foco y texto acompañan el color de cada 
 
 Celeste #74ACDF, azul operativo #145B91, blanco y acento solar #F6C344; superficies oscuras adaptadas.
 Lucide se sirve desde el addon sin CDN. [Recursos y procedencia](RECURSOS-VISUALES.md).
+
+## Paleta de componentes nativos
+
+Usar azul ARG desde las variables Sass de marca y Bootstrap; conservar colores semánticos y
+longitudes/índices de paletas. El tema incluye enlaces, selección, calendarios y controles nativos.
+En oscuro, buscadores y cabeceras del calendario deben compartir superficies legibles.
+Favicon ARG sólo como valor predeterminado: la identidad configurada por la pyme tiene prioridad.
+[Implementación y evidencia parcial](entregas/TEMA-ARG.md).

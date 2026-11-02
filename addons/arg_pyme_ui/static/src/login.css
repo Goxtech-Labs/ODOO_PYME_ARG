@@ -8,3 +8,13 @@ body:has(.arg_login_brand){background:#eef6fc!important;background-image:linear-
 .o_database_list:has(.arg_login_brand) .form-control{border:1px solid #8d9eae;border-radius:4px;min-height:40px;}
 .o_database_list:has(.arg_login_brand) .btn-primary{background:#145b91!important;border-color:#145b91!important;color:#fff!important;}
 .o_database_list:has(.arg_login_brand) .form-control:focus{border-color:#145b91;box-shadow:0 0 0 3px #74acdf55;}
+
+.o_database_list:has(.arg_login_brand) .btn-primary:hover,.o_database_list:has(.arg_login_brand) .btn-primary:focus-visible{background:#104a76!important;border-color:#104a76!important;}
+/* Portal injects its own brand color after the login head. Override it only
+   on the ARG sign-in surface, preserving the company's portal preference. */
+body:has(.arg_login_brand){--portal-primary-color:#145b91;--portal-text-color:#fff;}
+body:has(.arg_login_brand) a:not(.btn){color:#145b91!important;}
+body:has(.arg_login_brand) a:not(.btn):hover{color:#104a76!important;}
+body:has(.arg_login_brand) a:focus-visible{outline:2px solid #74acdf;outline-offset:2px;}
+body:has(.arg_login_brand) .o_skip_to_content.btn-primary{background:#145b91!important;border-color:#145b91!important;color:#fff!important;}
+body:has(.arg_login_brand) .o_skip_to_content.btn-primary:hover{background:#104a76!important;border-color:#104a76!important;}

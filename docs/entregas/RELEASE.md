@@ -1,28 +1,25 @@
-# Odoo Pymes ARG — 0.1.3-dev
+# Odoo Pymes ARG — 0.1.4-dev
 
-Interfaz con cinta de comandos, iconos Lucide locales, campos delimitados, portada y acceso con
-industria argentina. Preferencias personales de tema/densidad. Correcciones de compatibilidad con
-Odoo 20 para cantidades e impresión. [Cambios y pruebas](INTERFAZ-Y-VENTAS.md).
+Paleta argentina integrada en las variables de Odoo, sus controles nativos y las paletas de
+calendario. Azules ARG en menús, enlaces, selección y foco; favicon propio predeterminado y color
+del navegador. Mejoras de contraste de buscador, calendario y botones neutros en oscuro.
+[Detalle, pruebas y límites](TEMA-ARG.md).
 
-Composición:91 módulos,79 nativos/dependencias y12 ARG. Paquete227 archivos,
-SHA256 `a4e0dcadaaa7a64985cda7fdf56429f9c1a904b700986d5c8c9a2b1d199d24bf`. [Versiones exactas](../../composition/versions.lock.json).
-Interfaz20.0.1.1.2, Documentos20.0.1.0.6; los consumidores de cantidades incrementan sus versiones.
-Composición actualizada explícitamente en aislado y demo, sin actualización global de módulos.
+Interfaz20.0.1.1.5; los otros once addons mantienen su versión.91 módulos instalados,
+79 nativos/dependencias y12 ARG. Paquete231 archivos, SHA256 `37f8c64c3030591348b193e6560c2da585d5ff78d02f87c3e678d2325518788e`.
+[Composición exacta](../../composition/versions.lock.json). Actualización explícita de Interfaz ARG
+en aislado y demo, sin modificar core ni actualizar todos los módulos.
 
-Se ejecutó QA aislada del recorrido PRE→PED→REM parcial→FAC parcial con ejemplos, diario interno
-sin emisión fiscal y permisos del usuario de gestión. Dos unidades pedidas, una entregada y una
-facturada; pendientes físicos, de facturación y deuda diferenciados. HTML documental y consultas
-PED/FAC/existencias comprobados. No acredita pruebas completas de todos los circuitos.
+Se revisaron Inicio, listado/selección, formulario, calendario, desplegables y preferencias nativas
+en claro/oscuro. El análisis CSS de las superficies observadas no detectó violeta; no certifica
+cada imagen, aplicación externa ni todos los estados posibles. Se conserva el icono personalizado
+de la empresa y los colores semánticos de éxito, advertencia y error.
 
-Se verificaron arranque OWL, cinta y configuración, combo de cliente, edición sin guardar,
-cambio de pestaña conservando datos, descarte sin persistencia, tema claro/oscuro y ancho390px.
-El acceso conserva autenticación/CSRF nativos. La aceptación del titular sigue pendiente.
+Respaldo completo previo con integridad verificada, sin restauración en esta entrega. Fuentes
+instaladas contrastadas con el paquete. Conteos de negocio de la demo preservados; no se crearon
+operaciones ni se enviaron mensajes. Las pruebas parciales de Ventas de la
+[entrega anterior](RELEASE-0.1.3-dev.md) no se repitieron para este cambio visual.
+Aceptación personal y escenarios restantes pendientes.
 
-Respaldo consistente previo con integridad verificada; no restaurado en esta revisión. La demo
-conserva sus datos; las operaciones de QA están sólo en el entorno aislado. No hubo emisión fiscal,
-pagos ni mensajes externos. Cron y correo permanecen desactivados.
-
-Canales Goxtech configurados según [entrega anterior](RELEASE-0.1.2-dev.md).
-Tutoriales específicos, integraciones, ARCA y módulos por rubro continúan como etapas posteriores.
-Código original AGPL-3.0-only; documentación/recursos originales CC BY-SA 4.0; Lucide ISC/Feather MIT.
-[Recursos y procedencia](../RECURSOS-VISUALES.md). [QA y límites](QA.md).
+Licencias originales AGPL-3.0-only y CC BY-SA4.0; atribuciones de Odoo/Lucide conservadas.
+[Recursos](../RECURSOS-VISUALES.md). Integraciones, ARCA y rubros siguen como etapas posteriores.

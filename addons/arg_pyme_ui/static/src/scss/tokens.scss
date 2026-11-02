@@ -155,3 +155,36 @@ html[data-arg-theme] {
  .arg_document_form .o_form_statusbar .o_arrow_button:disabled {opacity:1;color:var(--arg-muted)!important;}
  .arg_document_form .o_form_statusbar .o_arrow_button_current:disabled {color:var(--arg-text)!important;}
 }
+/* Odoo 20 Bootstrap uses an empty CSS variable prefix. Keep these aliases
+   aligned with ARG's runtime light/dark preference, including native dialogs. */
+html[data-arg-theme] {
+ --arg-link-rgb:20,91,145;
+ &[data-arg-theme="dark"] {--arg-link-rgb:139,196,241;}
+ .o_web_client {
+  --body-color:var(--arg-text);--body-bg:var(--arg-bg);--border-color:var(--arg-border);
+  --secondary-color:var(--arg-muted);--emphasis-color:var(--arg-text);
+  --link-color:var(--arg-primary);--link-color-rgb:var(--arg-link-rgb);
+  --link-hover-color:var(--arg-primary);--link-hover-color-rgb:var(--arg-link-rgb);
+ }
+ .o_web_client .text-action, .o_web_client .text-primary {color:var(--arg-primary)!important;}
+ .o_web_client .btn-link {color:var(--arg-primary);--btn-hover-color:var(--arg-primary);}
+ .o_web_client .o_stat_value {color:var(--arg-primary);}
+ .o_main_navbar .o_menu_brand, .o_main_navbar .o_nav_entry {color:#fff;}
+ .dropdown-item.active, .dropdown-item:active {background:var(--arg-selected);color:var(--arg-text);}
+ .dropdown-menu .dropdown-item:focus-visible {background:var(--arg-selected);color:var(--arg-text);}
+ ::selection {background:var(--arg-selected);color:var(--arg-text);}
+ /* Native bg-view and calendar headers otherwise keep a light surface when
+    the ARG preference changes at runtime. Keep neutral controls legible. */
+ .o_searchview {background-color:var(--arg-panel)!important;color:var(--arg-text);border-color:var(--arg-border);}
+ .o_searchview button {color:var(--arg-text);}
+ .o_datetime_picker .o_day_of_week_cell,
+ .o_datetime_picker .o_week_number_cell {background:var(--arg-selected);color:var(--arg-text);}
+ &[data-arg-theme="dark"] .o_web_client {
+  .btn-secondary, .btn-light {
+   --btn-color:var(--arg-text);--btn-bg:var(--arg-panel);--btn-border-color:var(--arg-border);
+   --btn-hover-color:var(--arg-text);--btn-hover-bg:var(--arg-selected);--btn-hover-border-color:var(--arg-primary);
+   --btn-active-color:var(--arg-text);--btn-active-bg:var(--arg-selected);--btn-active-border-color:var(--arg-primary);
+   --btn-disabled-color:var(--arg-muted);--btn-disabled-bg:var(--arg-panel);--btn-disabled-border-color:var(--arg-border);
+  }
+ }
+}

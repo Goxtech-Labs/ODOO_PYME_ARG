@@ -70,6 +70,8 @@ Como usuario necesito identidad argentina y ayudas consistentes sin publicidad o
 - **FR-008**: Distinguir campos editables, desplegables y valores de lectura mediante bordes, superficie, flecha nativa y foco visibles, en ambos temas, sin cambiar validaciones ni guardar implícitamente.
 - **FR-009**: Usar recursos argentinos de industria y gestión en Inicio/acceso, con branding Goxtech secundario, licencias y procedencia conservadas; adaptar cinta y portada al ancho disponible.
 
+- **FR-010**: Aplicar la paleta ARG a la marca y controles nativos, sin violeta heredado en las superficies revisadas; conservar colores semánticos, índices de paletas, preferencia de tema y favicon personalizado de la pyme.
+
 ### Key Entities
 
 - **Preferencias visuales**: tema, densidad y preferencias.

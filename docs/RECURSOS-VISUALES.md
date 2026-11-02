@@ -29,3 +29,9 @@ comandos, sin incorporar recursos de Microsoft ni capturas de FactuSOL.
 
 Crear nueva versión de nombre al reemplazar una ilustración. Mantener procedencia, licencia,
 consumidores y vista en ambos temas. No usar imágenes para simular botones o campos funcionales.
+
+## Marca compacta ARG
+
+[arg-mark-v1.svg](../addons/arg_pyme_ui/static/img/arg-mark-v1.svg): vector original del proyecto,
+bandera celeste/blanco con sol geométrico sobre azul. Creado como SVG, sin recursos de terceros.
+CC BY-SA4.0. Favicon predeterminado; conserva cualquier icono configurado por la empresa.

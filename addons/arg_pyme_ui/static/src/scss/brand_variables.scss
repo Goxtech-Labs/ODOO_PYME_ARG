@@ -1,0 +1,28 @@
+// Loaded before Odoo's !default palette. Both backend and frontend (including
+// authentication) derive their controls from ARG, without editing Odoo core.
+$o-community-color: #145b91;
+$o-enterprise-color: #145b91;
+$o-enterprise-action-color: #145b91;
+$o-brand-odoo: #145b91;
+$o-brand-primary: #145b91;
+$o-action: #145b91;
+$o-main-link-color: #145b91;
+$o-main-code-color: #145b91;
+
+// Bootstrap utilities, inputs and focus rings must use the same source palette.
+$primary: #145b91;
+$blue: #145b91;
+$indigo: #235b84;
+$purple: #3c82b5;
+$pink: #427b96;
+
+// Keep the native palette indexes and semantic red/green/amber colors. Replace
+// purple UI swatches with blues; no product attribute values or records change.
+$o-colors: #a2a2a2, #ee2d2d, #dc8534, #e8bb1d, #5794dd, #145b91,
+           #db8865, #41a9a2, #304be0, #427b96, #61c36e, #3c82b5;
+$o-colors-border: #8f8f8f, #d76a58, #cc7724, #c09910, #179dc5, #376d98,
+                  #af8563, #17a49d, #5d8ee4, #427b96, #4ca65a, #3c82b5;
+$o-colors-bg-subtle: #d7d7d7, #fedbd5, #fedec5, #f4dc9d, #c2ecfe, #ddecf8,
+                     #f2e1d4, #aef4ee, #c3d9fe, #dcebf1, #bae5bd, #dceffa;
+$o-colors-text-emphasis: #3d3d3d, #6b1f15, #5c3003, #4c3b04, #044457, #123f60,
+                        #4d3827, #034744, #193a76, #254d62, #044b18, #174c70;

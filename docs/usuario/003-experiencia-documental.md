@@ -9,7 +9,8 @@ En formularios ARG: Guardar, Guardar y nuevo, Guardar y cerrar, Descartar y Volv
 Manuales y Soporte ARG abren páginas propias; sin canales configurados se muestra la ayuda escrita, sin envíos automáticos.
 GOXTECHBOT conserva identidad técnica y comportamiento del bot nativo; cambiar el nombre no incorpora IA.
 Tema claro/oscuro/sistema y densidad se eligen en las preferencias ARG del usuario; recargar para aplicarlas.
-QA visual/funcional y contraste por pantalla: pendientes. La instalación técnica comprueba arranque, no aceptación.
+Revisión visual parcial realizada en claro/oscuro, incluidos buscador y calendario. La aceptación
+personal y recorridos restantes siguen pendientes. [Detalle](../entregas/TEMA-ARG.md).
 
 ## Web, canal y contactos públicos
 

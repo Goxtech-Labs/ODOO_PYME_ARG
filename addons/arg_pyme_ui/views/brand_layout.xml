@@ -1,0 +1,12 @@
+<odoo>
+ <template id="layout_arg_favicon" inherit_id="web.layout" name="Icono ARG por defecto">
+  <xpath expr="//link[@rel='shortcut icon']" position="attributes">
+   <attribute name="t-att-href">x_icon or '/arg_pyme_ui/static/img/arg-mark-v1.svg'</attribute>
+   <attribute name="type"/>
+   <attribute name="t-att-type">'image/svg+xml' if not x_icon else None</attribute>
+  </xpath>
+ </template>
+ <template id="backend_arg_browser_color" inherit_id="web.webclient_bootstrap" name="Color del navegador ARG">
+  <xpath expr="//meta[@name='theme-color']" position="attributes"><attribute name="content">#145b91</attribute></xpath>
+ </template>
+</odoo>

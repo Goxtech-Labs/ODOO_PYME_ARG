@@ -1,5 +1,12 @@
 # Cambios
 
+## 0.1.4-dev — 2026-11-02
+
+- Azul ARG en variables nativas de marca, paletas de calendario, enlaces, selección y foco.
+- Favicon ARG predeterminado respetando el de empresa; color azul del navegador.
+- Contraste corregido en buscador/calendario y botones neutros del tema oscuro.
+- [Revisión visual y límites](docs/entregas/TEMA-ARG.md).
+
 ## 0.1.3-dev — 2026-11-02
 
 - Cinta por circuitos, Lucide local, portada/acceso industrial argentino y campos delimitados.

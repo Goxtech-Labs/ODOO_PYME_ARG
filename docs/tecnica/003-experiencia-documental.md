@@ -23,3 +23,10 @@ Ajustes → Gestión ARG permite editar web del responsable y canal general de Y
 de correo, WhatsApp y tickets. La demo usa los [canales oficiales elegidos](../comunidad/CONTACTO.md).
 Ayuda, Soporte y Acerca de muestran los enlaces configurados. El canal general no se presenta
 como un tutorial específico compatible; las fichas de video conservan sus estados y versiones.
+
+## Paleta nativa ARG · UI20.0.1.1.5
+
+`brand_variables.scss` precede las variables primarias nativas; `palette_extensions.scss` sigue
+las secundarias. No modificar core ni eliminar índices. `tokens.scss` adapta alias Bootstrap de
+prefijo vacío y superficies al tema de usuario. `brand_layout.xml` hereda favicon/meta respetando
+`x_icon`; acceso conserva autenticación/CSRF. [Verificación parcial](../entregas/TEMA-ARG.md).

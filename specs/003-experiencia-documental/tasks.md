@@ -68,3 +68,10 @@ Controles de instalación/arranque en docs/entregas/CIERRE-DE-CONTRATOS.md; QA y
 - [x] T015 [US3] Incorporar Lucide local con licencia/procedencia e ilustración industrial argentina en Inicio/acceso; preservar autenticación QWeb. (FR-005 FR-009)
 - [x] T016 Verificar upgrade, render OWL, navegación/edición/selects, claro/oscuro y pantalla estrecha; registrar evidencia y desplegar la composición exacta. (FR-007 FR-008 FR-009)
 - [ ] T017 Registrar aceptación del titular sobre la nueva interfaz y los recorridos completos; no inferirla de capturas ni pruebas del agente. (FR-001 FR-003 FR-005)
+
+## Unificación de paleta nativa · 2026-11-02
+
+- [x] T018 [US3] Sustituir marca violeta por variables y paletas ARG, favicon fallback y color de navegador sin tocar core, auth ni identidad de empresa. (FR-005 FR-010)
+- [x] T019 Revisar controles nativos claro/oscuro, corregir contraste, revisar diff independiente e instalar paquete exacto con respaldo; registrar alcance en docs/entregas/TEMA-ARG.md. (FR-008 FR-010)
+
+T017 permanece pendiente para aceptación personal y recorridos restantes.

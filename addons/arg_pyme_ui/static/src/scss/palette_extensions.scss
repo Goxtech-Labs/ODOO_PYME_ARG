@@ -1,0 +1,14 @@
+// Preserve Odoo's calendar palette length/indexes while replacing purple UI
+// swatches. Product colors and user images are data, outside this theme palette.
+@function arg-ui-palette($palette) {
+    $result: ();
+    @each $color in $palette {
+        @if hue($color) > 248deg and hue($color) < 342deg and saturation($color) > 12% {
+            $color: mix(#74acdf, #145b91, lightness($color));
+        }
+        $result: append($result, $color);
+    }
+    @return $result;
+}
+$o-colors-secondary: arg-ui-palette($o-colors-secondary);
+$o-colors-complete: join($o-colors, $o-colors-secondary);

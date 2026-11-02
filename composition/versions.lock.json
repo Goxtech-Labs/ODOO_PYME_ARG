@@ -128,11 +128,11 @@
     "arg_pyme_informes": "20.0.1.0.2",
     "arg_pyme_stock": "20.0.1.0.4",
     "arg_pyme_terceros": "20.0.1.0.0",
-    "arg_pyme_ui": "20.0.1.1.2",
+    "arg_pyme_ui": "20.0.1.1.5",
     "arg_pyme_ventas": "20.0.1.0.5",
     "arg_pyme_ventas_stock": "20.0.1.0.2"
   },
-  "arg_release_sha256": "a4e0dcadaaa7a64985cda7fdf56429f9c1a904b700986d5c8c9a2b1d199d24bf",
-  "functional_qa": "partial: isolated sales quotation/order/partial delivery/partial internal invoice and UI; owner acceptance pending",
+  "arg_release_sha256": "37f8c64c3030591348b193e6560c2da585d5ff78d02f87c3e678d2325518788e",
+  "functional_qa": "partial: previous isolated sales case; current native ARG palette visually reviewed light/dark; owner acceptance pending",
   "source_control": "Git history records publication and integration revisions; installed addons are identified by arg_release_sha256."
 }

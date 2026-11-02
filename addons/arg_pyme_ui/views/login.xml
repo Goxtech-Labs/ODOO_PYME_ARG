@@ -1,6 +1,6 @@
 <odoo>
  <template id="login_layout_arg" inherit_id="web.login_layout" name="Identidad de acceso ARG">
-  <xpath expr="//t[@t-set='head']" position="inside"><link rel="stylesheet" href="/arg_pyme_ui/static/src/login.css?v=20.0.1.1.2"/></xpath>
+  <xpath expr="//t[@t-set='head']" position="inside"><meta name="theme-color" content="#145b91"/><link rel="stylesheet" href="/arg_pyme_ui/static/src/login.css?v=20.0.1.1.5"/></xpath>
  </template>
  <template id="login_arg" inherit_id="web.login" name="Bienvenida Pymes ARG">
   <xpath expr="//form[@method='post']" position="before">

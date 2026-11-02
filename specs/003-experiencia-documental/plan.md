@@ -87,3 +87,10 @@ Heredar QWeb de login sólo para presentación; no cambiar autenticación, CSRF 
 Validación: paquete/sintaxis/secretos, upgrade aislado, arranque OWL, navegación real, edición y
 salida protegida, campos/selects, temas, ancho estrecho y rutas de soporte. Corrección UOM Odoo20
 se valida por recorrido PRE→PED→REM parcial→FAC parcial en el entorno aislado, sin emisión fiscal.
+
+## Unificación de paleta nativa · 2026-11-02
+
+Extender variables Sass antes/después de los bundles primario/secundario nativos. Mantener índices
+de paletas y estados semánticos. Aplicar alias CSS de Bootstrap20 sin prefijo para temas de usuario.
+Heredar QWeb para favicon fallback y meta azul, conservando icono de empresa y flujo de acceso.
+Verificar visualmente controles nativos en aislado antes de instalar el paquete exacto en demo.

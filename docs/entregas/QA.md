@@ -5,3 +5,6 @@ Cada feature tiene quickstart con recorridos preparados. Ejecutarlos con el usua
 Registrar pantalla/operación, esperado, observado, evidencia, corrección, revisión y aceptación.
 Cubrir permisos, compañía, parciales, reversión, concurrencia y conservación de historia según el cambio.
 La disponibilidad HTTP del entorno no acredita que esos recorridos estén implementados.
+
+Incremento de paleta nativa: [pantallas, correcciones y límites](TEMA-ARG.md). Revisión visual
+claro/oscuro sin nuevas transacciones; no equivale a repetir QA funcional de todos los circuitos.
