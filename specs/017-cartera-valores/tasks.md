@@ -1,22 +1,26 @@
 # Tasks: Cartera de valores y tesorería argentina
 
-Estado: pendientes; planificación no equivale a código instalado. QA/aceptación posteriores en quickstart.md.
+Estado: base de registro instalada en aislado; efectos financieros pendientes. QA/aceptación posteriores en quickstart.md.
 
 
 ## Setup
 
-- [ ] T001 Inspeccionar candidato nativo, licencia/APIs y hooks de esta composición; registrar decisión en specs/017-cartera-valores/research.md
+- [x] T001 Inspeccionar candidato nativo, licencia/APIs y hooks de esta composición; registrar decisión en specs/017-cartera-valores/research.md
 
 ## Foundation
 
-- [ ] T002 Fijar identidad, campos y transiciones del contrato en specs/017-cartera-valores/data-model.md
-- [ ] T003 Crear manifest/dependencias opcionales sin ciclo ni core modificado en addons/arg_pyme_valores/__manifest__.py
+- [x] T002 Fijar identidad, campos y transiciones del contrato en specs/017-cartera-valores/data-model.md
+- [x] T003 Crear manifest/dependencias opcionales sin ciclo ni core modificado en addons/arg_pyme_valores/__manifest__.py
 
 ## US1
 
 - [ ] T004 [US1] Implementar carga básica, valores por contexto y las invariantes: El nominal es positivo, en la moneda del instrumento, y no cambia después del primer evento confirmado. Destino addons/arg_pyme_valores/models/value_instrument.py
-- [ ] T005 [US1] Crear roles y reglas multiempresa; sin sudo para operaciones del usuario en addons/arg_pyme_valores/security/ir.model.access.csv
-- [ ] T006 [US1] Presentar fecha/tercero/documento/detalle y secundarios progresivos en addons/arg_pyme_valores/views/value_views.xml
+- [x] T005 [US1] Crear roles y reglas multiempresa; sin sudo para operaciones del usuario en addons/arg_pyme_valores/security/ir.access.csv
+- [x] T006 [US1] Presentar fecha/tercero/documento/detalle y secundarios progresivos en addons/arg_pyme_valores/views/value_views.xml
+
+T004 parcial: carga/defaults/validación positiva y cancelación de borrador implementadas. Inmovilidad
+tras el primer evento financiero sigue pendiente de US2. T007 tiene infraestructura append-only de
+borradores, sin las operaciones financieras del contrato. No marcar ambas como completadas.
 
 ## US2
 

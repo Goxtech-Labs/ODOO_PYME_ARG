@@ -54,8 +54,8 @@ Todos los servicios externos se agruparán en un único módulo Integraciones AR
 
 - **Gratuito y comunitario:** funciones propias abiertas, sin cuotas propias por usuario o documento.
 - **Soberanía:** instalación propia, datos exportables y respaldos recuperables.
-- **Carga mínima:** completar datos conocidos y pedir solamente lo necesario.
-- **Orden constante:** tercero, datos generales, detalle, totales y acciones.
+- **Carga mínima:** completar datos conocidos y pedir solamente lo necesario para cada operación, con poco personal.
+- **Orden constante:** hoy propuesto, a quién, documento, conceptos o artículos, totales y acciones; conservar fechas elegidas o históricas.
 - **Documentos reconocibles:** códigos cortos como `PRE-000001`, `PED-000001` y `REC-000001`.
 - **Modularidad:** incorporar capacidades según las necesidades de cada pyme.
 - **Documentación:** aprender, instalar, mantener y contribuir mediante guías públicas.

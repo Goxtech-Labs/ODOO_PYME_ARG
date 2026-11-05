@@ -1,0 +1,6 @@
+id,name,model_id,group_id/id,operation,domain
+value_finance,Valores ARG,arg.pyme.value.instrument,arg_pyme_base.group_administracion,cru,
+value_company,Valores por compañía ARG,arg.pyme.value.instrument,,crud,"[('company_id','in',company_ids)]"
+event_finance,Historial de valores ARG,arg.pyme.value.event,arg_pyme_base.group_administracion,r,
+event_factory,Creación de evidencia de valores ARG,arg.pyme.value.event,arg_pyme_base.group_administracion,c,
+event_company,Historial de valores por compañía ARG,arg.pyme.value.event,,crud,"[('company_id','in',company_ids)]"

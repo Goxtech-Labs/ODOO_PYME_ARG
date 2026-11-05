@@ -4,7 +4,7 @@
 
 ## Decisión
 
-Crear/extender `arg_pyme_valores` opcional sobre arg_pyme_administracion, arg_pyme_documentos, arg_pyme_informes; evaluar account; candidatos l10n_ar_check y account_batch_payment sólo tras verificar APIs/licencia.
+Crear `arg_pyme_valores` opcional sobre arg_pyme_administracion y arg_pyme_documentos, con account Community transitivo. Incorporar el adaptador de Informes cuando existan hechos financieros, sin crear una dependencia desde el núcleo hacia Valores.
 
 ## Razonamiento
 
@@ -24,8 +24,9 @@ configuración versionada; nunca usar una fuente española como normativa argent
 
 ## Límite de certeza
 
-La selección de APIs/clases y dependencias mínimas se cierra al inspeccionar la versión instalada antes
-de programar. Esa tarea técnica tiene salida definida; no autoriza instalar candidatos por anticipado.
+La selección siguiente corresponde a la composición instalada inspeccionada. Las APIs de efectos
+financieros deben volver a contrastarse antes de implementar el adaptador; no habilitarlas por instalar
+la ficha del instrumento.
 
 ## Preflight nativo observado al iniciar implementación
 
@@ -42,3 +43,24 @@ paid, reconciled, canceled, rejected. Paid/reconciled no prueban por sí solos a
 Pendiente cerrar implementación de clasificación por medio/evento, correcciones parciales y cuentas/
 perfiles antes de habilitar REC/OPA con valores. Registrar una cuenta transitoria no basta para
 distinguir liquidez. La inspección de API no es prueba funcional de cartera.
+
+## Compatibilidad observada al instalar la base de registro
+
+Odoo20 de esta composición no registra `res.bank`. La fuente nativa
+`base/models/res_partner_bank.py` define `res.partner.bank`, con `account_number`, `bank_name`,
+`bank_bic` y `partner_id`. La ficha utiliza esa cuenta opcional y conserva snapshots textuales de banco,
+código bancario y cuenta libradora. No crea otra libreta bancaria ni presume que todo banco tenga BIC.
+Se conservan los valores explícitos del usuario/contexto, incluidos vacíos explícitos.
+
+La ACL unificada usa `ir.access`: el selector Operation admite `r` y `c` por separado para eventos;
+la combinación `rc` fue rechazada por el cargador. Crear eventos exige además un token interno de
+identidad Python, no un booleano que pueda enviarse por RPC. Reglas globales limitan ambas tablas
+a compañías habilitadas; las operaciones exigen usuario interno ARG y rol Administración.
+
+La identificación de un cheque en papel usa banco/cuenta/número conocidos. La de un pagaré usa
+identificación del firmante/número/emisión y no requiere banco. El identificador electrónico, si existe,
+se conserva por tipo. La clave evita duplicados exactos dentro de la compañía; no acredita autenticidad
+ni detecta equivalencias entre identificadores externos distintos o datos incompletos.
+
+El incremento instalado sólo admite borrador y borrador cancelado; recepción, endoso y REC/OPA
+siguen pendientes. Ver [entrega de registro](../../docs/entregas/017-cartera-valores.md).

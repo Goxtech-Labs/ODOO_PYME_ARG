@@ -74,3 +74,7 @@ Cierre: [correcciones contractuales](entregas/CIERRE-DE-CONTRATOS.md) y [cobertu
 
 [Plan completo](PLAN-EXPANSION-ARG.md):22 capacidades, etapas E0–E7 y specs016–024. Principios
 de carga básica y recibo argentino confirmados. Implementación/instalación/QA se registran por entrega.
+
+Valores ARG: [manual inicial](usuario/017-cartera-valores.md),
+[entrega de registro](entregas/017-cartera-valores.md) y [tareas financieras pendientes](../specs/017-cartera-valores/tasks.md).
+La ficha está instalada sólo en aislado y no modifica recibos ni saldos de la demo.

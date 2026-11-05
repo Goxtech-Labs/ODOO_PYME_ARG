@@ -16,6 +16,7 @@ Estado: doce addons propios desarrollados e instalados técnicamente en demo; QA
 | arg_pyme_informes | base ARG, UI | Adaptadores internos según fuentes instaladas; sin exigir todos los circuitos |
 | arg_pyme_ventas_stock | ventas, stock ARG | Puente sobre sale_stock; sin segundo libro físico |
 | arg_pyme_compras_stock | compras, stock ARG | Puente sobre purchase_stock; sin segundo libro físico |
+| arg_pyme_valores | administración, documentos ARG | Base opcional de registro de cheques/pagarés, sólo aislado; efectos financieros pendientes |
 | arg_pyme_integraciones | base ARG, UI | Único addon de todos los proveedores externos; posterior |
 
 La columna enumera dependencias propias; las nativas exactas constan en cada plan e index.json.
@@ -25,7 +26,8 @@ No crear ciclos: Documentos no depende de Ventas y Base no depende de UI.
 
 ARCA incrementa Integraciones ARG, sin otro addon ni dependencia del addon sobre sí mismo.
 Los rubros agregan addons especializados opcionales según necesidad confirmada.
-Comisiones, fabricación, cursos, cheques y otras capacidades avanzadas son incrementos futuros con spec propia.
+Comisiones, fabricación, cursos, cartera financiera y otras capacidades avanzadas son incrementos
+en desarrollo con spec propia. La ficha inicial de Valores no acredita esos efectos.
 Conservar manual, tutorial, ejemplo, límites y estado por módulo; no confundir planeado/programado/instalado/QA/aceptado/publicado.
 
 Adaptadores concretos PRE/PED pertenecen a Ventas, no a Documentos. Documentos sólo define mixin/contrato genérico; no hereda modelos consumidores ni crea ciclos.

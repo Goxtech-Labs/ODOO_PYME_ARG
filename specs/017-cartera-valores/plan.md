@@ -10,7 +10,7 @@ Orden global y dependencias en [expansión argentina](../../docs/PLAN-EXPANSION-
 ## Technical Context
 
 **Language/Version**: Python3.12, Odoo20 Community, OWL/XML/SCSS compatibles con revisión instalada.
-**Primary Dependencies**: arg_pyme_administracion, arg_pyme_documentos, arg_pyme_informes. Nativas: account; candidatos l10n_ar_check y account_batch_payment sólo tras verificar APIs/licencia.
+**Primary Dependencies**: arg_pyme_administracion, arg_pyme_documentos; account Community transitivo. Adaptador de Informes posterior. l10n_ar_check y account_batch_payment ausentes de esta composición, sin dependencia Enterprise.
 **Storage**: PostgreSQL/filestore nativos; modelos nuevos sólo para hechos sin equivalente.
 **Testing**: controles técnicos de sintaxis/manifest/instalación/arranque; quickstart posterior para QA autorizada.
 **Target Platform**: LXC/Linux propio y navegador, sin Enterprise obligatorio.
@@ -52,3 +52,7 @@ la promoción del componente afectado y se registra; no se elude con sudo ni con
 
 Contrato financiero específico: [cartera argentina](contracts/cartera-argentina.md). Debe regir modelos,
 transiciones, clasificación de money_application y configuración de cuentas antes de admitir cheques.
+
+Incremento de registro instalado técnicamente en aislado, versión20.0.1.0.0. No equivale al MVP de
+cartera: US2/US3 y la conexión a REC/OPA siguen abiertas. La composición pública de la demo sigue
+fijada por versions.lock.json; el candidato aislado se registra aparte para no atribuirle despliegue live.

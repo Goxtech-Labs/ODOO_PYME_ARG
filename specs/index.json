@@ -205,8 +205,7 @@
     "addon": "addons/arg_pyme_valores",
     "dependencies": [
       "arg_pyme_administracion",
-      "arg_pyme_documentos",
-      "arg_pyme_informes"
+      "arg_pyme_documentos"
     ]
   },
   {

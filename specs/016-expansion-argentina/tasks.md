@@ -71,3 +71,7 @@ sin -u all ni sobrescrituras de datos. Mantener el objetivo activo mientras haya
 E0 y primer incremento de carga instalados con controles técnicos; T006 parcial (PPC fecha primero,
 disposición de factura nativa pendiente). T008 en adelante y las tareas017–024 no se acreditan por
 esta entrega. QA/aceptación posteriores. El objetivo de implementación completa sigue activo.
+
+Incremento siguiente:017 tiene identidad y registro de borradores instalados técnicamente en aislado,
+sin efectos financieros. T014 sigue abierta hasta completar REC/OPA y cartera conforme al contrato.
+Ver [entrega de registro](../../docs/entregas/017-cartera-valores.md).
