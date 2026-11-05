@@ -1,7 +1,7 @@
 {
     'name': 'Administración ARG',
     'summary': 'Cuentas corrientes, recibos, pagos, anticipos y aplicaciones nativas',
-    'version': '20.0.1.1.2',
+    'version': '20.0.1.1.3',
     'license': 'AGPL-3',
     'author': 'Gonzalo Sarubilo · GoxtechLabs',
     'website': 'https://github.com/Goxtech-Labs/ODOO_PYME_ARG',

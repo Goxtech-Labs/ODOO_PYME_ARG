@@ -1,0 +1,19 @@
+<odoo>
+    <record id="treasury_value_form" model="ir.ui.view">
+        <field name="name">arg.treasury.value.form</field><field name="model">arg.pyme.treasury.document</field>
+        <field name="inherit_id" ref="arg_pyme_administracion.treasury_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='line_ids']/list/field[@name='method_id']" position="after">
+                <field name="value_instrument_id" column_invisible="parent.kind != 'REC'" domain="[('company_id','=',parent.company_id),('currency_id','=',parent.currency_id),('partner_id.commercial_partner_id','=',parent.commercial_partner_id),('ownership','=','third_party'),('instrument_kind','=','cheque'),('support','=','paper'),('state','=','draft')]" context="{'default_company_id':parent.company_id,'default_currency_id':parent.currency_id,'default_partner_id':parent.partner_id,'default_date':parent.date,'default_instrument_kind':'cheque','default_ownership':'third_party'}" options="{'no_quick_create':True}" optional="show"/>
+            </xpath>
+            <xpath expr="//field[@name='free_amount']" position="after"><field name="corrected_value_amount" invisible="corrected_value_amount == 0"/></xpath>
+        </field>
+    </record>
+    <record id="company_value_defaults" model="ir.ui.view">
+        <field name="name">res.company.value.defaults.arg</field><field name="model">res.company</field>
+        <field name="inherit_id" ref="arg_pyme_administracion.company_finance_defaults"/>
+        <field name="arch" type="xml"><xpath expr="//field[@name='arg_payment_method_id']" position="after">
+            <field name="arg_value_receipt_method_id" domain="[('company_id','=',id),('payment_type','=','inbound'),('code','=','manual')]"/>
+        </xpath></field>
+    </record>
+</odoo>

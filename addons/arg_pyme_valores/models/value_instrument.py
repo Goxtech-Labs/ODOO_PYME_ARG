@@ -37,11 +37,28 @@ class ValueInstrument(models.Model):
     issued_on = fields.Date(string='Fecha de emisión')
     payable_on = fields.Date(string='Fecha de pago / vencimiento')
     note = fields.Text(string='Observaciones')
-    state = fields.Selection([('draft', 'Borrador'), ('canceled', 'Borrador cancelado')], required=True, default='draft', readonly=True, copy=False, index=True)
+    state = fields.Selection([('draft', 'Borrador'), ('portfolio', 'En cartera'), ('deposited', 'Depositado, pendiente de acreditación'),
+                              ('settled', 'Acreditado'), ('rejected', 'Rechazado'), ('returned', 'Recepción revertida'),
+                              ('canceled', 'Borrador cancelado')], required=True, default='draft', readonly=True, copy=False, index=True)
     event_ids = fields.One2many('arg.pyme.value.event', 'instrument_id', string='Historial', readonly=True, copy=False)
     identity_key = fields.Char(readonly=True, copy=False, index=True)
     _external_identity_unique = models.Constraint('UNIQUE(company_id, identity_key)', 'Este instrumento ya fue registrado en la compañía.')
     _nominal_positive = models.Constraint('CHECK(amount > 0)', 'El importe nominal debe ser positivo.')
+
+    @api.model
+    def _currency_for_company(self, company_id):
+        company = self.env['res.company'].browse(company_id)
+        if company not in self.env.companies:
+            raise AccessError(_('Compañía no habilitada.'))
+        return (company.arg_default_currency_id or company.currency_id).id
+
+    @api.model
+    def default_get(self, fields_list):
+        result = super().default_get(fields_list)
+        if 'currency_id' in fields_list and 'default_currency_id' not in self.env.context:
+            company_id = result.get('company_id') or self.env.context.get('default_company_id') or self.env.company.id
+            result['currency_id'] = self._currency_for_company(company_id)
+        return result
 
     def _arg_document_code(self):
         self.ensure_one()
@@ -120,6 +137,8 @@ class ValueInstrument(models.Model):
         prepared = []
         for vals in vals_list:
             vals = dict(vals)
+            if vals.get('company_id') and 'currency_id' not in vals and 'default_currency_id' not in self.env.context:
+                vals['currency_id'] = self._currency_for_company(vals['company_id'])
             if {'state', 'event_ids', 'identity_key'} & vals.keys() or any(
                     'default_' + k in self.env.context for k in ('state', 'event_ids', 'identity_key')):
                 raise AccessError(_('El estado y el historial se generan desde las acciones del valor.'))
@@ -150,7 +169,7 @@ class ValueInstrument(models.Model):
             raise AccessError(_('Use la acción correspondiente para cambiar el estado.'))
         for record in self.sorted('id'):
             record._arg_value_lock()
-            if record.state != 'draft':
+            if record.state != 'draft' and not value_engine(self.env):
                 raise UserError(_('Este registro conserva sus datos; no se edita un valor cancelado.'))
             if 'instrument_kind' in vals and vals['instrument_kind'] != record.instrument_kind:
                 raise UserError(_('Cheque y pagaré conservan su identidad. Cree el tipo de documento correspondiente.'))

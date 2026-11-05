@@ -7,8 +7,8 @@ formularios propios y fecha de hoy propuesta al cargar facturas/notas, conservan
 101 módulos (12 ARG+89 nativos/dependencias);231 archivos del paquete SHA256
 898b636eaac4a8d567470f5668ca6bc1c10d2ccdbe808df64b02fca06ea625ba. [Composición](../../composition/versions.lock.json).
 Las capacidades financieras y de rubro de specs017–024 continúan pendientes. La
-[base de registro de Valores ARG](017-cartera-valores.md) tiene código e instalación aislada, sin
-promoción a esta demo ni conexión REC/OPA. No se activaron proveedores.
+[incremento REC/cheques de Valores ARG](017-rec-cheques.md) tiene código e instalación aislada, sin
+promoción a esta demo ni OPA con valores. No se activaron proveedores.
 
 Revisión estática y comprobaciones técnicas de carga/default_get, sin nuevos documentos ni QA de negocio.
 QA funcional/visual y aceptación del titular posteriores. Se conserva el caso histórico de ventas de la

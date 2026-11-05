@@ -56,3 +56,11 @@ transiciones, clasificación de money_application y configuración de cuentas an
 Incremento de registro instalado técnicamente en aislado, versión20.0.1.0.0. No equivale al MVP de
 cartera: US2/US3 y la conexión a REC/OPA siguen abiertas. La composición pública de la demo sigue
 fijada por versions.lock.json; el candidato aislado se registra aparte para no atribuirle despliegue live.
+
+## Incremento REC de cheques en papel
+
+Valores20.0.1.1.0, Administración20.0.1.1.3: recepción por REC, depósito sin dinero,
+acreditación completa con reclasificación nativa y rechazo previo que conserva otros medios.
+[Entrega](../../docs/entregas/017-rec-cheques.md). Código e instalación aislada, sin QA de negocio.
+La implementación completa de US2/US3 y promoción del módulo siguen abiertas. No considerar este
+circuito restringido una sustitución del alcance ECHEQ/OPA/transmisiones/descuento/parciales.

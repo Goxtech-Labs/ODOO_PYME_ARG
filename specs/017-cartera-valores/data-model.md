@@ -24,7 +24,7 @@ Recepción → cartera → endoso/entrega, depósito o negociación → liquidac
 Cada transición declara precondición, actor, efectos, evidencia y corrección en el contrato; no permitir
 cambio directo de estado por escritura RPC para simular el efecto.
 
-## Esquema implementado: registro inicial
+## Esquema histórico implementado20.0.1.0.0: registro inicial
 
 `arg.pyme.value.instrument`: fecha contextual, tercero, tipo cheque/pagaré, importe nominal y moneda;
 origen propio/terceros y soporte con valores iniciales. Datos del título en sección secundaria:
@@ -46,3 +46,31 @@ esta base no ofrece una reconstrucción histórica completa de todos sus valores
 Estados actuales: `draft` → `canceled`. El nominal puede corregirse mientras permanece en borrador.
 La inmovilidad después de una operación financiera confirmada, reservas, liquidaciones, rechazos,
 transmisiones y efectos nativos aún requieren US2; no están representados por esos dos estados.
+
+## Incremento financiero implementado20.0.1.1.0
+
+El esquema anterior de registro describe20.0.1.0.0. Ahora `receipt_line_id` vincula instrumento a un
+único medio de REC, con pago/asiento nativos. `financial_confirmed_at` fija la inmovilidad de términos,
+incluso dentro del motor; `portfolio_account_id` conserva la cuenta efectiva del pago recibido.
+`deposit_journal_id`/`deposited_on` identifican presentación sin efecto monetario; `settlement_move_id`
+y `rejection_move_id` enlazan reclasificación e inverso. Los eventos añaden fecha efectiva/constancia,
+referencias nativas y huella de la solicitud dentro del payload inmutable.
+
+Estados actualmente operables para cheque de tercero en papel:
+borrador → cartera → depositado → acreditado completo; cartera/depositado → rechazado;
+cartera → recepción revertida mediante REC. El pagaré sigue en borrador/cancelado. Recibido no implica
+acreditado. El original rechazado/retornado conserva número y nominal, pero no crédito reutilizable.
+
+El medio exclusivo de compañía requiere cuenta conciliable de activo corriente distinta de banco,
+y no puede ser el habitual de caja ni tener pagos históricos anónimos. Se bloquea el uso nativo de ese
+medio sin instrumento, incluidos método calculado, edición posterior y publicación. Pagos, asientos,
+apuntes y conciliaciones vinculados tienen guardas, además de permisos nativos y de Administración ARG.
+
+Los hooks opcionales de Administración seleccionan pagos/importes activos y validan por línea.
+`total` conserva el nominal original del REC; `corrected_value_amount` informa los instrumentos
+revertidos. Libre/aplicado y partial_ids excluyen sus pagos, evitando que la conciliación con un inverso
+se lea como nueva aplicación o saldo libre. Dinero en facturas: valor pendiente0; nominal totalmente
+acreditado aporta la aplicación nativa demostrada. Acreditaciones parciales/atribución aún pendientes.
+
+Son campos y código instalados técnicamente en aislado; el comportamiento financiero queda para QA
+posterior. OPA, ECHEQ, transmisiones, negociación y resto del contrato siguen abiertos.

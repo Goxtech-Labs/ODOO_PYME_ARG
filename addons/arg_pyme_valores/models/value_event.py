@@ -25,6 +25,9 @@ class ValueEvent(models.Model):
     kind = fields.Selection([
         ('draft_created', 'Borrador creado'), ('draft_changed', 'Borrador modificado'),
         ('draft_canceled', 'Borrador cancelado'),
+        ('received', 'Recibido por REC'), ('deposited', 'Depósito registrado'),
+        ('settled', 'Acreditación registrada'), ('rejected', 'Rechazo con reversión'),
+        ('receipt_reversed', 'Recepción revertida'),
     ], required=True, readonly=True)
     request_key = fields.Char(required=True, readonly=True)
     fingerprint = fields.Char(required=True, readonly=True)
@@ -44,7 +47,7 @@ class ValueEvent(models.Model):
             if not instrument:
                 raise ValidationError(_('Falta el valor al que pertenece esta evidencia.'))
             instrument._arg_value_check()
-            if vals.get('kind') not in ('draft_created', 'draft_changed', 'draft_canceled'):
+            if vals.get('kind') not in self._fields['kind'].get_values(self.env):
                 raise ValidationError(_('Tipo de evidencia no disponible.'))
             try:
                 vals['request_key'] = str(uuid.UUID(vals.get('request_key', '')))
@@ -55,7 +58,8 @@ class ValueEvent(models.Model):
             vals.update(actor_id=self.env.uid, recorded_at=fields.Datetime.now(),
                         fingerprint=hashlib.sha256(canonical.encode()).hexdigest())
             prepared.append(vals)
-        return super().create(prepared)
+        clean = {k: v for k, v in self.env.context.items() if not k.startswith('default_')}
+        return super(ValueEvent, self.with_context(clean)).create(prepared)
 
     def write(self, vals):
         raise UserError(_('La evidencia de valores es inmutable.'))

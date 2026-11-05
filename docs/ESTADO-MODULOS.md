@@ -18,7 +18,7 @@
 | 013-arca | Preparados | Pendiente | Pendiente |
 | 014-rubros | Preparados | Pendiente | Pendiente |
 | 015-documentos | Preparados | Desarrollado e instalado demo | Pendiente |
-| 017-cartera-valores | Preparados | Registro de borradores instalado sólo en aislado; circuito financiero pendiente | Pendiente |
+| 017-cartera-valores | Preparados | REC con cheque papel y operaciones básicas sólo en aislado; cartera ampliada pendiente | Pendiente |
 
 Integraciones y rubros son etapas posteriores. Las tareas generales resumen el producto y no se suman como entregas duplicadas a las tareas de módulo.
 
@@ -28,10 +28,10 @@ configurados en demo. [Controles y límites de0.1.2-dev](entregas/CANALES-GOXTEC
 ## Expansión activa
 
 El [plan completo](PLAN-EXPANSION-ARG.md) incorpora22 capacidades y specs016–024. Entrega0.1.5-dev
-instala sólo el primer incremento de carga básica. Valores ARG tiene una base de registro instalada
-en aislado; las operaciones financieras y los otros siete addons nuevos siguen pendientes de código.
+instala sólo el primer incremento de carga básica. Valores ARG incorpora REC de cheque papel, depósito, acreditación completa y rechazo en aislado;
+las operaciones ampliadas de cartera y los otros siete addons nuevos siguen pendientes de código.
 [Controles técnicos](entregas/CARGA-BASICA-ARG.md); revisión funcional/visual y aceptación separadas.
 El POS nativo está instalado, pero su adaptación ARG es una tarea distinta; no contarlo como addon ARG nuevo.
 
-[Alcance del registro de valores](entregas/017-cartera-valores.md): no disponible aún como medio de REC/OPA
-ni cartera operativa en la demo. La composición candidata no reemplaza el lock del entorno compartido.
+[Alcance de REC/cheques](entregas/017-rec-cheques.md): disponible sólo en aislado, sin habilitar aún
+la cartera ampliada ni OPA con valores en la demo. La composición candidata no reemplaza el lock del entorno compartido.

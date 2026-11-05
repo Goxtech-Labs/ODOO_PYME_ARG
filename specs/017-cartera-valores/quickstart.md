@@ -12,3 +12,11 @@ desactivados y composición exacta de la entrega, nunca la demo compartida para 
 7. Consultar informe/origen con monedas separadas; registrar esperado/observado/evidencia.
 
 Completar manual y aceptación personal aparte; un arranque exitoso no equivale a estos recorridos.
+
+## Disponibilidad del incremento20.0.1.1.0
+
+En aislado se prepararon maestros y CHQ-000001 en borrador mediante seed_values_demo.py, sin
+REC/pagos/asientos nuevos. Los pasos monetarios anteriores NO fueron ejecutados. Este incremento
+permite preparar QA de REC con cheque papel, depósito, acreditación completa y rechazo previo.
+No ejecutar aún los escenarios ECHEQ/OPA/transmisiones/descuento/parciales como si estuvieran
+implementados. El plan los conserva para incrementos posteriores.

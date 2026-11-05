@@ -100,14 +100,14 @@ class TreasuryDocument(models.Model):
                 doc.state = 'canceled'
             elif not doc.confirmed_at:
                 doc.state = 'draft'
-            elif (not doc.payment_ids or any(p.state not in ('paid', 'reconciled') or p.move_id.state != 'posted' for p in doc.payment_ids)):
+            elif (not doc.payment_ids or any(not doc._arg_payment_expected(p) for p in doc.payment_ids)):
                 doc.state = 'exception'
             else:
                 doc.state = 'confirmed'
 
     def _arg_counterparts(self):
         self.ensure_one()
-        return self.payment_ids.move_id.line_ids.filtered(lambda l: l.account_type in ('asset_receivable', 'liability_payable'))
+        return self._arg_effect_payments().move_id.line_ids.filtered(lambda l: l.account_type in ('asset_receivable', 'liability_payable'))
 
     @api.depends('line_ids.amount', 'confirmed_at', 'reverted_at', 'payment_ids.state',
                  'payment_ids.move_id.line_ids.amount_residual_currency', 'payment_ids.move_id.state')
@@ -120,7 +120,7 @@ class TreasuryDocument(models.Model):
                 # Generated payments use the wrapper currency and no writeoff. Their actual native residual is authoritative.
                 free = sum(abs(l.amount_residual_currency) for l in doc._arg_counterparts())
                 doc.free_amount = free
-                doc.applied_amount = max(0, doc.total - free)
+                doc.applied_amount = max(0, doc._arg_effect_nominal() - free)
 
     @api.depends('payment_ids.move_id.line_ids.matched_debit_ids', 'payment_ids.move_id.line_ids.matched_credit_ids')
     def _compute_partials(self):
@@ -182,21 +182,24 @@ class TreasuryDocument(models.Model):
             raise UserError(_('Agregue entre uno y cien medios de cobro o pago.'))
         fx = self.company_id.currency_id._arg_require_conversion(self.currency_id, self.company_id, self.date)
         for line in self.line_ids:
-            method = line.method_id
-            method.check_access('read')
             if not math.isfinite(line.amount) or self.currency_id.compare_amounts(line.amount, 0) <= 0:
                 raise UserError(_('Cada medio necesita un importe positivo.'))
-            direction = 'inbound' if self.kind == 'REC' else 'outbound'
-            if (not method or method.journal_id.company_id != self.company_id or method.journal_id.type not in ('bank', 'cash')
-                    or method.payment_method_id.payment_type != direction or method.code != 'manual'):
-                raise UserError(_('Seleccione un medio manual de caja o banco de esta compañía y del sentido correspondiente.'))
-            if not method.payment_account_id:
-                raise UserError(_('Configure la cuenta transitoria del medio antes de confirmar.'))
-            if method.journal_id.currency_id and method.journal_id.currency_id != self.currency_id:
-                raise UserError(_('La moneda del medio no coincide con la del documento.'))
+            self._arg_check_line_configuration(line)
         for move in self.debt_move_ids:
             self.company_id.currency_id._arg_require_conversion(move.currency_id, self.company_id, self.date)
         return fx
+
+    def _arg_check_line_configuration(self, line):
+        method = line.method_id
+        method.check_access('read')
+        direction = 'inbound' if self.kind == 'REC' else 'outbound'
+        if (not method or method.journal_id.company_id != self.company_id or method.journal_id.type not in ('bank', 'cash')
+                or method.payment_method_id.payment_type != direction or method.code != 'manual'):
+            raise UserError(_('Seleccione un medio manual de caja o banco de esta compañía y del sentido correspondiente.'))
+        if not method.payment_account_id:
+            raise UserError(_('Configure la cuenta transitoria del medio antes de confirmar.'))
+        if method.journal_id.currency_id and method.journal_id.currency_id != self.currency_id:
+            raise UserError(_('La moneda del medio no coincide con la del documento.'))
 
     def action_confirm(self):
         self.ensure_one()
@@ -205,6 +208,7 @@ class TreasuryDocument(models.Model):
             return self._arg_action()
         if self.canceled_at:
             raise UserError(_('El documento está cancelado.'))
+        self._arg_prepare_confirmation()
         fx = self._arg_check_configuration()
         if self.debt_move_ids and not self._arg_debt_lines():
             raise UserError(_('Las facturas seleccionadas ya no tienen deuda. Revise las aplicaciones o quite el origen para un anticipo.'))
@@ -214,49 +218,84 @@ class TreasuryDocument(models.Model):
                 tracking_disable=True, mail_notrack=True, skip_sale_auto_invoice_send=True)
         doc._arg_event('confirm_prepare', {'amount': doc.total, 'currency': doc.currency_id.name, 'fx': fx})
         for line in doc.line_ids.sorted('id'):
-            debt = doc._arg_debt_lines()
-            if debt:
-                # The native register handles existing debt, including multiple installments and partial payment.
-                context = {k: v for k, v in doc.env.context.items() if not k.startswith('default_')}
-                wizard = doc.env['account.payment.register'].with_context(context, active_model='account.move.line', active_ids=debt.ids).create({
-                    'line_ids': [Command.set(debt.ids)], 'payment_date': doc.date, 'amount': line.amount,
-                    'currency_id': doc.currency_id.id, 'journal_id': line.method_id.journal_id.id,
-                    'payment_method_line_id': line.method_id.id, 'group_payment': True,
-                    'payment_difference_handling': 'open', 'installments_mode': 'full',
-                    'communication': doc.arg_number, 'arg_treasury_document_id': doc.id})
-                if not wizard.can_edit_wizard or len(wizard._get_batches()) != 1:
-                    raise UserError(_('Estas facturas usan cuentas o condiciones diferentes. Registre documentos separados.'))
-                payments = wizard._create_payments()
-            else:
-                # The register requires eligible debt; advances deliberately use native account.payment directly.
-                payments = doc.env['account.payment'].create({
-                    'company_id': doc.company_id.id, 'partner_id': doc.partner_id.commercial_partner_id.id,
-                    'partner_type': 'customer' if doc.kind == 'REC' else 'supplier',
-                    'payment_type': 'inbound' if doc.kind == 'REC' else 'outbound',
-                    'date': doc.date, 'currency_id': doc.currency_id.id, 'amount': line.amount,
-                    'journal_id': line.method_id.journal_id.id, 'payment_method_line_id': line.method_id.id,
-                    'memo': doc.arg_number, 'arg_treasury_document_id': doc.id})
-                payments.action_post()
-            if (len(payments) != 1 or payments.move_id.state != 'posted' or payments.state not in ('paid', 'reconciled')
-                    or payments.company_id != doc.company_id or payments.currency_id != doc.currency_id
-                    or payments.partner_id.commercial_partner_id != doc.partner_id.commercial_partner_id
-                    or payments.currency_id.compare_amounts(payments.amount, line.amount)):
-                raise UserError(_('El pago nativo no produjo el efecto esperado. Revise la configuración; no se confirmó este documento.'))
-            counterpart = payments.move_id.line_ids.filtered(lambda l: l.account_type == ('asset_receivable' if doc.kind == 'REC' else 'liability_payable'))
-            liquidity = payments.move_id.line_ids.filtered(lambda l: l.account_id == line.method_id.payment_account_id)
-            if (len(counterpart) != 1 or len(liquidity) != 1 or len(payments.move_id.line_ids) != 2
-                    or counterpart.currency_id != doc.currency_id or liquidity.currency_id != doc.currency_id
-                    or doc.currency_id.compare_amounts(abs(counterpart.amount_currency), line.amount)
-                    or doc.currency_id.compare_amounts(abs(liquidity.amount_currency), line.amount)):
-                raise UserError(_('El medio debe generar un asiento simple de dinero y contrapartida por el importe indicado. Revise su configuración.'))
+            payments = doc._arg_create_line_payment(line)
+            doc._arg_validate_line_payment(line, payments)
             line.write({'payment_id': payments.id})
+            doc._arg_finalize_line_payment(line, payments)
         snapshot = {'company': doc.company_id.name, 'partner': {'name': doc.partner_id.name, 'address': doc.partner_id.contact_address or ''},
                     'date': str(doc.date), 'currency': doc.currency_id.name, 'fx': fx,
-                    'lines': [{'method': l.method_id.name, 'journal': l.method_id.journal_id.name, 'amount': l.amount,
-                               'payment_id': l.payment_id.id, 'move_id': l.payment_id.move_id.id} for l in doc.line_ids]}
+                    'lines': [doc._arg_line_snapshot(l) for l in doc.line_ids]}
         doc.write({'confirmed_at': fields.Datetime.now(), 'snapshot': snapshot})
         doc._arg_event('confirm', {'payment_ids': doc.payment_ids.ids, 'move_ids': doc.payment_ids.move_id.ids, 'snapshot': snapshot})
         return self._arg_action()
+
+    def _arg_create_line_payment(self, line):
+        debt = self._arg_debt_lines()
+        if debt:
+            # The native register handles existing debt, including multiple installments and partial payment.
+            context = {k: v for k, v in self.env.context.items() if not k.startswith('default_')}
+            wizard = self.env['account.payment.register'].with_context(context, active_model='account.move.line', active_ids=debt.ids).create({
+                'line_ids': [Command.set(debt.ids)], 'payment_date': self.date, 'amount': line.amount,
+                'currency_id': self.currency_id.id, 'journal_id': line.method_id.journal_id.id,
+                'payment_method_line_id': line.method_id.id, 'group_payment': True,
+                'payment_difference_handling': 'open', 'installments_mode': 'full',
+                'communication': self.arg_number, 'arg_treasury_document_id': self.id})
+            if not wizard.can_edit_wizard or len(wizard._get_batches()) != 1:
+                raise UserError(_('Estas facturas usan cuentas o condiciones diferentes. Registre documentos separados.'))
+            payments = wizard._create_payments()
+        else:
+            # The register requires eligible debt; advances deliberately use native account.payment directly.
+            payments = self.env['account.payment'].create({
+                'company_id': self.company_id.id, 'partner_id': self.partner_id.commercial_partner_id.id,
+                'partner_type': 'customer' if self.kind == 'REC' else 'supplier',
+                'payment_type': 'inbound' if self.kind == 'REC' else 'outbound',
+                'date': self.date, 'currency_id': self.currency_id.id, 'amount': line.amount,
+                'journal_id': line.method_id.journal_id.id, 'payment_method_line_id': line.method_id.id,
+                'memo': self.arg_number, 'arg_treasury_document_id': self.id})
+            payments.action_post()
+        return payments
+
+    def _arg_validate_line_payment(self, line, payments):
+        if (len(payments) != 1 or payments.move_id.state != 'posted' or payments.state not in ('paid', 'reconciled')
+                or payments.company_id != self.company_id or payments.currency_id != self.currency_id
+                or payments.partner_id.commercial_partner_id != self.partner_id.commercial_partner_id
+                or payments.currency_id.compare_amounts(payments.amount, line.amount)):
+            raise UserError(_('El pago nativo no produjo el efecto esperado. Revise la configuración; no se confirmó este documento.'))
+        counterpart = payments.move_id.line_ids.filtered(lambda l: l.account_type == ('asset_receivable' if self.kind == 'REC' else 'liability_payable'))
+        liquidity = payments.move_id.line_ids.filtered(lambda l: l.account_id == line.method_id.payment_account_id)
+        if (len(counterpart) != 1 or len(liquidity) != 1 or len(payments.move_id.line_ids) != 2
+                or counterpart.currency_id != self.currency_id or liquidity.currency_id != self.currency_id
+                or self.currency_id.compare_amounts(abs(counterpart.amount_currency), line.amount)
+                or self.currency_id.compare_amounts(abs(liquidity.amount_currency), line.amount)):
+            raise UserError(_('El medio debe generar un asiento simple de dinero y contrapartida por el importe indicado. Revise su configuración.'))
+
+    def _arg_prepare_confirmation(self):
+        """Optional media reserve/check their identities before posting any line."""
+        return None
+
+    def _arg_finalize_line_payment(self, line, payment):
+        return None
+
+    def _arg_line_snapshot(self, line):
+        return {'method': line.method_id.name, 'journal': line.method_id.journal_id.name,
+                'amount': line.amount, 'payment_id': line.payment_id.id, 'move_id': line.payment_id.move_id.id}
+
+    def _arg_effect_payments(self):
+        self.ensure_one()
+        return self.payment_ids
+
+    def _arg_effect_nominal(self):
+        self.ensure_one()
+        return sum(self.line_ids.mapped('amount'))
+
+    def _arg_payment_expected(self, payment):
+        return payment.state in ('paid', 'reconciled') and payment.move_id.state == 'posted'
+
+    def _arg_before_reverse(self):
+        return None
+
+    def _arg_after_reverse(self, inverses, date, reason):
+        return None
 
     def _arg_event(self, kind, payload, **values):
         self.ensure_one()
@@ -366,10 +405,11 @@ class TreasuryDocument(models.Model):
             return self._arg_action()
         if not self.confirmed_at:
             raise UserError(_('El documento aún no tiene efectos para revertir.'))
-        moves = self.payment_ids.move_id
+        self._arg_before_reverse()
+        moves = self._arg_effect_payments().move_id
         if not moves or any(m.state != 'posted' for m in moves):
             raise UserError(_('Hay efectos contables fuera de estado. Revise los pagos nativos antes de revertir.'))
-        for payment in self.payment_ids:
+        for payment in self._arg_effect_payments():
             liquidity, _, _ = payment._seek_for_lines()
             if liquidity.matched_debit_ids or liquidity.matched_credit_ids:
                 raise UserError(_('El pago tiene conciliación de caja/banco. Revise y desaplique esa conciliación antes de revertir.'))
@@ -379,6 +419,7 @@ class TreasuryDocument(models.Model):
         inverses = moves.with_company(self.company_id).with_context(_arg_treasury_engine=_TREASURY_ENGINE, tracking_disable=True)._reverse_moves([
             {'date': date, 'ref': self.arg_number + ' · ' + reason, 'arg_treasury_document_id': self.id} for move in moves], cancel=True)
         doc.write({'reverted_at': fields.Datetime.now(), 'reversal_move_ids': [Command.set(inverses.ids)]})
+        doc._arg_after_reverse(inverses, date, reason)
         doc._arg_event('reverse', {'date': str(date), 'reason': reason, 'move_ids': inverses.ids})
         return self._arg_action()
 
@@ -414,7 +455,7 @@ class TreasuryDocument(models.Model):
     def _arg_get_completion_axes(self):
         if not self.confirmed_at or self.reverted_at:
             return []
-        return [self._arg_axis('Aplicación de dinero', [{'label': self.arg_number, 'unit': self.currency_id.name,
+        return [self._arg_axis('Aplicación a deuda', [{'label': self.arg_number, 'unit': self.currency_id.name,
                 'rounding': self.currency_id.rounding, 'target': self.total, 'done': self.applied_amount}])]
 
     def _arg_document_relations(self):

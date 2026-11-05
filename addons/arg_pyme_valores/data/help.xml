@@ -1,0 +1,25 @@
+<odoo noupdate="1">
+    <record id="help_values_receipt" model="arg.pyme.help.resource">
+        <field name="name">Valores ARG 1.1 · Recibos y cheques en papel</field>
+        <field name="module_key">arg_pyme_valores</field>
+        <field name="task">cheques-rec</field>
+        <field name="version_min">20.0</field><field name="version_max">20.0</field>
+        <field name="state">current</field>
+        <field name="manual_url">https://github.com/Goxtech-Labs/ODOO_PYME_ARG/blob/main/docs/usuario/017-cartera-valores.md</field>
+        <field name="manual_text" type="html"><div>
+            <p>Prepará el cheque con fecha, tercero e importe; completá los datos del título en su pestaña.
+            Guardar asigna CHQ y no registra un cobro. Un pagaré conserva su registro separado.</p>
+            <p>En REC elegí el cheque en una línea de medios. Se propone su nominal completo y el medio
+            exclusivo configurado para cartera. Otros medios, como efectivo, conservan sus propias líneas.
+            Confirmar aplica deuda; un cheque pendiente no acredita dinero bancario.</p>
+            <p>Desde Operación de cheque registrá depósito, acreditación completa o rechazo con fecha y
+            constancia. Depositar no crea otro cobro. Acreditar reclasifica cartera a banco. Rechazar antes
+            de acreditar revierte únicamente el valor, conservando el efectivo del recibo.</p>
+            <p>Esta entrega cubre cheques de terceros en papel. ECHEQ, OPA con valores, endoso, descuento,
+            acreditación parcial y recupero posterior siguen en desarrollo. Las pantallas registran constancias;
+            no envían instrucciones al banco.</p>
+            <p>Incremento instalado técnicamente; QA financiero y visual pendiente. Tutorial específico de
+            YouTube pendiente, con guía escrita disponible.</p>
+        </div></field>
+    </record>
+</odoo>

@@ -3,6 +3,8 @@
 Código original de Odoo Pymes ARG: AGPL-3.0-only. Se conserva la licencia de Odoo y demás dependencias.
 Documentación original: CC BY-SA 4.0, según el aviso del repositorio. No incluye código Enterprise.
 
-Incremento inicial de desarrollo: identidad, carga de borradores y evidencia de cambios/cancelación.
-Las operaciones de cartera y el enlace financiero REC/OPA continúan en desarrollo; registrar un
-borrador no acredita cobro ni emite un título bancario o jurídicamente válido.
+Incremento de desarrollo: registro de instrumentos y REC con cheques en papel de terceros, depósito,
+acreditación completa y rechazo con reversión de su medio. Son registros contables locales;
+no emiten instrucciones bancarias. Un borrador no acredita cobro ni emite un título válido por sí solo.
+ECHEQ, OPA con valores, endosos, negociación, acreditación parcial y demás ampliaciones siguen pendientes.
+Instalación técnica no equivale a QA financiero ni a aceptación del usuario.

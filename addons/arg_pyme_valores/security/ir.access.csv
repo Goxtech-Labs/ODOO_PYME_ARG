@@ -4,3 +4,4 @@ value_company,Valores por compañía ARG,arg.pyme.value.instrument,,crud,"[('com
 event_finance,Historial de valores ARG,arg.pyme.value.event,arg_pyme_base.group_administracion,r,
 event_factory,Creación de evidencia de valores ARG,arg.pyme.value.event,arg_pyme_base.group_administracion,c,
 event_company,Historial de valores por compañía ARG,arg.pyme.value.event,,crud,"[('company_id','in',company_ids)]"
+value_operation,Operación de valores ARG,arg.pyme.value.operation.wizard,arg_pyme_administracion.group_finance_manager,crud,

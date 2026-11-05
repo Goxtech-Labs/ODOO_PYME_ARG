@@ -76,5 +76,5 @@ Cierre: [correcciones contractuales](entregas/CIERRE-DE-CONTRATOS.md) y [cobertu
 de carga básica y recibo argentino confirmados. Implementación/instalación/QA se registran por entrega.
 
 Valores ARG: [manual inicial](usuario/017-cartera-valores.md),
-[entrega de registro](entregas/017-cartera-valores.md) y [tareas financieras pendientes](../specs/017-cartera-valores/tasks.md).
-La ficha está instalada sólo en aislado y no modifica recibos ni saldos de la demo.
+[entrega REC/cheques](entregas/017-rec-cheques.md) y [tareas financieras pendientes](../specs/017-cartera-valores/tasks.md).
+REC con cheques en papel está instalado sólo en aislado; no modifica recibos ni saldos de la demo.

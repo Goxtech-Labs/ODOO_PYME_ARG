@@ -64,3 +64,16 @@ ni detecta equivalencias entre identificadores externos distintos o datos incomp
 
 El incremento instalado sólo admite borrador y borrador cancelado; recepción, endoso y REC/OPA
 siguen pendientes. Ver [entrega de registro](../../docs/entregas/017-cartera-valores.md).
+
+## Adaptador REC implementado
+
+Se extrajeron hooks del motor propio de Administración, manteniendo el registro nativo habitual para
+medios sin instrumento. El cheque crea account.payment con su vínculo protegido antes de publicar,
+y concilia deuda mediante apuntes nativos; no escribe residuales. El depósito sólo registra constancia.
+La acreditación completa publica una reclasificación banco/cartera y concilia esta última. El rechazo
+previo a liquidación usa _reverse_moves(cancel=True) sobre el pago del cheque, no sobre todo el REC.
+
+La revisión estática encontró y corrigió contexto default_* heredado antes de tokens y un posible uso
+anónimo del medio al omitir/editar el método. La política se valida también después del cómputo nativo
+y antes de publicar; se conserva lectura/permisos sin sudo. El código está instalado en aislado, sin
+haber ejecutado operaciones financieras ni afirmar validación de esos casos.

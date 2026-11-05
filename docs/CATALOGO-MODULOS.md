@@ -16,7 +16,7 @@ Estado: doce addons propios desarrollados e instalados técnicamente en demo; QA
 | arg_pyme_informes | base ARG, UI | Adaptadores internos según fuentes instaladas; sin exigir todos los circuitos |
 | arg_pyme_ventas_stock | ventas, stock ARG | Puente sobre sale_stock; sin segundo libro físico |
 | arg_pyme_compras_stock | compras, stock ARG | Puente sobre purchase_stock; sin segundo libro físico |
-| arg_pyme_valores | administración, documentos ARG | Base opcional de registro de cheques/pagarés, sólo aislado; efectos financieros pendientes |
+| arg_pyme_valores | administración, documentos ARG | REC de cheque papel, depósito, acreditación completa y rechazo; sólo aislado, cartera ampliada pendiente |
 | arg_pyme_integraciones | base ARG, UI | Único addon de todos los proveedores externos; posterior |
 
 La columna enumera dependencias propias; las nativas exactas constan en cada plan e index.json.

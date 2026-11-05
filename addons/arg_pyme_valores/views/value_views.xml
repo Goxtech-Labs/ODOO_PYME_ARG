@@ -15,6 +15,7 @@
         <field name="model">arg.pyme.value.instrument</field>
         <field name="arch" type="xml"><form js_class="arg_form">
             <header>
+                <button name="action_value_operation" type="object" string="Operación de cheque" invisible="state not in ['portfolio','deposited']" groups="arg_pyme_administracion.group_finance_manager"/>
                 <button name="action_cancel_draft" type="object" string="Cancelar borrador" invisible="state != 'draft'"/>
                 <button name="action_arg_print" type="object" string="Imprimir registro"/>
                 <field name="state" widget="statusbar"/>
@@ -31,7 +32,7 @@
                     <field name="currency_id" readonly="state != 'draft'"/>
                     <field name="company_id" groups="base.group_multi_company" readonly="id"/>
                 </group></group>
-                <p class="text-muted">El registro en borrador no cobra facturas ni acredita dinero. Conservá los datos reales del título; su identificación se completa antes de utilizarlo.</p>
+                <p class="text-muted">Completá los datos del título antes de seleccionarlo en un recibo. El depósito y la acreditación se registran por separado.</p>
                 <notebook>
                     <page string="Datos del título"><group><group>
                         <field name="support" readonly="state != 'draft'"/>
@@ -49,6 +50,7 @@
                         <field name="issuer_identifier" readonly="state != 'draft'"/>
                         <field name="beneficiary_id" readonly="state != 'draft'"/>
                     </group></group></page>
+                    <page string="Cartera y origen"><group><field name="receipt_line_id"/><field name="portfolio_amount"/><field name="credited_amount"/><field name="deposit_journal_id"/><field name="deposited_on"/><field name="settlement_move_id"/><field name="rejection_move_id"/></group></page>
                     <page string="Observaciones"><field name="note" readonly="state != 'draft'"/></page>
                     <page string="Historial"><field name="event_ids"><list create="0" delete="0" edit="0">
                         <field name="recorded_at"/><field name="actor_id"/><field name="kind"/>

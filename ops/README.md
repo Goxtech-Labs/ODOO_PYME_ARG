@@ -30,3 +30,15 @@ Invocarlo dentro de `odoo shell` sin HTTP/cron, pasando `ARG_QA_SALES_PHASE` en 
 su transacción y emite `ARG_QA_RESULT`. Crea documentos ficticios, apertura de inventario, entrega
 parcial y factura interna no fiscal; conservar snapshot previo y evidencia, no limpiar producción.
 No envía mensajes ni solicita CAE. [Resultados y límites](../docs/entregas/INTERFAZ-Y-VENTAS.md).
+
+## Ejemplos de Valores ARG
+
+`seed_values_demo.py` se carga dentro de `odoo shell` por un administrador, con
+`ARG_VALUES_ACK_EXAMPLES=1` y `ARG_VALUES_COMPANY_ID` explícito, exclusivamente en arg_demo y
+compañía en modo Ejemplo. Requiere Valores20.0.1.1.0 y Administración20.0.1.1.3. Crea una cuenta,
+diario/medio nuevos, dos contactos sin CUIT inventado y un CHQ ficticio en borrador. No crea REC,
+pago, asiento ni movimiento de stock; no cambia cron/correo ni los medios habituales de la empresa.
+Se detiene si el perfil existente pertenece al titular o si las referencias fueron personalizadas.
+Repetir no restablece un cheque que el usuario ya recibió o canceló. Los XMLIDs arg_demo.values_*
+identifican el lote para inventariarlo; no borrar documentos numerados ni valores utilizados.
+La carga de maestros/borradores y la QA de un circuito financiero son etapas distintas.

@@ -1,6 +1,6 @@
 # Tasks: Cartera de valores y tesorería argentina
 
-Estado: base de registro instalada en aislado; efectos financieros pendientes. QA/aceptación posteriores en quickstart.md.
+Estado: REC con cheque papel y operaciones básicas instalado en aislado; circuito ampliado pendiente. QA/aceptación posteriores en quickstart.md.
 
 
 ## Setup
@@ -14,13 +14,13 @@ Estado: base de registro instalada en aislado; efectos financieros pendientes. Q
 
 ## US1
 
-- [ ] T004 [US1] Implementar carga básica, valores por contexto y las invariantes: El nominal es positivo, en la moneda del instrumento, y no cambia después del primer evento confirmado. Destino addons/arg_pyme_valores/models/value_instrument.py
+- [x] T004 [US1] Implementar carga básica, valores por contexto y las invariantes: El nominal es positivo, en la moneda del instrumento, y no cambia después del primer evento confirmado. Destino addons/arg_pyme_valores/models/value_instrument.py
 - [x] T005 [US1] Crear roles y reglas multiempresa; sin sudo para operaciones del usuario en addons/arg_pyme_valores/security/ir.access.csv
 - [x] T006 [US1] Presentar fecha/tercero/documento/detalle y secundarios progresivos en addons/arg_pyme_valores/views/value_views.xml
 
-T004 parcial: carga/defaults/validación positiva y cancelación de borrador implementadas. Inmovilidad
-tras el primer evento financiero sigue pendiente de US2. T007 tiene infraestructura append-only de
-borradores, sin las operaciones financieras del contrato. No marcar ambas como completadas.
+T004 implementada: defaults contextuales/moneda explícita, nominal positivo y términos inmutables
+tras la primera recepción, incluso para el motor interno. T007/T008/T012 avanzan con REC de cheque
+papel, depósito, acreditación completa y rechazo previo; no cubren todavía OPA, ECHEQ y resto del contrato.
 
 ## US2
 
@@ -61,3 +61,11 @@ US1: fichas/roles separados; US2: adaptadores separados sólo tras fijar interfa
 
 Entregas pequeñas completas y composición fijada. Las tareas de implementación permanecen sin marcar hasta evidencia de código/instalación.
 QA funcional/visual y aceptación no forman parte del conteo de implementación; se registran después mediante quickstart.md.
+
+## Incremento REC / cheque en papel
+
+Valores20.0.1.1.0 y Administración20.0.1.1.3 instalados técnicamente en aislado. Ver
+[entrega](../../docs/entregas/017-rec-cheques.md). T007/T008/T012/T013/T014/T015/T016/T017 tienen
+implementación/evidencia parcial y permanecen abiertas hasta cubrir todo su alcance, incluida promoción.
+El cargador de ejemplos optativo y el documento común no equivalen al informe de cartera completo.
+QA funcional/visual y aceptación siguen como fase posterior. Parent016T014 abierta.

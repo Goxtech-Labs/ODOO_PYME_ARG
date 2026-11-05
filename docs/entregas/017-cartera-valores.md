@@ -1,5 +1,8 @@
 # Valores ARG · base de registro · 2026-11-05
 
+Registro histórico de20.0.1.0.0. El incremento posterior de [REC con cheques](017-rec-cheques.md)
+agrega efectos locales en aislado; esta entrega conserva su evidencia original.
+
 Addon opcional `arg_pyme_valores`20.0.1.0.0, original AGPL-3.0-only. Identidad CHQ/PAG por compañía,
 ficha con fecha de hoy propuesta, tercero, documento e importe; secundarios en pestañas.
 Incluye borradores, cancelación conservando número, validación de nominal positivo, clave de
