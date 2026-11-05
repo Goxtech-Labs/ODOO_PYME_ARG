@@ -21,14 +21,12 @@
             </header>
             <sheet>
                 <widget name="arg_document_header"/>
-                <field name="company_id" invisible="True"/><field name="commercial_partner_id" invisible="True"/><group><field name="partner_id" readonly="state != 'draft'" options="{'no_create':True}"/></group>
-                <group><group><field name="kind" readonly="True"/><field name="date" readonly="state != 'draft'"/>
-                    <field name="company_id" readonly="state != 'draft'" groups="base.group_multi_company"/>
+                <field name="company_id" invisible="True"/><field name="commercial_partner_id" invisible="True"/><group><field name="date" readonly="state != 'draft'"/>
+                    <field name="partner_id" readonly="state != 'draft'" options="{'no_create':True}"/></group>
+                <group><group><field name="kind" readonly="True"/><field name="company_id" readonly="state != 'draft'" groups="base.group_multi_company"/>
                     <field name="currency_id" readonly="state != 'draft'"/></group>
                     <group><field name="arg_reference" readonly="state != 'draft'"/>
-                    <field name="debt_move_ids" widget="many2many_tags" readonly="state != 'draft'"
-                        domain="[('state','=','posted'),('company_id','=',company_id),('commercial_partner_id','=',commercial_partner_id),('move_type','=', 'out_invoice' if kind == 'REC' else 'in_invoice')]"
-                        options="{'no_create':True}"/>
+                    <field name="debt_move_ids" widget="many2many_tags" readonly="state != 'draft'" domain="[('state','=','posted'),('company_id','=',company_id),('commercial_partner_id','=',commercial_partner_id),('move_type','=', 'out_invoice' if kind == 'REC' else 'in_invoice')]" options="{'no_create':True}"/>
                     </group></group>
                 <div class="alert alert-info" role="note" invisible="state != 'draft'">
                     Seleccione los medios e importes. Sin facturas seleccionadas, se registra un anticipo.

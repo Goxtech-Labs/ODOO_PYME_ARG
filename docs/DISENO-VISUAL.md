@@ -100,3 +100,11 @@ longitudes/índices de paletas. El tema incluye enlaces, selección, calendarios
 En oscuro, buscadores y cabeceras del calendario deben compartir superficies legibles.
 Favicon ARG sólo como valor predeterminado: la identidad configurada por la pyme tiene prioridad.
 [Implementación y evidencia parcial](entregas/TEMA-ARG.md).
+
+## Practicidad para equipos pequeños · 2026-11-05
+
+La carga cotidiana se concentra en fecha de hoy propuesta, destinatario, documento y conceptos/artículos.
+El tipo surge de la tarea abierta; el código es automático. La fecha se puede corregir y no cambia al
+reabrir un registro existente. Condiciones y configuraciones poco frecuentes son secundarias.
+Priorizar pocos pasos, campos amplios reconocibles y un detalle útil frente a formularios administrativos
+extensos. Conservar validaciones y requisitos necesarios sin imponer departamentos o usuarios adicionales.

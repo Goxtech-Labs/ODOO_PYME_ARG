@@ -22,7 +22,7 @@ La primera publicación se prepara con código, documentación y licencias; su e
 | Administración | Deuda, recibos, pagos, anticipos, aplicaciones y caja | [Administración](../usuario/009-administracion.md) |
 | Informes | Cada cifra con hecho, fecha, unidad, moneda y origen | [Informes](../usuario/010-informes.md) |
 
-Siempre tercero → generales → detalle → totales → acciones. Los datos conocidos se proponen una vez;
+Siempre fecha → tercero → documento → detalle → totales → acciones. Los datos conocidos se proponen una vez;
 los campos avanzados aparecen cuando hacen falta. Guardar no equivale a confirmar ni a mover dinero.
 Cada documento conserva su identidad corta y sus pendientes separados: confirmar, entregar/recibir,
 facturar y cobrar/pagar, con avance parcial y cantidad o importe pendiente.

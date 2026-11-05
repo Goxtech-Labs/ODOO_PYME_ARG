@@ -26,8 +26,8 @@
                 <widget name="arg_document_header"/>
                 <field name="locked" invisible="1"/>
                 <group><group>
-                    <field name="partner_id" readonly="state not in ['draft','sent']"/>
                     <field name="date_order" readonly="state not in ['draft','sent']"/>
+                    <field name="partner_id" readonly="state not in ['draft','sent']"/>
                     <field name="date_planned"/>
                 </group><group>
                     <field name="company_id" groups="base.group_multi_company" readonly="arg_number"/>

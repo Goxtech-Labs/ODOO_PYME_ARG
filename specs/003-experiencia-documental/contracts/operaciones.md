@@ -15,7 +15,7 @@ Como usuario no especialista necesito encontrar documentos sin recorrer configur
 
 Como operador necesito el mismo orden y botones en documentos y matrices.
 
-**Resultado**: Recorrer tercero, generales, detalle, totales y acciones mediante teclado.
+**Resultado**: Recorrer fecha, tercero, documento, detalle, totales y acciones mediante teclado.
 **Excepción**: Conservar cambios pendientes al filtrar y advertir antes de descartarlos.
 
 ### Operación 3: Reconocer ARG y su ayuda

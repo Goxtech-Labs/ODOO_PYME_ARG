@@ -1,7 +1,7 @@
 # Mapa de documentación y programación
 
 Documentación preparada para programar módulo por módulo. La instalación demo es Community nativa;
-Base, Interfaz, maestros, Motor documental y los cinco circuitos ARG están desarrollados e instalados; QA posterior pendiente. Las specs 012–014 son contratos de etapas posteriores, no compromisos del núcleo.
+Base, Interfaz, maestros, Motor documental y los cinco circuitos ARG están desarrollados e instalados; QA posterior pendiente. Las specs012–014 conservan los contratos de integraciones/rubros; su desarrollo se ordena ahora por el plan016 de expansión.
 
 ## Comenzar
 
@@ -31,7 +31,7 @@ Cada feature contiene spec, plan, research, data-model, contratos, quickstart, t
 | 08 | [Circuito Stock ARG](../specs/008-stock/spec.md) · [tareas](../specs/008-stock/tasks.md) | `addons/arg_pyme_stock` | núcleo y puentes desplegados; QA pendiente |
 | 09 | [Circuito Administración ARG](../specs/009-administracion/spec.md) · [tareas](../specs/009-administracion/tasks.md) | `addons/arg_pyme_administracion` | cuentas, recibos/pagos/aplicaciones/caja instalados; QA pendiente |
 | 10 | [Circuito Informes ARG](../specs/010-informes/spec.md) · [tareas](../specs/010-informes/tasks.md) | `addons/arg_pyme_informes` | desarrollado e instalado; QA pendiente |
-| 11 | [Portada y documentación pública ARG](../specs/011-web-comunidad/spec.md) · [tareas](../specs/011-web-comunidad/tasks.md) | `docs/site` | documentación implementada; publicación remota pendiente |
+| 11 | [Portada y documentación pública ARG](../specs/011-web-comunidad/spec.md) · [tareas](../specs/011-web-comunidad/tasks.md) | `docs/site` | documentación publicada en main; mantenimiento continuo |
 | 12 | [Integraciones ARG](../specs/012-integraciones/spec.md) · [tareas](../specs/012-integraciones/tasks.md) | `addons/arg_pyme_integraciones` | posterior al núcleo; código pendiente |
 | 13 | [Contrato futuro ARCA dentro de Integraciones ARG](../specs/013-arca/spec.md) · [tareas](../specs/013-arca/tasks.md) | `addons/arg_pyme_integraciones` | posterior al núcleo; homologación pendiente; código pendiente |
 | 14 | [Extensiones por rubro y personalizaciones ARG](../specs/014-rubros/spec.md) · [tareas](../specs/014-rubros/tasks.md) | `docs/rubros` | posterior al núcleo; código pendiente |
@@ -69,3 +69,8 @@ Guías Informes: [usuario](usuario/010-informes.md), [técnica](tecnica/010-info
 Portada y comunidad: [sitio documental](site/README.md), [usuario](usuario/011-web-comunidad.md), [técnica](tecnica/011-web-comunidad.md), [entrega](entregas/011-web-comunidad.md).
 
 Cierre: [correcciones contractuales](entregas/CIERRE-DE-CONTRATOS.md) y [cobertura de requisitos](entregas/COBERTURA-REQUISITOS.md).
+
+## Expansión argentina
+
+[Plan completo](PLAN-EXPANSION-ARG.md):22 capacidades, etapas E0–E7 y specs016–024. Principios
+de carga básica y recibo argentino confirmados. Implementación/instalación/QA se registran por entrega.

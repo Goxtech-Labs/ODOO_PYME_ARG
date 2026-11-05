@@ -1,5 +1,13 @@
 # Cambios
 
+## 0.1.5-dev — 2026-11-05
+
+- Plan de expansión completo:22 capacidades, specs016–024,27 tareas coordinadoras y115 por módulo; conteos de avance no aditivos.
+- Principio argentino de carga práctica: hoy propuesto, tercero, documento y conceptos/artículos.
+- Primer incremento: fecha primero en formularios propios y default de fecha en facturas/notas.
+- REC multimedio y cartera argentina especificados; módulos avanzados pendientes de implementar.
+- [Controles técnicos y límites](docs/entregas/CARGA-BASICA-ARG.md).
+
 ## 0.1.4-dev — 2026-11-02
 
 - Azul ARG en variables nativas de marca, paletas de calendario, enlaces, selección y foco.

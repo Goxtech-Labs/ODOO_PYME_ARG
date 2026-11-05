@@ -4,7 +4,7 @@
 
 **Created**: 2026-11-01
 
-**Status**: Núcleo implementado e instalado técnicamente en demo; correcciones de cierre instaladas técnicamente. Publicación, QA funcional/visual y aceptación pendientes.
+**Status**: Núcleo publicado e instalado en demo; QA parcial y aceptación pendientes. Expansión016–024 activa por entregas, sin acreditar sus módulos como implementados.
 
 **Input**: Producto gratuito y comunitario, genérico modular, soberanía de datos, Gestión ARG simplificada,
 separación visual y lógica documental inspirada en FactuSOL, capacidad de extensión Odoo,
@@ -24,8 +24,9 @@ Como operador de una pyme, necesito encontrar y completar cada documento sin apr
 
 1. **Given** un cliente y producto existentes, **When** creo un presupuesto, **Then** selecciono cliente,
 producto y cantidad; los valores configurados completan los demás datos ordinarios.
-2. **Given** un documento, **When** abro su edición, **Then** encuentro tercero, datos generales,
-detalle, totales y acciones en el mismo orden, sin reordenamientos por rubro.
+2. **Given** un documento nuevo, **When** abro su edición, **Then** encuentro fecha de hoy propuesta,
+tercero, identificación documental, conceptos/artículos, totales y acciones; los datos secundarios no bloquean
+la carga ordinaria. Al reabrir uno existente conservo sus fechas y correcciones.
 3. **Given** un presupuesto aceptado, **When** genero el pedido, **Then** conservo los datos aprobados,
 su origen y la evidencia de la versión aceptada sin volver a escribir sus líneas.
 El pedido y el presupuesto son documentos distintos: el presupuesto conserva código PRE y el pedido recibe código PED.
@@ -238,7 +239,7 @@ Como responsable o colaborador, necesito comprender la gestión y adaptar módul
 - **FR-003**: Separar núcleo, presentación, gestión común, rubros e integraciones instalables.
 - **FR-004**: Organizar áreas visibles de Ventas, Compras, Stock, Administración, Informes y Configuración.
 - **FR-005**: Separar listados, estados y acciones de cada tipo documental.
-- **FR-006**: Mantener tercero → datos generales → detalle → totales → acciones en todos los documentos.
+- **FR-006**: Mantener fecha → tercero → documento → conceptos/artículos → totales → acciones; proponer hoy sólo en una carga nueva y conservar las fechas existentes.
 - **FR-007**: Completar valores conocidos y pedir solamente datos necesarios para la operación actual.
 - **FR-008**: Conservar carga rápida, búsqueda y navegación por teclado en formularios y matrices.
 - **FR-009**: Vincular documentos de origen y destino conservando pendientes y evidencia aprobada.

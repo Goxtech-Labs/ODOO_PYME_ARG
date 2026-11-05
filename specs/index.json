@@ -184,5 +184,120 @@
       "arg_pyme_ui",
       "web"
     ]
+  },
+  {
+    "feature": "016-expansion-argentina",
+    "title": "Expansión funcional argentina coordinada",
+    "tasks": 27,
+    "requirements": 12,
+    "phase": "expansión incremental",
+    "addon": "docs/PLAN-EXPANSION-ARG.md",
+    "dependencies": [
+      "nucleo_ARG"
+    ]
+  },
+  {
+    "feature": "017-cartera-valores",
+    "title": "Cartera de valores y tesorería argentina",
+    "tasks": 17,
+    "requirements": 12,
+    "phase": "expansión incremental",
+    "addon": "addons/arg_pyme_valores",
+    "dependencies": [
+      "arg_pyme_administracion",
+      "arg_pyme_documentos",
+      "arg_pyme_informes"
+    ]
+  },
+  {
+    "feature": "018-reparaciones",
+    "title": "Reparaciones y servicio técnico ARG",
+    "tasks": 14,
+    "requirements": 10,
+    "phase": "expansión incremental",
+    "addon": "addons/arg_pyme_reparaciones",
+    "dependencies": [
+      "arg_pyme_ventas",
+      "arg_pyme_stock",
+      "arg_pyme_documentos"
+    ]
+  },
+  {
+    "feature": "019-obras",
+    "title": "Obras, capítulos y costos ARG",
+    "tasks": 15,
+    "requirements": 10,
+    "phase": "expansión incremental",
+    "addon": "addons/arg_pyme_obras",
+    "dependencies": [
+      "arg_pyme_compras",
+      "arg_pyme_ventas",
+      "arg_pyme_stock",
+      "arg_pyme_documentos"
+    ]
+  },
+  {
+    "feature": "020-fabricacion",
+    "title": "Fabricación y artículos compuestos ARG",
+    "tasks": 13,
+    "requirements": 10,
+    "phase": "expansión incremental",
+    "addon": "addons/arg_pyme_fabricacion",
+    "dependencies": [
+      "arg_pyme_stock",
+      "arg_pyme_catalogo",
+      "arg_pyme_documentos"
+    ]
+  },
+  {
+    "feature": "021-comisiones",
+    "title": "Agentes y comisiones ARG",
+    "tasks": 14,
+    "requirements": 10,
+    "phase": "expansión incremental",
+    "addon": "addons/arg_pyme_comisiones",
+    "dependencies": [
+      "arg_pyme_ventas",
+      "arg_pyme_administracion",
+      "arg_pyme_documentos"
+    ]
+  },
+  {
+    "feature": "022-servicios",
+    "title": "Servicios recurrentes, reservas y expedientes ARG",
+    "tasks": 15,
+    "requirements": 10,
+    "phase": "expansión incremental",
+    "addon": "addons/arg_pyme_servicios",
+    "dependencies": [
+      "arg_pyme_ventas",
+      "arg_pyme_documentos"
+    ]
+  },
+  {
+    "feature": "023-disenador",
+    "title": "Diseñador documental e informes ARG",
+    "tasks": 14,
+    "requirements": 10,
+    "phase": "expansión incremental",
+    "addon": "addons/arg_pyme_disenador",
+    "dependencies": [
+      "arg_pyme_documentos",
+      "arg_pyme_informes"
+    ]
+  },
+  {
+    "feature": "024-punto-venta",
+    "title": "Punto de venta ARG",
+    "tasks": 13,
+    "requirements": 10,
+    "phase": "expansión incremental",
+    "addon": "addons/arg_pyme_pos",
+    "dependencies": [
+      "arg_pyme_catalogo",
+      "arg_pyme_ventas",
+      "arg_pyme_stock",
+      "arg_pyme_administracion"
+    ]
   }
 ]

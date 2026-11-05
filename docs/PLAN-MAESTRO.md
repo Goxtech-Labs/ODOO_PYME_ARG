@@ -57,7 +57,9 @@ Separar factura interna de comprobante autorizado fiscalmente hasta incorporar A
 
 Usar navegación superior por áreas y cinta de acciones contextual.
 Abrir listados con búsqueda, filtros estables y selección de columnas.
-Mantener tercero → datos generales → detalle → totales → acciones en documentos.
+Mantener fecha de hoy propuesta → tercero → documento → conceptos/artículos → totales y acciones.
+Priorizar la practicidad de una pyme con poco personal: datos ya configurados se deducen y lo secundario
+queda fuera del recorrido principal. Conservar fechas elegidas, históricas, importadas y de origen.
 Completar valores conocidos y mostrar campos avanzados sólo cuando correspondan.
 Conservar contexto al volver de fichas, imprimir o generar un derivado.
 Usar matrices editables donde reduzcan carga; mantener teclado, filtros y cambios pendientes.
@@ -119,3 +121,9 @@ La revisión funcional/visual y la aceptación siguen pendientes como hitos dist
 Conservar composición, evidencias técnicas y QA posterior como estados separados.
 Usar la [plantilla de módulo](plantillas/modulo.md) y conservar la constitución como contrato común.
 No iniciar todos los módulos simultáneamente.
+
+## Expansión autorizada · 2026-11-05
+
+El titular activó el objetivo de desarrollar e implementar todas las capacidades del
+[plan de expansión argentina](PLAN-EXPANSION-ARG.md), por incrementos. Se conserva el núcleo
+genérico y se agregan módulos opcionales e integraciones en etapas; no implica que ya estén instalados.

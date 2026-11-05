@@ -1,25 +1,16 @@
-# Odoo Pymes ARG — 0.1.4-dev
+# Odoo Pymes ARG — 0.1.5-dev
 
-Paleta argentina integrada en las variables de Odoo, sus controles nativos y las paletas de
-calendario. Azules ARG en menús, enlaces, selección y foco; favicon propio predeterminado y color
-del navegador. Mejoras de contraste de buscador, calendario y botones neutros en oscuro.
-[Detalle, pruebas y límites](TEMA-ARG.md).
+Primer incremento del [plan de expansión argentina](../PLAN-EXPANSION-ARG.md): fecha primero en
+formularios propios y fecha de hoy propuesta al cargar facturas/notas, conservando fechas explícitas.
+[Alcance y controles técnicos](CARGA-BASICA-ARG.md). No acredita la implementación del plan completo.
 
-Interfaz20.0.1.1.5; los otros once addons mantienen su versión.91 módulos instalados,
-79 nativos/dependencias y12 ARG. Paquete231 archivos, SHA256 `37f8c64c3030591348b193e6560c2da585d5ff78d02f87c3e678d2325518788e`.
-[Composición exacta](../../composition/versions.lock.json). Actualización explícita de Interfaz ARG
-en aislado y demo, sin modificar core ni actualizar todos los módulos.
+101 módulos (12 ARG+89 nativos/dependencias);231 archivos del paquete SHA256
+898b636eaac4a8d567470f5668ca6bc1c10d2ccdbe808df64b02fca06ea625ba. [Composición](../../composition/versions.lock.json).
+Las capacidades avanzadas de specs017–024 permanecen pendientes de código; no se activaron proveedores.
 
-Se revisaron Inicio, listado/selección, formulario, calendario, desplegables y preferencias nativas
-en claro/oscuro. El análisis CSS de las superficies observadas no detectó violeta; no certifica
-cada imagen, aplicación externa ni todos los estados posibles. Se conserva el icono personalizado
-de la empresa y los colores semánticos de éxito, advertencia y error.
+Revisión estática y comprobaciones técnicas de carga/default_get, sin nuevos documentos ni QA de negocio.
+QA funcional/visual y aceptación del titular posteriores. Se conserva el caso histórico de ventas de la
+[entrega0.1.3](RELEASE-0.1.3-dev.md), sin atribuirlo como prueba repetida de este incremento.
+Respaldo previo íntegro, no restaurado; conservar datos y configuración de la demo.
 
-Respaldo completo previo con integridad verificada, sin restauración en esta entrega. Fuentes
-instaladas contrastadas con el paquete. Conteos de negocio de la demo preservados; no se crearon
-operaciones ni se enviaron mensajes. Las pruebas parciales de Ventas de la
-[entrega anterior](RELEASE-0.1.3-dev.md) no se repitieron para este cambio visual.
-Aceptación personal y escenarios restantes pendientes.
-
-Licencias originales AGPL-3.0-only y CC BY-SA4.0; atribuciones de Odoo/Lucide conservadas.
-[Recursos](../RECURSOS-VISUALES.md). Integraciones, ARCA y rubros siguen como etapas posteriores.
+Originales AGPL-3.0-only/CC BY-SA4.0; atribuciones de Odoo y terceros conservadas.

@@ -29,11 +29,11 @@ Como operador necesito el mismo orden y botones en documentos y matrices.
 
 **Why this priority**: Entregar editar con un patrón común con el orden común y decisiones mínimas.
 
-**Independent Test**: Recorrer tercero, generales, detalle, totales y acciones mediante teclado.
+**Independent Test**: Recorrer fecha, tercero, documento, detalle, totales y acciones mediante teclado.
 
 **Acceptance Scenarios**:
 
-1. **Given** una compañía de ejemplo configurada y un usuario autorizado, **When** realiza el recorrido, **Then** recorrer tercero, generales, detalle, totales y acciones mediante teclado.
+1. **Given** una compañía de ejemplo configurada y un usuario autorizado, **When** realiza el recorrido, **Then** recorrer fecha, tercero, documento, detalle, totales y acciones mediante teclado.
 2. **Given** una excepción o datos incompletos, **When** intenta continuar, **Then** conservar cambios pendientes al filtrar y advertir antes de descartarlos.
 
 ### User Story 3 - Reconocer ARG y su ayuda (Priority: P2)

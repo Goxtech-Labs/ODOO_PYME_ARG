@@ -8,7 +8,7 @@ En tu menú de usuario → Mis preferencias → Gestión ARG elegí tema claro/o
 saldos, documentos ni permisos. Guardar conserva significado y color, Descartar también; el texto y foco
 permiten reconocer acciones sin depender sólo del color.
 
-Las plantillas QWeb comunes conservan tercero → generales → detalle → totales → acciones/estado.
+Las plantillas QWeb comunes conservan fecha → tercero → documento → detalle → totales → acciones/estado.
 No modifiques facturas históricas para cambiar su información comercial; los datos congelados y
 relaciones conservan lo acordado. El logo no acredita autorización fiscal ni reemplaza numeración.
 

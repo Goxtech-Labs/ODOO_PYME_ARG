@@ -14,6 +14,15 @@ class AccountMove(models.Model):
 
     arg_purchase_header_snapshot = fields.Json(readonly=True, copy=False, groups='base.group_user')
 
+    @api.model
+    def default_get(self, fields_list):
+        values = super().default_get(fields_list)
+        move_type = values.get('move_type', self.env.context.get('default_move_type'))
+        if ('invoice_date' in fields_list and move_type in ('in_invoice', 'in_refund')
+                and not values.get('invoice_date') and 'default_invoice_date' not in self.env.context):
+            values['invoice_date'] = fields.Date.context_today(self)
+        return values
+
     def _arg_document_code(self):
         if self.move_type == 'in_invoice':
             return 'FRC'

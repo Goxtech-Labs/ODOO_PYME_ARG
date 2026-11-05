@@ -51,3 +51,14 @@ Antes de aplicar/desaplicar registrar evento inmutable arg.pyme.treasury.audit.e
 compañía, moneda, importe y referencias de apuntes/documentos; enlazar evento inverso.
 remove_move_reconcile elimina conciliaciones parciales: sus IDs solos no conservan historia.
 El evento preserva evidencia, no calcula un saldo paralelo; saldo vigente siempre desde contabilidad nativa.
+
+## Recibo argentino · definición del titular 2026-11-05
+
+REC documenta el cobro de una o varias facturas y detalla efectivo, transferencias, cheques u otros medios
+habilitados. Puede reunir varios medios y aplicaciones parciales. Conservar cobros a cuenta existentes.
+Aplicar deuda no equivale a acreditar dinero en banco: un cheque aceptado entra en cartera con identidad
+propia. Su liquidación posterior no genera otro ingreso comercial ni vuelve a cancelar la misma factura.
+El incremento de valores deberá ampliar clasificación y evidencia del motor monetario antes de admitir
+cheques; los medios manuales actuales no constituyen por sí solos ese soporte.
+OPA conserva identidad y función de pago. Usar lotes de órdenes/transferencias para el uso práctico de
+remesas; un pagaré jurídico, cuando se utilice, es un instrumento separado y no una OPA renombrada.

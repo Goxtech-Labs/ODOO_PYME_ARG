@@ -15,7 +15,7 @@ Derivar comandos del servicio activo; no ejecutar actualizaciones globales por d
 ## Escenarios reservados para QA posterior
 
 1. Abrir Presupuestos, Pedidos, Entradas y Recibos desde sus áreas y conservar filtros al volver. Revisar además: mostrar únicamente acciones permitidas y conservar acceso avanzado según el rol.
-2. Recorrer tercero, generales, detalle, totales y acciones mediante teclado. Revisar además: conservar cambios pendientes al filtrar y advertir antes de descartarlos.
+2. Recorrer fecha, tercero, documento, detalle, totales y acciones mediante teclado. Revisar además: conservar cambios pendientes al filtrar y advertir antes de descartarlos.
 3. Encontrar tutoriales por módulo, soporte general y GOXTECHBOT en superficies inventariadas. Revisar además: conservar identidad de la pyme en sus documentos y atribuciones técnicas correspondientes.
 
 Comprobar rol restringido, segunda compañía, navegación por teclado y ayudas de la versión.

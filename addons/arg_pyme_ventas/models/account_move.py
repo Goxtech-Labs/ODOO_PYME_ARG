@@ -10,6 +10,15 @@ class AccountMove(models.Model):
     _inherit=['account.move','arg.pyme.document.mixin']
     arg_header_snapshot=fields.Json(readonly=True,copy=False,groups='base.group_user')
 
+    @api.model
+    def default_get(self, fields_list):
+        values = super().default_get(fields_list)
+        move_type = values.get('move_type', self.env.context.get('default_move_type'))
+        if ('invoice_date' in fields_list and move_type in ('out_invoice', 'out_refund')
+                and not values.get('invoice_date') and 'default_invoice_date' not in self.env.context):
+            values['invoice_date'] = fields.Date.context_today(self)
+        return values
+
     def _arg_document_code(self):
         if self.move_type=='out_invoice':return 'FAC'
         if self.move_type=='out_refund':return 'NCV'

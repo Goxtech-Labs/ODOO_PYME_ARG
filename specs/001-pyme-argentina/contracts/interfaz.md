@@ -13,13 +13,26 @@ Conservar listado y filtros al cerrar una ficha y permitir volver sin perder con
 | --- | --- |
 | Área | Resumen → documentos/operaciones → maestros → configuración del área |
 | Listado | Título/tipo → acciones → búsqueda/filtros → tabla → paginación/totales |
-| Documento | Tercero → datos generales → detalle → totales → acciones de negocio |
+| Documento | Fecha → tercero → identificación del documento → conceptos/artículos → totales → acciones de negocio |
 | Ficha maestra | Identificación → contacto → condiciones → información adicional |
 | Informe | Hecho/medida → período → dimensiones/filtros → resultado → origen/exportación |
 
 Mantener acciones de guardado en una ubicación fija y distinguirlas de confirmar efectos de negocio.
 Evitar formularios diferentes para documentos equivalentes entre compras y ventas.
 Usar secciones avanzadas para datos infrecuentes, conservando el orden de lectura.
+
+## Practicidad argentina · decisión 2026-11-05
+
+El recorrido principal responde cuándo, a quién y qué se registra. Proponer fecha de hoy al crear,
+usando la zona horaria efectiva del usuario. No modificar fechas ya elegidas, históricas, importadas
+o heredadas del origen al abrir, recargar, revisar o confirmar. Vencimiento no equivale a fecha de registro.
+El tipo se deduce de la tarea abierta; código y numeración propios se asignan automáticamente.
+Pedir sólo referencias externas necesarias y no obligar a volver a elegir información conocida.
+Conceptos/artículos ocupan el detalle principal. Condiciones adicionales quedan en secciones secundarias;
+compañía, moneda, depósito, listas, impuestos y diarios se resuelven desde configuración válida.
+Un valor desconocido no se inventa: explicar qué falta y pedirlo cuando sea indispensable para el efecto.
+Una sola persona puede completar el circuito con los roles permitidos. Conservar controles y trazabilidad,
+sin imponer una estructura de personal grande. La adopción en pantallas instaladas debe verificarse por entrega.
 
 ## Acciones
 

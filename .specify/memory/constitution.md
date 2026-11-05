@@ -1,8 +1,8 @@
 <!-- Sync Impact Report
-Version: 1.3.0 -> 1.3.1.
-Changed: owner adopted AGPL-3.0-only for original code and CC-BY-SA-4.0 for original documentation/artwork.
-Preserved: third-party licenses, deferred functional/visual QA, ARG identity and scope.
-Templates unchanged; NOTICE.md and license files record the decision.
+Version: 1.3.1 -> 1.4.0.
+Changed: practical document entry for small Argentine teams: today, counterparty, document and concepts/items.
+Preserved: original/third-party licenses, deferred functional/visual QA, ARG identity and native business effects.
+Affected: master plan/spec, interface contract and minimal-data guide. Runtime adoption is a separate task.
 -->
 # ODOO PYMES ARG Constitution
 
@@ -46,11 +46,17 @@ Separar identificación interna y numeración fiscal.
 Definir hechos, granularidad y dimensiones explícitas para cada informe.
 
 ### V. Carga mínima y orden estable
-Mantener tercero, datos generales, detalle, totales y acciones en ese orden.
+Priorizar practicidad para micropymes y pymes con poco personal; no exigir departamentos ni aprobadores distintos.
+Mantener fecha → tercero → identificación del documento → conceptos/artículos → totales y acciones.
+Proponer hoy como fecha inicial del registro nuevo, según la zona horaria del usuario; permitir corregirla.
+Conservar fechas históricas, importadas, derivadas y elegidas por el usuario; no reemplazarlas al recargar.
+Inferir tipo documental desde la tarea abierta y asignar código/número automáticamente cuando corresponda.
 Solicitar únicamente datos indispensables para la operación y su estado actual.
 Completar valores conocidos desde compañía, tercero, producto y documento de origen.
 Conservar correcciones explícitas y mostrar campos avanzados progresivamente.
 Evitar solicitar nuevamente datos disponibles o trasladables entre documentos.
+Mantener los datos secundarios fuera del recorrido principal, sin ocultar errores ni requisitos legales/operativos necesarios.
+Un recibo argentino reúne medios de pago e imputa el cobro a facturas; distinguir deuda aplicada de dinero acreditado y valores en cartera.
 
 ### VI. Identidad argentina y consistencia visual
 Visibilizar a Gonzalo Sarubilo como impulsor y autor de sus aportes personales.
@@ -120,7 +126,7 @@ Modificar principios mediante decisiones fechadas y análisis de módulos afecta
 Versionar cambios incompatibles como mayores; agregar principios como menores; corregir redacción como parches.
 Revisar cumplimiento en cada especificación y entrega.
 
-**Version**: 1.3.1 | **Ratified**: 2026-11-01 | **Last Amended**: 2026-11-01
+**Version**: 1.4.0 | **Ratified**: 2026-11-01 | **Last Amended**: 2026-11-05
 
 Los documentos muestran ejes de cumplimiento independientes con pendiente/parcial/completo y trazabilidad de cantidades/importes; no equiparar cierre de faltante con cumplimiento.
 

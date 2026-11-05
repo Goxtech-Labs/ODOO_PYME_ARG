@@ -18,7 +18,7 @@
 
 ## Phase 3: User Story 2 Editar con un patrón común
 
-**Independent Test**: Recorrer tercero, generales, detalle, totales y acciones mediante teclado.
+**Independent Test**: Recorrer fecha, tercero, documento, detalle, totales y acciones mediante teclado.
 
 - [x] T005 [US2] Implementar editar con un patrón común en addons/arg_pyme_ui/static/src/components/document_actions.js, aplicando los invariantes de contracts/operaciones.md. (FR-003, FR-004)
 - [x] T006 [US2] Exponer el recorrido y sus mensajes/acciones mediante addons/arg_pyme_ui/static/src/components/document_matrix.xml, conservando datos mínimos, orden y permisos efectivos. (FR-003, FR-004)
