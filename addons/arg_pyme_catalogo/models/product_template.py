@@ -3,6 +3,10 @@ from odoo import models
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
+    def action_arg_consult_price(self):
+        self.ensure_one()
+        return self.env['arg.pyme.price.consultation'].from_template(self.id)
+
     def action_arg_variants(self):
         self.ensure_one()
         self.env['arg.pyme.variant.matrix']._scoped()._template(self.id)

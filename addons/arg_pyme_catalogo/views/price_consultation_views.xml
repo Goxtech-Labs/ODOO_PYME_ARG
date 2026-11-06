@@ -1,0 +1,5 @@
+<odoo>
+<record id="action_price_consultation" model="ir.actions.client"><field name="name">Consulta de precio ARG</field><field name="tag">arg_pyme.price_consultation</field></record>
+<menuitem id="menu_price_consultation" name="Consultar precio y condiciones" parent="arg_pyme_base.menu_arg_ventas" action="action_price_consultation" sequence="81"/>
+<record id="product_form_price_consultation" model="ir.ui.view"><field name="name">product.template.arg.price.consultation</field><field name="model">product.template</field><field name="inherit_id" ref="product_form"/><field name="arch" type="xml"><xpath expr="//header" position="inside"><button name="action_arg_consult_price" type="object" string="Consultar precio"/></xpath></field></record>
+</odoo>

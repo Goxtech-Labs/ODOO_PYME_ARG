@@ -6,6 +6,7 @@ import { standardActionServiceProps } from "@web/webclient/actions/action_plugin
 import { useSetupAction } from "@web/search/action_hook";
 import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
 import { Dialog } from "@web/core/dialog/dialog";
+import { PriceExplanationDialog } from "./price_consultation";
 class PriceReview extends Component {
     static template = "arg_pyme_catalogo.PriceReview";
     static components = { Dialog };
@@ -23,11 +24,12 @@ export class PriceMatrix extends Component {
     props = useProps({...standardActionServiceProps});
     state = proxy({rows:[], columns:[], lists:[], categories:[], selected:[], pending:{},
         query:"", kind:"", category:"", sale:false, purchase:false, quantity:1, date:"",
-        offset:0, limit:30, count:0, loading:false, saving:false, canEdit:false, error:""});
+        offset:0, limit:30, count:0, loading:false, saving:false, explaining:false, canEdit:false, error:""});
     setup() {
         this.orm = useService("orm"); this.dialog = useService("dialog");
         this.notification = useService("notification"); this.action = useService("action");
         this.request = 0; this.operation = null;
+        this.loadedContext = null;
         this.templateId = this.props.action.params?.template_id || false;
         this.templateName = this.props.action.params?.template_name || "";
         useSetupAction({beforeLeave:() => this.beforeLeave(),
@@ -56,6 +58,7 @@ export class PriceMatrix extends Component {
                  template_id:this.templateId},
                 offset,Number(this.state.quantity),this.state.date]);
             if (request !== this.request) return;
+            this.loadedContext = {date:data.date,quantity:data.quantity};
             Object.assign(this.state,{rows:data.rows,columns:data.columns,count:data.count,offset:data.offset,limit:data.limit});
         } catch (error) { if (request === this.request) this.state.error = error.data?.message || error.message; }
         finally { if (request === this.request) this.state.loading=false; }
@@ -110,5 +113,12 @@ export class PriceMatrix extends Component {
             confirm:()=>{this.state.pending={};resolve(true);},cancel:()=>resolve(false),dismiss:()=>resolve(false)}));
     }
     advanced() {return this.action.doAction("arg_pyme_catalogo.action_pricelists");}
+    explain(row,col) {
+        if(this.state.loading || this.state.saving || this.state.explaining || !this.loadedContext) return;
+        this.state.explaining=true;
+        this.dialog.add(PriceExplanationDialog,{productId:row.id,pricelistId:col.id,
+            quantity:this.loadedContext.quantity,date:this.loadedContext.date,
+            expectedToken:this.cell(row,col).token || false,onDone:()=>{this.state.explaining=false;}});
+    }
 }
 registry.category("actions").add("arg_pyme.price_matrix",PriceMatrix);
