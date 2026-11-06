@@ -31,7 +31,7 @@ marca guía previa para revisar sin sobrescribir enlaces/textos del titular. Mig
 AST/XML/JS/manifests, operaciones ACL, XPaths de padres propios y secretos se controlan por paquete;
 estos controles no prueban instalación, permisos efectivos, PDF ni funcionamiento físico/financiero.
 
-Paquete281 archivos SHA256e176f6a68f2f461e41c0451dfdeed003de813cd1abaeafbf53ae3e7340eed690.
+Paquete281 archivos SHA256f39a34bd49339ea142745e1186acc9f67ae1e792b9cdd895cef203961dfeb22b.
 [Composición candidata](../../composition/candidates/018-reparaciones-trabajo.json), sin reemplazar
 el lock instalado. OPA1.2 y el primer paquete de Reparaciones1.0 deben instalarse/controlarse en
 aislado antes de actualizar1.1, para comprobar la secuencia de entrega/migración prevista.

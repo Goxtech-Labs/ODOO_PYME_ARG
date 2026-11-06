@@ -18,6 +18,7 @@
   "previous_isolated_candidate_sha256": "9a4129a81bb4920ac8a25d020ebfd0389e4d3c1c01282d0f9407a53b61c33b49",
   "scope": "REP/PRE/PED authorization, native spare fulfillment, PTM manual services, ready/resume/deliver and native invoice/receipt links; reception/diagnosis corrections and full reports remain",
   "example_loader": "prepared, not executed; spare and hourly service masters only",
-  "artifact_sha256": "e176f6a68f2f461e41c0451dfdeed003de813cd1abaeafbf53ae3e7340eed690",
-  "package_files": 281
+  "artifact_sha256": "f39a34bd49339ea142745e1186acc9f67ae1e792b9cdd895cef203961dfeb22b",
+  "package_files": 281,
+  "scope_fix": "Private effect context applies only when operation contains repair moves"
 }

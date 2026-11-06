@@ -79,4 +79,5 @@ class StockMove(models.Model):
             total = actual + delta
             if not math.isfinite(total) or float_compare(total, 0, precision_rounding=rounding) < 0 or float_compare(total, line.product_uom_qty, precision_rounding=rounding) > 0:
                 raise UserError(_('La cantidad neta de repuestos supera el pedido autorizado o su devolución disponible.'))
-        return super(StockMove, repair_engine(self))._action_done(*args, **kwargs)
+        current = repair_engine(self) if repairs else self
+        return super(StockMove, current)._action_done(*args, **kwargs)
