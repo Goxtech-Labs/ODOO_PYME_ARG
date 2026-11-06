@@ -1,7 +1,9 @@
 # Reparaciones ARG · Primer código de recepción
 
-2026-11-05. Código20.0.1.0.0 preparado. No instalado ni disponible aún en la demo.
-La instalación de los incrementos nuevos espera renovación del acceso SSH de Tailscale.
+Actualización2026-11-06: recepción1.0 y ampliaciones1.1/1.2 instaladas y registradas en aislado;
+la demo compartida conserva su composición anterior. [Controles actuales](EXPANSION-INSTALACION-AISLADA.md).
+
+Antecedente2026-11-05: primer código20.0.1.0.0 preparado, entonces sin instalación por acceso SSH.
 No se ejecutó QA funcional/visual, render PDF ni recorridos de reparación.
 
 Incluye REP por compañía, fecha de hoy propuesta, cliente, equipo descriptivo y problema informado;

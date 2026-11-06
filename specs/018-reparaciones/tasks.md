@@ -1,6 +1,6 @@
 # Tasks: Reparaciones y servicio técnico ARG
 
-Estado: fuente1.2 preparada con circuito, correcciones/continuidad y reporte; sin instalación. QA/aceptación posteriores en quickstart.md.
+Estado:1.2 instalada técnicamente en aislado, con circuito, correcciones/continuidad y reporte. Promoción y QA/aceptación posteriores pendientes.
 
 
 ## Setup
@@ -9,30 +9,30 @@ Estado: fuente1.2 preparada con circuito, correcciones/continuidad y reporte; si
 
 ## Foundation
 
-- [ ] T002 Fijar identidad, campos y transiciones del contrato en specs/018-reparaciones/data-model.md
+- [x] T002 Fijar identidad, campos y transiciones del contrato en specs/018-reparaciones/data-model.md
 - [x] T003 Crear manifest/dependencias opcionales sin ciclo ni core modificado en addons/arg_pyme_reparaciones/__manifest__.py
 
 ## US1
 
-- [ ] T004 [US1] Implementar carga básica, valores por contexto y las invariantes: El equipo del cliente no aumenta stock propio ni su valoración. Destino addons/arg_pyme_reparaciones/models/repair_case.py
-- [ ] T005 [US1] Crear roles y reglas multiempresa; sin sudo para operaciones del usuario en addons/arg_pyme_reparaciones/security/ir.access.csv
-- [ ] T006 [US1] Presentar fecha/tercero/documento/detalle y secundarios progresivos en addons/arg_pyme_reparaciones/views/repair_views.xml
+- [x] T004 [US1] Implementar carga básica, valores por contexto y las invariantes: El equipo del cliente no aumenta stock propio ni su valoración. Destino addons/arg_pyme_reparaciones/models/repair_case.py
+- [x] T005 [US1] Crear roles y reglas multiempresa; sin sudo para operaciones del usuario en addons/arg_pyme_reparaciones/security/ir.access.csv
+- [x] T006 [US1] Presentar fecha/tercero/documento/detalle y secundarios progresivos en addons/arg_pyme_reparaciones/views/repair_views.xml
 
 ## US2
 
-- [ ] T007 [US2] Implementar operaciones y relaciones descritas en contracts/operaciones.md con idempotencia/corrección; destino addons/arg_pyme_reparaciones/models/repair_intervention.py
-- [ ] T008 [US2] Implementar operaciones y relaciones descritas en contracts/operaciones.md con idempotencia/corrección; destino addons/arg_pyme_reparaciones/models/repair_stock_bridge.py
-- [ ] T009 [US2] Hacer cumplir en servidor: Confirmar el diagnóstico no factura ni consume repuestos.; Cada consumo, devolución y factura conserva su origen por línea.; Garantía y presupuesto aceptado son condiciones explícitas; no se inventan por fecha. Destino addons/arg_pyme_reparaciones/models/repair_commercial.py y repair_sales_bridge.py
+- [x] T007 [US2] Implementar operaciones y relaciones descritas en contracts/operaciones.md con idempotencia/corrección; destino addons/arg_pyme_reparaciones/models/repair_intervention.py
+- [x] T008 [US2] Implementar operaciones y relaciones descritas en contracts/operaciones.md con idempotencia/corrección; destino addons/arg_pyme_reparaciones/models/repair_stock_bridge.py
+- [x] T009 [US2] Hacer cumplir en servidor: Confirmar el diagnóstico no factura ni consume repuestos.; Cada consumo, devolución y factura conserva su origen por línea.; Garantía y presupuesto aceptado son condiciones explícitas; no se inventan por fecha. Destino addons/arg_pyme_reparaciones/models/repair_commercial.py y repair_sales_bridge.py
 
 ## US3
 
-- [ ] T010 [US3] Exponer consulta/estados/origen y adaptador de hechos sin doble suma en addons/arg_pyme_reparaciones/models/report_adapter.py
-- [ ] T011 [US3] Crear informe/documento con moneda, estado y evidencia en addons/arg_pyme_reparaciones/report/repair_document.xml y work_document.xml
+- [x] T010 [US3] Exponer consulta/estados/origen y adaptador de hechos sin doble suma en addons/arg_pyme_reparaciones/models/report_adapter.py
+- [x] T011 [US3] Crear informe/documento con moneda, estado y evidencia en addons/arg_pyme_reparaciones/report/repair_document.xml y work_document.xml
 
 ## Polish
 
 - [ ] T012 Documentar manual, ejemplos, límites y ficha de tutorial versionada en docs/usuario/018-reparaciones.md
-- [ ] T013 Resolver sintaxis, carga de vistas e instalación/arranque de composición; registrar sin atribuir QA en docs/entregas/018-reparaciones.md
+- [x] T013 Resolver sintaxis, carga de vistas e instalación/arranque de composición; registrar sin atribuir QA en docs/entregas/018-reparaciones.md
 - [ ] T014 Fijar paquete/versiones, respaldo y promoción autorizada con hashes en composition/versions.lock.json
 
 ## Dependencies & Execution Order
@@ -72,5 +72,7 @@ No marcar el alcance completo por un paquete estático. Parent016T015 permanece 
 Contrato y fuente agregan corrección de recepción/diagnóstico, nueva visita con REP independiente,
 snapshot/UUID inmutables, vínculo real al hijo y reporte de hechos/pendientes. T002/T004–T011 tienen
 fuente para su alcance; no regenerarla por estar pendientes las comprobaciones técnicas de registro.
-T013/T014 permanecen sin ejecutar; T012 conserva videos reales pendientes y cargadores de ejemplo
-sin ejecutar. Código, instalación, PDF, QA y aceptación continúan como hitos separados. Parent016T015 abierta.
+Al preparar la fuente T013/T014 y los cargadores estaban pendientes. El 2026-11-06 se completó T013
+en aislado y se cargaron borrador/catálogo ficticios. Las tareas marcadas acreditan código instalado,
+no ejecución de sus recorridos ni PDF/QA. T012 conserva tutoriales y ejemplos de circuito pendientes;
+T014 y parent016T015 siguen abiertas hasta promoción. [Evidencia](../../docs/entregas/EXPANSION-INSTALACION-AISLADA.md).

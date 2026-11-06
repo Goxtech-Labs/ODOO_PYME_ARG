@@ -76,6 +76,7 @@ Incremento siguiente:017 tiene identidad y registro de borradores instalados té
 sin efectos financieros. T014 sigue abierta hasta completar REC/OPA y cartera conforme al contrato.
 Ver [entrega de registro](../../docs/entregas/017-cartera-valores.md).
 
-E1T006: fuente Compras20.0.1.0.6 prepara el orden de FRC/NCP sobre la ficha contable compartida,
-manteniendo fecha contable/vencimiento y condiciones visibles. Instalación/registro aún pendientes;
-no marcar esta tarea completa por locators válidos contra fuente nativa.
+E1T006: Compras20.0.1.0.6 instalada en aislado; ficha contable combinada y procesada comprobada,
+manteniendo fecha contable/vencimiento y condiciones visibles. Promoción a demo todavía pendiente.
+018T002/T004–T011/T013 acreditan código instalado en aislado, sin QA; T015 padre sigue abierta.
+[Instalación aislada](../../docs/entregas/EXPANSION-INSTALACION-AISLADA.md).

@@ -1,8 +1,10 @@
 # Reparaciones ARG1.1 · Trabajo autorizado
 
-2026-11-05. Fuente20.0.1.1.0 preparada, no instalada. La autenticación SSH del operador sigue
-pendiente; no se modificaron CT151/CT152 ni se cargaron los ejemplos nuevos. Revisión funcional,
-visual, PDF y aceptación no ejecutadas.
+Actualización2026-11-06: trabajo1.1 y correcciones1.2 instalados y registrados en aislado;
+la demo compartida conserva su composición anterior. [Controles actuales](EXPANSION-INSTALACION-AISLADA.md).
+
+Antecedente2026-11-05: fuente20.0.1.1.0 preparada, entonces sin instalación por acceso SSH.
+Revisión funcional, visual, PDF y aceptación no ejecutadas.
 
 ## Alcance desarrollado
 

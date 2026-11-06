@@ -1,6 +1,6 @@
 # Reparaciones ARG · Recepción y diagnóstico
 
-Estado: código20.0.1.2.0 preparado; instalación y revisión funcional/visual pendientes.
+Estado:20.0.1.2.0 instalado en aislado; promoción y revisión funcional/visual pendientes.
 La recepción se amplía con presupuesto, autorización, trabajo y entrega. No está disponible aún en la demo.
 
 ## Recibir un equipo
@@ -116,8 +116,8 @@ El parte impreso agrega correcciones y hechos/pendientes por PRE/PED, con unidad
 sus fuentes. Los datos comerciales no verificables por permisos aparecen como no determinados;
 la custodia sigue disponible. Imprimir no confirma una entrega, autorización ni factura.
 
-Quedan pendientes instalación, ejemplos operativos, revisión funcional/visual, PDF y aceptación.
-Los cargadores preparan cliente/REP borrador y catálogo ficticio; no ejecutan el circuito.
+Quedan pendientes promoción, ejemplos de circuito, revisión funcional/visual, PDF y aceptación.
+Los cargadores crearon cliente/REP borrador y catálogo ficticio en aislado; no ejecutan el circuito.
 
 El tutorial específico de YouTube está pendiente. La guía escrita y el catálogo son editables sin
 inventar un enlace de video. No se envían mensajes ni se activa una integración al instalar el addon.

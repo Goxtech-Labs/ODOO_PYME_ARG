@@ -59,7 +59,7 @@ No bloquean la programación del núcleo: la UI ofrece manual y estado no config
 Guías de Ventas: [usuario](usuario/006-ventas.md), [técnica](tecnica/006-ventas.md), [entrega parcial](entregas/006-ventas.md).
 
 Guías de Compras: [usuario](usuario/007-compras.md), [técnica](tecnica/007-compras.md), [entrega parcial](entregas/007-compras.md).
-Disposición de carga de Compras1.0.6: [fuente preparada, no instalada](entregas/016-compras-carga-basica.md).
+Disposición de carga de Compras1.0.6: [instalada sólo en aislado](entregas/016-compras-carga-basica.md).
 
 Guías Stock: [usuario](usuario/008-stock.md), [técnica](tecnica/008-stock.md), [entrega](entregas/008-stock.md).
 
@@ -80,15 +80,18 @@ Valores ARG: [manual inicial](usuario/017-cartera-valores.md),
 [entrega REC/cheques](entregas/017-rec-cheques.md) y [tareas financieras pendientes](../specs/017-cartera-valores/tasks.md).
 REC con cheques en papel está instalado sólo en aislado; no modifica recibos ni saldos de la demo.
 
-[OPA, reservas y cheques propios1.2](entregas/017-opa-cheques.md): código preparado,
-autenticación e instalación pendientes; no habilitado aún en demo.
+[OPA, reservas y cheques propios1.2](entregas/017-opa-cheques.md): instalado sólo en aislado;
+sin promoción ni QA de circuito financiero.
 
 Reparaciones ARG: [manual de recepción](usuario/018-reparaciones.md),
 [diseño técnico](tecnica/018-reparaciones.md) y [estado de entrega](entregas/018-reparaciones.md).
-Primer código de recepción/diagnóstico/custodia; sin instalación ni circuito completo acreditados.
+Recepción/diagnóstico/custodia instalados en aislado; circuito sin QA acreditada.
 
 [Reparaciones: trabajo autorizado1.1](entregas/018-trabajo-autorizado.md): PRE/PED, autorización,
-repuestos nativos, PTM y entrega preparados en fuente; instalación y QA pendientes.
+repuestos nativos, PTM y entrega instalados en aislado; promoción y QA pendientes.
 
 [Reparaciones: correcciones/visitas1.2](entregas/018-correcciones-visitas.md): fuente preparada con
-historia conservada, REP nuevo para seguimiento y reporte de hechos/pendientes. Sin instalación acreditada.
+historia conservada, REP nuevo para seguimiento y reporte de hechos/pendientes. Instalado en aislado.
+
+[Composición y controles aislados](entregas/EXPANSION-INSTALACION-AISLADA.md): incluye ejemplos
+de REP borrador y catálogo ficticio; no acredita disponibilidad de estas ampliaciones en la demo pública.

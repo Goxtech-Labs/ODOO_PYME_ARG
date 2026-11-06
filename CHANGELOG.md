@@ -1,5 +1,11 @@
 # Cambios
 
+## Instalación aislada de la expansión — 2026-11-06
+
+- Valores1.2/Administración1.1.4, Reparaciones1.2 y Compras1.0.6 instalados con controles técnicos.
+- REP borrador, cliente, repuesto y servicio ficticios cargados sin efectos operativos.
+- [Evidencia y límites](docs/entregas/EXPANSION-INSTALACION-AISLADA.md). Demo compartida sin promoción; QA pendiente.
+
 ## Carga documental de Compras — 2026-11-06
 
 - Compras20.0.1.0.6 en fuente: fecha del proveedor antes de tercero/referencia, condiciones contables

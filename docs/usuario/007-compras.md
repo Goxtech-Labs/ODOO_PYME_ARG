@@ -4,7 +4,7 @@ Compatibilidad: Odoo 20 Community. La versión de cada addon está fijada en la
 [composición de esta entrega](../../composition/versions.lock.json); consultar sus límites y estado de QA.
 
 Circuito comercial, puente físico y dinero aplicado instalados; QA funcional y aceptación pendientes.
-El ajuste de carga20.0.1.0.6 está preparado en fuente, pendiente de instalación.
+El ajuste de carga20.0.1.0.6 está instalado sólo en aislado, pendiente de promoción a la demo compartida.
 
 ## Pedido al proveedor
 
@@ -35,7 +35,7 @@ tiene otra. Los datos tomados del pedido no se cargan de nuevo. FRC/NCP son cód
 A la derecha quedan condiciones y contabilidad, conservando fecha contable, vencimiento, moneda,
 diario y demás controles nativos. No se completan todas las fechas con hoy: cada una tiene su significado.
 La misma ficha se abre desde menú, pedido o enlaces; incluye los recibos de proveedor nativos que
-usen esa ficha, sin asignarles un nuevo código ARG. Este ajuste todavía no está instalado ni revisado visualmente.
+usen esa ficha, sin asignarles un nuevo código ARG. Este ajuste está instalado en aislado, sin revisión visual.
 
 Una factura vinculada no puede consumir cantidades de otro producto, usar otra unidad, superar el pedido o
 lo recibido cuando así lo exige la política del producto. Los borradores no cuentan como facturación cumplida.

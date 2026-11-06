@@ -7,8 +7,8 @@ Compatibilidad: Odoo 20 Community. La versión de cada addon está fijada en la
 Ventas ni Stock. PPC extiende purchase.order; FRC/NCP extienden account.move. No hay otro libro de cantidades,
 contabilidad, residual o existencias. Los modelos nuevos son wizard transitorio y evidencia de preparación.
 
-Fuente20.0.1.0.6: disposición de carga de comprobantes de proveedor pendiente de instalación.
-La composición instalada continúa fijada en el lock; no se acredita instalación por este manual.
+20.0.1.0.6: disposición de carga de comprobantes de proveedor instalada sólo en aislado.
+La composición de la demo continúa fijada en el lock; el inventario aislado se registra por separado.
 
 ## Disposición de carga20.0.1.0.6
 

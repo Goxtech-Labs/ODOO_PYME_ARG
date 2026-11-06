@@ -53,7 +53,8 @@ la promoción del componente afectado y se registra; no se elude con sudo ni con
 ## Avance de recepción
 
 Primer código opcional20.0.1.0.0: REP, custodia sin inventario propio, diagnóstico y devolución sin
-reparar, rol y evidencia. No instalado. Decisión de candidato nativo en research.md; no instalar repair
+reparar, rol y evidencia. En la fase de fuente estaba sin instalar; el registro se verificó después en aislado.
+Decisión de candidato nativo en research.md; no instalar repair
 para simular este alcance. El resto de US2/US3 permanece necesario; no cerrar por el subcircuito.
 
 ## Ampliación de trabajo1.1
@@ -62,7 +63,7 @@ PRE/PED por generadores existentes, autorización propia por PED, partes PTM de 
 repuestos exclusivamente por sale_stock y cierre/entrega con ejes nativos. Dependencia explícita
 arg_pyme_ventas_stock para enlazar los mismos movimientos comerciales. Archivos adicionales:
 repair_commercial.py, repair_sales_bridge.py, repair_intervention.py, repair_stock_bridge.py y
-report_adapter.py. Fuente aún no instalada; controles de migración/vistas/registro pendientes.
+report_adapter.py. Instalación y controles de migración/vistas/registro aislados completados el 2026-11-06.
 Contrato [trabajo autorizado](contracts/trabajo-autorizado.md). Correcciones de recepción/diagnóstico,
 reportes completos y ejemplos/tutorías continúan; no cerrar018 ni la expansión por esta entrega.
 
@@ -73,5 +74,6 @@ seguimiento desde custodia terminada prepara REPdraft independiente con vínculo
 No reabre custodia ni copia hechos físicos/financieros. Reporte agrega correcciones y ejes existentes,
 con degradación de acceso a unknown y conservación de custodia. Mismos nueve estados del caso;
 los nuevos hechos extienden su historial. Migración1.2 actualiza ayuda sin reescribir los eventos.
-Fuente completa del alcance previsto lista para controles de instalación; T013/T014 siguen pendientes,
-con ejemplos operativos/tutoriales, QA y aceptación separados. No cerrar el programa completo.
+Fuente completa del alcance previsto instalada en aislado; T013 completada y T014 pendiente de promoción.
+Ejemplos de borrador/catálogo cargados; ejemplos de circuito/tutoriales, QA y aceptación separados.
+[Evidencia actual](../../docs/entregas/EXPANSION-INSTALACION-AISLADA.md). No cerrar el programa completo.

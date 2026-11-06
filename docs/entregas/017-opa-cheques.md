@@ -1,9 +1,9 @@
 # OPA y entregas de cheques · desarrollo1.2 · 2026-11-05
 
-**Código preparado; instalación pendiente de autenticación del operador.** Valores20.0.1.2.0 y
-Administración20.0.1.1.4. No atribuirles instalación, QA o disponibilidad en la demo compartida.
-Últimas composiciones verificadas: aislado [REC1.1](017-rec-cheques.md) y demo0.1.5.
-No se revalidó su estado actual después del pedido de renovación SSH.
+**Instalado técnicamente sólo en aislado el 2026-11-06.** Valores20.0.1.2.0 y Administración20.0.1.1.4.
+Sin QA financiera ni disponibilidad de esta ampliación en la demo compartida.
+Lectura actual: aislado Valores1.2/Administración1.1.4 y demo0.1.5. La entrega
+[REC1.1](017-rec-cheques.md) conserva el antecedente de la fase anterior.
 
 ## Cambios desarrollados
 
@@ -43,14 +43,16 @@ cuenta. Hallazgos corregidos: objetivo mutable de devolución/reintento y pago l
 La fuente nativa20 cacheada admite cuentas transitorias activo/pasivo corriente y account.journal.bank_account_id;
 esa lectura no sustituye instalación ni prueba financiera de esta composición.
 
-Tailscale pidió renovación SSH antes de leer/instalar en el servidor; ninguna mutación de este incremento
-se ejecutó allí. El cargador nuevo de ejemplos está preparado, no ejecutado: perfiles propios, banco
+La preparación inicial esperó la autenticación SSH; después se instaló y verificó el registro en aislado.
+El cargador de ejemplos de OPA está preparado, no ejecutado: perfiles propios, banco
 ficticio y un cheque propio en borrador, sin pagos/asientos/stock ni cambios a cron o correo.
 La guía1.1 queda para revisión y enlaza la nueva, conservando texto, URL y video del administrador.
 
-Pendientes017: instalación/lectura posterior, promoción, QA posterior, ECHEQ, custodia, negociación/
+Pendientes017: promoción, QA posterior, ECHEQ, custodia, negociación/
 descuento/recurso avanzado, parciales, operaciones posteriores al débito/acreditación, lotes,
 transferencias, pagaré formal, informes y tutoriales completos. Se conserva todo el plan de expansión.
 
 [Contrato de salidas](../../specs/017-cartera-valores/contracts/salidas-opa.md) ·
 [Manual](../usuario/017-cartera-valores.md) · [Tareas](../../specs/017-cartera-valores/tasks.md)
+
+[Composición aislada y controles actuales](EXPANSION-INSTALACION-AISLADA.md).
