@@ -9,3 +9,10 @@
 - [x] Resolver estructura mediante scripts y templates oficiales Spec Kit.
 
 Revisión documental; no acredita pruebas funcionales. Mantener decisiones de producto y composición registradas.
+
+## Revisión de especificación F14 ·2026-11-06
+
+- [x] FR-007–011 tienen US4/US5, escenarios de excepción y tareas T014–T020 sin sustituir los seis requisitos iniciales.
+- [x] La historia, el saldo actual y el alta de maestro conservan efectos separados, con permisos y trazabilidad definidos.
+
+Calidad del requisito revisada durante Spec Kit specify; no marca implementación ni QA. F15 sigue pendiente.

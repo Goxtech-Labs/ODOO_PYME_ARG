@@ -1,5 +1,13 @@
 # Cambios
 
+## 0.1.9-dev · Stock1.1.1 — 2026-11-06
+
+- Consulta de series/lotes, movimientos finalizados y cantidades actuales visibles con paginación.
+- Alta mínima de lote nativo y serialización de identidad; no otro libro de stock.
+- Stock ARG habilita el grupo nativo de lotes/series para sus usuarios, sin activar seguimiento por producto.
+- Paquete299, respaldo/restauración y promoción técnica a demo comprobados; QA pendiente.
+- [Entrega y límites](docs/entregas/008-trazabilidad.md). F15/reposición y el resto del plan continúan.
+
 ## 0.1.8-dev · Catálogo1.2.0 — 2026-11-06
 
 - Consulta nativa de precio/condiciones de cliente con fecha/hora local y selectores paginados.

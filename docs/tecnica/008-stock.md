@@ -3,8 +3,8 @@
 Compatibilidad: Odoo 20 Community. La versión de cada addon está fijada en la
 [composición de esta entrega](../../composition/versions.lock.json); consultar sus límites y estado de QA.
 
-Core arg_pyme_stock 20.0.1.0.3 depende de Base/UI/Catálogo/Documentos y stock. Puentes arg_pyme_ventas_stock y
-arg_pyme_compras_stock 20.0.1.0.1 dependen de su circuito, Stock ARG y sale_stock/purchase_stock respectivamente;
+Core arg_pyme_stock depende de Base/UI/Catálogo/Documentos y stock. Puentes arg_pyme_ventas_stock y
+arg_pyme_compras_stock dependen de su circuito, Stock ARG y sale_stock/purchase_stock respectivamente;
 auto_install sólo cuando se satisface esa composición. Son puentes internos, no proveedores externos.
 
 ## Fuente y consultas
@@ -62,3 +62,29 @@ antes de añadir los puentes ARG; no se afirma ausencia de efectos por conocer e
 previas elimina en esta entrega la necesidad de migrar pedidos abiertos. Otras instalaciones requieren su preflight.
 Instalación/arranque es control técnico. Escenarios quickstart y comprobación funcional de concurrencia/multiempresa/
 permisos/cantidades quedan para QA posterior, según preferencia vigente. No se ejecutaron movimientos reales de ejemplo.
+
+## F14 · Stock20.0.1.1.1 instalado en aislado y demo
+
+`arg.pyme.stock.trace` abstracto expone options/reference/choices/page/quantities y acciones
+from_lot/open_lot/open_document/advanced/create_lot. Contexto limpio compañía/lang/tz; rol Stock
+ARG/admin y ACL nativas. Selectores/líneas/quants30; historial done por compañía y fecha/id.
+Unidad base desde quantity_product_uom; no se calcula saldo sumando movimientos. lot.product_qty
+y detalle de quants usan el mismo dominio nativo de ubicaciones, lote y contexto; ausencia de
+permiso de cantidad/unidad produce no determinado. Related targets se autorizan antes de nombrarlos.
+
+`arg.pyme.lot.create` transitorio toma producto+número/ref opcional y devuelve el lote nativo
+creado. Protege resultado de vals/context/ir.default, bloquea la fila para reintentos y conserva
+el resultado. El alta completada queda inmutable. Extensión stock.lot.create/write de identidad
+toma el lock técnico de productos existentes/nuevos antes de super(), con permisos nativos;
+no exige roles ARG a todos los consumidores nativos. Afecta al maestro usado por Stock/POS,
+sin tablas de saldo nuevas ni escrituras de cantidad. Concurrencia funcional aún sin QA.
+
+OWL conserva entradas, rango aplicado y páginas al navegar; paginar no aplica fechas pendientes.
+DateTimeInput nativo presenta zona local y transmite UTC. Quantresult lleva unidad propia, aunque
+el historial esté restringido. Ficha/traza avanzada usan acciones nativas, sin impresión automática.
+Wiring/manifest/ACL y delta fuente fueron revisados por otra sesión de la misma familia/cuenta;
+no es auditoría externa. Controles técnicos y límites en [entrega](../entregas/008-trazabilidad.md).
+
+Stock ARG implica `stock.group_production_lot` desde20.0.1.1.1 para habilitar los campos nativos
+de lote/serie en movimientos. El upgrade propaga el grupo a los usuarios actuales de Stock ARG.
+La comprobación técnica de grupos no ejecuta movimientos ni cambia seguimiento por producto.

@@ -3,7 +3,8 @@
 Compatibilidad: Odoo 20 Community. La versión de cada addon está fijada en la
 [composición de esta entrega](../../composition/versions.lock.json); consultar sus límites y estado de QA.
 
-Addon 20.0.1.0.3 y puentes Ventas–Stock/Compras–Stock 20.0.1.0.1. QA funcional y aceptación pendientes.
+Stock ARG y puentes Ventas–Stock/Compras–Stock conservan las versiones de la composición fijada.
+QA funcional y aceptación pendientes.
 
 ## Existencias
 
@@ -60,3 +61,38 @@ lotes, propietarios o paquetes mediante edición directa de quants; usá las ope
 Las operaciones terminadas conservan su detalle. Transferencias internas cambian ubicación y son neutras para
 el total de compañía. Los cobros/pagos siguen perteneciendo a Administración, no a Stock.
 Guía y tutoriales se mantienen por módulo/versión desde Ayuda ARG; no se inventan videos ni destinos de soporte.
+
+## Series y lotes · Stock1.1.1 disponible en demo
+
+El rol Stock ARG habilita también los campos nativos de lote y serie en los movimientos.
+El seguimiento sigue siendo opcional por producto.
+
+En Stock → Series y lotes, buscá el número o referencia. Elegir un producto antes es opcional.
+Los números conservan sus ceros y referencias del fabricante. La búsqueda y las tablas muestran
+páginas de30; al volver de fichas/documentos se conservan selección, fechas y páginas.
+
+La historia presenta sólo movimientos finalizados: recepción, entrega, traslado, devolución,
+ajuste u otros hechos nativos disponibles. Cada fila conserva fecha, origen/destino, cantidad y
+unidad; **Documento** abre el origen permitido, o el movimiento si no hay picking accesible.
+No atribuye facturas ni cobros a un lote sin evidencia directa.
+
+El período es opcional: indicá fechas/horas locales y pulsá **Consultar**. La tabla identifica el
+rango aplicado; paginar conserva ese rango aunque hayas editado fechas todavía sin aplicar.
+La **existencia actual visible** se muestra aparte con su momento de consulta. Su detalle por
+ubicación, propietario y paquete utiliza el mismo ámbito nativo que el total; no es el saldo
+reconstruido al sumar la historia. Sin permiso se informa no determinado, sin sustituirlo por cero.
+
+**Nueva serie o lote** requiere producto rastreable y número, con referencia opcional; la compañía
+se deduce. **Crear y consultar** crea el maestro nativo y devuelve su consulta. Las existencias se
+registran después en una recepción o inventario validado. Repetir la misma confirmación del
+asistente conserva el resultado. Para otro lote se abre un alta nueva. No se activa seguimiento
+automáticamente en productos existentes ni se renumeran identificadores del fabricante.
+
+Ejemplo para la revisión posterior: producto ficticio **EJEMPLO · Equipo con serie ARG**, número
+**00000001**, referencia **Fabricante de ejemplo**. El maestro por sí solo no acredita cantidades
+ni una historia de movimientos. No se presenta ese ejemplo como cargado o recorrido ejecutado.
+
+En **Herramientas avanzadas**, la ficha y la traza nativas conservan sus funciones y permisos.
+Editar la ubicación en la ficha nativa puede producir un traslado; esa edición es distinta de
+consultar la historia. Tutorial de esta versión planeado, sin URL ficticia.
+[Estado de entrega](../entregas/008-trazabilidad.md). Reposición F15 continúa por separado.

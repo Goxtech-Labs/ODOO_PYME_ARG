@@ -61,3 +61,20 @@ Checks de implementación/entrega técnica; no acreditan ejecución de Independe
 - [x] T013 Mostrar facturación vinculada como No determinado cuando no exista evidencia por movimiento y anteponer Entrega/Recepción a los ejes financieros. (FR-003 FR-004)
 
 Controles de instalación/arranque en docs/entregas/CIERRE-DE-CONTRATOS.md; QA y aceptación posteriores.
+
+## F14 · trazabilidad y alta mínima (US4/US5)
+
+- [x] T014 Fijar contrato y referencias nativas en specs/008-stock/contracts/trazabilidad-series-lotes.md y research.md, con revisión independiente.
+- [x] T015 [US4] Implementar consulta/ACL/compañía/paginación en addons/arg_pyme_stock/models/traceability.py; no tabla de movimientos nueva. (FR-007–010)
+- [x] T016 [US4] Crear acción OWL, selectores30, rango opcional y navegación preservada en addons/arg_pyme_stock/static/src/traceability.js y traceability.xml. (FR-007–010)
+- [x] T017 [US5] Crear asistente de alta única en addons/arg_pyme_stock/models/lot_create.py y views/traceability_views.xml: número1–256/ref0–256, resultado protegido y lock de identidad también en altas nativas, sin movimiento físico. (FR-011)
+- [x] T018 Documentar uso/límites/ejemplos y tutorial planeado en docs/usuario/008-stock.md, docs/tecnica/008-stock.md y docs/comunidad/youtube/catalogo.json.
+- [x] T019 Revisar delta exacto/secretos/paquete y registrar instalación técnica aislada en docs/entregas/008-trazabilidad.md.
+- [x] T020 Promover mismo paquete con respaldo/restauración, lectura posterior y publicación en main; fijar composición y docs/entregas/008-trazabilidad.md.
+
+T014→T015→T016/T017→T018→T019→T020. No ejecutar los escenarios funcionales en esta fase.
+Parent016T009 conserva F15/reposición pendiente después de esta entrega; mantener el objetivo completo.
+
+T015–T018 acreditan fuente/documentación y controles estáticos. T019 y T020 completadas como
+entrega técnica: paquete299, registro/vistas/arranque, rol nativo propagado, respaldo recuperado,
+mismo paquete en demo y publicación de fuentes/composición/documentación. QA y aceptación pendientes.

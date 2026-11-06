@@ -1,7 +1,7 @@
 # Entorno de ejemplo y compatibilidad
 
-Odoo20.0.20261101 Community, PostgreSQL16.15, Python3.12 y Ubuntu24.04. La entrega0.1.8-dev
-conserva103 módulos:14 ARG y89 nativos/dependencias, incluido POS. Catálogo1.2.0 incorpora precio
+Odoo20.0.20261101 Community, PostgreSQL16.15, Python3.12 y Ubuntu24.04. La entrega0.1.9-dev
+conserva103 módulos:14 ARG y89 nativos/dependencias, incluido POS. Stock1.1.1 incorpora series/lotes y Catálogo1.2.0 mantiene precio
 y condiciones; la [composición fijada](../../composition/versions.lock.json) identifica versiones
 y paquete instalado. La composición inicial de doce addons es una entrega histórica.
 

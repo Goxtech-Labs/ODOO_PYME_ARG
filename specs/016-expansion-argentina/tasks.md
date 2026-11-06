@@ -85,3 +85,6 @@ manteniendo fecha contable/vencimiento y condiciones visibles. Promoción a demo
 E1T008: F13 en0.1.7 y F19 de Catálogo1.2 instalados técnicamente en aislado/demo, sin doble maestro.
 [Entrega F19](../../docs/entregas/005-precio-condiciones.md). No acredita QA, impresión ni aceptación;
 F14–F17/F20–F22 y demás tareas conservan su alcance.
+
+E1T009: F14 de Stock1.1 instalado técnicamente en aislado/demo, con historia y alta mínima de lotes.
+[Entrega](../../docs/entregas/008-trazabilidad.md). T009 sigue abierta por F15/reposición; QA/aceptación separadas.

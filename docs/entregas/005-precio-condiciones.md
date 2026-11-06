@@ -1,6 +1,8 @@
 # Precio y condiciones ARG · incremento de Catálogo1.2.0
 
-2026-11-06. Código instalado técnicamente en aislado y demo. Catálogo1.2.0 y Stock1.0.6 constan en el lock. El resto del objetivo de22 capacidades/E1/017–024/Integraciones continúa.
+2026-11-06. Código instalado técnicamente en aislado y demo. Catálogo1.2.0 y Stock1.0.6 constan en la
+[composición histórica0.1.8](../../composition/releases/0.1.8-dev.json); los inventarios actuales
+pueden avanzar con incrementos posteriores. El resto del objetivo de22 capacidades/E1/017–024/Integraciones continúa.
 
 Consulta con fecha/hora propuesta actual, cliente opcional, variante/cantidad y lista nativa corregible.
 Traza reglas efectivas y condiciones disponibles sin otro motor de precios ni escrituras de negocio.

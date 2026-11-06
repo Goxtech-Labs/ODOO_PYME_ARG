@@ -11,7 +11,7 @@
 | 005-catalogo | Preparados | Base, variantes y precio/condiciones1.2 instalados en demo | Pendiente |
 | 006-ventas | Preparados | Comercial, puente Stock y dinero aplicado desplegados demo | Pendiente |
 | 007-compras | Preparados | Comercial/Stock/dinero en demo; carga1.0.6 instalada en demo | Pendiente |
-| 008-stock | Preparados | Desarrollado e instalado demo, con ambos puentes | Pendiente |
+| 008-stock | Preparados | Existencias, puentes y series/lotes1.1.1 instalados en demo | Pendiente |
 | 009-administracion | Preparados | Cuentas, REC/OPA, aplicaciones y caja instalados demo | Pendiente |
 | 010-informes | Preparados | Desarrollado e instalado demo | Pendiente |
 | 011-web-comunidad | Preparados | Documentación y portada publicadas; integración a main registrada en [PR #1](https://github.com/Goxtech-Labs/ODOO_PYME_ARG/pull/1) | Pendiente |
@@ -49,3 +49,7 @@ archivos, promovida a demo; QA pendiente. F19 se entregó posteriormente en Cat�
 [Precio y condiciones1.2](entregas/005-precio-condiciones.md): instalado técnicamente en aislado y demo,
 con propuesta de cliente y explicación recalculada sin modificar historia.
 QA funcional/visual y aceptación pendientes.
+
+[Series/lotes1.1.1](entregas/008-trazabilidad.md): instalación aislada y promoción a demo con paquete299
+y recuperación comprobadas. Trazabilidad, cantidades y alta mínima implementadas; F15/reposición,
+QA funcional/visual/concurrencia y aceptación siguen pendientes.

@@ -37,6 +37,12 @@ Quiero compartir esa experiencia, visibilizar mi aporte y seguir aprendiendo con
 
 [Portada del proyecto](docs/site/README.md) · [Mapa de documentación](docs/INDICE.md) · [Roadmap](docs/site/ROADMAP.md) · [Cómo contribuir](CONTRIBUTING.md)
 
+### Series y lotes · 0.1.9-dev
+
+Stock1.1 permite buscar series/lotes, consultar su historia y dar de alta el maestro con dos datos.
+Existencias actuales y movimientos se identifican aparte. Instalación técnica completada, QA pendiente.
+[Alcance y controles](docs/entregas/008-trazabilidad.md) · [Entrega actual](docs/entregas/RELEASE.md).
+
 ### Precio y condiciones · 0.1.8-dev
 
 Consulta F19 y explicación de reglas nativas disponibles en demo con Catálogo1.2.0.

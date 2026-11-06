@@ -321,5 +321,22 @@
     "reviewer": "Gonzalo Sarubilo",
     "review_date": null,
     "replacement_id": null
+  },
+  {
+    "feature": "008-stock",
+    "addon": "addons/arg_pyme_stock",
+    "title": "Series y lotes ARG: búsqueda, historia y alta mínima",
+    "url": null,
+    "status": "planeado",
+    "version": "20.0.1.1.1",
+    "manual": "docs/usuario/008-stock.md",
+    "id": "arg-008-trazabilidad-1-1",
+    "task": "trazabilidad-series-lotes",
+    "version_min": "20.0.1.1.1",
+    "version_max": "20.0.1.1.1",
+    "language": "es-AR",
+    "reviewer": "Gonzalo Sarubilo",
+    "review_date": null,
+    "replacement_id": null
   }
 ]

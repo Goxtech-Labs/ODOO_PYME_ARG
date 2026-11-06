@@ -26,3 +26,15 @@ producto/lote/paquete/propietario y scope_snapshot de nombres/unidades; AJU cons
 StockMove.arg_closed_quantity_base registra cierre explícito en unidad base; no altera demanda/quantity ni saldo.
 Picking captura demanda al finalizar/cancelar, agrupa por producto en unidad base y recorre backorders y devoluciones.
 Los puentes propios poseen toda relación comercial física; el core no consulta modelos de Ventas/Compras ausentes.
+
+## F14 · representación de consulta y alta
+
+`arg.pyme.stock.trace` abstracto reúne stock.lot, stock.move.line y stock.quant de compañía actual.
+No persiste resultados, saldo ni genealogía. Una fila es una línea nativa terminada; los detalles
+de cantidades son quants actuales, con ámbito/fecha separados del rango histórico.
+`arg.pyme.lot.create` transitorio contiene producto, número, referencia, compañía y enlace protegido
+al lote creado. Confirma una sola vez por asistente; serializa asistente/producto antes de crear y
+conserva resultado para reintentos. No contiene cantidad física ni un documento comercial nuevo.
+
+stock.lot conserva su identidad y validación nativas; la extensión serializa create y write de
+nombre/producto/compañía mediante el lock técnico de los productos implicados. Ningún saldo nuevo.
