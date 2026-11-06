@@ -1,7 +1,7 @@
 {
     'name': 'Cartera de valores ARG',
-    'summary': 'REC con cheques en papel, cartera, depósito, acreditación y rechazo vinculados',
-    'version': '20.0.1.1.0',
+    'summary': 'REC y OPA con cheques en papel, reservas, entregas y efectos bancarios separados',
+    'version': '20.0.1.2.0',
     'license': 'AGPL-3',
     'author': 'Gonzalo Sarubilo · GoxtechLabs',
     'website': 'https://github.com/Goxtech-Labs/ODOO_PYME_ARG',

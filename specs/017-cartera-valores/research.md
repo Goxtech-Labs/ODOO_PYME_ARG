@@ -77,3 +77,16 @@ La revisión estática encontró y corrigió contexto default_* heredado antes d
 anónimo del medio al omitir/editar el método. La política se valida también después del cómputo nativo
 y antes de publicar; se conserva lectura/permisos sin sudo. El código está instalado en aislado, sin
 haber ejecutado operaciones financieras ni afirmar validación de esos casos.
+
+## Decisiones1.2 sobre salidas
+
+Se incorporan reservas y efectos por línea/rol, sin inferir liquidez o reversión desde el estado global.
+La fuente nativa20 cacheada incluye account.journal.bank_account_id y permite asset_current/
+liability_current en payment_account_id; la conciliación exige cuenta/compañía coherentes, sin un
+requisito general de igual partner para cartera. Acceso de servidor pendiente de renovación SSH;
+no se presenta esa lectura estática como instalación ni prueba de la combinación.
+
+Referencias oficiales consultadas2026-11-05: [Ley24.452 actualizada, arts12–16](https://www.argentina.gob.ar/normativa/nacional/ley-24452-14733/actualizacion)
+y [operatoria ECHEQ del BCRA](https://www.bcra.gob.ar/echeq-o-cheque-electronico/). El circuito estándar
+registra constancias y distingue modalidades; no certifica formalidades ni presume excepciones de
+transmisión, responsabilidad o capacidades de un proveedor. La política detallada está en salidas-opa.md.

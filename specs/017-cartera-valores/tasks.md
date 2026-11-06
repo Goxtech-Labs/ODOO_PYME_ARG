@@ -69,3 +69,11 @@ Valores20.0.1.1.0 y Administración20.0.1.1.3 instalados técnicamente en aislad
 implementación/evidencia parcial y permanecen abiertas hasta cubrir todo su alcance, incluida promoción.
 El cargador de ejemplos optativo y el documento común no equivalen al informe de cartera completo.
 QA funcional/visual y aceptación siguen como fase posterior. Parent016T014 abierta.
+
+## Desarrollo OPA1.2, pendiente de instalación
+
+Código de reserva/entrega/propios/devolución y seguimiento por línea en value_delivery.py,
+treasury_value.py y value_native.py; [contrato](contracts/salidas-opa.md). T007/T008/T012 avanzan,
+pero siguen abiertas hasta cubrir ECHEQ, operaciones avanzadas y demás alcance completo.
+T016/T017 pendientes de acceso del operador, instalación y promoción; no marcarlas por AST/XML.
+El cargador seed_values_delivery_demo.py y la guía1.2 están preparados, no cargados en runtime.

@@ -300,7 +300,8 @@ class TreasuryDocument(models.Model):
     def _arg_event(self, kind, payload, **values):
         self.ensure_one()
         self._arg_check(manager=True)
-        return self.env['arg.pyme.treasury.audit.event'].with_context(_arg_treasury_engine=_TREASURY_ENGINE).create({
+        clean = {k: v for k, v in self.env.context.items() if not k.startswith('default_')}
+        return self.env['arg.pyme.treasury.audit.event'].with_context(clean, _arg_treasury_engine=_TREASURY_ENGINE).create({
             'document_id': self.id, 'company_id': self.company_id.id, 'kind': kind,
             'request_key': str(uuid.uuid4()), 'actor_id': self.env.uid, 'event_date': fields.Datetime.now(),
             'currency_id': self.currency_id.id, 'payload': payload, **values})
@@ -413,10 +414,12 @@ class TreasuryDocument(models.Model):
             liquidity, _, _ = payment._seek_for_lines()
             if liquidity.matched_debit_ids or liquidity.matched_credit_ids:
                 raise UserError(_('El pago tiene conciliación de caja/banco. Revise y desaplique esa conciliación antes de revertir.'))
-        doc = self.with_company(self.company_id).with_context(_arg_treasury_engine=_TREASURY_ENGINE)
+        scoped = self.with_company(self.company_id)
+        clean = {k: v for k, v in scoped.env.context.items() if not k.startswith('default_')}
+        doc = scoped.with_context(clean, _arg_treasury_engine=_TREASURY_ENGINE)
         doc._arg_event('reverse_prepare', {'date': str(date), 'reason': reason, 'move_ids': moves.ids})
         # Native reverse posts inverse entries and reconciles against originals; it does not erase the ledger.
-        inverses = moves.with_company(self.company_id).with_context(_arg_treasury_engine=_TREASURY_ENGINE, tracking_disable=True)._reverse_moves([
+        inverses = moves.with_context(doc.env.context, tracking_disable=True)._reverse_moves([
             {'date': date, 'ref': self.arg_number + ' · ' + reason, 'arg_treasury_document_id': self.id} for move in moves], cancel=True)
         doc.write({'reverted_at': fields.Datetime.now(), 'reversal_move_ids': [Command.set(inverses.ids)]})
         doc._arg_after_reverse(inverses, date, reason)

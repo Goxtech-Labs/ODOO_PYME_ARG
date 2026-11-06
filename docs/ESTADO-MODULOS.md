@@ -35,3 +35,7 @@ El POS nativo está instalado, pero su adaptación ARG es una tarea distinta; no
 
 [Alcance de REC/cheques](entregas/017-rec-cheques.md): disponible sólo en aislado, sin habilitar aún
 la cartera ampliada ni OPA con valores en la demo. La composición candidata no reemplaza el lock del entorno compartido.
+
+Desarrollo adicional: [OPA/entregas1.2](entregas/017-opa-cheques.md) preparado en código,
+pendiente de renovación SSH para instalación aislada. No reemplaza las composiciones verificadas
+anteriores ni acredita QA o promoción.

@@ -4,6 +4,7 @@
         <field name="arch" type="xml"><form string="Operación de cheque ARG">
             <group><field name="date"/><field name="instrument_id"/><field name="operation"/>
                 <field name="company_id" invisible="True"/>
+                <field name="treasury_line_id" invisible="operation not in ['delivery_returned','delivery_rejected','own_debited','recourse_released']" required="operation in ['delivery_returned','delivery_rejected','own_debited','recourse_released']" readonly="operation != 'recourse_released'" domain="[('value_instrument_id','=',instrument_id),('document_id.kind','=','OPA')] + ([('value_exposure_open','=',True)] if operation == 'recourse_released' else [])"/>
                 <field name="journal_id" invisible="operation != 'deposited'" required="operation == 'deposited'" domain="[('company_id','=',company_id),('type','=','bank')]"/>
                 <field name="reference"/></group>
             <p class="text-muted">Registrá la constancia de la operación realizada. El sistema no envía instrucciones al banco.</p>

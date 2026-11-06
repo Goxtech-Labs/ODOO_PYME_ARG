@@ -4,7 +4,17 @@
         <field name="inherit_id" ref="arg_pyme_administracion.treasury_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='line_ids']/list/field[@name='method_id']" position="after">
-                <field name="value_instrument_id" column_invisible="parent.kind != 'REC'" domain="[('company_id','=',parent.company_id),('currency_id','=',parent.currency_id),('partner_id.commercial_partner_id','=',parent.commercial_partner_id),('ownership','=','third_party'),('instrument_kind','=','cheque'),('support','=','paper'),('state','=','draft')]" context="{'default_company_id':parent.company_id,'default_currency_id':parent.currency_id,'default_partner_id':parent.partner_id,'default_date':parent.date,'default_instrument_kind':'cheque','default_ownership':'third_party'}" options="{'no_quick_create':True}" optional="show"/>
+                <field name="value_instrument_id" domain="[('company_id','=',parent.company_id),('currency_id','=',parent.currency_id),('instrument_kind','=','cheque'),('support','=','paper')] + ([('partner_id.commercial_partner_id','=',parent.commercial_partner_id),('ownership','=','third_party'),('state','=','draft')] if parent.kind == 'REC' else [('state','in',['portfolio','draft','own_returned','reserved']),'|',('ownership','=','own'),('receipt_line_id','!=',False),'|',('reservation_line_id','=',False),('reservation_line_id.document_id','=',parent.id)])" context="{'default_company_id':parent.company_id,'default_currency_id':parent.currency_id,'default_partner_id':parent.partner_id,'default_date':parent.date,'default_instrument_kind':'cheque','default_support':'paper','default_ownership':'third_party' if parent.kind == 'REC' else 'own','default_beneficiary_id':parent.partner_id if parent.kind == 'OPA' else False}" options="{'no_quick_create':True}" optional="show"/>
+                <field name="value_transmission" column_invisible="parent.kind != 'OPA'" invisible="not value_instrument_id" optional="show"/>
+                <field name="value_reference" column_invisible="parent.kind != 'OPA'" invisible="not value_instrument_id" optional="show"/>
+                <field name="value_title_clause" column_invisible="parent.kind != 'OPA'" invisible="not value_instrument_id or value_transmission == 'own_delivery'" optional="show"/>
+                <field name="value_recourse_condition" column_invisible="parent.kind != 'OPA'" invisible="not value_instrument_id" optional="hide"/>
+                <field name="value_reversal_move_id" optional="hide"/>
+                <field name="value_bank_move_id" optional="hide"/>
+            </xpath>
+            <xpath expr="//button[@name='action_confirm']" position="before">
+                <button name="action_reserve_values" type="object" string="Reservar cheques" invisible="kind != 'OPA' or state != 'draft'" groups="arg_pyme_administracion.group_finance_manager"/>
+                <button name="action_release_values" type="object" string="Liberar reservas" invisible="kind != 'OPA' or state != 'draft'" groups="arg_pyme_administracion.group_finance_manager"/>
             </xpath>
             <xpath expr="//field[@name='free_amount']" position="after"><field name="corrected_value_amount" invisible="corrected_value_amount == 0"/></xpath>
         </field>
@@ -14,6 +24,8 @@
         <field name="inherit_id" ref="arg_pyme_administracion.company_finance_defaults"/>
         <field name="arch" type="xml"><xpath expr="//field[@name='arg_payment_method_id']" position="after">
             <field name="arg_value_receipt_method_id" domain="[('company_id','=',id),('payment_type','=','inbound'),('code','=','manual')]"/>
+            <field name="arg_value_third_out_method_id" domain="[('company_id','=',id),('payment_type','=','outbound'),('code','=','manual')]"/>
+            <field name="arg_value_own_out_method_id" domain="[('company_id','=',id),('payment_type','=','outbound'),('code','=','manual')]"/>
         </xpath></field>
     </record>
 </odoo>

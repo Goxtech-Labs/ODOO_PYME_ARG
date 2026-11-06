@@ -27,7 +27,9 @@ class ValueEvent(models.Model):
         ('draft_canceled', 'Borrador cancelado'),
         ('received', 'Recibido por REC'), ('deposited', 'Depósito registrado'),
         ('settled', 'Acreditación registrada'), ('rejected', 'Rechazo con reversión'),
-        ('receipt_reversed', 'Recepción revertida'),
+        ('receipt_reversed', 'Recepción revertida'), ('reserved', 'Reserva OPA'), ('reservation_released', 'Reserva liberada'),
+        ('delivered', 'Entrega registrada'), ('delivery_returned', 'Entrega devuelta'), ('delivery_rejected', 'Salida rechazada'),
+        ('own_debited', 'Débito propio registrado'), ('recourse_released', 'Seguimiento cerrado'),
     ], required=True, readonly=True)
     request_key = fields.Char(required=True, readonly=True)
     fingerprint = fields.Char(required=True, readonly=True)

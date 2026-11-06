@@ -1,2 +1,10 @@
+def sync_help_revision(env):
+    previous = env.ref('arg_pyme_valores.help_values_receipt', raise_if_not_found=False)
+    current = env.ref('arg_pyme_valores.help_values_delivery', raise_if_not_found=False)
+    if previous and current and previous.state == 'current':
+        previous.write({'state': 'review', 'replacement_id': current.id})
+
+
 def post_init_hook(env):
     env['arg.pyme.document.type']._ensure_companies(env['res.company'].search([]))
+    sync_help_revision(env)

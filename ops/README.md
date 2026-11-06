@@ -42,3 +42,10 @@ Se detiene si el perfil existente pertenece al titular o si las referencias fuer
 Repetir no restablece un cheque que el usuario ya recibió o canceló. Los XMLIDs arg_demo.values_*
 identifican el lote para inventariarlo; no borrar documentos numerados ni valores utilizados.
 La carga de maestros/borradores y la QA de un circuito financiero son etapas distintas.
+
+`seed_values_delivery_demo.py` amplía esos ejemplos después de instalar Valores20.0.1.2.0 y
+Administración20.0.1.1.4. Requiere `ARG_VALUES_DELIVERY_ACK_EXAMPLES=1` y compañía explícita en modo
+Ejemplo, así como los maestros del cargador anterior. Crea perfiles nuevos de salida, cuenta de
+obligación, cuenta bancaria ficticia identificada, proveedor y un cheque propio en borrador.
+No crea OPA/pagos/asientos/stock ni cambia cron/correo. Rechaza perfiles ajenos o referencias
+personalizadas, y no restablece borradores que el usuario ya utilizó. Aún no ejecutado en este incremento.

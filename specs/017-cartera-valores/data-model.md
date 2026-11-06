@@ -74,3 +74,23 @@ acreditado aporta la aplicación nativa demostrada. Acreditaciones parciales/atr
 
 Son campos y código instalados técnicamente en aislado; el comportamiento financiero queda para QA
 posterior. OPA, ECHEQ, transmisiones, negociación y resto del contrato siguen abiertos.
+
+## Desarrollo1.2: efecto por rol y transmisión
+
+Código preparado, sin instalación nueva. Instrumento añade reserva/línea de salida actual y lista de
+medios históricos. Estados: reservado, entregado a tercero, propio entregado, propio debitado,
+propio devuelto, devuelto en revisión y entrega con cierre informado. Disponibilidad, tenencia y
+nominal con seguimiento son indicadores separados, sin suma entre monedas ni duplicación por título.
+
+Cada línea conserva transmisión, cláusula declarada, constancia y alcance; inverso, débito y estado/
+fecha de seguimiento son efectos internos protegidos. Pago nativo tiene rol y línea estables; legacy1.1
+se identifica sólo por su relación histórica demostrada. Inverso por línea sustituye la clasificación
+incorrecta por estado global cuando el mismo instrumento pasó por REC y OPA.
+
+La reserva tiene una sola línea propietaria; no crea efecto monetario. La primera entrega propia
+fija sus condiciones y cuenta de obligación/banco. Crédito de cartera de tercero se concilia con la
+recepción. Débito propio reclasifica obligación y banco. Devolución/rechazo revierte sólo OPA y conserva
+REC. Seguimientos viven por transmisión y se cierran uno a uno; el nominal del instrumento se muestra
+una vez si hay seguimientos abiertos y conserva bandera de alcance desconocido.
+
+Ver contrato [OPA/salidas](contracts/salidas-opa.md); QA y promoción posteriores.

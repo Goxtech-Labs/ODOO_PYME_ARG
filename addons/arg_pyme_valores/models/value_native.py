@@ -1,15 +1,59 @@
 from odoo import api, fields, models, _
-from odoo.exceptions import AccessError, UserError
+from odoo.exceptions import AccessError, UserError, ValidationError
 from .value_event import _VALUE_ENGINE, value_engine
+
+
+class PaymentMethod(models.Model):
+    _inherit = 'account.payment.method.line'
+    arg_value_kind = fields.Selection([('receipt','Recepción de cheque'), ('third_out','Entrega de tercero'),
+                                       ('own_out','Entrega de propio')], readonly=True, copy=False, string='Uso en Valores ARG')
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        if not value_engine(self.env) and (any(v.get('arg_value_kind') for v in vals_list) or self.env.context.get('default_arg_value_kind')):
+            raise AccessError(_('El uso de valores se configura desde la compañía.'))
+        result = super().create(vals_list)
+        for method in result.filtered('arg_value_kind'):
+            method._arg_validate_value_kind(method.arg_value_kind)
+        return result
+
+    def write(self, vals):
+        if 'arg_value_kind' in vals:
+            if not value_engine(self.env):
+                raise AccessError(_('El uso del medio se configura desde la compañía.'))
+            if any(m.arg_value_kind and vals['arg_value_kind'] != m.arg_value_kind for m in self):
+                raise UserError(_('El medio conserva su uso; configure otro para un rol distinto.'))
+        result = super().write(vals)
+        for method in self.filtered('arg_value_kind'):
+            method._arg_validate_value_kind(method.arg_value_kind)
+        return result
+
+    def _arg_validate_value_kind(self, role):
+        self.ensure_one()
+        account = self.payment_account_id
+        direction = 'inbound' if role == 'receipt' else 'outbound'
+        account_type = 'liability_current' if role == 'own_out' else 'asset_current'
+        if (self.code != 'manual' or self.payment_type != direction or self.journal_id.type != 'bank'
+                or not account or account.account_type != account_type or not account.reconcile
+                or account == self.journal_id.default_account_id):
+            raise ValidationError(_('Use un medio bancario manual del sentido correcto y una cuenta conciliable de cartera/obligación, distinta de banco.'))
+        if self.env['account.payment'].search_count([('payment_method_line_id','=',self.id), ('arg_value_instrument_id','=',False)]):
+            raise ValidationError(_('Ese medio tiene pagos sin instrumento; configure otro.'))
 
 
 class Payment(models.Model):
     _inherit = 'account.payment'
     arg_value_instrument_id = fields.Many2one('arg.pyme.value.instrument', readonly=True, copy=False, check_company=True, ondelete='restrict', index=True)
 
+    arg_value_line_id = fields.Many2one('arg.pyme.treasury.line', readonly=True, copy=False, check_company=True, ondelete='restrict', index=True)
+    arg_value_role = fields.Selection([('receipt','Recepción'), ('third_out','Salida de tercero'), ('own_out','Salida propia')], readonly=True, copy=False)
+
     @api.model_create_multi
     def create(self, vals_list):
         if not value_engine(self.env):
+            keys = {'arg_value_line_id','arg_value_role'}
+            if any(keys & v.keys() for v in vals_list) or any('default_'+k in self.env.context for k in keys):
+                raise AccessError(_('El rol y medio de origen se generan desde REC/OPA.'))
             ids = [v.get('move_id') or self.env.context.get('default_move_id') for v in vals_list]
             if self.env['account.move'].browse([i for i in ids if i]).arg_value_instrument_id:
                 raise AccessError(_('El asiento de un valor no puede asociarse a otro pago.'))
@@ -20,14 +64,14 @@ class Payment(models.Model):
             method_id = vals.get('payment_method_line_id') or self.env.context.get('default_payment_method_line_id')
             if method_id:
                 method = self.env['account.payment.method.line'].browse(method_id)
-                if method == method.company_id.arg_value_receipt_method_id and not value_id:
+                if method.company_id._arg_value_method_role(method) and not value_id:
                     raise UserError(_('Use un recibo ARG con el cheque identificado para este medio.'))
         records = super().create(vals_list)
         records._check_value_payment_method()
         return records
 
     def write(self, vals):
-        if 'arg_value_instrument_id' in vals and not value_engine(self.env):
+        if {'arg_value_instrument_id','arg_value_line_id','arg_value_role'} & vals.keys() and not value_engine(self.env):
             raise AccessError(_('El pago conserva el cheque de origen.'))
         if vals.get('move_id') and not value_engine(self.env) and self.env['account.move'].browse(vals['move_id']).arg_value_instrument_id:
             raise AccessError(_('El asiento del valor no se reasigna a otro pago.'))
@@ -35,23 +79,48 @@ class Payment(models.Model):
         self._check_value_payment_method()
         return result
 
+    def _arg_value_line(self):
+        self.ensure_one()
+        if self.arg_value_line_id:
+            return self.arg_value_line_id
+        legacy = self.arg_value_instrument_id.receipt_line_id
+        return legacy if legacy.payment_id == self else self.env['arg.pyme.treasury.line']
+
+    def _arg_value_effect_role(self):
+        self.ensure_one()
+        return self.arg_value_role or ('receipt' if self._arg_value_line().document_id.kind == 'REC' else False)
+
     def _check_value_payment_method(self):
         for payment in self:
-            if (payment.payment_method_line_id and payment.payment_method_line_id == payment.company_id.arg_value_receipt_method_id
-                    and not payment.arg_value_instrument_id):
-                raise UserError(_('El medio de cheques requiere un cheque identificado por su recibo ARG.'))
+            role = payment.company_id._arg_value_method_role(payment.payment_method_line_id)
+            if role and not payment.arg_value_instrument_id:
+                raise UserError(_('El medio de cheques requiere un instrumento identificado por REC/OPA.'))
+            if payment.arg_value_instrument_id:
+                line = payment._arg_value_line()
+                if (not role and not payment.arg_value_role and not payment.arg_value_line_id and line
+                        and line.document_id.kind == 'REC' and line.payment_id == payment
+                        and payment.arg_value_instrument_id.receipt_line_id == line
+                        and payment.outstanding_account_id == payment.arg_value_instrument_id.portfolio_account_id):
+                    role = 'receipt'
+                if (not line or line.document_id != payment.arg_treasury_document_id
+                        or line.value_instrument_id != payment.arg_value_instrument_id
+                        or (line.payment_id and line.payment_id != payment)
+                        or payment._arg_value_effect_role() != line._arg_value_role() or role != line._arg_value_role()
+                        or payment.company_id != line.company_id or payment.currency_id != line.currency_id
+                        or payment.currency_id.compare_amounts(payment.amount, line.amount)):
+                    raise UserError(_('El cheque, rol y pago deben coincidir con su medio documental.'))
 
     def action_post(self):
         self._check_value_payment_method()
         return super().action_post()
 
-    @api.depends('state', 'move_id.state', 'arg_treasury_document_id.reverted_at', 'move_id.reversal_move_ids.state',
-                 'arg_value_instrument_id.state', 'arg_value_instrument_id.rejection_move_id.state')
+    @api.depends('state','move_id.state','arg_treasury_document_id.reverted_at','move_id.reversal_move_ids.state',
+                 'arg_value_line_id.value_reversal_move_id.state','arg_value_instrument_id.rejection_move_id.state')
     def _compute_arg_payment_effect(self):
         super()._compute_arg_payment_effect()
-        for payment in self:
-            value = payment.arg_value_instrument_id
-            if value.state in ('rejected', 'returned') and value.rejection_move_id.state == 'posted':
+        for payment in self.filtered('arg_value_instrument_id'):
+            line = payment._arg_value_line()
+            if line and line._arg_value_inverse():
                 payment.arg_payment_effect = 'reverted'
 
     def _generate_move_vals(self, *args, **kwargs):

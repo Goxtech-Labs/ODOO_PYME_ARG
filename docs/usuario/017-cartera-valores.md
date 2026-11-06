@@ -59,3 +59,27 @@ estas pantallas. La constancia manual registra un hecho informado por el operado
 
 Tutorial específico: pendiente; [canal general Goxtech Argentina](https://www.youtube.com/@Goxtech_Arg).
 [Contrato completo](../../specs/017-cartera-valores/contracts/cartera-argentina.md) · [Entrega](../entregas/017-rec-cheques.md)
+
+## Próximo incremento1.2: OPA, reserva y entrega
+
+**Código preparado; aún no instalado.** Lo siguiente describe el desarrollo, no una función ya
+habilitada en la demo. [Estado de entrega](../entregas/017-opa-cheques.md).
+
+En OPA seleccione proveedor y cheque completo. Se propone su medio y nominal. Para terceros elija
+endoso, cesión o entrega sin nuevo endoso y declare la cláusula conocida; indique constancia en la
+línea o en la referencia de OPA. Propios exige cuenta registrada de la compañía, librador/beneficiario
+y fechas del título. No se generan firmas, ECHEQ ni instrucciones al banco.
+
+Reservar compromete una sola salida y no cancela deuda. Confirmar puede reservar en la misma
+transacción y registrar entrega. Cancelar borrador libera reservas. Para corregir una línea reservada,
+libérela primero. Los perfiles se configuran una vez: recepción/cartera, entrega de terceros/cartera y
+propios/obligación pendiente, con cuentas conciliables distintas de banco y de los medios habituales.
+
+La entrega propia aplica deuda, pero el banco se debita en una operación posterior con constancia.
+Devolver la entrega corrige únicamente OPA y devuelve tenencia. Rechazo de salida devuelve un título
+en revisión, no disponible. El cobro al cliente se corrige aparte desde REC cuando corresponde.
+El cuadro de operación muestra su entrega objetivo; cambiar la tenencia no retargetea ese cuadro.
+
+El seguimiento de responsabilidad se consulta y cierra por transmisión y con constancia. Su nominal
+no es caja ni banco ni otra deuda agregable; Por determinar conserva la incertidumbre. El cobro de
+un cheque de terceros por su tenedor no se presenta como dinero en nuestra cuenta.

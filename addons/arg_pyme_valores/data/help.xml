@@ -22,4 +22,24 @@
             YouTube pendiente, con guía escrita disponible.</p>
         </div></field>
     </record>
+    <record id="help_values_delivery" model="arg.pyme.help.resource">
+        <field name="name">Valores ARG 1.2 · OPA, reservas y entregas</field>
+        <field name="module_key">arg_pyme_valores</field><field name="task">cheques-opa</field>
+        <field name="version_min">20.0</field><field name="version_max">20.0</field><field name="state">current</field>
+        <field name="manual_url">https://github.com/Goxtech-Labs/ODOO_PYME_ARG/blob/main/docs/usuario/017-cartera-valores.md</field>
+        <field name="manual_text" type="html"><div>
+            <p>En OPA elegí proveedor y cheque completo. El medio y nominal se proponen desde el título.
+            Reservar no paga deuda; cancelar el borrador libera su reserva. Confirmar registra la entrega
+            con constancia y aplica la factura. Endoso, cesión y entrega sin nuevo endoso se registran separados.</p>
+            <p>Entregar un cheque propio registra una obligación pendiente. El débito bancario se registra
+            después con su constancia. Un cheque de terceros entregado no ingresa dinero en nuestra cuenta.</p>
+            <p>Devolución o rechazo de entrega corrige únicamente su OPA. La recepción del cliente se
+            recupera por un evento distinto. Un valor discutido no queda disponible para otra salida.
+            El seguimiento de responsabilidad se cierra por transmisión y con constancia explícita.</p>
+            <p>Las operaciones fijan la entrega objetivo; actualizar la tenencia no cambia qué OPA corrige
+            un diálogo ya abierto. ECHEQ, negociación/descuento y operaciones parciales continúan en desarrollo.</p>
+            <p>Guía del código en desarrollo. Instalación, QA financiero y aceptación se registran por separado.
+            Video específico pendiente; los enlaces del catálogo se pueden mantener sin reinstalar.</p>
+        </div></field>
+    </record>
 </odoo>

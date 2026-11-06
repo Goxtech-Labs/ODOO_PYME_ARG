@@ -9,11 +9,14 @@ class ValueOperationWizard(models.TransientModel):
     company_id = fields.Many2one(related='instrument_id.company_id')
     date = fields.Date(string='Fecha', required=True, default=fields.Date.context_today)
     operation = fields.Selection([('deposited', 'Registrar depósito'), ('settled', 'Registrar acreditación completa'),
-                                  ('rejected', 'Registrar rechazo y revertir su cobro')], required=True, string='Operación')
+                                  ('rejected', 'Rechazo sobre recepción REC'),
+                                  ('delivery_returned', 'Devolución de entrega OPA'), ('delivery_rejected', 'Rechazo sobre entrega OPA'),
+                                  ('own_debited', 'Débito bancario de propio'), ('recourse_released', 'Cerrar seguimiento de transmisión')], required=True, string='Operación')
     journal_id = fields.Many2one('account.journal', string='Banco de depósito')
+    treasury_line_id = fields.Many2one('arg.pyme.treasury.line', string='Entrega objetivo')
     reference = fields.Char(string='Constancia / motivo', required=True)
     request_key = fields.Char(default=lambda s: str(uuid.uuid4()), required=True, readonly=True)
 
     def action_confirm(self):
         self.ensure_one()
-        return self.instrument_id._arg_operation_value(self.operation, self.date, self.reference, self.journal_id, self.request_key)
+        return self.instrument_id._arg_operation_value(self.operation, self.date, self.reference, self.journal_id, self.request_key, treasury_line=self.treasury_line_id)

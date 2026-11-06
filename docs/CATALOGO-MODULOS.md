@@ -31,3 +31,6 @@ en desarrollo con spec propia. La ficha inicial de Valores no acredita esos efec
 Conservar manual, tutorial, ejemplo, límites y estado por módulo; no confundir planeado/programado/instalado/QA/aceptado/publicado.
 
 Adaptadores concretos PRE/PED pertenecen a Ventas, no a Documentos. Documentos sólo define mixin/contrato genérico; no hereda modelos consumidores ni crea ciclos.
+
+Valores1.2 incorpora código de OPA, reservas y salidas de papel; su instalación aún está pendiente.
+Ver [entrega en desarrollo](entregas/017-opa-cheques.md), sin confundir versión de fuente con runtime.

@@ -172,5 +172,6 @@ class AccountMoveLine(models.Model):
         if docs:
             for doc in docs.sorted('id'):
                 doc._arg_lock()
-            return super(AccountMoveLine, self.with_context(_arg_treasury_engine=_TREASURY_ENGINE))._reconcile_plan(reconciliation_plan)
+            clean = {k: v for k, v in self.env.context.items() if not k.startswith('default_')}
+            return super(AccountMoveLine, self.with_context(clean, _arg_treasury_engine=_TREASURY_ENGINE))._reconcile_plan(reconciliation_plan)
         return super()._reconcile_plan(reconciliation_plan)

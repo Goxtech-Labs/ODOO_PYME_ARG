@@ -1,10 +1,10 @@
 # Cartera de valores ARG
 
-Código original de Odoo Pymes ARG: AGPL-3.0-only. Se conserva la licencia de Odoo y demás dependencias.
-Documentación original: CC BY-SA 4.0, según el aviso del repositorio. No incluye código Enterprise.
+Código original: AGPL-3.0-only. Documentación original: CC BY-SA4.0 según aviso del repositorio.
+Odoo y demás dependencias conservan sus licencias; no incluye código Enterprise.
 
-Incremento de desarrollo: registro de instrumentos y REC con cheques en papel de terceros, depósito,
-acreditación completa y rechazo con reversión de su medio. Son registros contables locales;
-no emiten instrucciones bancarias. Un borrador no acredita cobro ni emite un título válido por sí solo.
-ECHEQ, OPA con valores, endosos, negociación, acreditación parcial y demás ampliaciones siguen pendientes.
-Instalación técnica no equivale a QA financiero ni a aceptación del usuario.
+Desarrollo1.2: REC/OPA con cheques en papel, reserva, entrega de tercero o propio, devolución/rechazo,
+acreditación recibida/débito propio completos y seguimiento por transmisión. Son registros locales;
+no firman títulos, emiten ECHEQ ni envían instrucciones bancarias. El texto legal no se presume desde
+una constancia manual. ECHEQ, custodia, negociación/descuento, parciales y demás ampliaciones siguen
+pendientes según el contrato. Instalación y QA se registran por separado en cada entrega.

@@ -23,7 +23,7 @@ class ValueInstrument(models.Model):
     support = fields.Selection([('paper', 'Papel'), ('electronic', 'Electrónico / ECHEQ')], required=True, default='paper', string='Soporte')
     cheque_type = fields.Selection([('common', 'Común'), ('deferred', 'De pago diferido')], default='deferred', string='Clase de cheque')
     currency_id = fields.Many2one('res.currency', required=True, string='Moneda', default=lambda s: s.env.company.arg_default_currency_id or s.env.company.currency_id)
-    amount = fields.Monetary(string='Importe nominal', required=True)
+    amount = fields.Monetary(string='Importe nominal', required=True, aggregator=False)
     company_id = fields.Many2one('res.company', required=True, default=lambda s: s.env.company, index=True)
     bank_account_id = fields.Many2one('res.partner.bank', string='Cuenta libradora registrada', check_company=True, ondelete='restrict')
     bank_name = fields.Char(string='Banco')
@@ -39,6 +39,9 @@ class ValueInstrument(models.Model):
     note = fields.Text(string='Observaciones')
     state = fields.Selection([('draft', 'Borrador'), ('portfolio', 'En cartera'), ('deposited', 'Depositado, pendiente de acreditación'),
                               ('settled', 'Acreditado'), ('rejected', 'Rechazado'), ('returned', 'Recepción revertida'),
+                              ('reserved', 'Reservado para OPA'), ('transferred', 'Entregado a tercero'), ('transferred_closed', 'Entrega con cierre informado'),
+                              ('own_issued', 'Propio entregado, pendiente de débito'), ('own_debited', 'Propio debitado'),
+                              ('own_returned', 'Propio devuelto'), ('disputed', 'Devuelto, en revisión'),
                               ('canceled', 'Borrador cancelado')], required=True, default='draft', readonly=True, copy=False, index=True)
     event_ids = fields.One2many('arg.pyme.value.event', 'instrument_id', string='Historial', readonly=True, copy=False)
     identity_key = fields.Char(readonly=True, copy=False, index=True)

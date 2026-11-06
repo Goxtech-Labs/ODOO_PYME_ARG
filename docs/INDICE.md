@@ -78,3 +78,6 @@ de carga básica y recibo argentino confirmados. Implementación/instalación/QA
 Valores ARG: [manual inicial](usuario/017-cartera-valores.md),
 [entrega REC/cheques](entregas/017-rec-cheques.md) y [tareas financieras pendientes](../specs/017-cartera-valores/tasks.md).
 REC con cheques en papel está instalado sólo en aislado; no modifica recibos ni saldos de la demo.
+
+[OPA, reservas y cheques propios1.2](entregas/017-opa-cheques.md): código preparado,
+autenticación e instalación pendientes; no habilitado aún en demo.

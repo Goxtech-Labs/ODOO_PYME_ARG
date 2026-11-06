@@ -47,12 +47,15 @@ class ValueOperations(models.Model):
             raise UserError(_('El título recibido conserva su nominal, identidad y condiciones. Corrija mediante un evento vinculado.'))
         return super().write(vals)
 
-    def _arg_finance_lock(self):
+    def _arg_finance_lock(self, extra_documents=None):
         self.ensure_one()
         check_manager(self.env)
-        if self.receipt_line_id:
-            self.receipt_line_id.document_id._arg_lock()
         self._arg_value_lock()
+        docs = self._arg_finance_documents()
+        if extra_documents:
+            docs |= extra_documents
+        for doc in docs.sorted('id'):
+            doc._arg_lock_document_only()
 
     def _arg_check_receipt(self, line):
         self.ensure_one()
@@ -92,7 +95,9 @@ class ValueOperations(models.Model):
         check_manager(self.env)
         return {'type': 'ir.actions.act_window', 'name': _('Operación de cheque ARG'),
                 'res_model': 'arg.pyme.value.operation.wizard', 'views': [(False, 'form')], 'target': 'new',
-                'context': {'default_instrument_id': self.id}}
+                'context': {'default_instrument_id': self.id, 'default_treasury_line_id': self.outgoing_line_id.id,
+                            'default_operation': {'portfolio':'deposited','deposited':'settled','own_issued':'own_debited',
+                                                  'transferred':'delivery_returned','disputed':'rejected'}.get(self.state)}}
 
     def _arg_operation_value(self, operation, date, reference, journal, request_key):
         self._arg_finance_lock()
@@ -116,7 +121,7 @@ class ValueOperations(models.Model):
         scoped = self.with_company(self.company_id)
         clean = {k: v for k, v in scoped.env.context.items() if not k.startswith('default_')}
         protected = scoped.with_context(clean, _arg_value_engine=_VALUE_ENGINE,
-                        _arg_treasury_engine=_TREASURY_ENGINE, tracking_disable=True, mail_notrack=True)
+                        _arg_treasury_engine=_TREASURY_ENGINE, _arg_value_lock_scope=_VALUE_ENGINE, tracking_disable=True, mail_notrack=True)
         if operation == 'deposited':
             if self.state != 'portfolio':
                 raise UserError(_('Sólo puede depositar un cheque disponible en cartera.'))
@@ -131,7 +136,7 @@ class ValueOperations(models.Model):
             protected.write({'state': 'settled', 'settlement_move_id': move.id})
             payload['move_id'] = move.id
         else:
-            if self.state not in ('portfolio', 'deposited') or self.settlement_move_id:
+            if self.state not in ('portfolio', 'deposited', 'disputed') or self.settlement_move_id:
                 raise UserError(_('Este rechazo requiere un valor pendiente, sin acreditación ni transmisión.'))
             payment = self.receipt_line_id.payment_id
             if payment.move_id.state != 'posted' or payment.move_id.reversal_move_ids.filtered(lambda m: m.state == 'posted'):
@@ -142,6 +147,7 @@ class ValueOperations(models.Model):
             inverse = payment.move_id.with_context(protected.env.context)._reverse_moves([{
                 'date': date, 'ref': self.arg_number + ' · ' + reference,
                 'arg_treasury_document_id': receipt.id, 'arg_value_instrument_id': self.id}], cancel=True)
+            self.receipt_line_id.with_context(protected.env.context).write({'value_reversal_move_id': inverse.id})
             protected.write({'state': 'rejected', 'rejection_move_id': inverse.id})
             payload['move_id'] = inverse.id
         payload['request_hash'] = digest

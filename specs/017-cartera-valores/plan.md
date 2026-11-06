@@ -64,3 +64,11 @@ acreditación completa con reclasificación nativa y rechazo previo que conserva
 [Entrega](../../docs/entregas/017-rec-cheques.md). Código e instalación aislada, sin QA de negocio.
 La implementación completa de US2/US3 y promoción del módulo siguen abiertas. No considerar este
 circuito restringido una sustitución del alcance ECHEQ/OPA/transmisiones/descuento/parciales.
+
+## Desarrollo1.2 y orden de promoción
+
+Valores20.0.1.2.0 y Administración20.0.1.1.4: OPA y salidas por línea/rol, con reservas, devolución,
+seguimiento y débito propio completo. Código preparado. Renovar acceso SSH del operador → instalar
+ambos módulos sólo en aislado → leer versiones/fuentes/vistas/estado → preparar ejemplos optativos →
+promover el incremento autorizado con respaldo vigente. No convertir esta espera de instalación en
+aceptación financiera, ni reemplazar con este circuito el resto del contrato o de las22capacidades.
