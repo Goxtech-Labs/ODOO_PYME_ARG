@@ -4,3 +4,4 @@ from . import inventory_count
 from . import variant_matrix
 from . import traceability
 from . import lot_create
+from . import replenishment_operation

@@ -47,3 +47,60 @@ oficial bb238af6f0ddd70d7ff91521c6104472583661d1; no se afirma igualdad de todo 
 [Lot](https://github.com/odoo/odoo/blob/bb238af6f0ddd70d7ff91521c6104472583661d1/addons/stock/models/stock_lot.py),
 [líneas](https://github.com/odoo/odoo/blob/bb238af6f0ddd70d7ff91521c6104472583661d1/addons/stock/models/stock_move_line.py),
 [traza](https://github.com/odoo/odoo/blob/bb238af6f0ddd70d7ff91521c6104472583661d1/addons/stock/report/stock_traceability.py).
+
+## F15 · investigación2026-11-06
+
+### D04 · cálculo y ejecución nativos separados de la consulta
+
+**Decision**: acción ARG propia sobre `stock.warehouse.orderpoint`; nuevas reglas manuales,
+propuesta desde físico/previsto/pipeline y `_get_qty_to_order()`, confirmación con cantidad aceptada.
+**Rationale**: `_get_orderpoint_action` elimina/recalcula/crea reglas; `action_replenish` reemplaza
+cantidad por manual/to_max. `_procure_orderpoint_confirm` permite mantener la transacción y errores.
+**Alternatives considered**: usar el menú nativo como lectura inocua o calcular máximo menos físico;
+descartadas porque producen efectos o ignoran abastecimiento y reglas vigentes.
+
+### D05 · recibo y captura de efectos
+
+**Decision**: evidencia inmutable con clave/payload en la misma transacción; collector privado y
+hooks sobre destinos autorizados, sin una referencia comercial artificial por operación.
+**Rationale**: compra puede ampliar una línea existente; fabricación puede ampliar MO o crear
+varias por tamaño de lote. Una referencia única altera el agrupamiento nativo. El retorno vacío
+no demuestra generación y el core usa sudo; autorizar como actor original en los límites de efecto.
+**Alternatives considered**: contar documentos nuevos, filtrar sólo por write_date, cambiar origin
+para correlacionar o declarar seguridad sólo por super(); descartadas por pérdida de evidencia
+exacta, modificación de agrupación o permisos insuficientemente garantizados.
+
+### D06 · fabricación modular sin recorte de alcance
+
+**Decision**: puente opcional Stock–MRP y compra en el puente existente de Compras–Stock.
+**Rationale**: una pyme genérica no necesita MRP instalado para Stock, pero F15 incluye implementar
+y entregar compra/fabricación. La demo actual103 módulos no tiene MRP; su código fuente sí existe.
+Kits phantom se expanden antes del despacho; una sugerencia del kit no equivale a fabricar su SKU.
+**Alternatives considered**: dependencia MRP obligatoria o dar por terminado F15 con compras;
+descartadas por modularidad y por reducir el alcance acordado.
+
+Se verificaron cinco archivos seleccionados purchase_stock/mrp del runtime contra la revisión
+oficial fijada; igualdad de esas fuentes, no de todo el core. No se ejecutó una reposición como QA.
+[Orderpoint](https://github.com/odoo/odoo/blob/bb238af6f0ddd70d7ff91521c6104472583661d1/addons/stock/models/stock_orderpoint.py),
+[compra/pipeline](https://github.com/odoo/odoo/blob/bb238af6f0ddd70d7ff91521c6104472583661d1/addons/purchase_stock/models/stock.py),
+[compra/reglas](https://github.com/odoo/odoo/blob/bb238af6f0ddd70d7ff91521c6104472583661d1/addons/purchase_stock/models/stock_rule.py),
+[fabricación/reglas](https://github.com/odoo/odoo/blob/bb238af6f0ddd70d7ff91521c6104472583661d1/addons/mrp/models/stock_rule.py),
+[fabricación/orderpoint](https://github.com/odoo/odoo/blob/bb238af6f0ddd70d7ff91521c6104472583661d1/addons/mrp/models/stock_orderpoint.py).
+
+
+### D07 · confirmación de previos y abastecimiento hijo
+
+**Decision**: incluir las MO borrador preexistentes que el postprocesado nativo confirma, autorizar
+`action_confirm` y el wizard de cambio de cantidad; extender el alcance revisado a reposiciones hijas.
+**Rationale**: MRP `_post_process_scheduler` no se limita a nuevas MO; `change_prod_qty` ajusta
+movimientos/subproductos/trabajos y dispara scheduler de insumos. `_trigger_scheduler` nativo pide
+`raise_user_error=False`; dentro de operación ARG privada se fuerza propagación de errores y la
+misma transacción, sin modificar el scheduler global ni omitir ramas.
+**Alternatives considered**: confirmar sólo MO nuevas, desactivar esos efectos globalmente o
+permitir éxito raíz con fallo hijo; descartadas por alterar semántica o violar la atomicidad.
+
+La cantidad aceptada se fija mediante qty_to_order_manual directamente; la inversa de qty_to_order
+borra el manual en reglas auto. La propuesta explica el override pendiente y su consumo al completar.
+El wizard y stock.move seleccionados se verificaron además contra runtime/revisión fijada.
+[Wizard MRP](https://github.com/odoo/odoo/blob/bb238af6f0ddd70d7ff91521c6104472583661d1/addons/mrp/wizard/change_production_qty.py),
+[abastecimiento hijo](https://github.com/odoo/odoo/blob/bb238af6f0ddd70d7ff91521c6104472583661d1/addons/stock/models/stock_move.py).

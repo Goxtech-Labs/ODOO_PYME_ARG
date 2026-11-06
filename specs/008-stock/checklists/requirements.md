@@ -16,3 +16,11 @@ Revisión documental; no acredita pruebas funcionales. Mantener decisiones de pr
 - [x] La historia, el saldo actual y el alta de maestro conservan efectos separados, con permisos y trazabilidad definidos.
 
 Calidad del requisito revisada durante Spec Kit specify; no marca implementación ni QA. F15 sigue pendiente.
+
+## Revisión de especificación F15 ·2026-11-06
+
+- [x] US6/US7 y FR-012–017 cubren configuración, propuesta y confirmación de compra/fabricación, con criterios medibles SC-007/008.
+- [x] Modalidades existentes, reintentos, permisos, parciales, lotes/componentes y ausencia de capacidad tienen escenarios definidos.
+
+Calidad de requisitos revisada durante specify. La revisión de contrato/diseño y las tareas de
+implementación se acreditan aparte; no confundir esta lista con código o QA ejecutada.
