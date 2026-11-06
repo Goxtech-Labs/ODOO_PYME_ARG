@@ -1,8 +1,8 @@
 # OPA y entregas de cheques · desarrollo1.2 · 2026-11-05
 
-**Instalado técnicamente sólo en aislado el 2026-11-06.** Valores20.0.1.2.0 y Administración20.0.1.1.4.
-Sin QA financiera ni disponibilidad de esta ampliación en la demo compartida.
-Lectura actual: aislado Valores1.2/Administración1.1.4 y demo0.1.5. La entrega
+**Instalado técnicamente en aislado y demo el 2026-11-06.** Valores20.0.1.2.0 y Administración20.0.1.1.4.
+QA financiera pendiente. [Promoción técnica](EXPANSION-PROMOCION.md).
+Lectura actual: Valores1.2/Administración1.1.4 en aislado y demo0.1.6. La entrega
 [REC1.1](017-rec-cheques.md) conserva el antecedente de la fase anterior.
 
 ## Cambios desarrollados
@@ -48,7 +48,7 @@ El cargador de ejemplos de OPA está preparado, no ejecutado: perfiles propios, 
 ficticio y un cheque propio en borrador, sin pagos/asientos/stock ni cambios a cron o correo.
 La guía1.1 queda para revisión y enlaza la nueva, conservando texto, URL y video del administrador.
 
-Pendientes017: promoción, QA posterior, ECHEQ, custodia, negociación/
+Pendientes017: QA posterior, ECHEQ, custodia, negociación/
 descuento/recurso avanzado, parciales, operaciones posteriores al débito/acreditación, lotes,
 transferencias, pagaré formal, informes y tutoriales completos. Se conserva todo el plan de expansión.
 

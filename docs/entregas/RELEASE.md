@@ -1,18 +1,24 @@
-# Odoo Pymes ARG — 0.1.5-dev
+# Odoo Pymes ARG — 0.1.6-dev
 
-Primer incremento del [plan de expansión argentina](../PLAN-EXPANSION-ARG.md): fecha primero en
-formularios propios y fecha de hoy propuesta al cargar facturas/notas, conservando fechas explícitas.
-[Alcance y controles técnicos](CARGA-BASICA-ARG.md). No acredita la implementación del plan completo.
+Expansión desplegada en la demo el 2026-11-06: Valores1.2, Reparaciones1.2,
+Administración1.1.4 y Compras1.0.6. [Alcance y controles](EXPANSION-PROMOCION.md).
 
-101 módulos (12 ARG+89 nativos/dependencias);231 archivos del paquete SHA256
-898b636eaac4a8d567470f5668ca6bc1c10d2ccdbe808df64b02fca06ea625ba. [Composición](../../composition/versions.lock.json).
-Las capacidades financieras y de rubro de specs017–024 continúan pendientes. La
-[incremento REC/cheques de Valores ARG](017-rec-cheques.md) tiene código e instalación aislada, sin
-promoción a esta demo ni OPA con valores. No se activaron proveedores.
+103 módulos:14 ARG y89 nativos/dependencias;285 archivos propios del paquete SHA256
+`0adad0325df983bee917325f334f452a066555b272dfc71428cb30fd3a5f2f76`.
+[Composición instalada](../../composition/versions.lock.json). Se conservaron los módulos nativos,
+incluido POS, y los conteos de documentos, metadatos seleccionados de usuarios/compañía y configuración de cron/correo.
 
-Revisión estática y comprobaciones técnicas de carga/default_get, sin nuevos documentos ni QA de negocio.
-QA funcional/visual y aceptación del titular posteriores. Se conserva el caso histórico de ventas de la
-[entrega0.1.3](RELEASE-0.1.3-dev.md), sin atribuirlo como prueba repetida de este incremento.
-Respaldo previo íntegro, no restaurado; conservar datos y configuración de la demo.
+REC/OPA con cheques en papel, reservas y operaciones descritas en sus contratos están instalados.
+La cartera ampliada —ECHEQ, negociación, parciales y demás pendientes017— continúa en desarrollo.
+Reparaciones incluye recepción, diagnóstico, PRE/PED, autorización, repuestos, PTM, correcciones,
+nuevas visitas y reporte; Compras incorpora fecha de proveedor antes de tercero y referencia.
+
+Respaldo completo fresco y snapshot; restauración y registro/instalación en copia sin red comprobados
+antes de actualizar la demo. Servicio y formulario de acceso HTTP200. No se ejecutaron recorridos de
+negocio, QA financiera/visual, renderizado PDF ni operaciones externas. Los ejemplos nuevos de
+Reparaciones permanecen en aislado; no se copiaron transacciones de esa base.
+
+QA, tutoriales reales y aceptación pendientes. Este incremento no completa las22 capacidades,
+E1, specs017–024 ni Integraciones. [Entrega anterior](RELEASE-0.1.5-dev.md).
 
 Originales AGPL-3.0-only/CC BY-SA4.0; atribuciones de Odoo y terceros conservadas.

@@ -1,5 +1,10 @@
 # Reparaciones ARG · Primer código de recepción
 
+**Estado actual2026-11-06:** el código de este incremento y sus ampliaciones indicadas en la
+[entrega0.1.6-dev](EXPANSION-PROMOCION.md) está instalado en demo. Las referencias siguientes a
+instalación/promoción pendiente describen el antecedente histórico, no el estado vigente.
+QA funcional/visual, PDF, ejemplos de circuito y aceptación siguen pendientes.
+
 Actualización2026-11-06: recepción1.0 y ampliaciones1.1/1.2 instaladas y registradas en aislado;
 la demo compartida conserva su composición anterior. [Controles actuales](EXPANSION-INSTALACION-AISLADA.md).
 

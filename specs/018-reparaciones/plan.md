@@ -74,6 +74,6 @@ seguimiento desde custodia terminada prepara REPdraft independiente con vínculo
 No reabre custodia ni copia hechos físicos/financieros. Reporte agrega correcciones y ejes existentes,
 con degradación de acceso a unknown y conservación de custodia. Mismos nueve estados del caso;
 los nuevos hechos extienden su historial. Migración1.2 actualiza ayuda sin reescribir los eventos.
-Fuente completa del alcance previsto instalada en aislado; T013 completada y T014 pendiente de promoción.
+Fuente completa del alcance previsto instalada en aislado y demo; T013 y T014 completadas como entrega técnica. T012 conserva tutoriales/ejemplos de circuito pendientes.
 Ejemplos de borrador/catálogo cargados; ejemplos de circuito/tutoriales, QA y aceptación separados.
 [Evidencia actual](../../docs/entregas/EXPANSION-INSTALACION-AISLADA.md). No cerrar el programa completo.

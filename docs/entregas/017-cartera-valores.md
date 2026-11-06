@@ -1,5 +1,10 @@
 # Valores ARG · base de registro · 2026-11-05
 
+**Estado actual2026-11-06:** el código de este incremento y sus ampliaciones indicadas en la
+[entrega0.1.6-dev](EXPANSION-PROMOCION.md) está instalado en demo. Las referencias siguientes a
+instalación/promoción pendiente describen el antecedente histórico, no el estado vigente.
+QA funcional/visual, PDF, ejemplos de circuito y aceptación siguen pendientes.
+
 Registro histórico de20.0.1.0.0. El incremento posterior de [REC con cheques](017-rec-cheques.md)
 agrega efectos locales en aislado; esta entrega conserva su evidencia original.
 

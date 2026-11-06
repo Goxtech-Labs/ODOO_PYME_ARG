@@ -1,6 +1,6 @@
 # Reparaciones ARG · Registro y custodia
 
-20.0.1.2.0 instalado técnicamente en aislado; QA posterior. Addon opcional arg_pyme_reparaciones,
+20.0.1.2.0 instalado técnicamente en aislado y demo; QA posterior. Addon opcional arg_pyme_reparaciones,
 dependencias arg_pyme_ventas_stock y Documentos, sin dependencia del núcleo hacia esta especialización.
 Odoo20 usa ir.access.csv con modelos operativos y columnas operation/domain; no importar ACL de18.
 
@@ -79,7 +79,7 @@ parte/tipo, registra PTM y señala guía anterior para revisar; conserva evidenc
 
 El 2026-11-06 se instalaron los incrementos y se verificó su registro/arranque en aislado, incluidas
 las migraciones. Se cargaron ejemplos de borrador y catálogo; no se ejercitaron los recorridos.
-Quedan pendientes promoción, ejemplos de circuito, tutoriales, render PDF y QA;
+Quedan pendientes ejemplos de circuito, tutoriales, render PDF y QA;
 ver [tareas completas](../../specs/018-reparaciones/tasks.md).
 
 ## Correcciones y continuidad1.2

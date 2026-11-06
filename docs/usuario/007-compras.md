@@ -4,7 +4,7 @@ Compatibilidad: Odoo 20 Community. La versión de cada addon está fijada en la
 [composición de esta entrega](../../composition/versions.lock.json); consultar sus límites y estado de QA.
 
 Circuito comercial, puente físico y dinero aplicado instalados; QA funcional y aceptación pendientes.
-El ajuste de carga20.0.1.0.6 está instalado sólo en aislado, pendiente de promoción a la demo compartida.
+El ajuste de carga20.0.1.0.6 está instalado en aislado y demo compartida; QA posterior pendiente.
 
 ## Pedido al proveedor
 

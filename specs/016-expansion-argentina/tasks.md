@@ -14,7 +14,7 @@ Estado inicial: plan de trabajo. Revisiones funcionales posteriores están en qu
 
 - [x] T004 [US1] Aplicar fecha y orden básico en formularios propios de addons/arg_pyme_ventas/views/quotation_views.xml y sale_order_views.xml, sin quitar campos
 - [x] T005 [US1] Completar fechas por contexto sólo cuando falten en addons/arg_pyme_ventas/models/account_move.py y addons/arg_pyme_compras/models/account_move.py
-- [ ] T006 [US1] Aplicar patrón de carga en addons/arg_pyme_compras/views/purchase_order_views.xml y account_move_views.xml
+- [x] T006 [US1] Aplicar patrón de carga en addons/arg_pyme_compras/views/purchase_order_views.xml y account_move_views.xml
 - [x] T007 [US1] Aplicar patrón de carga en addons/arg_pyme_administracion/views/treasury_document_views.xml y addons/arg_pyme_stock/views/stock_picking_views.xml
 - [ ] T008 [US1] Completar matriz de variantes F13 y precios/condiciones F19 sin doble maestro en addons/arg_pyme_catalogo/models/pricelist_matrix.py y views/product_template_views.xml
 - [ ] T009 [US1] Completar trazabilidad/reposición F14/F15 usando stock.lot y orderpoints nativos en addons/arg_pyme_stock/views/stock_matrix_views.xml y models/replenishment.py
@@ -77,6 +77,7 @@ sin efectos financieros. T014 sigue abierta hasta completar REC/OPA y cartera co
 Ver [entrega de registro](../../docs/entregas/017-cartera-valores.md).
 
 E1T006: Compras20.0.1.0.6 instalada en aislado; ficha contable combinada y procesada comprobada,
-manteniendo fecha contable/vencimiento y condiciones visibles. Promoción a demo todavía pendiente.
-018T002/T004–T011/T013 acreditan código instalado en aislado, sin QA; T015 padre sigue abierta.
+manteniendo fecha contable/vencimiento y condiciones visibles. Promoción a demo completada; T006 realizada.
+018T002/T004–T011/T013/T014 acreditan código instalado/promovido a demo, sin QA; T015 padre sigue abierta por tutoriales/ejemplos de circuito.
+[Promoción](../../docs/entregas/EXPANSION-PROMOCION.md).
 [Instalación aislada](../../docs/entregas/EXPANSION-INSTALACION-AISLADA.md).

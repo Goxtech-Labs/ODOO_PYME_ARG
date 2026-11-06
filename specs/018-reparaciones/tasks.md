@@ -1,6 +1,6 @@
 # Tasks: Reparaciones y servicio técnico ARG
 
-Estado:1.2 instalada técnicamente en aislado, con circuito, correcciones/continuidad y reporte. Promoción y QA/aceptación posteriores pendientes.
+Estado:1.2 instalada técnicamente en aislado, con circuito, correcciones/continuidad y reporte. Promoción a demo completada; QA/aceptación posteriores pendientes.
 
 
 ## Setup
@@ -33,7 +33,7 @@ Estado:1.2 instalada técnicamente en aislado, con circuito, correcciones/contin
 
 - [ ] T012 Documentar manual, ejemplos, límites y ficha de tutorial versionada en docs/usuario/018-reparaciones.md
 - [x] T013 Resolver sintaxis, carga de vistas e instalación/arranque de composición; registrar sin atribuir QA en docs/entregas/018-reparaciones.md
-- [ ] T014 Fijar paquete/versiones, respaldo y promoción autorizada con hashes en composition/versions.lock.json
+- [x] T014 Fijar paquete/versiones, respaldo y promoción autorizada con hashes en composition/versions.lock.json
 
 ## Dependencies & Execution Order
 
@@ -75,4 +75,5 @@ fuente para su alcance; no regenerarla por estar pendientes las comprobaciones t
 Al preparar la fuente T013/T014 y los cargadores estaban pendientes. El 2026-11-06 se completó T013
 en aislado y se cargaron borrador/catálogo ficticios. Las tareas marcadas acreditan código instalado,
 no ejecución de sus recorridos ni PDF/QA. T012 conserva tutoriales y ejemplos de circuito pendientes;
-T014 y parent016T015 siguen abiertas hasta promoción. [Evidencia](../../docs/entregas/EXPANSION-INSTALACION-AISLADA.md).
+T014 se completó con la promoción técnica a demo. Parent016T015 sigue abierta por T012.
+[Promoción](../../docs/entregas/EXPANSION-PROMOCION.md). [Evidencia](../../docs/entregas/EXPANSION-INSTALACION-AISLADA.md).

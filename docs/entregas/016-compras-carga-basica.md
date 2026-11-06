@@ -1,7 +1,7 @@
 # Compras ARG · Carga básica de facturas recibidas
 
-2026-11-06.20.0.1.0.6 instalado técnicamente en aislado; QA funcional/visual y aceptación pendientes.
-La composición de la demo compartida conserva su versión anterior.
+2026-11-06.20.0.1.0.6 instalado técnicamente en aislado y demo; QA funcional/visual y aceptación pendientes.
+La [promoción técnica](EXPANSION-PROMOCION.md) fija la composición de la demo compartida.
 
 El formulario compartido muestra la fecha del comprobante de proveedor antes de proveedor y número
 externo. Condiciones y contabilidad se distinguen en la columna derecha, conservando sus campos.
@@ -15,7 +15,7 @@ sus campos de fecha originales. No se ocultan condiciones ni errores en seccione
 
 La revisión técnica de fuente compara locators y conservación de campos contra Community fijado;
 no prueba la presentación en navegador. La lectura posterior del servidor verificó la vista combinada
-y procesada, con233 nodos de campo y el orden esperado. Parent016T006 conserva la promoción pendiente.
+y procesada, con233 nodos de campo y el orden esperado. Parent016T006 se completa como entrega técnica; QA posterior pendiente.
 
 [Contrato](../../specs/007-compras/contracts/operaciones.md) · [Manual](../usuario/007-compras.md) ·
 [Escenarios posteriores](../../specs/007-compras/quickstart.md)

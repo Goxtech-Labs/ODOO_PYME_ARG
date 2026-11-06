@@ -1,7 +1,9 @@
 # Reparaciones ARG · Recepción y diagnóstico
 
-Estado:20.0.1.2.0 instalado en aislado; promoción y revisión funcional/visual pendientes.
-La recepción se amplía con presupuesto, autorización, trabajo y entrega. No está disponible aún en la demo.
+**Estado2026-11-06:** Reparaciones1.2 está instalado en la demo0.1.6-dev; [promoción técnica](../entregas/EXPANSION-PROMOCION.md) completada. QA, PDF, tutoriales y aceptación pendientes.
+
+Estado:20.0.1.2.0 instalado en aislado y demo; revisión funcional/visual pendiente.
+La recepción se amplía con presupuesto, autorización, trabajo y entrega. Disponible en la demo0.1.6-dev.
 
 ## Recibir un equipo
 
@@ -116,7 +118,7 @@ El parte impreso agrega correcciones y hechos/pendientes por PRE/PED, con unidad
 sus fuentes. Los datos comerciales no verificables por permisos aparecen como no determinados;
 la custodia sigue disponible. Imprimir no confirma una entrega, autorización ni factura.
 
-Quedan pendientes promoción, ejemplos de circuito, revisión funcional/visual, PDF y aceptación.
+Quedan pendientes ejemplos de circuito, revisión funcional/visual, PDF y aceptación.
 Los cargadores crearon cliente/REP borrador y catálogo ficticio en aislado; no ejecutan el circuito.
 
 El tutorial específico de YouTube está pendiente. La guía escrita y el catálogo son editables sin

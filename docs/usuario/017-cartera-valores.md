@@ -49,21 +49,22 @@ reabierta y saldo reutilizable del cheque0. No hay reversión global del efectiv
 
 ## Disponibilidad y límites
 
-Versión20.0.1.1.0 instalada técnicamente sólo en el entorno aislado. La demo compartida sigue0.1.5.
+El incremento1.1 y su ampliación1.2 están instalados técnicamente en aislado y demo0.1.6; QA financiera pendiente.
 No se ejecutó QA financiero/visual ni se afirma validado el ejemplo anterior.
 
-Este incremento recibe cheques de terceros en papel y acredita su nominal completo. ECHEQ, cheques
-propios, OPA con valores, reservas/endosos, custodia, descuento, acreditación parcial, devolución y
-recuperación después de acreditación siguen en desarrollo. El banco no recibe instrucciones desde
-estas pantallas. La constancia manual registra un hecho informado por el operador.
+El incremento1.1 recibe cheques de terceros en papel y acredita su nominal completo. La ampliación1.2
+agrega cheques propios, OPA con valores y reservas/transmisiones descritas abajo. Siguen en desarrollo
+ECHEQ, custodia especializada, negociación/descuento, acreditación parcial y operaciones posteriores
+a la acreditación o débito. El banco no recibe instrucciones desde estas pantallas. La constancia
+manual registra un hecho informado por el operador.
 
 Tutorial específico: pendiente; [canal general Goxtech Argentina](https://www.youtube.com/@Goxtech_Arg).
 [Contrato completo](../../specs/017-cartera-valores/contracts/cartera-argentina.md) · [Entrega](../entregas/017-rec-cheques.md)
 
-## Próximo incremento1.2: OPA, reserva y entrega
+## Incremento1.2 instalado: OPA, reserva y entrega
 
-**Código preparado; aún no instalado.** Lo siguiente describe el desarrollo, no una función ya
-habilitada en la demo. [Estado de entrega](../entregas/017-opa-cheques.md).
+**Código instalado; QA pendiente.** Lo siguiente describe el alcance instalado en demo0.1.6, sin
+acreditar aún la revisión del circuito financiero. [Estado de entrega](../entregas/017-opa-cheques.md).
 
 En OPA seleccione proveedor y cheque completo. Se propone su medio y nominal. Para terceros elija
 endoso, cesión o entrega sin nuevo endoso y declare la cláusula conocida; indique constancia en la

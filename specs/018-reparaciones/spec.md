@@ -2,7 +2,7 @@
 
 **Feature Branch**: `codex-notebook/plan-001`
 **Created**: 2026-11-05
-**Status**: Código1.2 instalado técnicamente en aislado; promoción, tutoriales y QA pendientes.
+**Status**: Código1.2 instalado técnicamente en aislado y demo; tutoriales y QA pendientes.
 **Input**: Procesos FactuSOL adaptados a Argentina, simplicidad y fuentes nativas.
 
 ## User Scenarios & Testing

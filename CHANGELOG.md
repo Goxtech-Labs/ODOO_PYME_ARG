@@ -1,5 +1,12 @@
 # Cambios
 
+## 0.1.6-dev — 2026-11-06
+
+- Valores1.2, Reparaciones1.2, Administración1.1.4 y Compras1.0.6 promovidos a demo.
+- 103 módulos/14 ARG;285 fuentes comprobadas, POS nativo y configuración existente conservados.
+- Respaldo fresco restaurado en copia aislada; instalación/upgrade y arranque técnicos comprobados.
+- [Entrega y límites](docs/entregas/EXPANSION-PROMOCION.md). QA funcional/visual, PDF y aceptación pendientes.
+
 ## Instalación aislada de la expansión — 2026-11-06
 
 - Valores1.2/Administración1.1.4, Reparaciones1.2 y Compras1.0.6 instalados con controles técnicos.

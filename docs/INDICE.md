@@ -59,7 +59,7 @@ No bloquean la programación del núcleo: la UI ofrece manual y estado no config
 Guías de Ventas: [usuario](usuario/006-ventas.md), [técnica](tecnica/006-ventas.md), [entrega parcial](entregas/006-ventas.md).
 
 Guías de Compras: [usuario](usuario/007-compras.md), [técnica](tecnica/007-compras.md), [entrega parcial](entregas/007-compras.md).
-Disposición de carga de Compras1.0.6: [instalada sólo en aislado](entregas/016-compras-carga-basica.md).
+Disposición de carga de Compras1.0.6: [instalada en demo](entregas/016-compras-carga-basica.md).
 
 Guías Stock: [usuario](usuario/008-stock.md), [técnica](tecnica/008-stock.md), [entrega](entregas/008-stock.md).
 
@@ -78,20 +78,26 @@ de carga básica y recibo argentino confirmados. Implementación/instalación/QA
 
 Valores ARG: [manual inicial](usuario/017-cartera-valores.md),
 [entrega REC/cheques](entregas/017-rec-cheques.md) y [tareas financieras pendientes](../specs/017-cartera-valores/tasks.md).
-REC con cheques en papel está instalado sólo en aislado; no modifica recibos ni saldos de la demo.
+REC con cheques en papel está instalado en demo; QA financiera pendiente.
 
-[OPA, reservas y cheques propios1.2](entregas/017-opa-cheques.md): instalado sólo en aislado;
-sin promoción ni QA de circuito financiero.
+[OPA, reservas y cheques propios1.2](entregas/017-opa-cheques.md): instalado en demo;
+QA de circuito financiero pendiente.
 
 Reparaciones ARG: [manual de recepción](usuario/018-reparaciones.md),
 [diseño técnico](tecnica/018-reparaciones.md) y [estado de entrega](entregas/018-reparaciones.md).
-Recepción/diagnóstico/custodia instalados en aislado; circuito sin QA acreditada.
+Recepción/diagnóstico/custodia instalados en demo; circuito sin QA acreditada.
 
 [Reparaciones: trabajo autorizado1.1](entregas/018-trabajo-autorizado.md): PRE/PED, autorización,
-repuestos nativos, PTM y entrega instalados en aislado; promoción y QA pendientes.
+repuestos nativos, PTM y entrega instalados en demo; QA pendiente.
 
 [Reparaciones: correcciones/visitas1.2](entregas/018-correcciones-visitas.md): fuente preparada con
-historia conservada, REP nuevo para seguimiento y reporte de hechos/pendientes. Instalado en aislado.
+historia conservada, REP nuevo para seguimiento y reporte de hechos/pendientes. Instalado en demo.
 
 [Composición y controles aislados](entregas/EXPANSION-INSTALACION-AISLADA.md): incluye ejemplos
-de REP borrador y catálogo ficticio; no acredita disponibilidad de estas ampliaciones en la demo pública.
+de REP borrador y catálogo ficticio sólo en aislado. La promoción del código a demo tiene su registro separado.
+
+## Promoción de expansión · 2026-11-06
+
+[Demo0.1.6-dev](entregas/EXPANSION-PROMOCION.md): Valores1.2, Reparaciones1.2, Administración1.1.4
+y Compras1.0.6 instalados. Esta lectura posterior reemplaza las referencias a promoción pendiente
+de los incrementos anteriores; QA y aceptación continúan pendientes.

@@ -1,5 +1,10 @@
 # REC y cheques en papel · incremento de desarrollo · 2026-11-05
 
+**Estado actual2026-11-06:** el código de este incremento y sus ampliaciones indicadas en la
+[entrega0.1.6-dev](EXPANSION-PROMOCION.md) está instalado en demo. Las referencias siguientes a
+instalación/promoción pendiente describen el antecedente histórico, no el estado vigente.
+QA funcional/visual, PDF, ejemplos de circuito y aceptación siguen pendientes.
+
 Código desarrollado: Valores20.0.1.1.0 y Administración20.0.1.1.3. Instalación técnica en aislado;
 la demo compartida conserva0.1.5 y su composición. No se declara terminada la feature017.
 

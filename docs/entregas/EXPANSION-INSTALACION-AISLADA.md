@@ -1,7 +1,7 @@
 # Expansión ARG · Instalación técnica aislada
 
-2026-11-06. Los incrementos preparados se instalaron en el entorno aislado; la demo compartida
-mantiene0.1.5-dev y101 módulos. El [lock de la demo](../../composition/versions.lock.json) no cambia.
+2026-11-06. Los incrementos se instalaron primero en el entorno aislado. Posteriormente se completó
+la [promoción técnica a la demo0.1.6-dev](EXPANSION-PROMOCION.md); el [lock](../../composition/versions.lock.json) registra esa entrega.
 
 | Componente | Versión aislada | Evidencia técnica |
 | --- | --- | --- |
@@ -16,7 +16,7 @@ la lectura posterior, SHA256 `0adad0325df983bee917325f334f452a066555b272dfc71428
 
 Se aplicaron OPA1.2, recepción1.0, trabajo1.1, correcciones1.2 y carga de Compras1.0.6 en orden,
 con snapshot y lectura técnica por etapa. Odoo quedó activo; túnel público inactivo, sin interfaces
-externas, cron/correo activos0 y arranque automático deshabilitado. No se copió información al entorno compartido.
+externas, cron/correo activos0 y arranque automático deshabilitado. En esta etapa aislada no se copió información al entorno compartido. La promoción posterior actualizó código, sin copiar transacciones.
 
 Los controles verificaron registro, defaults, versiones, restricciones, guías, fuentes y servicio.
 La ficha contable combinada tiene233 nodos de campo en esta composición. La fuente nativa de esa
@@ -33,7 +33,7 @@ Se mantienen los ejemplos anteriores del entorno; no se presenta existencia fís
 
 ## Pendientes
 
-La promoción a la demo compartida requiere respaldo completo fresco, recuperación verificable y
-composición fijada, conservando sus usuarios y configuración. QA funcional/visual, PDF, tutoriales
+La promoción a la demo compartida se completó con respaldo fresco y recuperación comprobada,
+conservando sus usuarios y configuración. QA funcional/visual, PDF, tutoriales
 reales y aceptación son fases posteriores. La instalación de estos incrementos no completa la cartera
 argentina ampliada, las22 capacidades, E1 ni las especializaciones019–024 e Integraciones.

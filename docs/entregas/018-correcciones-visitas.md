@@ -1,5 +1,10 @@
 # Reparaciones ARG1.2 · Correcciones y nuevas visitas
 
+**Estado actual2026-11-06:** el código de este incremento y sus ampliaciones indicadas en la
+[entrega0.1.6-dev](EXPANSION-PROMOCION.md) está instalado en demo. Las referencias siguientes a
+instalación/promoción pendiente describen el antecedente histórico, no el estado vigente.
+QA funcional/visual, PDF, ejemplos de circuito y aceptación siguen pendientes.
+
 Fuente preparada el 2026-11-05 e instalada técnicamente en aislado el 2026-11-06.20.0.1.2.0
 con registro/arranque comprobados; la demo compartida conserva su composición anterior.
 

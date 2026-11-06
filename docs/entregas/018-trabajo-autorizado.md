@@ -1,5 +1,10 @@
 # Reparaciones ARG1.1 · Trabajo autorizado
 
+**Estado actual2026-11-06:** el código de este incremento y sus ampliaciones indicadas en la
+[entrega0.1.6-dev](EXPANSION-PROMOCION.md) está instalado en demo. Las referencias siguientes a
+instalación/promoción pendiente describen el antecedente histórico, no el estado vigente.
+QA funcional/visual, PDF, ejemplos de circuito y aceptación siguen pendientes.
+
 Actualización2026-11-06: trabajo1.1 y correcciones1.2 instalados y registrados en aislado;
 la demo compartida conserva su composición anterior. [Controles actuales](EXPANSION-INSTALACION-AISLADA.md).
 
