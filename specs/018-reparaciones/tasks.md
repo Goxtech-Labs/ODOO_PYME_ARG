@@ -1,6 +1,6 @@
 # Tasks: Reparaciones y servicio técnico ARG
 
-Estado: primer código de recepción preparado, sin instalación. Resto del circuito pendiente; QA/aceptación posteriores en quickstart.md.
+Estado: fuente1.2 preparada con circuito, correcciones/continuidad y reporte; sin instalación. QA/aceptación posteriores en quickstart.md.
 
 
 ## Setup
@@ -66,3 +66,11 @@ T002/T007/T008/T009 avanzan con PRE/PED/autorización/PTM/stock nativo y entrega
 con ejes por fuente e impresión PTM. No instalados ni validados en circuito real. Correcciones de
 recepción/diagnóstico, reportes completos, ejemplos/tutoría y T013/T014 continúan pendientes.
 No marcar el alcance completo por un paquete estático. Parent016T015 permanece abierta.
+
+## Incremento de correcciones20.0.1.2.0
+
+Contrato y fuente agregan corrección de recepción/diagnóstico, nueva visita con REP independiente,
+snapshot/UUID inmutables, vínculo real al hijo y reporte de hechos/pendientes. T002/T004–T011 tienen
+fuente para su alcance; no regenerarla por estar pendientes las comprobaciones técnicas de registro.
+T013/T014 permanecen sin ejecutar; T012 conserva videos reales pendientes y cargadores de ejemplo
+sin ejecutar. Código, instalación, PDF, QA y aceptación continúan como hitos separados. Parent016T015 abierta.

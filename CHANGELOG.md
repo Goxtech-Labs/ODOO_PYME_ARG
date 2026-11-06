@@ -2,6 +2,9 @@
 
 ## Desarrollo de especializaciones — 2026-11-05
 
+- Reparaciones20.0.1.2.0 en fuente: corrección trazable de datos, nuevas visitas con REP independiente
+  y reporte de correcciones/hechos. No instalado; [estado](docs/entregas/018-correcciones-visitas.md).
+
 - Reparaciones20.0.1.1.0 en fuente: PRE/PED/autorización, PTM de servicios, repuestos nativos,
   listo/retomar/entrega, correcciones de trabajo y hechos por origen. Sin instalación/QA acreditadas.
 - [Entrega de trabajo autorizado](docs/entregas/018-trabajo-autorizado.md).

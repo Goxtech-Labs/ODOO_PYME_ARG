@@ -1,6 +1,6 @@
 # Reparaciones ARG · Recepción y diagnóstico
 
-Estado: código20.0.1.1.0 preparado; instalación y revisión funcional/visual pendientes.
+Estado: código20.0.1.2.0 preparado; instalación y revisión funcional/visual pendientes.
 La recepción se amplía con presupuesto, autorización, trabajo y entrega. No está disponible aún en la demo.
 
 ## Recibir un equipo
@@ -87,9 +87,37 @@ Recibir/diagnosticar requiere Reparaciones ARG; presupuestar y cargar PTM agrega
 Autorizar/confirmar/revertir requiere Responsable ARG y permisos nativos; Stock conserva sus
 capacidades. Una misma persona puede reunirlas. No se exigen departamentos distintos.
 
-Continúan pendientes las correcciones explícitas de recepción/diagnóstico, ejemplos operativos,
-reportes completos, instalación, revisión funcional/visual, PDF y aceptación. El cargador de
-ejemplo sólo prepara cliente y REP borrador; no ejecuta este circuito.
+## Corregir datos registrados
+
+**Corregir datos registrados** pide fecha, dato, valor nuevo y motivo. Muestra el valor al abrir
+y conserva ambos en el historial. Si la ficha cambió mientras el diálogo estaba abierto, se solicita
+volver a abrirlo; un reintento de la misma corrección no vuelve a aplicarla.
+
+Cliente y fecha de recepción sólo se corrigen mientras hay custodia y antes de preparar PRE.
+Equipo, problema, marca, modelo, serie, accesorios y estado recibido admiten rectificación con
+constancia. El diagnóstico registrado también puede rectificarse. Los acuerdos del PRE/PED, las
+horas, repuestos, facturas y cobros existentes se conservan; un alcance distinto se acuerda mediante
+revisión y autorización. Los campos esenciales no se dejan vacíos; los opcionales permiten borrado explícito.
+
+## Nueva visita después de entregar o devolver
+
+**Nueva visita / seguimiento** propone hoy y pide el nuevo problema. Prepara otro REP en borrador,
+con cliente e identificación del equipo conocidos y un vínculo al anterior. Recibir equipo registra
+la nueva custodia. La fecha no precede a la entrega anterior; una fecha futura conserva el borrador.
+
+No se reutilizan diagnóstico, accesorios, estado recibido ni trabajo de la visita anterior: se registran
+los hechos de esta visita. Cobertura y condiciones se acuerdan en su PRE/PED. Corregir el caso anterior
+no modifica otro REP ya preparado. Reintentar desde el mismo diálogo abre el seguimiento existente,
+aunque alguien ya haya trabajado en él.
+
+## Informe y estado de entrega
+
+El parte impreso agrega correcciones y hechos/pendientes por PRE/PED, con unidades y monedas de
+sus fuentes. Los datos comerciales no verificables por permisos aparecen como no determinados;
+la custodia sigue disponible. Imprimir no confirma una entrega, autorización ni factura.
+
+Quedan pendientes instalación, ejemplos operativos, revisión funcional/visual, PDF y aceptación.
+Los cargadores preparan cliente/REP borrador y catálogo ficticio; no ejecutan el circuito.
 
 El tutorial específico de YouTube está pendiente. La guía escrita y el catálogo son editables sin
 inventar un enlace de video. No se envían mensajes ni se activa una integración al instalar el addon.

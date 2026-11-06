@@ -1,6 +1,6 @@
 # Reparaciones ARG · Registro y custodia
 
-Fuente candidata20.0.1.1.0, sin instalación acreditada. Addon opcional arg_pyme_reparaciones,
+Fuente candidata20.0.1.2.0, sin instalación acreditada. Addon opcional arg_pyme_reparaciones,
 dependencias arg_pyme_ventas_stock y Documentos, sin dependencia del núcleo hacia esta especialización.
 Odoo20 usa ir.access.csv con modelos operativos y columnas operation/domain; no importar ACL de18.
 
@@ -79,5 +79,23 @@ parte/tipo, registra PTM y señala guía anterior para revisar; conserva evidenc
 
 No se instalaron ni ejercitaron estas vistas/acciones. AST/XML/manifest/secretos y revisión estática
 son controles técnicos separados de instalación, render PDF y QA. Falta comprobar esta composición
-y migración en runtime, completar correcciones de recepción/diagnóstico, ejemplos, reportes y
-tutoriales; ver [tareas completas](../../specs/018-reparaciones/tasks.md).
+y migraciones en runtime, cargar ejemplos y completar tutoriales;
+ver [tareas completas](../../specs/018-reparaciones/tasks.md).
+
+## Correcciones y continuidad1.2
+
+repair_correction.py permite rectificar campos seleccionados mediante valor anterior/nuevo,
+fecha/motivo/actor. Wizard captura snapshot y UUID en servidor; write no cambia caso/clave/snapshot.
+Aplicar revalida responsable+Reparaciones+compañía, bloquea raíz/caso, compara snapshot y guarda
+evento inmutable. Cliente/fecha sólo antes de PRE y durante custodia; fechas respetan hechos previos.
+Datos de acuerdos comerciales permanecen congelados aunque se rectifique el texto del diagnóstico.
+
+previous_case_id/followup_key se asignan sólo mediante fábrica privada, con unicidad de solicitud;
+write/defaults externos no los inyectan. Seguimiento desde returned/delivered crea REPdraft con
+identidad nueva y sólo datos estables, sin diagnóstico/condiciones físicas ni compromisos heredados.
+Evento followup tiene Many2one real al hijo; replay comprueba acceso y devuelve ese registro sin
+restablecer sus datos o estado. No hay reapertura implícita de la custodia anterior.
+
+Reporte incluye correcciones y componente común document_axes. AccessError comercial se presenta
+como unknown conservando _arg_custody_axes, sin sudo ni ceros inferidos. La migración1.2 sólo
+actualiza la cadena de ayuda; columnas/relaciones nuevas son opcionales y no reescriben evidencia.

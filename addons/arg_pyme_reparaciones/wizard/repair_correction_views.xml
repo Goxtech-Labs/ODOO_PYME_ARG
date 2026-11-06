@@ -1,0 +1,20 @@
+<odoo>
+    <record id="repair_correction_form" model="ir.ui.view"><field name="name">arg.pyme.repair.correction.wizard.form</field><field name="model">arg.pyme.repair.correction.wizard</field>
+        <field name="arch" type="xml"><form><group><field name="date"/><field name="case_id"/><field name="field_name"/>
+            <field name="current_value"/><field name="new_text" invisible="field_name in ['date','partner_id'] or clear_value" required="field_name not in ['date','partner_id'] and not clear_value"/>
+            <field name="new_partner_id" invisible="field_name != 'partner_id'" required="field_name == 'partner_id'"/>
+            <field name="new_date" invisible="field_name != 'date'" required="field_name == 'date'"/>
+            <field name="clear_value" invisible="field_name not in ['brand','model','serial','accessories','condition_note']"/>
+            <field name="reason"/>
+        </group><p>La corrección conserva el valor anterior y el motivo. Los presupuestos, pedidos, facturas y trabajos vinculados mantienen sus acuerdos.</p>
+            <footer><button name="action_apply" type="object" string="Registrar corrección" class="btn-primary"/><button string="Descartar" special="cancel"/></footer></form></field></record>
+    <record id="repair_followup_form" model="ir.ui.view"><field name="name">arg.pyme.repair.followup.wizard.form</field><field name="model">arg.pyme.repair.followup.wizard</field>
+        <field name="arch" type="xml"><form><group><field name="date"/><field name="case_id"/><field name="problem"/></group>
+            <p>Se prepara un nuevo REP en borrador con cliente y equipo conocidos. Recibir equipo registrará el nuevo ingreso; cobertura y trabajo se acuerdan en su presupuesto.</p>
+            <footer><button name="action_prepare" type="object" string="Preparar nueva visita" class="btn-primary"/><button string="Descartar" special="cancel"/></footer></form></field></record>
+    <record id="repair_correction_actions" model="ir.ui.view"><field name="name">arg.pyme.repair.case.corrections</field><field name="model">arg.pyme.repair.case</field><field name="inherit_id" ref="repair_form"/>
+        <field name="arch" type="xml"><xpath expr="//header" position="inside">
+            <button name="action_repair_correction" type="object" string="Corregir datos registrados" groups="arg_pyme_base.group_manager" invisible="state in ['draft','canceled']"/>
+            <button name="action_prepare_followup" type="object" string="Nueva visita / seguimiento" groups="arg_pyme_base.group_manager" invisible="state not in ['returned','delivered']"/>
+        </xpath><xpath expr="//field[@name='arg_reference']" position="after"><field name="previous_case_id" invisible="not previous_case_id"/></xpath></field></record>
+</odoo>

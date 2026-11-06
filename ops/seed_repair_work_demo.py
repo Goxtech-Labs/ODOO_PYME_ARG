@@ -10,8 +10,8 @@ if not company or company not in env.companies or not company.arg_demo_mode:
 if not env.user.has_group('arg_pyme_base.group_admin'):
     raise RuntimeError('Example catalog setup requires an ARG administrator')
 module = env['ir.module.module'].search([('name', '=', 'arg_pyme_reparaciones'), ('state', '=', 'installed')])
-if module.latest_version != '20.0.1.1.0':
-    raise RuntimeError('This catalog loader targets Reparaciones ARG20.0.1.1.0')
+if module.latest_version not in ('20.0.1.1.0', '20.0.1.2.0'):
+    raise RuntimeError('This catalog loader targets Reparaciones ARG20.0.1.1.0/20.0.1.2.0')
 context = {key: value for key, value in env.context.items() if not key.startswith('default_')}
 context.update(allowed_company_ids=company.ids, tracking_disable=True, mail_notrack=True,
                mail_create_nosubscribe=True)

@@ -1,14 +1,15 @@
 {
     'name': 'Reparaciones ARG',
-    'summary': 'Reparaciones con presupuesto, autorización, repuestos y partes de trabajo',
-    'version': '20.0.1.1.0',
+    'summary': 'Reparaciones, trabajo autorizado, correcciones trazables y nuevas visitas',
+    'version': '20.0.1.2.0',
     'license': 'AGPL-3',
     'author': 'Gonzalo Sarubilo · GoxtechLabs',
     'website': 'https://github.com/Goxtech-Labs/ODOO_PYME_ARG',
     'depends': ['arg_pyme_ventas_stock', 'arg_pyme_documentos'],
     'data': ['security/roles.xml', 'security/ir.access.csv', 'data/help.xml',
              'views/repair_views.xml', 'views/repair_work_views.xml', 'wizard/repair_return_views.xml',
-             'wizard/repair_work_views.xml', 'report/repair_document.xml', 'report/work_document.xml'],
+             'wizard/repair_work_views.xml', 'wizard/repair_correction_views.xml',
+             'report/repair_document.xml', 'report/work_document.xml'],
     'post_init_hook': 'post_init_hook',
     'installable': True,
 }

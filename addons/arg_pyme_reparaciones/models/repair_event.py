@@ -26,11 +26,15 @@ class RepairEvent(models.Model):
                              ('authorize', 'Trabajo autorizado'), ('start', 'Trabajo iniciado'),
                              ('order', 'Pedido vinculado'),
                              ('ready', 'Trabajo listo'), ('resume', 'Trabajo retomado'),
-                             ('deliver', 'Equipo reparado entregado'), ('work_correction', 'Trabajo corregido')],
+                             ('deliver', 'Equipo reparado entregado'), ('work_correction', 'Trabajo corregido'),
+                             ('receipt_correction', 'Datos de recepción corregidos'),
+                             ('diagnosis_correction', 'Diagnóstico rectificado'), ('followup', 'Nueva visita preparada')],
                             required=True)
     request_key = fields.Char(required=True, default=lambda self: uuid.uuid4().hex, copy=False, index=True)
     order_id = fields.Many2one('sale.order', check_company=True, ondelete='restrict', readonly=True,
                                string='Pedido vinculado')
+    related_case_id = fields.Many2one('arg.pyme.repair.case', check_company=True, ondelete='restrict',
+                                      readonly=True, string='Seguimiento preparado')
     effective_date = fields.Date(required=True, string='Fecha del hecho')
     recorded_at = fields.Datetime(required=True, default=fields.Datetime.now, string='Registrado el')
     actor_id = fields.Many2one('res.users', required=True, default=lambda self: self.env.user,

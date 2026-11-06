@@ -21,6 +21,17 @@
             <t t-foreach="o.event_ids.filtered(lambda event: event.kind == 'return')" t-as="event"><p>Retira: <span t-out="event.evidence.get('recipient', '')"/></p><p>Motivo / constancia: <span t-out="event.evidence.get('reason', '')"/></p></t>
             <t t-foreach="o.event_ids.filtered(lambda event: event.kind == 'deliver')" t-as="event"><p>Entrega del equipo reparado: <span t-field="event.effective_date"/></p><p>Retira: <span t-out="event.evidence.get('recipient', '')"/></p></t>
             <p t-if="o.state == 'delivered' and o.event_ids.filtered(lambda event: event.kind == 'work_correction')">Hay correcciones de trabajo registradas. La constancia de entrega física se conserva; consultar partes y documentos vinculados.</p>
+            <p t-if="o.previous_case_id and o.previous_case_id.has_access('read')">Reparación anterior: <span t-field="o.previous_case_id"/></p>
+            <h3>Correcciones de datos registrados</h3>
+            <table class="table table-sm" t-if="o.event_ids.filtered(lambda event: event.kind in ['receipt_correction','diagnosis_correction'])">
+                <thead><tr><th>Fecha</th><th>Dato</th><th>Anterior</th><th>Corregido</th><th>Motivo</th></tr></thead><tbody>
+                    <tr t-foreach="o.event_ids.filtered(lambda event: event.kind in ['receipt_correction','diagnosis_correction']).sorted('id')" t-as="event">
+                        <td t-field="event.effective_date"/><td t-out="event.evidence.get('field_label','')"/>
+                        <td t-out="event.evidence.get('before_label','')" style="white-space:pre-wrap"/><td t-out="event.evidence.get('after_label','')" style="white-space:pre-wrap"/>
+                        <td t-out="event.evidence.get('reason','')" style="white-space:pre-wrap"/>
+                    </tr>
+                </tbody></table>
+            <h3>Hechos y pendientes</h3><t t-set="p" t-value="{'axes': o._arg_get_completion_axes()}"/><t t-call="arg_pyme_documentos.document_axes"/>
             <p>Constancia de gestión y custodia. No es factura ni autorización de trabajo.</p>
             <p>Odoo Pymes ARG · Impulsado por Gonzalo Sarubilo / GoxtechLabs.</p>
         </div></t></t></t></template>

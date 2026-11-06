@@ -46,3 +46,6 @@ completo incluye todas las22 capacidades y no se reduce a este módulo.
 
 [Contrato](../../specs/018-reparaciones/contracts/trabajo-autorizado.md) ·
 [Manual](../usuario/018-reparaciones.md) · [Tareas](../../specs/018-reparaciones/tasks.md)
+
+Ampliación posterior: [correcciones y visitas1.2](018-correcciones-visitas.md). Esta entrada conserva
+el paquete de trabajo1.1; ninguna versión de Reparaciones se instaló aún en la demo.

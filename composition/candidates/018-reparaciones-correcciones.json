@@ -1,0 +1,23 @@
+{
+  "recorded_at": "2026-11-06",
+  "environment": "development-source",
+  "target_environment": "isolated-development",
+  "edition": "Community",
+  "source_base_commit": "9433341d2dcccba4f5ce5b5db4805f442d1c70aa",
+  "versions": {
+    "arg_pyme_reparaciones": "20.0.1.2.0",
+    "arg_pyme_valores": "20.0.1.2.0",
+    "arg_pyme_administracion": "20.0.1.1.4"
+  },
+  "installed": false,
+  "production_deployed": false,
+  "functional_qa": "not executed",
+  "visual_qa": "not executed",
+  "pdf_rendered": false,
+  "pending_installation": "Assigned SSH requires operator authentication; no server mutation",
+  "previous_isolated_candidate_sha256": "f39a34bd49339ea142745e1186acc9f67ae1e792b9cdd895cef203961dfeb22b",
+  "scope": "Recorded reception/diagnosis corrections, independent followup visits and source-based custody/commercial report; preserves prior agreements and native business effects",
+  "example_loader": "prepared, not executed; intake and work catalog loaders remain optional",
+  "artifact_sha256": "b0fb6640793dca1971e17c10c62569ee447f4ae5b6ae3ce1a0f59cbe283d50c8",
+  "package_files": 285
+}

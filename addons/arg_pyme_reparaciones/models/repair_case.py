@@ -88,17 +88,20 @@ class RepairCase(models.Model):
     def _repair_update(self, values):
         return super(RepairCase, self).write(values)
 
-    def _record(self, kind, target, effective_date, evidence, request_key=None, order_id=None):
+    def _record(self, kind, target, effective_date, evidence, request_key=None, order_id=None, related_case_id=None):
         self.ensure_one()
         key = request_key or kind
         previous = self.event_ids.filtered(lambda event: event.request_key == key)
         if previous:
-            if previous.kind == kind and previous.effective_date == fields.Date.to_date(effective_date) and previous.evidence == evidence and previous.order_id.id == (order_id or False):
+            if (previous.kind == kind and previous.effective_date == fields.Date.to_date(effective_date)
+                    and previous.evidence == evidence and previous.order_id.id == (order_id or False)
+                    and previous.related_case_id.id == (related_case_id or False)):
                 return True
             raise UserError(_('Esta clave ya corresponde a otra operación del parte.'))
         repair_engine(self.env['arg.pyme.repair.event']).create({
             'case_id': self.id, 'kind': kind, 'effective_date': effective_date,
-            'request_key': key, 'order_id': order_id or False, 'recorded_at': fields.Datetime.now(), 'actor_id': self.env.uid, 'evidence': evidence,
+            'request_key': key, 'order_id': order_id or False, 'related_case_id': related_case_id or False,
+            'recorded_at': fields.Datetime.now(), 'actor_id': self.env.uid, 'evidence': evidence,
         })
         # Private server path; normal writes cannot set state or evidence, even via RPC context.
         self._repair_update({'state': target})
@@ -166,6 +169,9 @@ class RepairCase(models.Model):
         super()._compute_arg_completion_axes()
 
     def _arg_get_completion_axes(self):
+        return self._arg_custody_axes()
+
+    def _arg_custody_axes(self):
         self.ensure_one()
         received = bool(self.event_ids.filtered(lambda event: event.kind == 'receive'))
         diagnosed = bool(self.event_ids.filtered(lambda event: event.kind == 'diagnose'))

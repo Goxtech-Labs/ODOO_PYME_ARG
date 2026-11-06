@@ -51,3 +51,8 @@ entrega reparada continúan en el contrato completo; este subcircuito no los sus
 
 El código agrega PRE/PED, autorización, repuestos nativos, PTM, listo/retomar/entrega reparada y
 vínculos de factura/cobro. Aplicar [trabajo-autorizado.md](trabajo-autorizado.md), sin atribuir instalación.
+
+## Incremento de correcciones1.2
+
+Aplicar [correcciones-visitas.md](correcciones-visitas.md): rectificación explícita con historia,
+seguimiento mediante REP nuevo y reporte de hechos/pendientes. Código preparado sin instalación.

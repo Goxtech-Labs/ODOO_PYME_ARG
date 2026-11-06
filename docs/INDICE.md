@@ -88,3 +88,6 @@ Primer código de recepción/diagnóstico/custodia; sin instalación ni circuito
 
 [Reparaciones: trabajo autorizado1.1](entregas/018-trabajo-autorizado.md): PRE/PED, autorización,
 repuestos nativos, PTM y entrega preparados en fuente; instalación y QA pendientes.
+
+[Reparaciones: correcciones/visitas1.2](entregas/018-correcciones-visitas.md): fuente preparada con
+historia conservada, REP nuevo para seguimiento y reporte de hechos/pendientes. Sin instalación acreditada.

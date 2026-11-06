@@ -28,4 +28,20 @@
         <p>La cobertura de garantía se declara; no se deduce ni cambia precios automáticamente.
         Instalación, revisión funcional, PDF y aceptación se registran aparte; tutorial específico de YouTube pendiente.</p>
     </div></field>
+</record>
+<record id="help_repairs_corrections" model="arg.pyme.help.resource">
+    <field name="name">Reparaciones ARG 1.2 · Correcciones y nuevas visitas</field><field name="module_key">arg_pyme_reparaciones</field>
+    <field name="task">correcciones-seguimientos</field><field name="version_min">20.0</field><field name="version_max">20.0</field><field name="state">current</field>
+    <field name="manual_url">https://github.com/Goxtech-Labs/ODOO_PYME_ARG/blob/main/docs/usuario/018-reparaciones.md</field>
+    <field name="manual_text" type="html"><div>
+        <p>Corregir datos registrados pide fecha, dato, nuevo valor y motivo; conserva anterior y corregido.
+        Cliente y fecha se corrigen antes del presupuesto y durante custodia. El diagnóstico rectificado
+        no modifica los acuerdos de presupuestos, pedidos, facturas o trabajos existentes.</p>
+        <p>Después de devolver o entregar, Nueva visita prepara otro REP con cliente/equipo conocidos
+        y el nuevo problema. El borrador queda vinculado al anterior; Recibir equipo registra su ingreso.
+        La cobertura y el trabajo se acuerdan en el presupuesto de esa visita.</p>
+        <p>El parte impreso reúne custodia, correcciones y hechos por PRE/PED/unidad/moneda, según permisos.
+        Los datos no verificables se indican como no determinados; no se inventan cobros ni movimientos.</p>
+        <p>Instalación, revisión funcional/visual y PDF se registran por separado. Tutorial específico de YouTube pendiente.</p>
+    </div></field>
 </record></odoo>

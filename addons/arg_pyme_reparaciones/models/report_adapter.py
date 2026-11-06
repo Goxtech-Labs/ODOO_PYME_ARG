@@ -18,6 +18,13 @@ class RepairFacts(models.Model):
 
     def _arg_get_completion_axes(self):
         axes = super()._arg_get_completion_axes()
+        try:
+            return self._arg_repair_report_axes(list(axes))
+        except AccessError:
+            return axes + [self._arg_unknown_axis(_('Datos comerciales y de trabajo'),
+                _('Faltan permisos para verificar todas las fuentes relacionadas. La custodia se informa por separado.'))]
+
+    def _arg_repair_report_axes(self, axes):
         orders = self.event_ids.filtered(lambda event: event.kind == 'order').mapped('order_id')
         commercial_access = self.env.user.has_group('arg_pyme_base.group_ventas') and orders.has_access('read')
         if self.quotation_root_id:

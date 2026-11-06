@@ -40,3 +40,16 @@ oculto o compañía distinta exige rechazo/desconocido, no completo. PRE muestra
 Probar pedidos parciales, cantidades de PRE aceptadas sin PED, pedidos cancelados sin liberar,
 distintas unidades/monedas y permisos combinados. Migrar1.0 con evidencia no vacía y conservarla.
 Validar impresión y UX de ambas fichas en la fase posterior; ninguno de estos casos fue ejecutado.
+
+## Correcciones1.2: escenarios preparados, no ejecutados
+
+Rectificar serie/problema/diagnóstico con motivo; conservar original y antes/después en reporte.
+Cliente/fecha antes de PRE y durante custodia; rechazar fuera de ese alcance, fecha imposible,
+vacío de esencial y nombre de campo arbitrario. Cambiar ficha mientras diálogo abierto: pedir
+reabrir; replay de corrección aplicada no vuelve a escribir ni crea eventos duplicados.
+
+Después de entregar, preparar nueva visita con hoy/nuevo problema: REPdraft distinto, vínculo al
+anterior, sin nueva recepción ni stock/trabajo/acuerdos copiados. Recibir, presupuestar y autorizar
+la visita nueva por sus acciones. Reintentar el mismo diálogo después de avanzar el hijo no lo
+restablece. Cliente/date anteriores y origen/key/snapshot de wizard no se retargetean por RPC/defaults.
+Revisar acceso/compañía y caso anterior oculto, y PDF con unknown comercial/custodia visible.

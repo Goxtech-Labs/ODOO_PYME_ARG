@@ -50,3 +50,15 @@ Eventos agregan order/authorize/start/ready/resume/deliver/work_correction y req
 caso. Migración conserva los anteriores con clave legacy-id y retira unicidad caso/tipo, para
 permitir ready/resume repetibles sin reejecutar solicitudes antiguas. No duplica efectos de stock
 ni de cobro; repuestos desde movimientos reales actuales, servicios desde PTM vigentes.
+
+## Ampliación1.2
+
+Eventos receipt_correction/diagnosis_correction conservan campo, antes/después, etiquetas y motivo.
+Snapshot completo y clave inmutable en wizard; replay no reescribe el valor actual. Date/partner sólo
+antes de raíz PRE y con custodia abierta; datos esenciales no se vacían. Diagnóstico rectificado no
+modifica acuerdos existentes. Estado comercial, cantidades nativas y dinero no cambian por corregir.
+
+Caso agrega previous_case_id/followup_key protegidos y únicos por solicitud. Event.related_case_id
+enlaza al REPdraft preparado para nueva visita desde custodia terminada. Copia sólo identificación
+estable/cliente, registra nuevo problema y fecha propuesta. No comparte identidad, trabajo ni acuerdos;
+otro REP se recibe y presupuesta independientemente. Las relaciones anteriores no se retargetean.

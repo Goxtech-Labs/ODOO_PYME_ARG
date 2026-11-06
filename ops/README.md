@@ -63,7 +63,7 @@ El empaquetador valida operaciones canónicas de ir.access.csv de Odoo20, ademá
 AST/XML/JS y secretos. Ese control evita combinaciones como rc; no evalúa permisos en un runtime.
 
 `seed_repair_work_demo.py` prepara sólo un repuesto almacenable y un servicio horario manual,
-después de instalar Reparaciones20.0.1.1.0. Requiere arg_demo, administrador, compañía Ejemplo,
+después de instalar Reparaciones20.0.1.1.0 o20.0.1.2.0. Requiere arg_demo, administrador, compañía Ejemplo,
 `ARG_REPAIR_WORK_ACK_EXAMPLES=1` y `ARG_REPAIR_WORK_COMPANY_ID`. Conserva maestros existentes,
 rechaza referencias incompatibles y no crea stock, PRE/PED, PTM, facturas, pagos ni mensajes.
 No declara existencia disponible: para usar un repuesto el operador registra una entrada o conteo

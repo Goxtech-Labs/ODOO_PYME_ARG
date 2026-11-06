@@ -65,3 +65,13 @@ repair_commercial.py, repair_sales_bridge.py, repair_intervention.py, repair_sto
 report_adapter.py. Fuente aún no instalada; controles de migración/vistas/registro pendientes.
 Contrato [trabajo autorizado](contracts/trabajo-autorizado.md). Correcciones de recepción/diagnóstico,
 reportes completos y ejemplos/tutorías continúan; no cerrar018 ni la expansión por esta entrega.
+
+## Fuente de correcciones1.2
+
+repair_correction.py y su wizard implementan rectificación con snapshot, motivo y clave estable;
+seguimiento desde custodia terminada prepara REPdraft independiente con vínculo real al anterior.
+No reabre custodia ni copia hechos físicos/financieros. Reporte agrega correcciones y ejes existentes,
+con degradación de acceso a unknown y conservación de custodia. Mismos nueve estados del caso;
+los nuevos hechos extienden su historial. Migración1.2 actualiza ayuda sin reescribir los eventos.
+Fuente completa del alcance previsto lista para controles de instalación; T013/T014 siguen pendientes,
+con ejemplos operativos/tutoriales, QA y aceptación separados. No cerrar el programa completo.

@@ -12,3 +12,5 @@ repair_worklog,Partes de trabajo ARG,arg.pyme.repair.intervention,arg_pyme_repar
 repair_worklog_company,Partes de trabajo por compañía ARG,arg.pyme.repair.intervention,,crud,"[('company_id','in',company_ids)]"
 repair_work_operation,Operación de reparación ARG,arg.pyme.repair.work.operation,arg_pyme_base.group_manager,crud,
 repair_work_reverse,Reversión de trabajo ARG,arg.pyme.repair.work.reverse,arg_pyme_base.group_manager,crud,
+repair_correction,Corrección de datos registrados ARG,arg.pyme.repair.correction.wizard,arg_pyme_base.group_manager,crud,
+repair_followup,Nueva visita de reparación ARG,arg.pyme.repair.followup.wizard,arg_pyme_base.group_manager,crud,
