@@ -16,6 +16,6 @@
   "previous_isolated_release_sha256": "0f2b9be02eec6ed030168e1bf9637e761d07cebecd45e4a1ee29d9311b76bc1a",
   "scope": "OPA paper cheque reservations, delivery, per-line corrections, own bank debit, transmission responsibility follow-up",
   "example_loader": "prepared, not executed; own cheque draft and new masters only",
-  "artifact_sha256": "3837d50ebdc7eace45fe501a4898d83052481f25ad487dba8edaf92acf357042",
+  "artifact_sha256": "5352cb7f09e433ce1e745a60c133e9176b626dac6fe9593e4ae8313952bf6720",
   "package_files": 252
 }

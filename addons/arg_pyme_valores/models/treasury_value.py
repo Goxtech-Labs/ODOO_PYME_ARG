@@ -318,7 +318,11 @@ class Company(models.Model):
             for role in ('receipt','third_out','own_out'):
                 method = company._arg_value_default_method(role)
                 if method and not method.arg_value_kind:
-                    method.with_context(_arg_value_engine=_VALUE_ENGINE).write({'arg_value_kind': role})
+                    mixed = self.env['account.payment'].search_count([('company_id','=',company.id),
+                        ('outstanding_account_id','=',method.payment_account_id.id), ('arg_value_instrument_id','=',False)])
+                    # A legacy mixed profile must remain changeable to a fresh dedicated account.
+                    if not mixed:
+                        method.with_context(_arg_value_engine=_VALUE_ENGINE).write({'arg_value_kind': role})
 
     def write(self, vals):
         profile_keys = {'arg_value_receipt_method_id','arg_value_third_out_method_id','arg_value_own_out_method_id'}

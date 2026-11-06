@@ -90,3 +90,9 @@ Referencias oficiales consultadas2026-11-05: [Ley24.452 actualizada, arts12–16
 y [operatoria ECHEQ del BCRA](https://www.bcra.gob.ar/echeq-o-cheque-electronico/). El circuito estándar
 registra constancias y distingue modalidades; no certifica formalidades ni presume excepciones de
 transmisión, responsabilidad o capacidades de un proveedor. La política detallada está en salidas-opa.md.
+
+Compatibilidad de cuentas mixtas anteriores: migración sólo de metadatos identifica pagos ordinarios
+previos. Sus callbacks/correcciones se conservan; nuevas creaciones/publicaciones o cambios de términos
+no quedan exentos. Una escritura directa de estado draft→paid también se valida como publicación.
+No se etiquetan a la fuerza perfiles antiguos mezclados, permitiendo sustituirlos por cuentas nuevas.
+El perfil nuevo exige cuenta exclusiva sin pagos anónimos históricos. Nada de esto modifica saldos.

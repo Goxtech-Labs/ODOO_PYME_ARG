@@ -27,12 +27,15 @@ veces. Alcance desconocido queda marcado. Cerrar seguimiento no registra dinero 
 
 Los perfiles de medios conservan su uso; reutilizar su cuenta en un medio sin etiqueta no permite
 crear pagos de cheque anónimos. Pagos1.1 se reconocen por su línea y cuenta histórica, aunque cambió
-el perfil predeterminado. Se limpian default_* antes de motores/eventos/reversión/conciliación.
+el perfil predeterminado. Una marca de migración preserva callbacks/correcciones de pagos ordinarios
+anteriores; crear/publicar de nuevo o modificar términos sigue validando el instrumento. Perfiles
+nuevos no pueden mezclar cuentas con pagos anónimos, y un perfil anterior mezclado puede cambiarse
+a una cuenta nueva sin forzar su etiqueta histórica. Se limpian default_* antes de motores/eventos/reversión/conciliación.
 Bloqueos: instrumentos primero, cabeceras después; callbacks internos no expanden el grafo de reservas.
 
 ## Evidencia y pendientes
 
-Paquete252 archivos SHA2563837d50ebdc7eace45fe501a4898d83052481f25ad487dba8edaf92acf357042.
+Paquete252 archivos SHA2565352cb7f09e433ce1e745a60c133e9176b626dac6fe9593e4ae8313952bf6720.
 [Composición de código candidata](../../composition/candidates/017-valores-opa.json), sin inventario instalado atribuido.
 
 AST/XML/JS/manifests, Gitleaks y revisión estática independiente por otra sesión de la misma familia/
