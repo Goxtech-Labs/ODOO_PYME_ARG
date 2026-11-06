@@ -1,0 +1,16 @@
+.arg_replenishment {
+    color: var(--arg-text);
+    background: var(--arg-bg);
+    min-width: 0;
+    overflow: auto;
+    .arg_replenishment_fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem 1rem; }
+    .arg_replenishment_bounds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
+    label { display: block; font-weight: 500; margin-bottom: .2rem; }
+    .arg_replenishment_selector { display: flex; align-items: center; justify-content: space-between; gap: .5rem; text-align: left; white-space: normal; height: auto; min-width: 0; }
+    .arg_replenishment_selector span { overflow-wrap: anywhere; }
+    .arg_replenishment_table { max-height: min(55dvh, 34rem); overflow: auto; }
+    .arg_replenishment_table thead th { position: sticky; top: 0; background: var(--arg-selected); color: var(--arg-text); z-index: 1; }
+    input.text-end, td.text-end { font-variant-numeric: tabular-nums; }
+    fieldset { min-width: 0; }
+    @media (max-width: 767px) { .arg_replenishment_fields { grid-template-columns: minmax(0, 1fr); } }
+}

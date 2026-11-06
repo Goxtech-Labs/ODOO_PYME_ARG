@@ -5,8 +5,11 @@
     'website': 'https://github.com/Goxtech-Labs/ODOO_PYME_ARG',
     'depends': ['arg_pyme_base', 'arg_pyme_ui', 'arg_pyme_catalogo', 'arg_pyme_documentos', 'stock'],
     'data': ['security/roles.xml', 'security/ir.access.csv', 'views/stock_matrix_views.xml',
-             'views/stock_picking_views.xml', 'views/inventory_count_views.xml', 'views/traceability_views.xml'],
+             'views/stock_picking_views.xml', 'views/inventory_count_views.xml', 'views/traceability_views.xml',
+             'views/replenishment_views.xml'],
     'assets': {'web.assets_backend': ['arg_pyme_stock/static/src/stock_matrix.js', 'arg_pyme_stock/static/src/stock_matrix.xml',
-                                      'arg_pyme_stock/static/src/traceability.js', 'arg_pyme_stock/static/src/traceability.xml']},
+                                      'arg_pyme_stock/static/src/traceability.js', 'arg_pyme_stock/static/src/traceability.xml',
+                                      'arg_pyme_stock/static/src/replenishment.js', 'arg_pyme_stock/static/src/replenishment.xml',
+                                      'arg_pyme_stock/static/src/replenishment.scss']},
     'installable': True,
 }

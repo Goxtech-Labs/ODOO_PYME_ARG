@@ -82,9 +82,15 @@ mismo paquete en demo y publicación de fuentes/composición/documentación. QA 
 ## F15 · Phase 1: Fundamentos de reposición
 
 - [x] T021 Fijar y revisar independientemente specs/008-stock/contracts/reposicion.md, research.md y plan.md con fuentes nativas, efectos encadenados y permisos antes de implementación. (FR-012–017)
-- [ ] T022 [US6] Extender regla nativa en addons/arg_pyme_stock/models/replenishment.py: producto almacenable, compañía/depósito/ubicación compatibles y "0 ≤ mínimo ≤ máximo", valores finitos; crear manual sólo en entrada ARG y no cambiar modalidades existentes. (FR-012)
+- [x] T022 [US6] Extender regla nativa en addons/arg_pyme_stock/models/replenishment.py: producto almacenable, compañía/depósito/ubicación compatibles y "0 ≤ mínimo ≤ máximo", valores finitos; crear manual sólo en entrada ARG y no cambiar modalidades existentes. (FR-012)
 - [ ] T023 [US6] Crear servicio arg.pyme.replenishment en addons/arg_pyme_stock/models/replenishment.py con consulta paginada30, contexto/ACL efectivos y dimensiones autorizadas; no ejecutar _get_orderpoint_action ni abastecimiento al consultar. (FR-012/013/017)
 - [ ] T024 [US6] Crear ficha/acción de configuración en addons/arg_pyme_stock/views/replenishment_views.xml con datos deducidos, campos delimitados y avanzado opcional; guardar no genera PO/MO. (FR-012)
+
+T022 acredita fuente revisada y controles estáticos, sin instalación ni QA. T023 tiene consulta de
+configuración paginada, todavía sin físico/previsto/pipeline. T024 tiene acción/ficha esencial y
+selectores de ruta/presentación con buffer; continúa abierta por proveedor/BOM/horizonte junto
+con los adaptadores y propuesta. Ficha Odoo no equivale a exponer esos campos ausentes en su
+formulario estándar. Ver docs/entregas/008-reposicion.md. No cerrar US6 ni F15 por este incremento.
 
 ## F15 · Phase 2: Propuesta y confirmación (US7)
 

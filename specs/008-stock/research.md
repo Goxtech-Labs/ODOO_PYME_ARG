@@ -104,3 +104,19 @@ borra el manual en reglas auto. La propuesta explica el override pendiente y su 
 El wizard y stock.move seleccionados se verificaron además contra runtime/revisión fijada.
 [Wizard MRP](https://github.com/odoo/odoo/blob/bb238af6f0ddd70d7ff91521c6104472583661d1/addons/mrp/wizard/change_production_qty.py),
 [abastecimiento hijo](https://github.com/odoo/odoo/blob/bb238af6f0ddd70d7ff91521c6104472583661d1/addons/stock/models/stock_move.py).
+
+### D08 · frontera global y configuración práctica
+
+La [matriz de mutadores](contracts/reposicion-mutadores.md) identifica entradas directas, cascadas,
+conflictos de orden existentes y fuentes aún pendientes antes de cerrar T027–T029. Es diseño de
+implementación; no prueba cobertura global ni concurrencia. El collector privado no reemplaza esa frontera.
+
+La ficha US6 conserva esenciales visibles y ruta/presentación plegadas. Seleccionar busca treinta
+opciones por página sin descartar límites editados; cambiar página conserva filtros aplicados.
+Guardar valida permisos nativos y un token de configuración para evitar sobrescribir una edición
+posterior; el token no acredita estabilidad de la previsión. Ficha Odoo abre sólo el formulario
+nativo de esa regla, sin ejecutar `_get_orderpoint_action`; no se atribuyen a ese formulario
+campos que no expone. Los selectores ARG de proveedor/BOM y el horizonte se completarán junto
+con los adaptadores y propuesta; T024 conserva ese alcance pendiente. Al quitar una ruta,
+simular las limpiezas nativas de proveedor/BOM y validar el múltiplo efectivo tras guardar en la
+misma transacción. Fuente US6 pendiente de instalación; FR013 y confirmación US7 siguen abiertas.

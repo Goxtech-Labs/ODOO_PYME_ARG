@@ -5,3 +5,4 @@ from . import variant_matrix
 from . import traceability
 from . import lot_create
 from . import replenishment_operation
+from . import replenishment

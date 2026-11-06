@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+<t t-name="arg_pyme_stock.Replenishment">
+ <div class="arg_replenishment p-3">
+  <h2><t t-if="this.state.picker" t-esc="this.state.picker.title"/><t t-elif="this.state.editor"><t t-if="this.state.editor.id">Editar regla</t><t t-else="">Nueva regla</t> de reposición ARG</t><t t-else="">Reposición ARG</t></h2>
+  <p class="text-muted mb-2" t-esc="this.state.company"/>
+  <div class="alert alert-danger" role="alert" t-if="this.state.error" t-esc="this.state.error"/>
+  <p role="status" t-if="this.state.loading">Consultando…</p>
+  <p role="status" t-if="this.state.saving">Guardando configuración…</p>
+
+  <t t-if="this.state.picker">
+   <form class="d-flex flex-wrap align-items-end gap-2 mb-2" t-on-submit.prevent="() => this.choices(0)">
+    <label for="arg-replenishment-choice" class="flex-grow-1">Buscar<input id="arg-replenishment-choice" class="form-control" maxlength="120" t-att-disabled="this.busy" t-att-value="this.state.picker.query" t-on-input="ev => this.state.picker.query=ev.target.value"/></label>
+    <button type="submit" class="btn btn-secondary" t-att-disabled="this.busy"><img class="arg_icon" src="/arg_pyme_ui/static/icons/lucide/search.svg" alt=""/> Buscar</button>
+    <button type="button" class="btn btn-secondary" t-att-disabled="this.busy" t-on-click="this.closePicker">Volver</button>
+   </form>
+   <p class="text-muted">Búsqueda aplicada: <t t-esc="this.state.picker.applied || 'Todas'"/></p>
+   <div class="arg_replenishment_table table-responsive" tabindex="0" role="region" aria-label="Opciones disponibles">
+    <table class="table table-sm table-bordered align-middle"><thead><tr><th>Nombre</th><th>Acción</th></tr></thead><tbody>
+     <tr t-foreach="this.state.picker.rows" t-as="row" t-key="row.id"><td t-esc="row.name"/><td><button type="button" class="btn btn-secondary btn-sm" t-att-disabled="this.busy" t-att-aria-label="'Elegir ' + row.name" t-on-click="() => this.choose(row)">Elegir</button></td></tr>
+    </tbody></table>
+   </div>
+   <p t-if="!this.state.picker.rows.length &amp;&amp; !this.busy">Sin opciones visibles con esta búsqueda.</p>
+   <div class="d-flex flex-wrap align-items-center gap-2 mt-2">
+    <button class="btn btn-secondary" t-att-disabled="this.busy || !this.state.picker.offset" t-on-click="() => this.choices(Math.max(0,this.state.picker.offset-30),true)">Anterior</button>
+    <span><t t-esc="this.state.picker.count"/> opciones · página <t t-esc="Math.floor(this.state.picker.offset/30)+1"/></span>
+    <button class="btn btn-secondary" t-att-disabled="this.busy || this.state.picker.offset+30 &gt;= this.state.picker.count" t-on-click="() => this.choices(this.state.picker.offset+30,true)">Siguiente</button>
+   </div>
+  </t>
+
+  <t t-elif="this.state.editor">
+   <form t-on-submit.prevent="this.save">
+    <fieldset t-att-disabled="this.busy">
+     <div class="arg_replenishment_fields">
+      <div><label id="arg-replenishment-product-label">Producto</label><button type="button" class="form-control arg_replenishment_selector" aria-labelledby="arg-replenishment-product-label arg-replenishment-product-value" t-on-click="() => this.pick('product')"><span id="arg-replenishment-product-value" t-esc="this.refName('product')"/><img class="arg_icon" src="/arg_pyme_ui/static/icons/lucide/chevron-down.svg" alt=""/></button></div>
+      <div><label id="arg-replenishment-warehouse-label">Depósito</label><button type="button" class="form-control arg_replenishment_selector" aria-labelledby="arg-replenishment-warehouse-label arg-replenishment-warehouse-value" t-on-click="() => this.pick('warehouse')"><span id="arg-replenishment-warehouse-value" t-esc="this.refName('warehouse')"/><img class="arg_icon" src="/arg_pyme_ui/static/icons/lucide/chevron-down.svg" alt=""/></button></div>
+      <div><label id="arg-replenishment-location-label">Ubicación</label><button type="button" class="form-control arg_replenishment_selector" aria-labelledby="arg-replenishment-location-label arg-replenishment-location-value" t-on-click="() => this.pick('location')"><span id="arg-replenishment-location-value" t-esc="this.refName('location')"/><img class="arg_icon" src="/arg_pyme_ui/static/icons/lucide/chevron-down.svg" alt=""/></button></div>
+      <div class="arg_replenishment_bounds">
+       <div><label for="arg-replenishment-minimum">Mínimo</label><input id="arg-replenishment-minimum" class="form-control text-end" type="text" inputmode="decimal" required="required" aria-describedby="arg-replenishment-unit" t-att-value="this.state.editor.values.product_min_qty" t-on-input="ev => this.setBound('product_min_qty',ev.target.value)"/></div>
+       <div><label for="arg-replenishment-maximum">Máximo</label><input id="arg-replenishment-maximum" class="form-control text-end" type="text" inputmode="decimal" required="required" aria-describedby="arg-replenishment-unit" t-att-value="this.state.editor.values.product_max_qty" t-on-input="ev => this.setBound('product_max_qty',ev.target.value)"/></div>
+      </div>
+     </div>
+     <p id="arg-replenishment-unit" class="mt-2 mb-2">Unidad de los límites: <strong t-esc="this.state.editor.unit?.name || 'Elegí un producto'"/> · Modalidad: <strong t-esc="this.mode(this.state.editor.trigger)"/></p>
+     <details class="mb-3"><summary>Opciones avanzadas</summary>
+      <div class="arg_replenishment_fields mt-2">
+       <div><label id="arg-replenishment-route-label">Ruta</label><div class="d-flex gap-2"><button type="button" class="form-control arg_replenishment_selector" aria-labelledby="arg-replenishment-route-label arg-replenishment-route-value" t-on-click="() => this.pick('route')"><span id="arg-replenishment-route-value" t-esc="this.refName('route')"/><img class="arg_icon" src="/arg_pyme_ui/static/icons/lucide/chevron-down.svg" alt=""/></button><button type="button" class="btn btn-secondary" aria-label="Quitar ruta explícita" t-on-click="() => this.clear('route')">Quitar</button></div></div>
+       <div><label id="arg-replenishment-multiple-label">Presentación / múltiplo</label><div class="d-flex gap-2"><button type="button" class="form-control arg_replenishment_selector" aria-labelledby="arg-replenishment-multiple-label arg-replenishment-multiple-value" t-on-click="() => this.pick('multiple')"><span id="arg-replenishment-multiple-value" t-esc="this.refName('multiple')"/><img class="arg_icon" src="/arg_pyme_ui/static/icons/lucide/chevron-down.svg" alt=""/></button><button type="button" class="btn btn-secondary" aria-label="Quitar presentación explícita" t-on-click="() => this.clear('multiple')">Quitar</button></div></div>
+      </div>
+      <p class="text-muted mt-2 mb-0">Sin ruta o presentación explícita, Odoo utiliza las opciones nativas del producto. Quitar una ruta explícita puede restablecer también la selección de proveedor o fabricación.</p>
+     </details>
+     <p class="text-muted">Al cambiar de producto, revisá los límites y la presentación. Guardar configura la regla; el abastecimiento se confirma por separado.</p>
+     <div class="d-flex flex-wrap gap-2">
+      <button type="submit" class="btn btn-success"><img class="arg_icon" src="/arg_pyme_ui/static/icons/lucide/save.svg" alt=""/> Guardar</button>
+      <button type="button" class="btn btn-outline-danger" t-on-click="this.discard"><img class="arg_icon" src="/arg_pyme_ui/static/icons/lucide/x.svg" alt=""/> Descartar</button>
+     </div>
+    </fieldset>
+   </form>
+  </t>
+
+  <t t-else="">
+   <div class="d-flex flex-wrap gap-2 mb-2"><button class="btn btn-primary" t-if="this.state.canCreate" t-att-disabled="this.busy" t-on-click="() => this.edit()"><img class="arg_icon" src="/arg_pyme_ui/static/icons/lucide/plus.svg" alt=""/> Nueva regla</button></div>
+   <form class="mb-2" t-on-submit.prevent="() => this.load(0)">
+    <div class="d-flex flex-wrap gap-2 align-items-end"><label for="arg-replenishment-search" class="flex-grow-1">Buscar producto o código<input id="arg-replenishment-search" class="form-control" maxlength="120" t-att-disabled="this.busy" t-att-value="this.state.query" t-on-input="ev => this.state.query=ev.target.value"/></label><button type="submit" class="btn btn-secondary" t-att-disabled="this.busy"><img class="arg_icon" src="/arg_pyme_ui/static/icons/lucide/search.svg" alt=""/> Consultar</button></div>
+    <details class="mt-2"><summary>Filtros de depósito y producto</summary><div class="arg_replenishment_fields mt-2">
+     <div><label id="arg-replenishment-filter-warehouse-label">Depósito</label><div class="d-flex gap-2"><button type="button" class="form-control arg_replenishment_selector" t-att-disabled="this.busy" aria-labelledby="arg-replenishment-filter-warehouse-label arg-replenishment-filter-warehouse-value" t-on-click="() => this.pick('warehouse')"><span id="arg-replenishment-filter-warehouse-value" t-esc="this.state.warehouse?.name || 'Todos los visibles'"/><img class="arg_icon" src="/arg_pyme_ui/static/icons/lucide/chevron-down.svg" alt=""/></button><button type="button" class="btn btn-secondary" t-att-disabled="this.busy" aria-label="Quitar filtro de depósito" t-on-click="() => this.clear('warehouse')">Quitar</button></div></div>
+     <div><label id="arg-replenishment-filter-product-label">Producto</label><div class="d-flex gap-2"><button type="button" class="form-control arg_replenishment_selector" t-att-disabled="this.busy" aria-labelledby="arg-replenishment-filter-product-label arg-replenishment-filter-product-value" t-on-click="() => this.pick('product')"><span id="arg-replenishment-filter-product-value" t-esc="this.state.product?.name || 'Todos los visibles'"/><img class="arg_icon" src="/arg_pyme_ui/static/icons/lucide/chevron-down.svg" alt=""/></button><button type="button" class="btn btn-secondary" t-att-disabled="this.busy" aria-label="Quitar filtro de producto" t-on-click="() => this.clear('product')">Quitar</button></div></div>
+    </div></details>
+   </form>
+   <p class="alert alert-info" role="status" t-if="this.filtersDirty">Hay filtros sin aplicar. Consultar actualiza la tabla; paginar conserva la búsqueda aplicada.</p>
+   <section t-if="this.state.result" aria-label="Reglas de reposición">
+    <p class="text-muted mb-2">Consulta: <t t-esc="this.when(this.state.result.as_of)"/> · Búsqueda aplicada: <t t-esc="this.state.applied.query || 'Todas'"/></p>
+    <div class="arg_replenishment_table table-responsive" tabindex="0" role="region" aria-label="Listado de reglas">
+     <table class="table table-sm table-bordered align-middle"><thead><tr><th>Producto</th><th>Depósito / ubicación</th><th class="text-end">Mínimo</th><th class="text-end">Máximo</th><th>Unidad</th><th>Modalidad</th><th>Acciones</th></tr></thead><tbody>
+      <tr t-foreach="this.state.result.rows" t-as="row" t-key="row.id"><td t-esc="row.product.name"/><td><t t-esc="row.warehouse.name"/><br/><small t-esc="row.location.name"/></td><td class="text-end" t-esc="this.number(row.minimum)"/><td class="text-end" t-esc="this.number(row.maximum)"/><td t-esc="row.unit.name"/><td t-esc="this.mode(row.trigger)"/><td><div class="d-flex flex-wrap gap-1"><button class="btn btn-secondary btn-sm" t-if="row.can_edit" t-att-disabled="this.busy" t-att-aria-label="'Editar regla de ' + row.product.name" t-on-click="() => this.edit(row)">Editar</button><button class="btn btn-secondary btn-sm" t-att-disabled="this.busy" t-att-aria-label="'Ficha Odoo de ' + row.product.name" t-on-click="() => this.advanced(row)"><img class="arg_icon" src="/arg_pyme_ui/static/icons/lucide/settings.svg" alt=""/> Ficha Odoo</button></div></td></tr>
+     </tbody></table>
+    </div>
+    <p t-if="!this.state.result.rows.length">Sin reglas visibles con estos filtros.</p>
+    <div class="d-flex flex-wrap align-items-center gap-2 mt-2"><button class="btn btn-secondary" t-att-disabled="this.busy || !this.state.result.offset" t-on-click="() => this.load(Math.max(0,this.state.result.offset-30),true)">Anterior</button><span><t t-esc="this.state.result.count"/> reglas visibles · página <t t-esc="Math.floor(this.state.result.offset/30)+1"/></span><button class="btn btn-secondary" t-att-disabled="this.busy || this.state.result.offset+30 &gt;= this.state.result.count" t-on-click="() => this.load(this.state.result.offset+30,true)">Siguiente</button></div>
+   </section>
+  </t>
+ </div>
+</t>
+</templates>

@@ -3,6 +3,13 @@
 Compatibilidad: Odoo 20 Community. La versión de cada addon está fijada en la
 [composición de esta entrega](../../composition/versions.lock.json); consultar sus límites y estado de QA.
 
+F15 reposición tiene [fuente parcial sin instalar](../entregas/008-reposicion.md). La configuración
+usa el servicio `arg.pyme.replenishment`, nunca `_get_orderpoint_action` como consulta. El guardado
+compara un token de `write_date` previo al lock de configuración; no garantiza estabilidad de la
+previsión. Selector de múltiplos desde el cómputo nativo con dimensiones propuestas y revalidación
+posterior a inversas. Revisar la [frontera de mutadores pendiente](../../specs/008-stock/contracts/reposicion-mutadores.md)
+antes de implementar confirmación. La evidencia privada existente tampoco completa replay.
+
 Core arg_pyme_stock depende de Base/UI/Catálogo/Documentos y stock. Puentes arg_pyme_ventas_stock y
 arg_pyme_compras_stock dependen de su circuito, Stock ARG y sale_stock/purchase_stock respectivamente;
 auto_install sólo cuando se satisface esa composición. Son puentes internos, no proveedores externos.

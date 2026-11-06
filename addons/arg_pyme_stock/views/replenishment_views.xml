@@ -1,0 +1,7 @@
+<odoo>
+ <record id="action_replenishment" model="ir.actions.client">
+  <field name="name">Reposición ARG</field>
+  <field name="tag">arg_pyme.replenishment</field>
+ </record>
+ <menuitem id="menu_replenishment" name="Reposición" parent="arg_pyme_base.menu_arg_stock" action="action_replenishment" sequence="40"/>
+</odoo>

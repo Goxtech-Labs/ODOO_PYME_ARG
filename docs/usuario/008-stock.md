@@ -6,6 +6,11 @@ Compatibilidad: Odoo 20 Community. La versión de cada addon está fijada en la
 Stock ARG y puentes Ventas–Stock/Compras–Stock conservan las versiones de la composición fijada.
 QA funcional y aceptación pendientes.
 
+Reposición F15 está [en desarrollo](../entregas/008-reposicion.md), todavía fuera del paquete
+instalado. La ficha prevista permite elegir producto/depósito/ubicación y mínimo/máximo, con ruta
+y presentación plegadas. Guardar configura; confirmar abastecimiento será una acción separada.
+Compra y fabricación mantienen su alcance completo. No esperar aún ese recorrido en la demo 0.1.9.
+
 ## Existencias
 
 En Stock → Existencias elegí depósito y, si hace falta, ubicación o producto. Cada fila conserva su unidad.
