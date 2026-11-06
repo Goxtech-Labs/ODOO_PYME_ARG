@@ -75,8 +75,10 @@ def check_references(env, references):
                 record.check_field_access(record._fields['company_id'], 'read')
                 if record.company_id and record.company_id != env.company:
                     raise AccessError(_('Compañía no disponible.'))
-        except AccessError as error:
-            raise AccessError(_('El resultado de reposición no está disponible con sus permisos actuales.')) from error
+        except AccessError:
+            # RPC debug tracebacks must not repeat a native denial containing
+            # names or identifiers that the recipient cannot read anymore.
+            raise AccessError(_('El resultado de reposición no está disponible con sus permisos actuales.')) from None
 
 
 class _ReplenishmentRun:
