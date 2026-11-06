@@ -5,3 +5,5 @@ count_line_stock,Líneas conteo ARG,arg.pyme.inventory.count.line,arg_pyme_base.
 count_line_company,Líneas conteo compañía ARG,arg.pyme.inventory.count.line,,crud,"[('company_id','in',company_ids)]"
 adjustment_stock,Ajustes stock ARG,arg.pyme.inventory.adjustment,arg_pyme_base.group_stock,cru,
 adjustment_company,Ajustes compañía ARG,arg.pyme.inventory.adjustment,,crud,"[('company_id','in',company_ids)]"
+lot_create_stock,Alta de series/lotes ARG,arg.pyme.lot.create,arg_pyme_base.group_stock,crud,
+lot_create_company,Alta de series/lotes compañía ARG,arg.pyme.lot.create,,crud,"[('company_id','in',company_ids)]"
