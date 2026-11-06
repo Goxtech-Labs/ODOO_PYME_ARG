@@ -10,6 +10,20 @@ previsión. Selector de múltiplos desde el cómputo nativo con dimensiones prop
 posterior a inversas. Revisar la [frontera de mutadores pendiente](../../specs/008-stock/contracts/reposicion-mutadores.md)
 antes de implementar confirmación. La evidencia privada existente tampoco completa replay.
 
+Los puentes amplían `_extension_specs`, `_extension_domain` y `_extension_label`: supplierinfo en
+Compras–Stock y BOM normal en Stock–Fabricación opcional. Core sólo acepta los campos registrados
+por esos adaptadores; las etiquetas autorizan relaciones antes de nombrarlas y no leen precios.
+Retarget de producto evalúa reemplazo o clear explícitos. Selección nueva exige ruta explícita
+para evitar una inversa implícita distinta de la configuración propuesta. Al validar el múltiplo
+persistido se autorizan también los destinos opcionales retenidos.
+
+`save_horizon` modifica únicamente `res.company.horizon_days`, separado de `save_rule`; requiere
+grupo responsable y permisos nativos de compañía/campo, entero no negativo, fecha representable
+y token de compañía. UPDATE efectivo y semántica de transacción/reintento nativa, sin scheduler
+ni commits. No constituye frontera global de previsión. El puente MRP existe en fuente con
+auto_install sólo cuando Stock ARG y MRP están instalados; no está en la composición demo actual
+ni acredita captura/ejecución de fabricación.
+
 Core arg_pyme_stock depende de Base/UI/Catálogo/Documentos y stock. Puentes arg_pyme_ventas_stock y
 arg_pyme_compras_stock dependen de su circuito, Stock ARG y sale_stock/purchase_stock respectivamente;
 auto_install sólo cuando se satisface esa composición. Son puentes internos, no proveedores externos.

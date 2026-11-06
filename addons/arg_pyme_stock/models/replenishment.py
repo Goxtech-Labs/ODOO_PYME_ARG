@@ -4,6 +4,7 @@
     these entry points calls native replenishment actions or a scheduler.
 """
 import math
+from datetime import timedelta
 
 from odoo import api, fields, models, _
 from odoo.exceptions import AccessError, UserError, ValidationError
@@ -46,6 +47,41 @@ class ReplenishmentRule(models.Model):
 class Replenishment(models.AbstractModel):
     _name = 'arg.pyme.replenishment'
     _description = 'Reposición ARG'
+
+    def _extension_specs(self):
+        """Optional adapters own their native fields and selector semantics."""
+        return {}
+
+    def _config_relations(self):
+        return {**_RELATIONS, **{spec['field']: spec['model']
+                                for spec in self._extension_specs().values()}}
+
+    def _extension_domain(self, kind, product, query):
+        raise ValidationError(_('La opción de reposición no está disponible.'))
+
+    def _extension_label(self, kind, record):
+        raise ValidationError(_('La opción de reposición no está disponible.'))
+
+    def _validate_extension(self, kind, record, product):
+        template = self._get(product, 'product_tmpl_id')
+        self._record('product.template', template.id)
+        target_template = self._get(record, 'product_tmpl_id')
+        target_product = self._get(record, 'product_id')
+        if target_template != template or (target_product and target_product != product):
+            raise ValidationError(_('La opción de abastecimiento no corresponde al producto.'))
+        if record._name == 'mrp.bom' and self._get(record, 'type') != 'normal':
+            raise ValidationError(_('Elegí una lista de materiales de fabricación normal.'))
+        self._extension_label(kind, record)
+
+    def _extension_relation(self, rule, kind, spec):
+        try:
+            target = self._get(rule, spec['field'])
+            if not target:
+                return {'id': False, 'name': _('Sin especificar'), 'status': 'unset'}
+            self._record(spec['model'], target.id)
+            return {'id': target.id, 'name': self._extension_label(kind, target), 'status': 'known'}
+        except AccessError:
+            return {'id': False, 'name': _('No determinado por permisos'), 'status': 'unknown'}
 
     def _scoped(self):
         service = self.with_user(self.env.uid).sudo(False).with_context({
@@ -100,7 +136,7 @@ class Replenishment(models.AbstractModel):
     def _label(self, record):
         record.check_access('read')
         names = ['display_name']
-        if record._name == 'product.product':
+        if record._name in ('product.product', 'product.template'):
             names += ['name', 'default_code']
         for name in names:
             record.check_field_access(record._fields[name], 'read')
@@ -146,6 +182,8 @@ class Replenishment(models.AbstractModel):
             'token': self._configuration_token(rule),
             'route': self._relation(rule, 'route_id'),
             'multiple': self._relation(rule, 'replenishment_uom_id'),
+            'extensions': {kind: self._extension_relation(rule, kind, spec)
+                           for kind, spec in self._extension_specs().items()},
             'can_edit': self.env.user.has_group('arg_pyme_base.group_manager') and rule.has_access('write'),
         }
 
@@ -189,7 +227,84 @@ class Replenishment(models.AbstractModel):
             'as_of': fields.Datetime.to_string(fields.Datetime.now()),
             'can_create': manager and rules.has_access('create'),
             'can_write': manager and rules.has_access('write'),
+            'extensions': [{'kind': kind, 'field': spec['field'], 'label': spec['label']}
+                           for kind, spec in service._extension_specs().items()],
+            'horizon': service._horizon_configuration(),
         }
+
+    def _horizon_configuration(self):
+        company = self._record('res.company', self.env.company.id)
+        try:
+            days = self._get(company, 'horizon_days')
+            token = self._get(company, 'write_date')
+        except AccessError:
+            return {'days': None, 'status': 'unknown', 'can_edit': False, 'token': False}
+        return {'days': days, 'status': 'known',
+                'token': json_hash({'company': company.id, 'stamp': token.isoformat() if token else False}),
+                'can_edit': self.env.user.has_group('arg_pyme_base.group_manager') and company.has_access('write')}
+
+    @api.model
+    def save_horizon(self, days, expected_token):
+        service = self._scoped()
+        service._manager()
+        if type(days) is not int or not 0 <= days <= 2147483647:
+            raise ValidationError(_('Ingresá una cantidad entera de días mayor o igual a cero.'))
+        try:
+            fields.Date.today() + timedelta(days=days)
+        except OverflowError:
+            raise ValidationError(_('El horizonte supera el rango de fechas admitido.')) from None
+        previous = service._horizon_configuration()
+        if not previous['can_edit']:
+            raise AccessError(_('Modificar el horizonte requiere permiso de edición de la compañía.'))
+        if not isinstance(expected_token, str) or expected_token != previous['token']:
+            raise UserError(_('La compañía cambió desde la consulta. Volvé a consultar el horizonte antes de guardarlo.'))
+        company = service.env.company
+        company.check_access('write')
+        company.check_field_access(company._fields['horizon_days'], 'write')
+        company.flush_recordset(['write_date', 'write_uid'])
+        service.env.cr.execute('UPDATE res_company SET write_date=clock_timestamp(),write_uid=%s WHERE id=%s RETURNING id',
+                               [service.env.uid, company.id])
+        if not service.env.cr.fetchone():
+            raise UserError(_('La compañía ya no está disponible.'))
+        company.invalidate_recordset()
+        if days != service._get(company, 'horizon_days'):
+            company.write({'horizon_days': days})
+        return {'horizon': service._horizon_configuration(),
+                'message': _('Horizonte actualizado para todas las reglas de la compañía. No se generó abastecimiento.')}
+
+    @api.model
+    @api.readonly
+    def extension_choices(self, kind, product_id, query='', offset=0):
+        service = self._scoped()
+        service._manager()
+        service._offset(offset)
+        specs = service._extension_specs()
+        if not isinstance(kind, str) or kind not in specs:
+            raise ValidationError(_('La opción de reposición no está disponible.'))
+        if not isinstance(query, str) or len(query) > 120:
+            raise ValidationError(_('La búsqueda admite hasta120 caracteres.'))
+        product = service._record('product.product', product_id, active=True)
+        if not service._get(product, 'is_storable'):
+            raise ValidationError(_('Elegí un producto con control de existencias.'))
+        spec = specs[kind]
+        model = service.env[spec['model']]
+        domain = service._extension_domain(kind, product, query.strip())
+        rows = model.search(domain, limit=30, offset=offset, order='id')
+        return {'offset': offset, 'count': model.search_count(domain),
+                'rows': [{'id': row.id, 'name': service._extension_label(kind, row)} for row in rows]}
+
+    @api.model
+    @api.readonly
+    def extension_reference(self, kind, identifier, product_id):
+        service = self._scoped()
+        service._manager()
+        specs = service._extension_specs()
+        if not isinstance(kind, str) or kind not in specs:
+            raise ValidationError(_('La opción de reposición no está disponible.'))
+        product = service._record('product.product', product_id, active=True)
+        record = service._record(specs[kind]['model'], identifier, active=True)
+        service._validate_extension(kind, record, product)
+        return {'id': record.id, 'name': service._extension_label(kind, record), 'status': 'known'}
 
     @api.model
     @api.readonly
@@ -342,10 +457,14 @@ class Replenishment(models.AbstractModel):
                               ('replenishment_uom_id', 'multiple')]:
                 if result[name]['status'] != 'unknown':
                     values[key] = result[name]['id']
+            for kind, spec in service._extension_specs().items():
+                if result['extensions'][kind]['status'] != 'unknown':
+                    values[spec['field']] = result['extensions'][kind]['id']
             return {'values': values, 'configuration': result}
         service.env['stock.warehouse.orderpoint'].check_access('create')
         values = {'product_min_qty': 0.0, 'product_max_qty': 0.0,
                   'route_id': False, 'replenishment_uom_id': False}
+        values.update({spec['field']: False for spec in service._extension_specs().values()})
         if product_id:
             product = service._record('product.product', product_id, active=True)
             if not service._get(product, 'is_storable'):
@@ -361,7 +480,8 @@ class Replenishment(models.AbstractModel):
         return {'values': values, 'configuration': False}
 
     def _save_values(self, values, rule):
-        if not isinstance(values, dict) or not values or set(values) - _CONFIG_FIELDS:
+        relations = self._config_relations()
+        if not isinstance(values, dict) or not values or set(values) - (_CONFIG_FIELDS | set(relations)):
             raise ValidationError(_('La configuración contiene campos no admitidos.'))
         result = dict(values)
         for name in ['product_id', 'warehouse_id', 'location_id', 'product_min_qty', 'product_max_qty']:
@@ -369,7 +489,7 @@ class Replenishment(models.AbstractModel):
                 if not rule:
                     raise ValidationError(_('Completá producto, depósito, ubicación, mínimo y máximo.'))
                 value = self._get(rule, name)
-                result[name] = value.id if name in _RELATIONS else value
+                result[name] = value.id if name in relations else value
         product = self._record('product.product', result['product_id'], active=True)
         if not self._get(product, 'is_storable'):
             raise ValidationError(_('Elegí un producto con control de existencias.'))
@@ -389,7 +509,8 @@ class Replenishment(models.AbstractModel):
         if not 0 <= minimum <= maximum:
             raise ValidationError(_('El mínimo debe ser mayor o igual a cero y no superar el máximo.'))
         result.update(product_min_qty=minimum, product_max_qty=maximum)
-        if rule and product != self._get(rule, 'product_id'):
+        product_changed = rule and product != self._get(rule, 'product_id')
+        if product_changed:
             # Native supplier/BOM selectors accept explicit records; form
             # domains do not make a retained record compatible with a new SKU.
             template = self._get(product, 'product_tmpl_id')
@@ -397,7 +518,13 @@ class Replenishment(models.AbstractModel):
             for name in ['supplier_id', 'bom_id']:
                 if name not in rule._fields:
                     continue
-                target = self._get(rule, name)
+                # Explicit clear/replacement must be evaluated instead of the
+                # old selection when retargeting an existing rule.
+                if name in result:
+                    identifier = self._optional_id(result[name])
+                    target = self.env[rule._fields[name].comodel_name].browse(identifier)
+                else:
+                    target = self._get(rule, name)
                 if not target:
                     continue
                 self._record(target._name, target.id)
@@ -407,15 +534,25 @@ class Replenishment(models.AbstractModel):
                     raise ValidationError(_('Las opciones de proveedor o fabricación no corresponden al nuevo producto. Revisalas antes de cambiarlo.'))
                 if name == 'bom_id' and self._get(target, 'type') != 'normal':
                     raise ValidationError(_('La lista de materiales configurada debe ser de fabricación normal.'))
-        for name in ['route_id', 'replenishment_uom_id']:
+        for name in set(relations) - {'product_id', 'warehouse_id', 'location_id'}:
             if name in result:
                 if result[name] is False or result[name] is None:
                     result[name] = False
                 else:
-                    self._record(_RELATIONS[name], result[name], active=True)
+                    self._record(relations[name], result[name], active=True)
+        for kind, spec in self._extension_specs().items():
+            name = spec['field']
+            if name not in result or not result[name]:
+                continue
+            target = self._record(spec['model'], result[name], active=True)
+            self._validate_extension(kind, target, product)
+            changed = not rule or result[name] != self._get(rule, name).id
+            route = result.get('route_id', self._get(rule, 'route_id').id if rule else False)
+            if changed and not route:
+                raise ValidationError(_('Elegí una ruta explícita antes de fijar proveedor o fabricación.'))
         dimension_change = not rule or any(
             name in result and result[name] != self._get(rule, name).id
-            for name in ['product_id', 'warehouse_id', 'location_id', 'route_id', 'replenishment_uom_id']
+            for name in relations
         )
         multiple = result.get('replenishment_uom_id',
                               self._get(rule, 'replenishment_uom_id').id if rule else False)
@@ -433,6 +570,7 @@ class Replenishment(models.AbstractModel):
         service._manager()
         rule_id = service._optional_id(rule_id)
         model = service.env['stock.warehouse.orderpoint']
+        relations = service._config_relations()
         rule = service._record('stock.warehouse.orderpoint', rule_id, active=True) if rule_id else model
         model.check_access('write' if rule else 'create')
         previous_token = False
@@ -456,7 +594,7 @@ class Replenishment(models.AbstractModel):
                 ('location_id', '=', prepared['location_id']),
             ], limit=1)
             if existing:
-                same = all((service._get(existing, name).id if name in _RELATIONS
+                same = all((service._get(existing, name).id if name in relations
                             else service._get(existing, name)) == value for name, value in prepared.items())
                 if not service._get(existing, 'active') or not same:
                     raise UserError(_('Ya existe una regla para este producto y ubicación. Abrila para editarla.'))
@@ -467,12 +605,12 @@ class Replenishment(models.AbstractModel):
                             'company_id': service.env.company.id, 'trigger': 'manual',
                             'qty_to_order_manual': 0.0, 'snoozed_until': False, 'active': True}
                 for optional in ['supplier_id', 'bom_id']:
-                    if optional in model._fields:
+                    if optional in model._fields and optional not in prepared:
                         prepared[optional] = False
                 rule = model.create(prepared)
         else:
             changed = {name: value for name, value in prepared.items()
-                       if (service._get(rule, name).id if name in _RELATIONS
+                       if (service._get(rule, name).id if name in relations
                            else service._get(rule, name)) != value}
             if changed and expected_token != previous_token:
                 raise UserError(_('La configuración cambió desde que la abriste. Volvé a consultarla antes de guardar.'))
@@ -483,6 +621,11 @@ class Replenishment(models.AbstractModel):
         multiple = service._get(rule, 'replenishment_uom_id')
         if multiple:
             service._record('uom.uom', multiple.id, active=True)
+            for name in ['route_id', 'supplier_id', 'bom_id']:
+                if name in rule._fields:
+                    target = service._get(rule, name)
+                    if target:
+                        service._record(target._name, target.id)
             if multiple not in service._get(rule, 'allowed_replenishment_uom_ids'):
                 raise ValidationError(_('La presentación no es válida para la configuración resultante. Revisá la ruta y el múltiplo.'))
         message = (_('La misma configuración ya existía. Se conservó su modalidad. No se generó abastecimiento.')

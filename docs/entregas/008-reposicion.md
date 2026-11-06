@@ -19,10 +19,17 @@ contenido del paquete instalado. La versión de Stock se incrementará al ensamb
   guardas al descartar/salir. Ficha Odoo abre únicamente el formulario estándar de esa regla.
 - Simulación de limpiezas nativas al quitar ruta; validación del múltiplo resultante después de las
   inversas y antes de devolver éxito. Guardar no llama abastecimiento ni scheduler.
+- Opciones de proveedor/condición en Compras–Stock ARG y BOM normal en el puente opcional
+  Stock–Fabricación ARG. Dominios de plantilla/variante/compañía y etiquetas con dimensiones
+  autorizadas, sin precios; cambiar producto permite quitar o sustituir una opción incompatible.
+- Horizonte nativo de compañía, visible plegado y editable por separado con permiso nativo de
+  compañía/campo, token y aviso de alcance global. Reconsultar muestra el valor actual y conserva
+  el borrador. No se crea un horizonte por producto ni se escribe al guardar su regla.
 
-Los selectores específicos de proveedor/BOM, horizonte y la propuesta de físico/previsto/pipeline
-siguen pendientes. T023/T024 continúan abiertas; no declarar US6/F15 completos por esta ficha.
-T025–T035 y parent016T009 permanecen abiertos. La fundación no completa T026.
+T022/T024 completas como fuente, todavía sin instalar. T023 y la propuesta de físico/previsto/
+pipeline siguen pendientes; no declarar US6/F15 completos por esta ficha. T025–T035 y parent016T009
+permanecen abiertos. La fundación no completa T026. Los selectores de los puentes no completan la
+captura y ejecución previstas en T028/T029.
 
 ## Controles y fases separadas
 
@@ -30,10 +37,11 @@ Controles de fuente: sintaxis Python/JS/XML y rutas de manifest; revisión indep
 escaneo de secretos con evidencia operativa fuera de Git. La revisión utiliza otra sesión de la
 misma familia/cuenta; no es una auditoría externa ni prueba del comportamiento instalado.
 
-Pendiente de F15: configuración avanzada completa, propuesta/huella/grafo, frontera global,
+Pendiente de F15: propuesta/huella/grafo, frontera global,
 adaptadores compra/MRP, ejecución/replay, interfaz de revisión/resultados, manual/tutorial final,
-paquete con nueva versión, instalación aislada compra+MRP, respaldo fresco restaurado, promoción
-del mismo paquete y publicación en main. MRP sigue opcional por instalación y obligatorio para
+paquete con nueva versión y composición compra+MRP, respaldo consistente/snapshot del CT definitivo,
+instalación y verificación del paquete en ese mismo CT y publicación en main. No crear CT temporales
+ni usar otros como staging; aplicar la [política vigente](../tecnica/POLITICA-CT.md). MRP sigue opcional por instalación y obligatorio para
 acreditar la entrega completa prevista; no reducir a compra.
 
 QA funcional, concurrencia, visual, PDF y aceptación se reservan para la fase posterior acordada.

@@ -22,3 +22,11 @@ Usar el gestor `Programacion/tools/project.py` bajo bloqueo por proyecto para mu
 En cada entorno del propietario, resolver y verificar el montaje compartido antes de adaptar la entrada del gestor. No publicar rutas privadas del operador.
 No modificar el checkout fuente compartido ni descartar cambios ajenos.
 Registrar código, instalación, QA y aceptación como estados distintos.
+
+## CT y Odoo · instrucción vigente del propietario
+
+Usar únicamente el CT definitivo de producción del proyecto. Para probar o recuperar, tomar
+snapshots o respaldos de ese mismo CT. Crear un CT nuevo sólo cuando se acuerde como destino
+productivo. No crear CT temporales de desarrollo, QA, clonación o restauración.
+Aplicar [la política de entrega](docs/tecnica/POLITICA-CT.md) a los pasos pendientes; conservar
+las evidencias históricas sin presentarlas como procedimiento autorizado para nuevas entregas.

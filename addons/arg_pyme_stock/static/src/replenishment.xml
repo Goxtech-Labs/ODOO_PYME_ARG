@@ -2,7 +2,7 @@
 <templates xml:space="preserve">
 <t t-name="arg_pyme_stock.Replenishment">
  <div class="arg_replenishment p-3">
-  <h2><t t-if="this.state.picker" t-esc="this.state.picker.title"/><t t-elif="this.state.editor"><t t-if="this.state.editor.id">Editar regla</t><t t-else="">Nueva regla</t> de reposición ARG</t><t t-else="">Reposición ARG</t></h2>
+  <h2><t t-if="this.state.picker" t-esc="this.state.picker.title"/><t t-elif="this.state.horizonEditing">Horizonte de reposición ARG</t><t t-elif="this.state.editor"><t t-if="this.state.editor.id">Editar regla</t><t t-else="">Nueva regla</t> de reposición ARG</t><t t-else="">Reposición ARG</t></h2>
   <p class="text-muted mb-2" t-esc="this.state.company"/>
   <div class="alert alert-danger" role="alert" t-if="this.state.error" t-esc="this.state.error"/>
   <p role="status" t-if="this.state.loading">Consultando…</p>
@@ -28,6 +28,14 @@
    </div>
   </t>
 
+  <t t-elif="this.state.horizonEditing">
+   <form t-on-submit.prevent="this.saveHorizon"><fieldset t-att-disabled="this.busy">
+    <p class="alert alert-warning">Este cambio afecta todas las reglas de reposición de la compañía. Guardar el horizonte no genera abastecimiento.</p>
+    <p>Valor consultado: <strong t-if="this.state.horizon.status==='known'"><t t-esc="this.number(this.state.horizon.days)"/> días</strong><span t-else="">No determinado por permisos</span>. <button type="button" class="btn btn-secondary btn-sm" t-on-click="this.refreshHorizon">Consultar valor actual</button></p>
+    <label for="arg-replenishment-horizon">Días de anticipación</label><input id="arg-replenishment-horizon" class="form-control text-end mb-3" type="text" inputmode="numeric" required="required" t-att-value="this.state.horizonDraft" t-on-input="ev => this.state.horizonDraft=ev.target.value"/>
+    <div class="d-flex flex-wrap gap-2"><button type="submit" class="btn btn-success" t-att-disabled="!this.state.horizon.can_edit"><img class="arg_icon" src="/arg_pyme_ui/static/icons/lucide/save.svg" alt=""/> Guardar horizonte de compañía</button><button type="button" class="btn btn-outline-danger" t-on-click="this.discard">Descartar</button></div>
+   </fieldset></form>
+  </t>
   <t t-elif="this.state.editor">
    <form t-on-submit.prevent="this.save">
     <fieldset t-att-disabled="this.busy">
@@ -45,8 +53,10 @@
       <div class="arg_replenishment_fields mt-2">
        <div><label id="arg-replenishment-route-label">Ruta</label><div class="d-flex gap-2"><button type="button" class="form-control arg_replenishment_selector" aria-labelledby="arg-replenishment-route-label arg-replenishment-route-value" t-on-click="() => this.pick('route')"><span id="arg-replenishment-route-value" t-esc="this.refName('route')"/><img class="arg_icon" src="/arg_pyme_ui/static/icons/lucide/chevron-down.svg" alt=""/></button><button type="button" class="btn btn-secondary" aria-label="Quitar ruta explícita" t-on-click="() => this.clear('route')">Quitar</button></div></div>
        <div><label id="arg-replenishment-multiple-label">Presentación / múltiplo</label><div class="d-flex gap-2"><button type="button" class="form-control arg_replenishment_selector" aria-labelledby="arg-replenishment-multiple-label arg-replenishment-multiple-value" t-on-click="() => this.pick('multiple')"><span id="arg-replenishment-multiple-value" t-esc="this.refName('multiple')"/><img class="arg_icon" src="/arg_pyme_ui/static/icons/lucide/chevron-down.svg" alt=""/></button><button type="button" class="btn btn-secondary" aria-label="Quitar presentación explícita" t-on-click="() => this.clear('multiple')">Quitar</button></div></div>
+       <div t-foreach="this.state.extensions" t-as="spec" t-key="spec.kind"><label t-att-id="'arg-replenishment-' + spec.kind + '-label'" t-esc="spec.label"/><div class="d-flex gap-2"><button type="button" class="form-control arg_replenishment_selector" t-att-aria-labelledby="'arg-replenishment-' + spec.kind + '-label arg-replenishment-' + spec.kind + '-value'" t-on-click="() => this.pick(spec.kind)"><span t-att-id="'arg-replenishment-' + spec.kind + '-value'" t-esc="this.refName(spec.kind)"/><img class="arg_icon" src="/arg_pyme_ui/static/icons/lucide/chevron-down.svg" alt=""/></button><button type="button" class="btn btn-secondary" t-att-aria-label="'Quitar ' + spec.label" t-on-click="() => this.clear(spec.kind)">Quitar</button></div></div>
       </div>
       <p class="text-muted mt-2 mb-0">Sin ruta o presentación explícita, Odoo utiliza las opciones nativas del producto. Quitar una ruta explícita puede restablecer también la selección de proveedor o fabricación.</p>
+      <p class="text-muted mt-2 mb-0">Para fijar proveedor o lista de materiales, elegí primero una ruta explícita. El horizonte se configura para toda la compañía desde el listado.</p>
      </details>
      <p class="text-muted">Al cambiar de producto, revisá los límites y la presentación. Guardar configura la regla; el abastecimiento se confirma por separado.</p>
      <div class="d-flex flex-wrap gap-2">
@@ -59,6 +69,7 @@
 
   <t t-else="">
    <div class="d-flex flex-wrap gap-2 mb-2"><button class="btn btn-primary" t-if="this.state.canCreate" t-att-disabled="this.busy" t-on-click="() => this.edit()"><img class="arg_icon" src="/arg_pyme_ui/static/icons/lucide/plus.svg" alt=""/> Nueva regla</button></div>
+   <details class="mb-2" t-if="this.state.horizon"><summary>Horizonte de la compañía</summary><div class="d-flex flex-wrap align-items-center gap-2 mt-2"><span t-if="this.state.horizon.status==='known'"><strong t-esc="this.number(this.state.horizon.days)"/> días de anticipación · todas las reglas de esta compañía</span><span t-else="">No determinado por permisos</span><button class="btn btn-secondary" t-if="this.state.horizon.can_edit" t-att-disabled="this.busy" t-on-click="this.editHorizon">Modificar horizonte</button></div></details>
    <form class="mb-2" t-on-submit.prevent="() => this.load(0)">
     <div class="d-flex flex-wrap gap-2 align-items-end"><label for="arg-replenishment-search" class="flex-grow-1">Buscar producto o código<input id="arg-replenishment-search" class="form-control" maxlength="120" t-att-disabled="this.busy" t-att-value="this.state.query" t-on-input="ev => this.state.query=ev.target.value"/></label><button type="submit" class="btn btn-secondary" t-att-disabled="this.busy"><img class="arg_icon" src="/arg_pyme_ui/static/icons/lucide/search.svg" alt=""/> Consultar</button></div>
     <details class="mt-2"><summary>Filtros de depósito y producto</summary><div class="arg_replenishment_fields mt-2">

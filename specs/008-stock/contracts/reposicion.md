@@ -8,6 +8,18 @@ ubicación principal sólo si están determinadas. Avanzado: ruta, múltiplo, pr
 Guardar regla es configuración; consultar propuesta es lectura; confirmar es una acción explícita.
 Nuevas reglas ARG manuales. Las existentes conservan manual/auto y su configuración/scheduler.
 
+Proveedor/BOM son selecciones nativas de los puentes opcionales de compra y fabricación. La
+elección explícita requiere una ruta explícita; sin ella se conserva la selección nativa del
+producto para la futura propuesta. Validar compañía, plantilla/variante y tipo de BOM; no copiar
+precios al formulario ni exponer nombres de dimensiones inaccesibles. Quitar una ruta puede
+limpiar proveedor/BOM según las inversas nativas; validar también el múltiplo resultante.
+
+El horizonte es `res.company.horizon_days`, común a todas sus reglas, no un dato persistido por
+producto. Mostrarlo plegado en el listado y editarlo en una tarea separada que explica ese alcance.
+Exigir responsable ARG, permiso nativo de compañía/campo y token vigente; no guardar el horizonte
+al guardar una regla. Reconsultar mantiene el valor en edición y muestra la configuración actual
+antes de volver a guardar. Ni ese cambio global ni los selectores ejecutan abastecimiento.
+
 La propuesta no es un pedido ni una orden de fabricación. La confirmación genera o amplía documentos
 nativos: compras continúan por PPC; fabricación conserva sus referencias nativas y sus estados.
 La evidencia técnica de confirmación no sustituye numeraciones ni crea otro documento financiero.
@@ -76,7 +88,9 @@ atribuirles garantías del flujo ARG si no pasan por la confirmación ARG.
 Core Stock ARG para reglas/propuesta/orquestación; compra en Compras–Stock ARG y fabricación en
 puente opcional Stock–MRP. Fabricación permanece dentro de F15 completo aunque MRP sea optativo
 por instalación. Composición demo habilitada explícitamente, manual y tutorial por versión.
-Desarrollar/revisar fuentes, comprobar instalación/recuperación/arranque y publicar según autorización;
+Desarrollar/revisar fuentes, respaldar y comprobar instalación/arranque en el CT definitivo, con
+snapshot o respaldo del mismo CT para probar o recuperar. No crear CT temporales de desarrollo,
+QA, clonación o restauración ni utilizar otro existente como staging. Publicar según autorización;
 QA funcional/visual/concurrencia/PDF y aceptación posteriores. Parent016T009 sigue abierta hasta
 entregar F14/F15; no reducir las22 capacidades ni Integraciones ARG.
 

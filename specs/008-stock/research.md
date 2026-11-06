@@ -116,7 +116,25 @@ opciones por página sin descartar límites editados; cambiar página conserva f
 Guardar valida permisos nativos y un token de configuración para evitar sobrescribir una edición
 posterior; el token no acredita estabilidad de la previsión. Ficha Odoo abre sólo el formulario
 nativo de esa regla, sin ejecutar `_get_orderpoint_action`; no se atribuyen a ese formulario
-campos que no expone. Los selectores ARG de proveedor/BOM y el horizonte se completarán junto
-con los adaptadores y propuesta; T024 conserva ese alcance pendiente. Al quitar una ruta,
+campos que no expone. Los selectores ARG de proveedor/BOM se implementan por adaptadores
+opcionales y el horizonte se administra por compañía en una tarea separada. Al quitar una ruta,
 simular las limpiezas nativas de proveedor/BOM y validar el múltiplo efectivo tras guardar en la
 misma transacción. Fuente US6 pendiente de instalación; FR013 y confirmación US7 siguen abiertas.
+
+### D09 · opciones de abastecimiento y horizonte compartido
+
+Los puentes extienden `_extension_specs`, dominios y etiquetas del servicio sin imponer MRP al
+core. Compra selecciona `product.supplierinfo` compatible, con proveedor/unidad autorizados y
+condición mínima/vigencia, sin precios. Fabricación selecciona BOM normal de plantilla/variante,
+con referencia/cantidad/unidad autorizadas. Página30 y referencias revalidadas; ausencia de permiso
+no equivale a selección vacía. Cambiar producto permite quitar o sustituir una selección incompatible.
+
+`horizon_days` pertenece a compañía en el core nativo. La ficha de regla no escribe ese dato
+global. Se muestra plegado y existe edición independiente con alcance explícito, permisos nativos,
+token y actualización efectiva de la compañía. Consulta de valor vigente conserva el borrador.
+No se añade un horizonte persistido por regla ni se altera la modalidad de reglas existentes.
+Un horizonte que exceda el rango de fechas falla antes de escribir; guardar no llama scheduler.
+
+Este incremento completa fuente de configuración T024; no completa T023, propuesta, guardas de
+destino/captura ni T028/T029. `arg_pyme_stock_mrp` existe como puente opcional en desarrollo,
+sin instalar todavía. No atribuir a sus selectores una confirmación de fabricación implementada.

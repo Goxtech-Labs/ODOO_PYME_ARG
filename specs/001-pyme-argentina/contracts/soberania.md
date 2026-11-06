@@ -8,7 +8,11 @@ Mantener instalación autónoma sin cuenta obligatoria Goxtech.
 Incluir base PostgreSQL consistente, filestore, configuración recuperable y revisiones exactas de código/dependencias.
 Separar secretos del repositorio público; describir cómo recuperarlos mediante almacenamiento protegido.
 Documentar ejecución, frecuencia, retención, cifrado, destino y restauración.
-Verificar recuperación en otra instalación aislada usando solamente datos de ejemplo.
+Documentar recuperación reproducible con datos de ejemplo y conservar las verificaciones ya
+realizadas. Para nuevas operaciones de este proyecto, usar únicamente el CT definitivo con sus
+snapshots o respaldos; no crear un CT temporal para restaurar. Otra instalación requiere un destino
+productivo acordado, según la [política vigente](../../../docs/tecnica/POLITICA-CT.md). Esto no limita
+la elección de infraestructura por quienes instalen el proyecto comunitario.
 No equiparar copia de Git con respaldo de documentos y adjuntos.
 
 ## Exportación y salida

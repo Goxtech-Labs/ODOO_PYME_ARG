@@ -37,7 +37,9 @@ Registrar evidencia técnica, QA funcional/visual y aceptación como estados dis
 
 ## F15 · escenarios preparados para QA posterior, no ejecutados
 
-En una composición aislada con compras y puente MRP instalados, sin correo/cron/canales reales:
+En el CT definitivo, con datos de ejemplo y compras/puente MRP instalados, sin correo/cron/canales
+reales y con snapshot o respaldo previo del mismo CT. No crear CT temporales ni usar otro como
+staging; aplicar la [política vigente](../../docs/tecnica/POLITICA-CT.md):
 
 1. Crear regla manual de ejemplo con producto, depósito y mínimo/máximo; guardar/consultar no
    crea PO/MO ni altera una regla automática previa. Revisar unidad y límites inválidos.
@@ -55,7 +57,9 @@ En una composición aislada con compras y puente MRP instalados, sin correo/cron
    diferenciados, teclado, tema claro/oscuro y pantalla estrecha. PDF/impresión sólo en su revisión.
 
 No ejecutar estos recorridos durante instalación técnica. El manifiesto, registry, vistas, roles,
-fuentes, actualización/arranque y restauración se comprueban por separado, sin generar abastecimiento.
+fuentes, actualización/arranque e integridad/cobertura del respaldo se comprueban por separado,
+sin generar abastecimiento. Recuperar sólo el mismo CT si corresponde según la política vigente;
+no sobrescribir datos activos para un ensayo de restauración.
 
 
 8. MO borrador previa compatible: aparece como posible confirmación en revisión y su cambio de
@@ -66,3 +70,17 @@ fuentes, actualización/arranque y restauración se comprueban por separado, sin
 9. El actor pierde lectura de una PO/MO/dimensión después de confirmar: read/search_read/web_read/
    export/read_group del recibo crudo siguen denegados; el replay no revela IDs/nombres/cantidades
    y no vuelve a ejecutar. La representación autorizada falla completa con explicación genérica.
+
+## Revisión posterior de configuración avanzada F15
+
+Escenarios preparados, no ejecutados en la fase de fuente/instalación:
+
+- Abrir proveedor/BOM con y sin sus permisos nativos; ningún nombre inaccesible aparece en
+  selectores o en una selección previamente guardada. Cambiar producto permite quitar/sustituir
+  la opción incompatible sin perder límites editados.
+- Quitar ruta explícita con proveedor/BOM y presentación seleccionados: revisar las limpiezas
+  nativas y rechazar una presentación que deje de ser válida; fallo no guarda una porción.
+- Abrir horizonte de compañía con responsable sin permiso de compañía: consulta si puede leer,
+  sin edición. Con permiso nativo, ver alcance global y guardar separado de una regla.
+- Modificar compañía en otra sesión, intentar guardar horizonte obsoleto, reconsultar valor actual
+  conservando el borrador y revisar ambos valores antes de volver a guardar. No generar PO/MO.

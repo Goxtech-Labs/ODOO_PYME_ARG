@@ -11,6 +11,13 @@ instalado. La ficha prevista permite elegir producto/depósito/ubicación y mín
 y presentación plegadas. Guardar configura; confirmar abastecimiento será una acción separada.
 Compra y fabricación mantienen su alcance completo. No esperar aún ese recorrido en la demo 0.1.9.
 
+La configuración desarrollada muestra proveedor/condición y lista de materiales dentro de opciones
+avanzadas cuando están sus módulos. Para fijarlos, elegí una ruta explícita. Quitar la ruta puede
+restablecer esas selecciones; revisá la presentación antes de guardar. El horizonte de anticipación
+se comparte entre todas las reglas de la compañía: se consulta plegado en el listado y se edita por
+separado con permiso de compañía. Consultar valor actual conserva los días que estabas cargando.
+Guardar una regla no guarda ni modifica ese horizonte global. Estas funciones siguen sin instalar.
+
 ## Existencias
 
 En Stock → Existencias elegí depósito y, si hace falta, ubicación o producto. Cada fila conserva su unidad.

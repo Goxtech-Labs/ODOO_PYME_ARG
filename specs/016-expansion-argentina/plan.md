@@ -52,7 +52,9 @@ Integraciones: outbox/lookup/idempotencia, secretos externos, capacidades de pro
 
 Fijar composición/hash, hacer respaldo consistente y actualizaciones explícitas; no -u all ni rollback
 con pérdida de datos. Desplegar incrementos autorizados y registrar QA pendiente. Ejemplos sin efectos
-operativos en demo compartida; fixtures que mueven/contabilizan sólo en entorno aislado y etapa acordada.
+operativos en demo compartida; fixtures que mueven/contabilizan sólo con datos de ejemplo y en la
+etapa acordada, tomando snapshot o respaldo del mismo CT definitivo. No crear CT temporales ni
+usar otro existente como staging. Aplicar la [política vigente](../../docs/tecnica/POLITICA-CT.md).
 Importación de datos reales y activación de canales son tareas separadas.
 
 ## Complexity Tracking

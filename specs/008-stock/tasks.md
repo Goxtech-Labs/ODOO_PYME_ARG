@@ -84,13 +84,14 @@ mismo paquete en demo y publicación de fuentes/composición/documentación. QA 
 - [x] T021 Fijar y revisar independientemente specs/008-stock/contracts/reposicion.md, research.md y plan.md con fuentes nativas, efectos encadenados y permisos antes de implementación. (FR-012–017)
 - [x] T022 [US6] Extender regla nativa en addons/arg_pyme_stock/models/replenishment.py: producto almacenable, compañía/depósito/ubicación compatibles y "0 ≤ mínimo ≤ máximo", valores finitos; crear manual sólo en entrada ARG y no cambiar modalidades existentes. (FR-012)
 - [ ] T023 [US6] Crear servicio arg.pyme.replenishment en addons/arg_pyme_stock/models/replenishment.py con consulta paginada30, contexto/ACL efectivos y dimensiones autorizadas; no ejecutar _get_orderpoint_action ni abastecimiento al consultar. (FR-012/013/017)
-- [ ] T024 [US6] Crear ficha/acción de configuración en addons/arg_pyme_stock/views/replenishment_views.xml con datos deducidos, campos delimitados y avanzado opcional; guardar no genera PO/MO. (FR-012)
+- [x] T024 [US6] Crear ficha/acción de configuración en addons/arg_pyme_stock/views/replenishment_views.xml con datos deducidos, campos delimitados y avanzado opcional; guardar no genera PO/MO. (FR-012)
 
-T022 acredita fuente revisada y controles estáticos, sin instalación ni QA. T023 tiene consulta de
-configuración paginada, todavía sin físico/previsto/pipeline. T024 tiene acción/ficha esencial y
-selectores de ruta/presentación con buffer; continúa abierta por proveedor/BOM/horizonte junto
-con los adaptadores y propuesta. Ficha Odoo no equivale a exponer esos campos ausentes en su
-formulario estándar. Ver docs/entregas/008-reposicion.md. No cerrar US6 ni F15 por este incremento.
+T022/T024 acreditan fuente y controles estáticos, sin instalación ni QA. T023 tiene consulta de
+configuración paginada, todavía sin físico/previsto/pipeline. T024 tiene ficha esencial, ruta/
+presentación y proveedor/BOM por adaptadores, buffer y horizonte compartido en tarea separada.
+Ficha Odoo sólo abre el formulario estándar; los controles avanzados ARG son propios. Los
+adaptadores sólo exponen configuración: T028/T029 no se completan por estos selectores.
+Ver docs/entregas/008-reposicion.md. No cerrar US6 ni F15 por este incremento.
 
 ## F15 · Phase 2: Propuesta y confirmación (US7)
 
@@ -105,8 +106,8 @@ formulario estándar. Ver docs/entregas/008-reposicion.md. No cerrar US6 ni F15 
 ## F15 · Phase 3: Entrega transversal
 
 - [ ] T032 Documentar reglas/propuesta/confirmación/efectos/ejemplos optativos y tutorial planeado en docs/usuario/008-stock.md, docs/tecnica/008-stock.md y docs/comunidad/youtube/catalogo.json.
-- [ ] T033 Revisar diff/secretos/paquete e instalar composición aislada compra+MRP/puentes; registrar registry/vistas/arranque/fuentes en docs/entregas/008-reposicion.md sin ejecutar QA funcional.
-- [ ] T034 Promover mismo paquete con respaldo fresco restaurado/copia sin red y lectura posterior de instalación/servicios en docs/entregas/008-reposicion.md, sin reemplazar datos ni activar canales reales.
+- [ ] T033 Revisar diff/secretos/paquete y composición compra+MRP/puentes para el CT definitivo; preparar controles de registry/vistas/arranque/fuentes en docs/entregas/008-reposicion.md sin CT temporal ni QA funcional previa.
+- [ ] T034 Tomar respaldo consistente/verificar integridad y snapshot soportado del mismo CT definitivo; instalar allí el paquete fijado, verificar registry/vistas/servicios/HTTP/versiones y registrar evidencia en docs/entregas/008-reposicion.md. Recuperación sólo en ese destino si corresponde, sin sobrescribir datos para ensayos ni activar canales reales.
 - [ ] T035 Publicar fuentes/composición/manuales en main mediante revisión final y actualizar docs/entregas/RELEASE.md; cerrar parent016T009 sólo por F14/F15 técnicos completos, manteniendo QA/aceptación separadas.
 
 T021→T022→T023/T024→T025→T026/T027→T028/T029→T030→T031→T032→T033→T034→T035.
@@ -114,3 +115,7 @@ US6 se puede entregar incrementalmente pero no completa F15. Compra y MRP compar
 orquestación antes de cerrar US7. Manual y catálogo tutorial pueden prepararse en archivos separados
 tras fijar contratos; no implica delegar mutaciones paralelas. No crear tareas de ejecución de QA
 antes del despliegue por la preferencia vigente. Escenarios y criterios independientes en spec/quickstart.
+
+T033/T034 actualizadas por instrucción explícita del propietario: sólo CT definitivo, snapshots o
+respaldos del mismo CT; no nuevos CT ni uso de otros existentes como staging. Ver
+docs/tecnica/POLITICA-CT.md. T019/T020 conservan la evidencia histórica de la entrega F14.

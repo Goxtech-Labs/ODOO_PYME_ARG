@@ -152,9 +152,14 @@ intermedia/reservas nativas. Fallo revierte toda la operación, sin anunciar un 
 ### Orden y controles
 
 Contrato/revisión → reglas/consulta → propuesta/huella → orquestación/recibo → guardas y compra
-→ puente MRP y efectos → interfaz/manuales → controles estáticos → instalación aislada/composición
-→ recuperación fresca/promoción autorizada → fuente/documentación main. No cerrar parent016T009
+→ puente MRP y efectos → interfaz/manuales → controles estáticos/composición → respaldo consistente
+y snapshot soportado del CT definitivo → instalación/verificación en ese mismo CT → fuente/documentación main. No cerrar parent016T009
 hasta completar F14/F15. Controles técnicos y QA/aceptación permanecen separados.
+
+La [política vigente de CT](../../docs/tecnica/POLITICA-CT.md) sustituye el gate anterior de un CT
+aislado para los pasos futuros. No crear CT de QA, clonación ni restauración, ni reutilizar otros
+como staging. Recuperar sólo el mismo CT cuando corresponda; verificar respaldo sin sobrescribir
+datos activos para un ensayo. No reescribir resultados históricos de las entregas ya realizadas.
 
 ### Constitution Check después del diseño F15
 
