@@ -8,7 +8,7 @@
 | 002-base-arg | Preparados | Desarrollado e instalado demo | Pendiente |
 | 003-experiencia-documental | Preparados | Desarrollado e instalado demo | Pendiente |
 | 004-terceros | Preparados | Desarrollado e instalado demo | Pendiente |
-| 005-catalogo | Preparados | Base y variantes1.1 instaladas en demo | Pendiente |
+| 005-catalogo | Preparados | Base, variantes y precio/condiciones1.2 instalados en demo | Pendiente |
 | 006-ventas | Preparados | Comercial, puente Stock y dinero aplicado desplegados demo | Pendiente |
 | 007-compras | Preparados | Comercial/Stock/dinero en demo; carga1.0.6 instalada en demo | Pendiente |
 | 008-stock | Preparados | Desarrollado e instalado demo, con ambos puentes | Pendiente |
@@ -44,4 +44,8 @@ Reparaciones1.2 y Compras1.0.6 registrados, con fuentes y controles por etapa. I
 y catálogo ficticios, sin efectos operativos. [Promoción técnica completada](entregas/EXPANSION-PROMOCION.md); ejemplos de circuito, tutoriales, QA y aceptación pendientes.
 
 [Variantes de Catálogo1.1 / Stock1.0.6](entregas/005-variantes.md): instalación aislada con paquete290
-archivos, promovida a demo; QA pendiente. Parent016T008 conserva F19/condiciones pendientes.
+archivos, promovida a demo; QA pendiente. F19 se entregó posteriormente en Catálogo1.2; F17/F22 ampliados siguen pendientes.
+
+[Precio y condiciones1.2](entregas/005-precio-condiciones.md): instalado técnicamente en aislado y demo,
+con propuesta de cliente y explicación recalculada sin modificar historia.
+QA funcional/visual y aceptación pendientes.

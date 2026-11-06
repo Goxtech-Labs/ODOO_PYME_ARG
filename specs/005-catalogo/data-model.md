@@ -28,3 +28,14 @@ y filtros; `product.product.combination_indices` resuelve sólo la página visib
 configuración excluida, variante activa visible y variante no determinada. La selección del navegador
 contiene IDs explícitos, no un catálogo paralelo, y se revalida antes de acciones. El adaptador opcional
 de Stock agrega lecturas actuales por unidad/compañía y permiso, sin saldos ni escrituras nuevas.
+
+## Consulta y explicación F19 · incremento1.2
+
+`arg.pyme.price.consultation` es abstracto: no almacena consultas ni nuevas tarifas. Entradas: variante
+nativa, cantidad positiva, instante UTC o fecha de matriz, lista y cliente opcionales. Respuesta:
+compañía/unidad/moneda/momento, precio nativo o no determinado, condiciones actuales y traza acotada.
+Cada paso identifica lista, regla ganadora y parámetros permitidos. Cadena con base de costo oculta
+la traza a no Responsables; no se devuelve costo ni margen restringido. Los valores calculados no se
+restauran desde el estado del navegador: cada nueva consulta revalida fuentes/permisos.
+La lista manual es estado de selección, no una asignación al cliente. Las condiciones de pago/notas
+son opcionales según campos instalados y permisos. Los documentos anteriores no se actualizan.

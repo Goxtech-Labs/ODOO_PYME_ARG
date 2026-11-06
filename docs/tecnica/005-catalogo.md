@@ -3,7 +3,7 @@
 Compatibilidad: Odoo 20 Community. La versión de cada addon está fijada en la
 [composición de esta entrega](../../composition/versions.lock.json); consultar sus límites y estado de QA.
 
-arg_pyme_catalogo 20.0.1.1.0 depende de Base/UI/product. Productos, categorías, atributos, listas y reglas son modelos nativos.
+arg_pyme_catalogo depende de Base/UI/product. Productos, categorías, atributos, listas y reglas son modelos nativos.
 Matriz arg.pyme.pricelist.matrix abstracta con options/page/apply: ACL y compañía efectivas en servidor, sin sudo de negocio. Paginación30, cinco columnas, metadata hasta200listas/categorías. No se envían imágenes ni catálogo completo.
 Odoo20 utiliza compute_price fixed/discount/markup. Se llama _get_product_price_rule con unidad/cantidad/fecha; sólo se editan reglas fijas de variante sin fechas, unidad especial o cantidad mínima. No se eliminan ni sustituyen reglas avanzadas.
 
@@ -41,3 +41,26 @@ Lucide local de UI ARG, con sus licencias conservadas. AST/XML/JS son controles 
 assets, instalación y QA deben constar por separado. [Contrato](../../specs/005-catalogo/contracts/matriz-variantes.md).
 
 [Entrega técnica y recuperación comprobada](../entregas/005-variantes.md). La instalación desde una base vacía y la revisión funcional/visual de este incremento no se acreditan por estos controles de upgrade.
+
+## Incremento1.2.0 F19 · instalado técnicamente en aislado y demo
+
+`arg.pyme.price.consultation` abstracto expone options/reference/choices/defaults/explain y acciones
+open_rules/open_partner/from_template, con contexto de compañía limpio, rol interno/ARG y permisos
+nativos; no sudo ni escrituras de negocio. Selectores30; tipos/IDs/cantidad/momento validados.
+Condición de pago/nota se leen sólo si existen y son accesibles, sin dependencia adicional a Account.
+
+Se reutiliza `_cell` para cálculo/tasas/token y `_get_product_rule` para traza de reglas efectivas,
+hasta100 pasos. No se implementa aritmética paralela. Ciclos/extensiones/permisos se explicitan.
+Cadena con base costo oculta su traza a no Responsables; parámetros de margen se eliminan del payload
+restringido. Consulta de precio no calcula impuestos; no asume siempre neto.
+
+OWL usa DateTimeInput nativo y estado local de acción para selecciones; resultados se recalculan.
+La matriz conserva `loadedContext` de la página correcta y su token de celda; explica en diálogo sin tocar
+el buffer. La consulta independiente recibe instante UTC, la matriz conserva00:00UTC de su fecha.
+Nueva acción/menu y botón en ficha; Lucide local existente. Contrato y escenarios posteriores en
+[precio/condiciones](../../specs/005-catalogo/contracts/precio-condiciones.md) y quickstart.
+Instalación, compilación efectiva de assets y revisión independiente se registran en la entrega;
+esta descripción no acredita QA; la promoción técnica consta en la entrega.
+
+La traza F19 es actual, no un snapshot histórico. El token heredado no incluye cada versión de
+listas/reglas base; no se promete detección total de cambios de parámetros si el token sigue igual.

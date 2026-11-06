@@ -1,0 +1,34 @@
+{
+  "recorded_at": "2026-11-06",
+  "environment": "source-candidate",
+  "base_commit": "f46d2a45e5cb41d7c963b6ceb0c9da7c54fc496c",
+  "package_sha256": "08c329aa6770534e306516fd6d232cf4a7f1586a4a24975a6153bec6d64ac381",
+  "package_files": 294,
+  "arg_module_versions": {
+    "arg_pyme_ui": "20.0.1.1.5",
+    "arg_pyme_administracion": "20.0.1.1.4",
+    "arg_pyme_compras_stock": "20.0.1.0.2",
+    "arg_pyme_ventas_stock": "20.0.1.0.2",
+    "arg_pyme_informes": "20.0.1.0.2",
+    "arg_pyme_compras": "20.0.1.0.6",
+    "arg_pyme_terceros": "20.0.1.0.0",
+    "arg_pyme_catalogo": "20.0.1.2.0",
+    "arg_pyme_ventas": "20.0.1.0.6",
+    "arg_pyme_documentos": "20.0.1.0.6",
+    "arg_pyme_base": "20.0.1.0.5",
+    "arg_pyme_stock": "20.0.1.0.6",
+    "arg_pyme_valores": "20.0.1.2.0",
+    "arg_pyme_reparaciones": "20.0.1.2.0"
+  },
+  "changed_modules": [
+    "arg_pyme_catalogo"
+  ],
+  "installed": false,
+  "production_deployed": false,
+  "business_qa": false,
+  "visual_qa": false,
+  "release_document": "docs/entregas/005-precio-condiciones.md",
+  "scope": "Read-only native price/customer conditions consultation and rule explanation; original22/E1/017–024/Integrations scope continues",
+  "addon_source_commit": "68c47f89c0c9511adb5ffa57c9523637ce9ba959",
+  "status_scope": "Source candidate snapshot; installed states belong to environment inventories"
+}

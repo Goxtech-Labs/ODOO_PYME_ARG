@@ -304,5 +304,22 @@
     "reviewer": "Gonzalo Sarubilo",
     "review_date": null,
     "replacement_id": null
+  },
+  {
+    "feature": "005-catalogo",
+    "addon": "addons/arg_pyme_catalogo",
+    "title": "Precio y condiciones ARG: consulta y explicación de reglas",
+    "url": null,
+    "status": "planeado",
+    "version": "20.0.1.2.0",
+    "manual": "docs/usuario/005-catalogo.md",
+    "id": "arg-005-precio-condiciones-1-2",
+    "task": "precio-condiciones",
+    "version_min": "20.0.1.2.0",
+    "version_max": "20.0.1.2.0",
+    "language": "es-AR",
+    "reviewer": "Gonzalo Sarubilo",
+    "review_date": null,
+    "replacement_id": null
   }
 ]

@@ -30,3 +30,23 @@ Registrar evidencia técnica, QA funcional/visual y aceptación como estados dis
 5. Seleccionar variantes en varias páginas/filtros, quitar y cambiar producto: selección explícita hasta200, confirmación de descarte y revalidación al abrir etiquetas. No imprimir en este recorrido.
 6. Abrir precios por plantilla y conservar reglas/moneda/cambios pendientes; verificar que la matriz general anterior mantiene su comportamiento.
 7. Revisar teclado, etiquetas, selección, estados vacío/cargando/error y claro/oscuro en escritorio y ancho estrecho, sin afirmar QA por parseo.
+
+## F19 FR-009/010 · escenarios preparados, no ejecutados
+
+1. Abrir consulta: fecha/hora local actual, cantidad1, cliente opcional; elegir producto y lista.
+   Corregir fecha/hora y conservarla al abrir maestros/volver; un campo vacío requiere corregirlo.
+2. Elegir cliente: proponer lista nativa; elegir otra manualmente y cambiar cliente sin reemplazarla.
+   Usar lista del cliente restaura explícitamente esa propuesta. Paginar selectores de30 registros.
+3. Consultar casos fijo, descuento y recargo; reglas por variante/plantilla/categoría/global, mínimos,
+   vigencia exacta y listas encadenadas. Contrastar con cálculo nativo en el mismo momento/unidad.
+4. Revisar sin regla, tasas efectivas ausentes, listas archivadas, otra compañía, permisos insuficientes,
+   cadena circular/larga y extensión no conocida: no inventar cero ni una explicación completa.
+5. Responsable y operador: cadena con costo no expone parámetros al operador; límites de margen
+   restringidos se distinguen de detalle completo. No interpretar precio de venta como costo.
+6. Desde matriz con ediciones pendientes y filtros aún no aplicados, abrir Ver regla: conservar buffer
+   y usar fecha/cantidad de la página cargada. La explicación debe aclarar que usa configuración actual; el aviso se limita a cambios
+   detectados por el token de celda, sin prometer un snapshot de todas las reglas base.
+7. Abrir reglas/ficha con permisos nativos; explicar alcance de lista compartida. Cambiar una regla
+   no reescribe precios históricos ni aplica cambios a la matriz al volver.
+8. Revisar teclado, etiquetas, DateTimeInput, escritorio/ancho estrecho, claro/oscuro y estados
+   vacío/cargando/error. El parseo XML no acredita visualización ni esos recorridos.

@@ -73,6 +73,15 @@ account. Su `_get_template_matrix` arma todas las combinaciones sin paginación.
 comportamiento ni dependencia para la consulta ARG; reutilizar sólo reglas de configuración y datos
 del catálogo nativo. Cinco archivos nativos de product inspeccionados coinciden SHA256 con el runtime consultado el2026-11-06; no se afirma igualdad de todo el core.
 
+## Incremento F19 ·2026-11-06
+
+Añadir AbstractModel de consulta con selectores paginados, defaults del cliente, explicación nativa
+y comandos a formularios existentes. OWL con DateTimeInput nativo y diálogo desde matriz; sin
+mezclar su buffer de precios con la consulta de precios guardados. Reutilizar servicio matriz y motor nativo;
+cadenas de costo restringidas para no Responsables, sin dependencia a Account/Stock.
+[Contrato](contracts/precio-condiciones.md). Fuente nativa de pricelist/item coincide con runtime y
+commit oficial bb238; res.partner y sale_order_line consultados para contratos de compañía/precio.
+
 ## Entrega y orden
 
 Completar dependencias del catálogo antes de programar este módulo.

@@ -1,5 +1,12 @@
 # Cambios
 
+## 0.1.8-dev · Catálogo1.2.0 — 2026-11-06
+
+- Consulta nativa de precio/condiciones de cliente con fecha/hora local y selectores paginados.
+- Explicación recalculada de reglas, privacidad de costo y diálogo que conserva ediciones de matriz.
+- Paquete294, respaldo/restauración y promoción técnica a demo comprobados; QA pendiente.
+- [Entrega y límites](docs/entregas/005-precio-condiciones.md). El plan completo continúa.
+
 ## 0.1.7-dev · Catálogo1.1.0 / Stock1.0.6 — 2026-11-06
 
 - Matriz de variantes nativas por atributos opcionales, ejes/fijos paginados y estados explícitos.

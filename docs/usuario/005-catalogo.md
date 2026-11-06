@@ -17,7 +17,8 @@ El responsable puede aplicar precios; el operador consulta. Guía escrita dispon
 
 ## Matriz de variantes · disponible en demo
 
-Catálogo1.1.0 y adaptador Stock1.0.6 están instalados técnicamente en aislado y demo; QA pendiente.
+La capacidad se incorporó en Catálogo1.1.0 con adaptador Stock1.0.6; continúa en la composición
+actual de aislado y demo, con QA pendiente.
 El lock de la demo registra esta entrega.
 
 Desde la ficha elegí **Variantes**, o Stock → Variantes. Buscá y elegí el producto. Los atributos son
@@ -55,3 +56,32 @@ compañía explícita marcada como ejemplo y confirmación del administrador. Co
 y no reinicia datos editados ni reactiva registros. La carga inicial se ejecutó una vez en cada
 entorno; un segundo replay no fue ejecutado como prueba. Para retirar ejemplos, usar la
 [guía de archivo](../ejemplos/RETIRAR-EJEMPLOS.md).
+
+## Consultar precio y condiciones · 1.2 disponible en demo
+
+En Ventas → Consultar precio y condiciones, se propone la fecha y hora actuales y cantidad1.
+Elegí cliente si corresponde, producto o variante y lista. La lista nativa del cliente se propone
+automáticamente; si elegís otra manualmente se conserva al cambiar cliente. **Usar lista del cliente**
+restaura esa propuesta. Los selectores buscan y paginan de30 en30.
+
+**Consultar precio** muestra importe unitario, moneda, unidad y momento efectivo. Explica la regla
+ganadora y sus listas base, mínimos y vigencias según permisos. La consulta no agrega ni separa
+impuestos: los documentos resuelven impuestos y totales según su configuración. Sin tasa efectiva
+o permisos suficientes muestra no determinado, nunca un cero supuesto. Las bases de costo y los
+límites de margen tienen restricciones de acceso; un detalle parcial se indica expresamente.
+
+Las condiciones del cliente se despliegan aparte: lista, condición de pago y nota si están disponibles.
+La consulta no asigna ni modifica condiciones. **Ficha del cliente** y, para Responsables,
+**Configurar lista y reglas** abren las fichas nativas. Una lista puede aplicarse a varios clientes.
+Los cambios de configuración no reescriben documentos anteriores. Al volver se conservan las
+selecciones y fecha elegida; consultar de nuevo revalida fuentes y permisos.
+
+En la matriz, **Ver regla** explica el precio guardado con fecha/cantidad de la página cargada;
+no incluye ediciones pendientes ni filtros todavía sin aplicar. El diálogo conserva esas ediciones.
+La matriz usa00:00UTC de la fecha elegida; la consulta independiente permite un instante exacto
+mostrado en la zona horaria de Odoo. La explicación siempre se recalcula con la configuración actual para esa fecha y cantidad; no es
+una copia histórica de las reglas. Se avisan cambios detectados por el token de la celda, que no
+compara por separado cada condición de todas las listas base.
+
+Código instalado técnicamente en aislado y demo; QA y aceptación pendientes. Tutorial específico planeado,
+sin video ni URL publicados. [Estado de entrega](../entregas/005-precio-condiciones.md).

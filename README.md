@@ -37,6 +37,12 @@ Quiero compartir esa experiencia, visibilizar mi aporte y seguir aprendiendo con
 
 [Portada del proyecto](docs/site/README.md) · [Mapa de documentación](docs/INDICE.md) · [Roadmap](docs/site/ROADMAP.md) · [Cómo contribuir](CONTRIBUTING.md)
 
+### Precio y condiciones · 0.1.8-dev
+
+Consulta F19 y explicación de reglas nativas disponibles en demo con Catálogo1.2.0.
+Conserva precios históricos, permisos de costo y cambios pendientes de la matriz; QA posterior.
+[Alcance y controles](docs/entregas/005-precio-condiciones.md) · [Entrega actual](docs/entregas/RELEASE.md).
+
 ## Una base simple para gestionar
 
 | Circuito | Gestión documental |

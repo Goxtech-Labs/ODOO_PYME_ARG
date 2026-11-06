@@ -1,7 +1,9 @@
 # Variantes ARG · incremento de Catálogo1.1.0
 
 2026-11-06. Código instalado técnicamente en aislado y demo, sin QA acreditada. Catálogo1.1.0/Stock1.0.6
-están en la [composición aislada](../../composition/environments/isolated-development.json); el [lock de la demo](../../composition/versions.lock.json) registra la misma versión instalada.
+constan en la [composición histórica0.1.7](../../composition/releases/0.1.7-dev.json). Los inventarios
+[aislado](../../composition/environments/isolated-development.json) y [demo](../../composition/versions.lock.json)
+pueden avanzar con incrementos posteriores sin alterar esta entrega histórica.
 
 Matriz por atributos opcionales con dos ejes elegibles y filtros restantes, páginas8×15 y búsqueda
 de valores30. Distingue exclusión, variante visible y variante no determinada, sin generar ni reactivar

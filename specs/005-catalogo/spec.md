@@ -69,6 +69,9 @@ Como pyme genérica necesito agregar variantes sólo cuando correspondan.
 - **FR-007**: Consultar variantes en una matriz paginada por atributos opcionales, con dos ejes elegibles y filtros para los restantes; conservar combinaciones y exclusiones nativas sin generar variantes al consultar.
 - **FR-008**: Distinguir combinación excluida, variante activa visible y variante no determinada; consultar cantidades nativas según permisos y abrir fichas, precios y preparación de etiquetas de las variantes elegidas.
 
+- **FR-009**: Consultar precio por cliente opcional, variante, cantidad, fecha/hora y lista; proponer condiciones nativas del cliente y permitir elegir otra lista explícitamente sin alterar su maestro ni documentos.
+- **FR-010**: Explicar la regla efectiva y la cadena de listas con moneda/unidad, cantidad mínima, vigencia, tipo de cálculo y ajustes nativos; respetar costos restringidos y ausencia de acceso/tasas, sin otro motor ni escrituras de negocio.
+
 ### Key Entities
 
 - **Producto**: SKU, nombre, tipo, unidad, categoría, atributos.
@@ -93,3 +96,14 @@ Como pyme genérica necesito agregar variantes sólo cuando correspondan.
 - Usar sólo datos de ejemplo; mantener servicios externos desactivados hasta su habilitación.
 - Clasificar esta entrega como núcleo; conservar alcance definido en el plan maestro.
 - Licencias adoptadas: AGPL-3.0 para código original y CC BY-SA 4.0 para documentación/recursos; conservar avisos y licencias de terceros según NOTICE.md.
+
+## Incremento F19 · consulta y condiciones
+
+La consulta propone hoy/ahora según presentación local, cliente opcional, producto y cantidad1; datos
+conocidos se proponen sin sobrescribir una lista elegida manualmente. La matriz conserva su criterio
+de fecha y sus precios pendientes: explicar una celda consulta el precio persistido, no el buffer.
+La explicación no aplica precios a documentos, no reescribe presupuestos ni asigna condiciones.
+La edición usa formularios nativos autorizados; una regla de lista puede afectar a todos sus usuarios.
+
+F19 de Catálogo1.2 instalado técnicamente en aislado y demo; controles en
+[entrega](../../docs/entregas/005-precio-condiciones.md). QA funcional/visual y aceptación pendientes.

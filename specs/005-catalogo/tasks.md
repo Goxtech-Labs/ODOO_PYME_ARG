@@ -63,3 +63,19 @@ Usar ejemplos, resolver controles técnicos y realizar QA funcional/visual en la
 Orden:T011→T012/T013→T014→T015→T016. Estas tareas amplían las históricas, no reabren ni acreditan de nuevo el catálogo previo. Parent016T008 sigue abierta hasta F19/condiciones; F17/F22 conservan etiquetas/importación ampliadas pendientes.
 
 2026-11-06:T011–T015 tienen fuente/registro/instalación aislada y documentación revisados, sin QA funcional/visual. T016 completada con paquete fijado, respaldo/restauración y promoción a demo; QA posterior pendiente. [Entrega](../../docs/entregas/005-variantes.md).
+
+## Incremento F19 FR-009/010
+
+- [x] T017 Implementar consulta/defaults/selectores/explicación y acciones autorizadas en addons/arg_pyme_catalogo/models/price_consultation.py, sin otras tarifas ni escrituras de negocio.
+- [x] T018 Crear acción OWL de carga mínima y diálogo de explicación desde matriz en static/src/price_consultation.* y views/price_consultation_views.xml; conservar buffers/contexto.
+- [x] T019 Documentar captura, reglas, permisos de costo, límites/edición, tutorial versionado y escenarios posteriores.
+- [x] T020 Revisión independiente, paquete fijado y controles técnicos de registro/instalación aislada; sin QA funcional.
+- [x] T021 Promover misma composición con respaldo/restauración y lectura posterior; publicar main/estado sin cerrar QA ni el resto del plan.
+
+T017→T018→T019→T020→T021. T008 del plan016 sólo cierra tras entregar F13 y F19 con evidencia.
+
+
+
+F19T017–T020 completadas: fuente, documentación, revisión independiente, paquete294 y upgrade
+aislado comprobados; promoción a demo completada con respaldo fresco restaurado y lectura posterior.
+T021 cierra la entrega técnica con su publicación en main. QA funcional/visual y aceptación pendientes.

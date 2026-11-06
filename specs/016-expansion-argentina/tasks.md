@@ -16,7 +16,7 @@ Estado inicial: plan de trabajo. Revisiones funcionales posteriores están en qu
 - [x] T005 [US1] Completar fechas por contexto sólo cuando falten en addons/arg_pyme_ventas/models/account_move.py y addons/arg_pyme_compras/models/account_move.py
 - [x] T006 [US1] Aplicar patrón de carga en addons/arg_pyme_compras/views/purchase_order_views.xml y account_move_views.xml
 - [x] T007 [US1] Aplicar patrón de carga en addons/arg_pyme_administracion/views/treasury_document_views.xml y addons/arg_pyme_stock/views/stock_picking_views.xml
-- [ ] T008 [US1] Completar matriz de variantes F13 y precios/condiciones F19 sin doble maestro en addons/arg_pyme_catalogo/models/pricelist_matrix.py y views/product_template_views.xml
+- [x] T008 [US1] Completar matriz de variantes F13 y precios/condiciones F19 sin doble maestro en addons/arg_pyme_catalogo/models/pricelist_matrix.py y views/product_template_views.xml
 - [ ] T009 [US1] Completar trazabilidad/reposición F14/F15 usando stock.lot y orderpoints nativos en addons/arg_pyme_stock/views/stock_matrix_views.xml y models/replenishment.py
 - [ ] T010 [US1] Completar etiquetas F17 y tarifas/importación F22 con vista previa y diferencias en addons/arg_pyme_catalogo/wizard/import_pricelist.py y report/labels.xml
 - [ ] T011 [US1] Completar riesgo F16 con fuentes monetarias nativas en addons/arg_pyme_terceros/models/res_partner.py y addons/arg_pyme_ventas/models/credit_risk.py
@@ -81,3 +81,7 @@ manteniendo fecha contable/vencimiento y condiciones visibles. Promoción a demo
 018T002/T004–T011/T013/T014 acreditan código instalado/promovido a demo, sin QA; T015 padre sigue abierta por tutoriales/ejemplos de circuito.
 [Promoción](../../docs/entregas/EXPANSION-PROMOCION.md).
 [Instalación aislada](../../docs/entregas/EXPANSION-INSTALACION-AISLADA.md).
+
+E1T008: F13 en0.1.7 y F19 de Catálogo1.2 instalados técnicamente en aislado/demo, sin doble maestro.
+[Entrega F19](../../docs/entregas/005-precio-condiciones.md). No acredita QA, impresión ni aceptación;
+F14–F17/F20–F22 y demás tareas conservan su alcance.
