@@ -1,5 +1,16 @@
 # Herramientas de preparación de ejemplo
 
+## Instalación controlada
+
+`install_release.py ARCHIVO SHA256 MODULO...` verifica el paquete y actualiza sólo los módulos
+indicados. Un fallo mantiene Odoo detenido; el operador conserva el punto de respaldo y resuelve
+el error antes de reabrir. No se restaura automáticamente una base anterior.
+`--keep-stopped` mantiene el servicio detenido también tras una instalación correcta, para leer
+registro/versiones/vistas por shell antes del arranque controlado. Sin esa opción se inicia sólo
+después de terminar correctamente. Ninguno de esos controles acredita QA funcional o visual.
+
+## Cargadores optativos
+
 seed_demo.py se ejecuta dentro de `odoo shell`, nunca como addon de negocio ni contra otra base.
 Requiere una base nueva `arg_demo`, una sola compañía y `l10n_ar` ya instalado. Rechaza documentos de negocio existentes, incluidos archivados. Fija la compañía principal antes de escribir propiedades o costos.
 Requiere `ARG_DEMO_PASSWORD` (16 caracteres o más), `ARG_DEMO_LOGIN`, `ARG_DEMO_BASE_URL` y `ARG_DEMO_ACK_EXAMPLES=1`, provistos por el operador desde un archivo protegido. La URL debe ser el origen HTTP/HTTPS de su propia instancia. No se distribuyen credenciales ni dominio obligatorios.
