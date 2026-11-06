@@ -1,5 +1,11 @@
 # Cambios
 
+## Carga documental de Compras — 2026-11-06
+
+- Compras20.0.1.0.6 en fuente: fecha del proveedor antes de tercero/referencia, condiciones contables
+  diferenciadas y todos los campos nativos conservados. Sin instalación ni QA acreditadas.
+- [Estado de la entrega](docs/entregas/016-compras-carga-basica.md).
+
 ## Desarrollo de especializaciones — 2026-11-05
 
 - Reparaciones20.0.1.2.0 en fuente: corrección trazable de datos, nuevas visitas con REP independiente

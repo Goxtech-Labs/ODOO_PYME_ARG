@@ -75,3 +75,7 @@ esta entrega. QA/aceptación posteriores. El objetivo de implementación complet
 Incremento siguiente:017 tiene identidad y registro de borradores instalados técnicamente en aislado,
 sin efectos financieros. T014 sigue abierta hasta completar REC/OPA y cartera conforme al contrato.
 Ver [entrega de registro](../../docs/entregas/017-cartera-valores.md).
+
+E1T006: fuente Compras20.0.1.0.6 prepara el orden de FRC/NCP sobre la ficha contable compartida,
+manteniendo fecha contable/vencimiento y condiciones visibles. Instalación/registro aún pendientes;
+no marcar esta tarea completa por locators válidos contra fuente nativa.

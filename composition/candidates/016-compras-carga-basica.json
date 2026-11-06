@@ -1,0 +1,26 @@
+{
+  "recorded_at": "2026-11-06",
+  "environment": "development-source",
+  "target_environment": "isolated-development",
+  "edition": "Community",
+  "source_base_commit": "89c4837456ce1bfaa8e4704ca5d1da72d99d8301",
+  "versions": {
+    "arg_pyme_compras": "20.0.1.0.6",
+    "arg_pyme_reparaciones": "20.0.1.2.0",
+    "arg_pyme_valores": "20.0.1.2.0",
+    "arg_pyme_administracion": "20.0.1.1.4"
+  },
+  "installed": false,
+  "production_deployed": false,
+  "functional_qa": "not executed",
+  "visual_qa": "not executed",
+  "server_combined_view_verified": false,
+  "pending_installation": "Assigned SSH authentication unanswered; no server mutation",
+  "previous_isolated_candidate_sha256": "b0fb6640793dca1971e17c10c62569ee447f4ae5b6ae3ce1a0f59cbe283d50c8",
+  "scope": "Shared supplier invoice date, partner and external reference layout; native accounting fields, modifiers and controller retained; supplier receipts share the layout",
+  "artifact_sha256": "0adad0325df983bee917325f334f452a066555b272dfc71428cb30fd3a5f2f76",
+  "package_files": 285,
+  "upstream_view_commit": "bb238af6f0ddd70d7ff91521c6104472583661d1",
+  "upstream_view_sha256": "9cf90efe8b47c57158e2b4d9dec4914f331d3ee09e3ed0f13242aa2e644c2494",
+  "runtime_upstream_equality_verified": false
+}

@@ -1,7 +1,7 @@
 {
     'name': 'Compras ARG',
     'summary': 'Pedidos al proveedor y facturas recibidas con pendientes separados',
-    'version': '20.0.1.0.5',
+    'version': '20.0.1.0.6',
     'license': 'AGPL-3',
     'author': 'Gonzalo Sarubilo · GoxtechLabs',
     'website': 'https://github.com/Goxtech-Labs/ODOO_PYME_ARG',

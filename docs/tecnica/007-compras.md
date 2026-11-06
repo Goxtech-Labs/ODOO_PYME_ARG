@@ -3,9 +3,25 @@
 Compatibilidad: Odoo 20 Community. La versión de cada addon está fijada en la
 [composición de esta entrega](../../composition/versions.lock.json); consultar sus límites y estado de QA.
 
-`arg_pyme_compras` 20.0.1.0.3 depende de Base/UI/Terceros/Catálogo/Documentos y purchase, sin dependencia de
+`arg_pyme_compras` depende de Base/UI/Terceros/Catálogo/Documentos y purchase, sin dependencia de
 Ventas ni Stock. PPC extiende purchase.order; FRC/NCP extienden account.move. No hay otro libro de cantidades,
 contabilidad, residual o existencias. Los modelos nuevos son wizard transitorio y evidencia de preparación.
+
+Fuente20.0.1.0.6: disposición de carga de comprobantes de proveedor pendiente de instalación.
+La composición instalada continúa fijada en el lock; no se acredita instalación por este manual.
+
+## Disposición de carga20.0.1.0.6
+
+`invoice_purchase_arg` mueve etiqueta/campo nativos de fecha del proveedor desde header_right_group
+al inicio de header_left_group; preserva atributos required/readonly/invisible/options y widget.
+La referencia externa se denomina N.º del comprobante del proveedor. Un separador condicional distingue
+condiciones y contabilidad en la columna derecha. Ningún campo se elimina ni se duplica; no cambia
+el controlador JS, defaults, estados, publicación o fuentes contables. Factura/nota de venta y asientos
+mantienen sus fechas en el bloque original. El tipo nativo in_receipt comparte el orden de proveedor.
+
+Se usa la vista compartida para todos sus accesos; no agrega una vista primaria distinta sólo al menú
+ni intercepta acciones de navegación. Comprobar herencia contra Community fijado no demuestra la
+vista combinada de una instalación con extensiones adicionales. Instalación y QA visual siguen separados.
 
 ## Estados y preparación
 

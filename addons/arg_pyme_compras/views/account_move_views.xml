@@ -3,6 +3,21 @@
         <field name="name">account.move.purchase.arg</field><field name="model">account.move</field>
         <field name="inherit_id" ref="account.view_move_form"/>
         <field name="arch" type="xml">
+            <!-- Move the existing supplier date nodes, preserving native modifiers/widgets. -->
+            <xpath expr="//group[@id='header_left_group']/label[@for='partner_id'][1]" position="before">
+                <xpath expr="//group[@id='header_right_group']/field[@name='invoice_date' and @required]/preceding-sibling::*[1][self::label[@for='invoice_date']]" position="move"/>
+                <xpath expr="//group[@id='header_right_group']/field[@name='invoice_date' and @required]" position="move"/>
+            </xpath>
+            <xpath expr="//group[@id='header_left_group']/label[@for='ref']" position="attributes">
+                <attribute name="string">N.º del comprobante del proveedor</attribute>
+            </xpath>
+            <xpath expr="//group[@id='header_left_group']/field[@name='ref' and @nolabel='1']" position="attributes">
+                <attribute name="string">N.º del comprobante del proveedor</attribute>
+                <attribute name="placeholder">Número que figura en el comprobante</attribute>
+            </xpath>
+            <xpath expr="//group[@id='header_right_group']/field[@name='date']" position="before">
+                <separator string="Condiciones y contabilidad" colspan="2" invisible="move_type not in ['in_invoice','in_refund','in_receipt']"/>
+            </xpath>
             <xpath expr="//sheet" position="inside"><widget name="arg_document_header" invisible="move_type not in ['in_invoice','in_refund']"/></xpath>
             <xpath expr="//header" position="inside">
                 <button name="action_arg_print" type="object" string="Documento ARG" invisible="move_type not in ['in_invoice','in_refund']"/>

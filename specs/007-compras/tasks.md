@@ -64,3 +64,11 @@ Puente físico y Administración instalados. Tareas completas como código/entre
 - [x] T013 Evitar atribuir deuda/dinero de facturas compartidas a un PPC; conservar consulta de comprobantes y razón de alcance indeterminado. (FR-003 FR-004)
 
 Controles de instalación/arranque en docs/entregas/CIERRE-DE-CONTRATOS.md; QA y aceptación posteriores.
+
+## Ampliación de T006 · FR-007 · 2026-11-06
+
+`views/account_move_views.xml` prepara en20.0.1.0.6 el orden de carga de FRC/NCP en la ficha nativa
+compartida. Conserva todas las fechas/condiciones y no crea una ruta de navegación paralela.
+T006 histórica corresponde a la entrega anterior; esta ampliación y parent016T006 no se cierran
+hasta comprobar la instalación/registro de la nueva vista. Manual/contrato/escenarios actualizados;
+QA visual, teclado, estados y aceptación posteriores pendientes.

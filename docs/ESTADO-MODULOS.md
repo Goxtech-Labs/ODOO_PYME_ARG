@@ -9,7 +9,7 @@
 | 004-terceros | Preparados | Desarrollado e instalado demo | Pendiente |
 | 005-catalogo | Preparados | Desarrollado e instalado demo | Pendiente |
 | 006-ventas | Preparados | Comercial, puente Stock y dinero aplicado desplegados demo | Pendiente |
-| 007-compras | Preparados | Comercial, puente Stock y dinero aplicado desplegados demo | Pendiente |
+| 007-compras | Preparados | Comercial, puente Stock y dinero aplicado desplegados demo; ajuste de carga1.0.6 sólo en fuente | Pendiente |
 | 008-stock | Preparados | Desarrollado e instalado demo, con ambos puentes | Pendiente |
 | 009-administracion | Preparados | Cuentas, REC/OPA, aplicaciones y caja instalados demo | Pendiente |
 | 010-informes | Preparados | Desarrollado e instalado demo | Pendiente |

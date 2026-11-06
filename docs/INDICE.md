@@ -59,6 +59,7 @@ No bloquean la programación del núcleo: la UI ofrece manual y estado no config
 Guías de Ventas: [usuario](usuario/006-ventas.md), [técnica](tecnica/006-ventas.md), [entrega parcial](entregas/006-ventas.md).
 
 Guías de Compras: [usuario](usuario/007-compras.md), [técnica](tecnica/007-compras.md), [entrega parcial](entregas/007-compras.md).
+Disposición de carga de Compras1.0.6: [fuente preparada, no instalada](entregas/016-compras-carga-basica.md).
 
 Guías Stock: [usuario](usuario/008-stock.md), [técnica](tecnica/008-stock.md), [entrega](entregas/008-stock.md).
 

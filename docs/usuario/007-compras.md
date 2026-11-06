@@ -3,11 +3,12 @@
 Compatibilidad: Odoo 20 Community. La versión de cada addon está fijada en la
 [composición de esta entrega](../../composition/versions.lock.json); consultar sus límites y estado de QA.
 
-Addon 20.0.1.0.3. Circuito comercial, puente físico y dinero aplicado instalados; QA funcional y aceptación pendientes.
+Circuito comercial, puente físico y dinero aplicado instalados; QA funcional y aceptación pendientes.
+El ajuste de carga20.0.1.0.6 está preparado en fuente, pendiente de instalación.
 
 ## Pedido al proveedor
 
-En Gestión ARG → Compras → Pedidos al proveedor, elegí proveedor, fecha y productos con cantidad y precio.
+En Gestión ARG → Compras → Pedidos al proveedor, revisá la fecha propuesta, elegí proveedor y productos con cantidad y precio.
 Las condiciones conocidas del proveedor se proponen al crear. Moneda, impuestos y condición de pago se
 pueden revisar antes de confirmar. Guardar asigna `PPC-000001`; la referencia del proveedor se conserva aparte.
 Confirmar requiere responsable ARG. Si la empresa configura doble aprobación, el pedido queda Por aprobar
@@ -27,6 +28,14 @@ Si existe otra factura borrador vinculada, resolvela antes de preparar una nueva
 En la factura completá la fecha y el **número original del proveedor** antes de publicar. El código FRC interno
 no reemplaza ese número. Publicar requiere responsable y permisos contables nativos. También podés registrar
 una factura directa desde Facturas y notas recibidas, indicando que no procede de un pedido.
+
+La disposición preparada20.0.1.0.6 presenta **fecha del comprobante → proveedor → número del
+comprobante → artículos/conceptos**. La fecha nueva propone hoy; revisala si el documento recibido
+tiene otra. Los datos tomados del pedido no se cargan de nuevo. FRC/NCP son códigos internos automáticos.
+A la derecha quedan condiciones y contabilidad, conservando fecha contable, vencimiento, moneda,
+diario y demás controles nativos. No se completan todas las fechas con hoy: cada una tiene su significado.
+La misma ficha se abre desde menú, pedido o enlaces; incluye los recibos de proveedor nativos que
+usen esa ficha, sin asignarles un nuevo código ARG. Este ajuste todavía no está instalado ni revisado visualmente.
 
 Una factura vinculada no puede consumir cantidades de otro producto, usar otra unidad, superar el pedido o
 lo recibido cuando así lo exige la política del producto. Los borradores no cuentan como facturación cumplida.

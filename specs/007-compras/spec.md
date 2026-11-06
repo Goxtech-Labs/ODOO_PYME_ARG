@@ -67,6 +67,7 @@ Como operador necesito devolver mercadería o registrar una nota vinculada sin b
 - **FR-004**: Separar recepción física, registro de deuda y pago mediante Administración.
 - **FR-005**: Registrar devoluciones y ajustes mediante documentos inversos vinculados.
 - **FR-006**: Conservar moneda, impuestos, unidades y referencia original del proveedor.
+- **FR-007**: Mostrar fecha propuesta del comprobante, proveedor y referencia externa antes del detalle; conservar fecha contable, vencimiento y condiciones como datos distintos. Reutilizar datos conocidos sin exigir otra carga al abrir una factura preparada o vinculada.
 
 ### Key Entities
 

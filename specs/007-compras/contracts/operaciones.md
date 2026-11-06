@@ -40,4 +40,20 @@ Aplicar [contrato documental común](../../001-pyme-argentina/contracts/document
 No activar servicios externos por abrir una pantalla ni enviar datos sin acción de usuario autorizada.
 Conservar ayuda/tutoriales por módulo y soporte general administrado centralmente.
 
+## Carga cotidiana de FRC/NCP · 2026-11-06
+
+Fecha del comprobante propuesta → proveedor → número original del proveedor → artículos/conceptos.
+La identificación FRC/NCP es interna y automática; no reemplaza la referencia externa. Fecha contable
+y vencimiento conservan sus reglas y valores. No solicitar otra vez datos trasladados desde PPC.
+El formulario mantiene sus widgets, permisos, condiciones, avisos, errores y campos nativos.
+La fecha conserva las restricciones del estado publicado. Guardar no publica ni registra pago/stock.
+
+La disposición se hereda de la ficha contable compartida, moviendo únicamente la etiqueta y el
+campo de fecha visibles para comprobantes de proveedor. Se aplica también al recibo de proveedor
+nativo cuando usa esa misma ficha; no crea un código ARG para ese tipo. Todas las rutas que abren
+la ficha reciben el mismo orden. Las fechas de facturas de venta y asientos conservan su bloque.
+La carga ordinaria se concentra en la columna principal; condiciones y contabilidad permanecen
+visibles a la derecha cuando corresponden, evitando ocultar requisitos o errores dentro de un plegado.
+No se sustituye el controlador contable ni se crean nuevos campos de fecha o fuentes de deuda.
+
 Contrato de estados y pendientes: [v1](../../../docs/tecnica/ESTADOS-Y-PENDIENTES.md). Aplicar pendiente/parcial/completo por eje y conservar cantidades/importes explicables.

@@ -72,4 +72,14 @@ Actualizar manual, tutoriales por versión y estado de entrega. Realizar QA func
 No incorporar motores, servicios ni tablas paralelas para funciones ya provistas por la fuente nativa.
 Justificar toda extensión adicional mediante una decisión documentada en esta feature.
 
+## Incremento de carga básica · 2026-11-06
+
+Compras20.0.1.0.6: extender `invoice_purchase_arg` con `position="move"` sobre los nodos de fecha
+del proveedor; conservar todos sus atributos y el formulario/controlador nativos. No mantener una
+segunda vista primaria que diverja entre menú, preparación parcial, enlaces y acceso avanzado.
+Referencia externa explícita y separador de condiciones visible sólo para comprobantes de proveedor.
+Sin cambios ORM, defaults ni políticas de publicación. Comprobar locators y conservación de nodos
+contra la fuente Community fijada; instalación/vista combinada del servidor y QA posteriores separados.
+La herencia de movimiento se documenta en [Odoo20](https://www.odoo.com/documentation/20.0/developer/reference/user_interface/view_records.html#inheritance-position).
+
 Propiedad de stock: addon puente arg_pyme_compras_stock según docs/tecnica/DECISIONES-ODOO20.md. Las rutas de recepción/entrega propuestas aquí se ubican en ese puente; el addon principal no hereda modelos stock ausentes.
