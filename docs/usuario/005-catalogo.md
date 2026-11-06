@@ -15,10 +15,10 @@ El margen mostrado corresponde al precio guardado de consulta, después de conve
 Si otro usuario cambia catálogo o lista, se rechaza el lote completo: revisar, descartar y recargar antes de intentar de nuevo. No se guarda parcialmente ni se modifica stock.
 El responsable puede aplicar precios; el operador consulta. Guía escrita disponible; tutorial YouTube pendiente de publicación.
 
-## Matriz de variantes · incremento en desarrollo
+## Matriz de variantes · disponible en demo
 
-Catálogo1.1.0 y adaptador Stock1.0.6 están instalados técnicamente en aislado; promoción a demo y QA
-pendientes. El lock de la demo conserva la entrega pública previa.
+Catálogo1.1.0 y adaptador Stock1.0.6 están instalados técnicamente en aislado y demo; QA pendiente.
+El lock de la demo registra esta entrega.
 
 Desde la ficha elegí **Variantes**, o Stock → Variantes. Buscá y elegí el producto. Los atributos son
 los del catálogo; talle/color son ejemplos opcionales. La consulta propone hasta dos ejes y muestra
@@ -42,3 +42,16 @@ paginar y se puede revisar/quitar en su sección. Cambiar producto pide confirma
 abrir etiquetas se revalidan compañía, permisos, actividad y configuración. El asistente nativo permite
 revisar formato, copias y precio antes de imprimir; abrirlo no imprime. Los servicios conservan la
 restricción nativa de etiquetas. Modelos ampliados/importación F17/F22 siguen pendientes.
+
+### Artículo de ejemplo
+
+La demo incluye **EJEMPLO · Artículo con variantes ARG**, con talle S/M, color Celeste/Blanco y
+terminación Mate/Brillante: ocho variantes del mismo catálogo nativo. La terminación se muestra
+como filtro cuando talle/color ocupan los ejes. El precio base ficticio es10000 en la moneda de la
+compañía; no se cargaron existencias, pedidos, facturas ni pagos por agregar este ejemplo.
+
+El cargador optativo [seed_variants_demo.py](../../ops/seed_variants_demo.py) requiere arg_demo,
+compañía explícita marcada como ejemplo y confirmación del administrador. Conserva identidades
+y no reinicia datos editados ni reactiva registros. La carga inicial se ejecutó una vez en cada
+entorno; un segundo replay no fue ejecutado como prueba. Para retirar ejemplos, usar la
+[guía de archivo](../ejemplos/RETIRAR-EJEMPLOS.md).

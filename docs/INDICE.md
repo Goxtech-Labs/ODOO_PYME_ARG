@@ -102,5 +102,5 @@ de REP borrador y catálogo ficticio sólo en aislado. La promoción del código
 y Compras1.0.6 instalados. Esta lectura posterior reemplaza las referencias a promoción pendiente
 de los incrementos anteriores; QA y aceptación continúan pendientes.
 
-[Variantes ARG](entregas/005-variantes.md): Catálogo1.1 y Stock1.0.6 instalados en aislado. Ejes
-opcionales, filtros paginados, cantidades según permisos y acciones nativas. Promoción/QA pendientes.
+[Variantes ARG](entregas/005-variantes.md): Catálogo1.1 y Stock1.0.6 instalados en aislado y demo. Ejes
+opcionales, filtros paginados, cantidades según permisos y acciones nativas. QA pendiente.

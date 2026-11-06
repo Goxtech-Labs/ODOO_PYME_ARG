@@ -4,7 +4,7 @@
 
 **Created**: 2026-11-01
 
-**Status**: Base20.0.1.0.5 instalada; ampliación1.1 de variantes instalada técnicamente en aislado; promoción y QA pendientes.
+**Status**: Base20.0.1.0.5 instalada; ampliación1.1 de variantes instalada técnicamente en aislado y demo; QA pendiente.
 
 **Input**: Gestionar productos y servicios genéricos, listas de precios y atributos opcionales mediante fichas y matrices simples.
 

@@ -1,7 +1,7 @@
 # Tasks: Catálogo y precios ARG
 
 **Input**: spec.md, plan.md, research.md, data-model.md y contracts/.
-**Estado**: Catálogo previo instalado; incremento de variantes instalado técnicamente en aislado; promoción y QA pendientes.
+**Estado**: Catálogo previo instalado; incremento de variantes instalado técnicamente en aislado y demo; QA pendiente.
 **Tests**: Escenarios preparados para QA posterior; controles técnicos durante instalación.
 
 ## Phase 1: Setup
@@ -58,8 +58,8 @@ Usar ejemplos, resolver controles técnicos y realizar QA funcional/visual en la
 - [x] T013 Agregar adaptador opcional de cantidades nativas en addons/arg_pyme_stock/models/variant_matrix.py; ausencia de permiso es no determinado, nunca cero inventado.
 - [x] T014 Enlazar precios existentes por plantilla y etiquetas nativas con revalidación de selección, sin duplicar maestros ni imprimir automáticamente.
 - [x] T015 Documentar alcance, límites y escenarios pendientes; completar controles estáticos y revisión independiente del delta.
-- [ ] T016 Fijar paquete e instalar en aislado y demo con respaldo recuperable; registrar versión/lectura posterior y QA posterior pendiente.
+- [x] T016 Fijar paquete e instalar en aislado y demo con respaldo recuperable; registrar versión/lectura posterior y QA posterior pendiente.
 
 Orden:T011→T012/T013→T014→T015→T016. Estas tareas amplían las históricas, no reabren ni acreditan de nuevo el catálogo previo. Parent016T008 sigue abierta hasta F19/condiciones; F17/F22 conservan etiquetas/importación ampliadas pendientes.
 
-2026-11-06:T011–T015 tienen fuente/registro/instalación aislada y documentación revisados, sin QA funcional/visual. T016 conserva promoción a demo pendiente. [Entrega](../../docs/entregas/005-variantes.md).
+2026-11-06:T011–T015 tienen fuente/registro/instalación aislada y documentación revisados, sin QA funcional/visual. T016 completada con paquete fijado, respaldo/restauración y promoción a demo; QA posterior pendiente. [Entrega](../../docs/entregas/005-variantes.md).

@@ -68,7 +68,8 @@ personalizadas, y no restablece borradores que el usuario ya utilizó. Aún no e
 y un REP en borrador, con equipo descriptivo y síntoma; no recibe el equipo ni registra diagnóstico,
 movimiento, factura, pago o mensaje. No cambia configuración/cron/correo ni restablece un parte ya
 utilizado. Referencias arg_demo.repairs_* se conservan; modelo/compañía inconsistentes detienen la
-carga. Está preparado, no ejecutado; no equivale a QA de reparaciones.
+carga. La carga inicial se ejecutó en aislado el2026-11-06; no se ejecutó un recorrido
+de reparaciones ni un replay, y no se copiaron sus documentos a la demo compartida.
 
 El empaquetador valida operaciones canónicas de ir.access.csv de Odoo20, además de manifest,
 AST/XML/JS y secretos. Ese control evita combinaciones como rc; no evalúa permisos en un runtime.
@@ -78,4 +79,18 @@ después de instalar Reparaciones20.0.1.1.0 o20.0.1.2.0. Requiere arg_demo, admi
 `ARG_REPAIR_WORK_ACK_EXAMPLES=1` y `ARG_REPAIR_WORK_COMPANY_ID`. Conserva maestros existentes,
 rechaza referencias incompatibles y no crea stock, PRE/PED, PTM, facturas, pagos ni mensajes.
 No declara existencia disponible: para usar un repuesto el operador registra una entrada o conteo
-de ejemplo por su circuito normal. No se ejecutó; no acredita un recorrido funcional.
+de ejemplo por su circuito normal. El catálogo se cargó en aislado el2026-11-06; esa carga
+no acredita un recorrido funcional ni un replay.
+
+## Catálogo optativo de variantes
+
+`seed_variants_demo.py` se ejecuta dentro de Odoo shell, con el usuario/configuración del servicio,
+en `arg_demo` y Catálogo20.0.1.1.0. Seleccionar una compañía permitida con modo Ejemplo y definir
+`ARG_VARIANTS_COMPANY_ID` con su ID, además de `ARG_VARIANTS_ACK_EXAMPLES=1`. El operador debe
+ser administrador ARG (grupo `arg_pyme_base.group_admin`). Tomar snapshot/respaldo correspondiente antes de cargar.
+
+El script crea sólo sus maestros identificados por XMLID y compañía: tres atributos, seis valores,
+un artículo EJEMPLO y sus ocho variantes nativas. No carga cantidades ni documentos. Conserva
+identidades existentes y sus modificaciones; no reinicia precios, códigos o estados de archivo.
+El resultado `ARG_VARIANTS_EXAMPLES=` identifica creados, plantilla y variantes activas; no prueba
+el funcionamiento de la matriz ni un replay. [Manual](../docs/usuario/005-catalogo.md).

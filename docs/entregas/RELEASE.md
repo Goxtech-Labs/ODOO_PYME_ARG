@@ -1,24 +1,25 @@
-# Odoo Pymes ARG — 0.1.6-dev
+# Odoo Pymes ARG — 0.1.7-dev
 
-Expansión desplegada en la demo el 2026-11-06: Valores1.2, Reparaciones1.2,
-Administración1.1.4 y Compras1.0.6. [Alcance y controles](EXPANSION-PROMOCION.md).
+Matriz de variantes ARG desplegada en demo el2026-11-06: Catálogo1.1.0 y Stock1.0.6.
+Atributos opcionales con ejes/fijos elegibles, páginas8×15 y búsqueda de valores30. Consulta variantes
+visibles y exclusiones nativas sin generar combinaciones; cantidades según Stock/permisos y compañía.
 
-103 módulos:14 ARG y89 nativos/dependencias;285 archivos propios del paquete SHA256
-`0adad0325df983bee917325f334f452a066555b272dfc71428cb30fd3a5f2f76`.
-[Composición instalada](../../composition/versions.lock.json). Se conservaron los módulos nativos,
-incluido POS, y los conteos de documentos, metadatos seleccionados de usuarios/compañía y configuración de cron/correo.
+Fichas, precios por producto y preparación de etiquetas usan acciones/fuentes nativas. La selección
+de hasta200 variantes se conserva al paginar/filtrar y se revalida al preparar etiquetas; abrir el
+asistente no imprime. Un artículo EJEMPLO con ocho variantes permite empezar a explorar; no se
+cargaron existencias ni documentos de negocio por ese catálogo. [Manual y controles](005-variantes.md).
 
-REC/OPA con cheques en papel, reservas y operaciones descritas en sus contratos están instalados.
-La cartera ampliada —ECHEQ, negociación, parciales y demás pendientes017— continúa en desarrollo.
-Reparaciones incluye recepción, diagnóstico, PRE/PED, autorización, repuestos, PTM, correcciones,
-nuevas visitas y reporte; Compras incorpora fecha de proveedor antes de tercero y referencia.
+103 módulos:14 ARG y89 nativos/dependencias, incluido POS;290 fuentes propias coincidentes con el
+paquete SHA256 `4bd58a7bb465593bc3b8cba1a4f4a9db2b30ef3ced219dc97bdac207b1fbd378`.
+[Composición instalada](../../composition/versions.lock.json). Código de addons en
+[cf3bc95](https://github.com/Goxtech-Labs/ODOO_PYME_ARG/commit/cf3bc95cea03c09ce20af8e8aed4098ea4002479).
 
-Respaldo completo fresco y snapshot; restauración y registro/instalación en copia sin red comprobados
-antes de actualizar la demo. Servicio y formulario de acceso HTTP200. No se ejecutaron recorridos de
-negocio, QA financiera/visual, renderizado PDF ni operaciones externas. Los ejemplos nuevos de
-Reparaciones permanecen en aislado; no se copiaron transacciones de esa base.
+Respaldo fresco/snapshot y recuperación en nueva copia aislada comprobados, después actualización
+de Catálogo/Stock en esa copia y demo. Nativos/versiones, conteos operativos y metadatos seleccionados
+conservados. Registro/vista/adaptador, servicios y formulario público HTTP200 comprobados.
+No es una instalación vacía de todo Odoo ni una prueba del funcionamiento de la matriz.
 
-QA, tutoriales reales y aceptación pendientes. Este incremento no completa las22 capacidades,
-E1, specs017–024 ni Integraciones. [Entrega anterior](RELEASE-0.1.5-dev.md).
-
-Originales AGPL-3.0-only/CC BY-SA4.0; atribuciones de Odoo y terceros conservadas.
+QA funcional/visual, impresión/PDF y aceptación pendientes. No se ejecutaron recorridos financieros,
+emisión fiscal ni mensajes. Las ampliaciones F19/F17/F22 y las demás22 capacidades/E1/017–024 e
+Integraciones continúan según el plan, sin cerrar el objetivo general.
+[Entrega anterior](RELEASE-0.1.6-dev.md). Licencias/atribuciones conservadas.

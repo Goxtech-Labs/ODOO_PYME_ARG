@@ -1,7 +1,7 @@
 {
   "recorded_at": "2026-11-06",
   "environment": "isolated-development",
-  "source_commit": null,
+  "source_commit": "cf3bc95cea03c09ce20af8e8aed4098ea4002479",
   "edition": "Community",
   "installed": true,
   "production_deployed": false,
@@ -46,6 +46,6 @@
   "variant_registry_registered": true,
   "variant_form_postprocessed": true,
   "variant_stock_adapter_registered": true,
-  "source_commit_pending_publication": true,
+  "source_commit_pending_publication": false,
   "source_base_commit": "020bf3cea2682907947374f5d1d5fa2df5c44d6a"
 }

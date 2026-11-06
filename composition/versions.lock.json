@@ -135,34 +135,39 @@
   "arg_addon_versions": {
     "arg_pyme_administracion": "20.0.1.1.4",
     "arg_pyme_base": "20.0.1.0.5",
-    "arg_pyme_catalogo": "20.0.1.0.5",
+    "arg_pyme_catalogo": "20.0.1.1.0",
     "arg_pyme_compras": "20.0.1.0.6",
     "arg_pyme_compras_stock": "20.0.1.0.2",
     "arg_pyme_documentos": "20.0.1.0.6",
     "arg_pyme_informes": "20.0.1.0.2",
     "arg_pyme_reparaciones": "20.0.1.2.0",
-    "arg_pyme_stock": "20.0.1.0.5",
+    "arg_pyme_stock": "20.0.1.0.6",
     "arg_pyme_terceros": "20.0.1.0.0",
     "arg_pyme_ui": "20.0.1.1.5",
     "arg_pyme_valores": "20.0.1.2.0",
     "arg_pyme_ventas": "20.0.1.0.6",
     "arg_pyme_ventas_stock": "20.0.1.0.2"
   },
-  "arg_release_sha256": "0adad0325df983bee917325f334f452a066555b272dfc71428cb30fd3a5f2f76",
-  "functional_qa": "Partial historical sales/UI only; expansion technically installed, functional and visual QA and owner acceptance pending",
+  "arg_release_sha256": "4bd58a7bb465593bc3b8cba1a4f4a9db2b30ef3ced219dc97bdac207b1fbd378",
+  "functional_qa": "Historical sales/UI only; native variant matrix and stock adapter technically installed; functional/visual QA and owner acceptance pending",
   "source_control": "Git history records publication and integration revisions; installed addons are identified by arg_release_sha256.",
   "technical_installation": {
     "recorded_at": "2026-11-06",
-    "source_files": 285,
+    "source_files": 290,
     "modules": 103,
     "native_modules": 89,
     "fresh_backup_restored_in_isolated_copy": true,
-    "clean_install_new_addons_and_upgrade_existing": true,
     "http_login": 200,
     "existing_native_modules_preserved": true,
     "existing_document_counts_preserved": true,
     "selected_user_company_metadata_preserved": true,
     "cron_mail_configuration_preserved": true,
-    "release_document": "docs/entregas/EXPANSION-PROMOCION.md"
-  }
+    "release_document": "docs/entregas/005-variantes.md",
+    "upgrade_existing_addons_on_fresh_recovered_copy": true,
+    "variant_registry_registered": true,
+    "variant_form_postprocessed": true,
+    "variant_stock_adapter_registered": true,
+    "fresh_empty_database_installation": "not_verified_for_this_increment"
+  },
+  "addon_source_commit": "cf3bc95cea03c09ce20af8e8aed4098ea4002479"
 }

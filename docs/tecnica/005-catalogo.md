@@ -3,7 +3,7 @@
 Compatibilidad: Odoo 20 Community. La versión de cada addon está fijada en la
 [composición de esta entrega](../../composition/versions.lock.json); consultar sus límites y estado de QA.
 
-arg_pyme_catalogo 20.0.1.0.5 depende de Base/UI/product. Productos, categorías, atributos, listas y reglas son modelos nativos.
+arg_pyme_catalogo 20.0.1.1.0 depende de Base/UI/product. Productos, categorías, atributos, listas y reglas son modelos nativos.
 Matriz arg.pyme.pricelist.matrix abstracta con options/page/apply: ACL y compañía efectivas en servidor, sin sudo de negocio. Paginación30, cinco columnas, metadata hasta200listas/categorías. No se envían imágenes ni catálogo completo.
 Odoo20 utiliza compute_price fixed/discount/markup. Se llama _get_product_price_rule con unidad/cantidad/fecha; sólo se editan reglas fijas de variante sin fechas, unidad especial o cantidad mínima. No se eliminan ni sustituyen reglas avanzadas.
 
@@ -18,7 +18,7 @@ OWL4 t-model requiere señales con set; la matriz usa eventos explícitos sobre 
 
 Versión20.0.1.0.3: valida tasas de reglas/listas base y extras efectivos de reglas fijas. Sin tasa efectiva muestra Sin cotización efectiva y no admite edición de ese resultado; margen desconocido no se inventa.
 
-## Incremento1.1.0 de variantes · instalado en aislado
+## Incremento1.1.0 de variantes · instalado en aislado y demo
 
 `arg.pyme.variant.matrix` es un AbstractModel, sin otra tabla de productos/cantidades. Sus métodos
 públicos comprueban usuario interno/rol Catálogo y ámbito actual de compañía, limpiando filtros
@@ -39,3 +39,5 @@ Cinco archivos nativos de product inspeccionados coinciden SHA256 con la instala
 el2026-11-06; no se afirma igualdad de todo el core. La interfaz usa OWL de esa composición y
 Lucide local de UI ARG, con sus licencias conservadas. AST/XML/JS son controles estáticos; el registro,
 assets, instalación y QA deben constar por separado. [Contrato](../../specs/005-catalogo/contracts/matriz-variantes.md).
+
+[Entrega técnica y recuperación comprobada](../entregas/005-variantes.md). La instalación desde una base vacía y la revisión funcional/visual de este incremento no se acreditan por estos controles de upgrade.
