@@ -5,3 +5,10 @@ repair_event_operator,Historial de partes ARG,arg.pyme.repair.event,arg_pyme_rep
 repair_event_factory,Creación de constancias de partes ARG,arg.pyme.repair.event,arg_pyme_reparaciones.group_repair,c,
 repair_event_company,Historial de partes por compañía ARG,arg.pyme.repair.event,,crud,"[('company_id','in',company_ids)]"
 repair_return_operator,Devolución sin reparación ARG,arg.pyme.repair.return.wizard,arg_pyme_reparaciones.group_repair,crud,
+repair_authorization_read,Autorizaciones de reparación ARG,arg.pyme.repair.authorization,arg_pyme_reparaciones.group_repair,r,
+repair_authorization_create,Fábrica de autorización ARG,arg.pyme.repair.authorization,arg_pyme_reparaciones.group_repair,c,
+repair_authorization_company,Autorizaciones por compañía ARG,arg.pyme.repair.authorization,,crud,"[('company_id','in',company_ids)]"
+repair_worklog,Partes de trabajo ARG,arg.pyme.repair.intervention,arg_pyme_reparaciones.group_repair,cru,
+repair_worklog_company,Partes de trabajo por compañía ARG,arg.pyme.repair.intervention,,crud,"[('company_id','in',company_ids)]"
+repair_work_operation,Operación de reparación ARG,arg.pyme.repair.work.operation,arg_pyme_base.group_manager,crud,
+repair_work_reverse,Reversión de trabajo ARG,arg.pyme.repair.work.reverse,arg_pyme_base.group_manager,crud,

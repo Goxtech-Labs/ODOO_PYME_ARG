@@ -85,3 +85,6 @@ autenticación e instalación pendientes; no habilitado aún en demo.
 Reparaciones ARG: [manual de recepción](usuario/018-reparaciones.md),
 [diseño técnico](tecnica/018-reparaciones.md) y [estado de entrega](entregas/018-reparaciones.md).
 Primer código de recepción/diagnóstico/custodia; sin instalación ni circuito completo acreditados.
+
+[Reparaciones: trabajo autorizado1.1](entregas/018-trabajo-autorizado.md): PRE/PED, autorización,
+repuestos nativos, PTM y entrega preparados en fuente; instalación y QA pendientes.

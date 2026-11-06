@@ -1,0 +1,48 @@
+<odoo>
+    <record id="repair_work_form" model="ir.ui.view"><field name="name">arg.pyme.repair.case.work.form</field><field name="model">arg.pyme.repair.case</field><field name="inherit_id" ref="repair_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_repair_quotation" type="object" string="Presupuesto" groups="arg_pyme_base.group_ventas" invisible="state in ['draft','received','canceled']"/>
+                <button name="action_repair_orders" type="object" string="Pedidos" groups="arg_pyme_base.group_ventas" invisible="not quotation_root_id"/>
+                <button name="action_repair_authorize" type="object" string="Autorización del cliente" groups="arg_pyme_base.group_manager" invisible="state not in ['diagnosed','authorized','in_progress'] or not quotation_root_id"/>
+                <button name="action_start_work" type="object" string="Iniciar trabajo" groups="arg_pyme_base.group_manager" invisible="state != 'authorized'"/>
+                <button name="action_new_worklog" type="object" string="Registrar trabajo" groups="arg_pyme_base.group_ventas" invisible="state != 'in_progress'"/>
+                <button name="action_repair_stock" type="object" string="Repuestos" groups="arg_pyme_base.group_stock" invisible="not quotation_root_id"/>
+                <button name="action_work_ready" type="object" string="Trabajo listo" groups="arg_pyme_base.group_manager" invisible="state != 'in_progress'"/>
+                <button name="action_resume_work" type="object" string="Retomar trabajo" groups="arg_pyme_base.group_manager" invisible="state != 'ready'"/>
+                <button name="action_deliver_repaired" type="object" string="Entregar equipo reparado" groups="arg_pyme_base.group_manager" invisible="state != 'ready'"/>
+                <button name="action_repair_invoices" type="object" string="Facturas" groups="arg_pyme_base.group_ventas" invisible="not quotation_root_id"/>
+                <button name="action_arg_links" type="object" string="Documentos relacionados"/>
+            </xpath>
+            <xpath expr="//field[@name='arg_reference']" position="after"><field name="quotation_root_id" invisible="True"/><field name="current_quotation_id" groups="arg_pyme_base.group_ventas" invisible="not quotation_root_id"/></xpath>
+            <xpath expr="//button[@name='action_return_unrepaired']" position="attributes"><attribute name="invisible">state not in ['received','diagnosed','authorized']</attribute></xpath>
+            <xpath expr="//field[@name='notes']" position="attributes"><attribute name="readonly">state in ['returned','canceled','delivered']</attribute></xpath>
+            <xpath expr="//field[@name='arg_reference']" position="attributes"><attribute name="readonly">state in ['returned','canceled','delivered']</attribute></xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Autorizaciones" groups="arg_pyme_base.group_ventas"><field name="authorization_ids"><list create="0" edit="0" delete="0"><field name="date"/><field name="order_id"/><field name="authorized_by"/><field name="coverage"/><field name="reference"/></list></field></page>
+                <page string="Partes de trabajo" groups="arg_pyme_base.group_ventas"><field name="worklog_ids"><list create="0" edit="0" delete="0"><field name="arg_number"/><field name="date"/><field name="order_line_id"/><field name="quantity"/><field name="unit_id"/><field name="technician_id"/><field name="state"/></list></field></page>
+            </xpath>
+        </field></record>
+    <record id="worklog_list" model="ir.ui.view"><field name="name">arg.pyme.repair.intervention.list</field><field name="model">arg.pyme.repair.intervention</field>
+        <field name="arch" type="xml"><list js_class="arg_list" limit="50"><field name="arg_number"/><field name="date"/><field name="partner_id"/><field name="case_id"/><field name="order_line_id"/><field name="quantity"/><field name="unit_id"/><field name="state" widget="badge"/></list></field></record>
+    <record id="worklog_form" model="ir.ui.view"><field name="name">arg.pyme.repair.intervention.form</field><field name="model">arg.pyme.repair.intervention</field>
+        <field name="arch" type="xml"><form js_class="arg_form"><header>
+            <button name="action_confirm_work" type="object" string="Registrar trabajo" class="btn-primary" invisible="state != 'draft'" groups="arg_pyme_base.group_manager"/>
+            <button name="action_cancel_draft" type="object" string="Cancelar borrador" invisible="state != 'draft'"/>
+            <button name="action_reverse_work" type="object" string="Revertir parte" invisible="state != 'confirmed'" groups="arg_pyme_base.group_manager"/>
+            <button name="action_arg_print" type="object" string="Imprimir parte"/><button name="action_arg_links" type="object" string="Documentos relacionados"/>
+            <field name="state" widget="statusbar"/>
+        </header><sheet><widget name="arg_document_header"/><group><group><field name="date" readonly="state != 'draft'"/><field name="partner_id"/><field name="case_id" readonly="id"/>
+            <field name="order_line_id" readonly="state != 'draft'" domain="[('order_id.arg_repair_case_id','=',case_id),('product_id.type','=','service'),('order_id.state','=','sale')]"/>
+        </group><group><field name="arg_number"/><field name="company_id" groups="base.group_multi_company"/><field name="quantity" readonly="state != 'draft'"/><field name="unit_id"/><field name="technician_id" readonly="state != 'draft'"/></group></group>
+            <field name="notes" readonly="state != 'draft'"/><group string="Corrección" invisible="state != 'reversed'"><field name="reversed_on"/><field name="reversed_by"/><field name="reversal_reason"/></group>
+        </sheet></form></field></record>
+    <record id="action_worklogs" model="ir.actions.act_window"><field name="name">Partes de trabajo ARG</field><field name="res_model">arg.pyme.repair.intervention</field><field name="view_mode">list,form</field><field name="view_id" ref="worklog_list"/></record>
+    <record id="action_worklogs_list" model="ir.actions.act_window.view"><field name="sequence">1</field><field name="view_mode">list</field><field name="view_id" ref="worklog_list"/><field name="act_window_id" ref="action_worklogs"/></record>
+    <record id="action_worklogs_form" model="ir.actions.act_window.view"><field name="sequence">2</field><field name="view_mode">form</field><field name="view_id" ref="worklog_form"/><field name="act_window_id" ref="action_worklogs"/></record>
+    <menuitem id="menu_worklogs" name="Partes de trabajo" parent="arg_pyme_base.menu_arg_ventas" action="action_worklogs" sequence="66" groups="arg_pyme_base.group_ventas"/>
+    <record id="repair_quote_link" model="ir.ui.view"><field name="name">arg.pyme.quotation.repair</field><field name="model">arg.pyme.quotation</field><field name="inherit_id" ref="arg_pyme_ventas.quotation_form"/>
+        <field name="arch" type="xml"><xpath expr="//sheet/group[1]" position="after"><group groups="arg_pyme_reparaciones.group_repair" invisible="not arg_repair_case_id"><field name="arg_repair_case_id"/></group></xpath></field></record>
+    <record id="repair_order_link" model="ir.ui.view"><field name="name">sale.order.repair</field><field name="model">sale.order</field><field name="inherit_id" ref="arg_pyme_ventas.order_form"/>
+        <field name="arch" type="xml"><xpath expr="//sheet/group[1]" position="after"><group groups="arg_pyme_reparaciones.group_repair" invisible="not arg_repair_case_id"><field name="arg_repair_case_id"/></group></xpath></field></record>
+</odoo>

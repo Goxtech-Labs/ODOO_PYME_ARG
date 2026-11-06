@@ -44,3 +44,18 @@ custodia propios. Stock/contabilidad siguen nativos para repuestos y facturació
 repair como dependencia ni usar sus generadores comerciales en este primer incremento. No es
 rechazo global del candidato: una futura adopción requiere verificar esos efectos y su composición.
 T001 tiene evidencia de fuente; instalación y compatibilidad de los puentes continúan pendientes.
+
+## Fuentes del puente de trabajo1.1
+
+También se inspeccionó la revisión fijada de
+[sale.order.line](https://github.com/odoo/odoo/blob/bb238af6f0ddd70d7ff91521c6104472583661d1/addons/sale/models/sale_order_line.py),
+[sale_stock](https://github.com/odoo/odoo/blob/bb238af6f0ddd70d7ff91521c6104472583661d1/addons/sale_stock/models/sale_order_line.py)
+y [unidades](https://github.com/odoo/odoo/blob/bb238af6f0ddd70d7ff91521c6104472583661d1/addons/uom/data/uom_data.xml).
+Servicios manuales admiten cumplimiento nativo editable; consumibles con sale_stock derivan de
+movimientos. El clasificador de stock acepta un contexto de corte accrual_entry_date: se elimina
+para controles actuales, y el neto se toma de movimientos terminados, no del float almacenado.
+
+La inicialización sobre new() usa el cálculo nativo de método con cumplimiento cero explícito,
+evitando que preferencias ir.default conviertan un borrador en trabajo realizado. Es una preparación
+virtual, sin crear documentos ni stock. Las unidades de ejemplo unidad/hora existen en esa fuente.
+Estas lecturas y la revisión estática no acreditan registro, migración ni funcionamiento del runtime.

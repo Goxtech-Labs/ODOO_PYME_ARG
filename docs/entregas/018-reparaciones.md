@@ -29,3 +29,6 @@ El cargador optativo seed_repairs_demo.py prepara un cliente ficticio y REP en b
 
 [Manual](../usuario/018-reparaciones.md) · [Diseño técnico](../tecnica/018-reparaciones.md) ·
 [Plan completo](../PLAN-EXPANSION-ARG.md)
+
+Ampliación posterior de fuente: [trabajo autorizado1.1](018-trabajo-autorizado.md). Esta entrada
+conserva la evidencia del primer paquete1.0; no atribuirle instalación ni funciones posteriores.

@@ -11,4 +11,21 @@
         facturación vinculada continúan pendientes. No se generan movimientos, facturas, cobros ni mensajes desde este incremento.</p>
         <p>Instalación, revisión funcional y aceptación se registran por separado. Tutorial de YouTube específico pendiente.</p>
     </div></field>
+</record>
+<record id="help_repairs_work" model="arg.pyme.help.resource">
+    <field name="name">Reparaciones ARG 1.1 · Presupuesto y trabajo autorizado</field><field name="module_key">arg_pyme_reparaciones</field>
+    <field name="task">trabajo-autorizado</field><field name="version_min">20.0</field><field name="version_max">20.0</field><field name="state">current</field>
+    <field name="manual_url">https://github.com/Goxtech-Labs/ODOO_PYME_ARG/blob/main/docs/usuario/018-reparaciones.md</field>
+    <field name="manual_text" type="html"><div>
+        <p>Desde el diagnóstico prepará el PRE; confirmá sus cantidades y generá un PED separado.
+        Registrá la autorización del cliente para ese pedido y después confirmalo. Iniciar trabajo no factura ni consume.</p>
+        <p>Repuestos abre las entregas nativas del pedido. Registrá las cantidades reales y validá el movimiento.
+        No crees otra salida por la misma instalación de repuestos. Las devoluciones conservan origen y actualizan cantidades.</p>
+        <p>Para mano de obra elegí el servicio del pedido y cantidad trabajada. Si su unidad es hora, la cantidad representa horas.
+        Guardar crea PTM; Registrar trabajo actualiza el cumplimiento nativo. Revertir exige constancia y no revierte facturas ni cobros.</p>
+        <p>Trabajo listo comprueba el alcance confirmado; Entregar equipo reparado conserva quién retira.
+        La factura se prepara desde el PED y el cobro desde Administración. Cada hecho tiene su propia acción.</p>
+        <p>La cobertura de garantía se declara; no se deduce ni cambia precios automáticamente.
+        Instalación, revisión funcional, PDF y aceptación se registran aparte; tutorial específico de YouTube pendiente.</p>
+    </div></field>
 </record></odoo>

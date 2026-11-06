@@ -1,3 +1,4 @@
+import uuid
 from odoo import api, fields, models, _
 from odoo.exceptions import AccessError, UserError
 
@@ -8,7 +9,7 @@ _REPAIR_ENGINE = object()
 def repair_engine(record):
     # Defaults of the calling action must not enter an internal evidence factory.
     context = {key: value for key, value in record.env.context.items()
-               if not key.startswith('default_')}
+               if not key.startswith('default_') and key != 'accrual_entry_date'}
     return record.with_context(context, _arg_repair_engine=_REPAIR_ENGINE)
 
 
@@ -21,14 +22,21 @@ class RepairEvent(models.Model):
     case_id = fields.Many2one('arg.pyme.repair.case', required=True, ondelete='restrict', index=True, check_company=True)
     company_id = fields.Many2one(related='case_id.company_id', store=True, index=True)
     kind = fields.Selection([('receive', 'Recepción'), ('diagnose', 'Diagnóstico registrado'),
-                             ('cancel', 'Borrador cancelado'), ('return', 'Devolución sin reparación')],
+                             ('cancel', 'Borrador cancelado'), ('return', 'Devolución sin reparación'),
+                             ('authorize', 'Trabajo autorizado'), ('start', 'Trabajo iniciado'),
+                             ('order', 'Pedido vinculado'),
+                             ('ready', 'Trabajo listo'), ('resume', 'Trabajo retomado'),
+                             ('deliver', 'Equipo reparado entregado'), ('work_correction', 'Trabajo corregido')],
                             required=True)
+    request_key = fields.Char(required=True, default=lambda self: uuid.uuid4().hex, copy=False, index=True)
+    order_id = fields.Many2one('sale.order', check_company=True, ondelete='restrict', readonly=True,
+                               string='Pedido vinculado')
     effective_date = fields.Date(required=True, string='Fecha del hecho')
     recorded_at = fields.Datetime(required=True, default=fields.Datetime.now, string='Registrado el')
     actor_id = fields.Many2one('res.users', required=True, default=lambda self: self.env.user,
                                ondelete='restrict', string='Registrado por')
     evidence = fields.Json(required=True, string='Constancia')
-    _kind_unique = models.Constraint('UNIQUE(case_id, kind)', 'Este hecho ya fue registrado en el parte.')
+    _request_unique = models.Constraint('UNIQUE(case_id, request_key)', 'Esta operación ya fue registrada en el parte.')
 
     @api.model_create_multi
     def create(self, vals_list):

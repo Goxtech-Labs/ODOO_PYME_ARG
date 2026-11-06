@@ -70,7 +70,7 @@ class RepairCase(models.Model):
             raise AccessError(_('Use las acciones del parte para registrar sus hechos.'))
         for record in self.sorted('id'):
             record._lock()
-            if record.state in ('returned', 'canceled'):
+            if record.state in ('returned', 'canceled', 'delivered'):
                 raise UserError(_('El parte cerrado conserva sus datos e historial.'))
             if record.state != 'draft' and {'date', 'partner_id', 'equipment', 'symptom',
                     'brand', 'model', 'serial', 'accessories', 'condition_note', 'company_id'} & values.keys():
@@ -85,19 +85,28 @@ class RepairCase(models.Model):
             if not (record.equipment or '').strip() or not (record.symptom or '').strip():
                 raise ValidationError(_('Indicá el equipo recibido y el problema informado.'))
 
-    def _record(self, kind, target, effective_date, evidence):
+    def _repair_update(self, values):
+        return super(RepairCase, self).write(values)
+
+    def _record(self, kind, target, effective_date, evidence, request_key=None, order_id=None):
         self.ensure_one()
+        key = request_key or kind
+        previous = self.event_ids.filtered(lambda event: event.request_key == key)
+        if previous:
+            if previous.kind == kind and previous.effective_date == fields.Date.to_date(effective_date) and previous.evidence == evidence and previous.order_id.id == (order_id or False):
+                return True
+            raise UserError(_('Esta clave ya corresponde a otra operación del parte.'))
         repair_engine(self.env['arg.pyme.repair.event']).create({
             'case_id': self.id, 'kind': kind, 'effective_date': effective_date,
-            'recorded_at': fields.Datetime.now(), 'actor_id': self.env.uid, 'evidence': evidence,
+            'request_key': key, 'order_id': order_id or False, 'recorded_at': fields.Datetime.now(), 'actor_id': self.env.uid, 'evidence': evidence,
         })
         # Private server path; normal writes cannot set state or evidence, even via RPC context.
-        super(RepairCase, self).write({'state': target})
+        self._repair_update({'state': target})
         return True
 
     def action_receive(self):
         self._lock()
-        if self.state in ('received', 'diagnosed', 'returned'):
+        if self.event_ids.filtered(lambda event: event.kind == 'receive'):
             return True
         if self.state != 'draft':
             raise UserError(_('Sólo se recibe un parte en borrador.'))
@@ -130,7 +139,7 @@ class RepairCase(models.Model):
 
     def action_return_unrepaired(self):
         self._lock()
-        if self.state not in ('received', 'diagnosed'):
+        if self.state not in ('received', 'diagnosed', 'authorized'):
             raise UserError(_('Sólo se devuelve un equipo recibido que continúa en custodia.'))
         return {'type': 'ir.actions.act_window', 'res_model': 'arg.pyme.repair.return.wizard',
                 'view_mode': 'form', 'target': 'new', 'name': _('Devolución sin reparación'),
@@ -145,7 +154,7 @@ class RepairCase(models.Model):
             if previous.effective_date == date and previous.evidence == evidence:
                 return True
             raise UserError(_('La devolución ya está registrada con otra constancia.'))
-        if self.state not in ('received', 'diagnosed'):
+        if self.state not in ('received', 'diagnosed', 'authorized'):
             raise UserError(_('El equipo no está pendiente de devolución.'))
         latest_date = max([self.date] + self.event_ids.mapped('effective_date'))
         if not date or date < latest_date or date > fields.Date.context_today(self) or not evidence['recipient'] or not evidence['reason']:
@@ -160,7 +169,7 @@ class RepairCase(models.Model):
         self.ensure_one()
         received = bool(self.event_ids.filtered(lambda event: event.kind == 'receive'))
         diagnosed = bool(self.event_ids.filtered(lambda event: event.kind == 'diagnose'))
-        returned = bool(self.event_ids.filtered(lambda event: event.kind == 'return'))
+        returned = bool(self.event_ids.filtered(lambda event: event.kind in ('return', 'deliver')))
         row = lambda target, done, closed=0: [{'target': target, 'done': done, 'closed': closed, 'rounding': 1}]
         return [self._arg_axis(_('Recepción'), row(int(self.state != 'canceled'), int(received))),
                 self._arg_axis(_('Diagnóstico'), row(int(received), int(diagnosed), int(returned and not diagnosed))),

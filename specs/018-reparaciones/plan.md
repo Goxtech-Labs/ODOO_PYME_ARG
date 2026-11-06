@@ -55,3 +55,13 @@ la promoción del componente afectado y se registra; no se elude con sudo ni con
 Primer código opcional20.0.1.0.0: REP, custodia sin inventario propio, diagnóstico y devolución sin
 reparar, rol y evidencia. No instalado. Decisión de candidato nativo en research.md; no instalar repair
 para simular este alcance. El resto de US2/US3 permanece necesario; no cerrar por el subcircuito.
+
+## Ampliación de trabajo1.1
+
+PRE/PED por generadores existentes, autorización propia por PED, partes PTM de servicios manuales,
+repuestos exclusivamente por sale_stock y cierre/entrega con ejes nativos. Dependencia explícita
+arg_pyme_ventas_stock para enlazar los mismos movimientos comerciales. Archivos adicionales:
+repair_commercial.py, repair_sales_bridge.py, repair_intervention.py, repair_stock_bridge.py y
+report_adapter.py. Fuente aún no instalada; controles de migración/vistas/registro pendientes.
+Contrato [trabajo autorizado](contracts/trabajo-autorizado.md). Correcciones de recepción/diagnóstico,
+reportes completos y ejemplos/tutorías continúan; no cerrar018 ni la expansión por esta entrega.

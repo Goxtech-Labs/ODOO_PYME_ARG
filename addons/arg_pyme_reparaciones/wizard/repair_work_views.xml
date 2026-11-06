@@ -1,0 +1,14 @@
+<odoo>
+    <record id="work_operation_form" model="ir.ui.view"><field name="name">arg.pyme.repair.work.operation.form</field><field name="model">arg.pyme.repair.work.operation</field>
+        <field name="arch" type="xml"><form><group><field name="date"/><field name="case_id"/><field name="mode"/>
+            <field name="order_id" invisible="mode != 'authorize'" required="mode == 'authorize'" domain="[('arg_repair_case_id','=',case_id),('state','in',['draft','sent','sale']),('arg_commitment_released','=',False)]"/>
+            <field name="authorized_by" invisible="mode != 'authorize'" required="mode == 'authorize'"/>
+            <field name="recipient" invisible="mode != 'deliver'" required="mode == 'deliver'"/>
+            <field name="reference" required="mode in ['authorize','resume']"/>
+            <field name="coverage" invisible="mode != 'authorize'"/>
+        </group><footer><button name="action_apply" type="object" string="Registrar operación" class="btn-primary"/><button string="Descartar" special="cancel"/></footer></form></field></record>
+    <record id="work_reverse_form" model="ir.ui.view"><field name="name">arg.pyme.repair.work.reverse.form</field><field name="model">arg.pyme.repair.work.reverse</field>
+        <field name="arch" type="xml"><form><group><field name="date"/><field name="worklog_id"/><field name="reason"/></group>
+            <p>Corrige la cantidad trabajada; no revierte facturas ni cobros. Si estaba listo, el trabajo vuelve a estar en curso. Una entrega ya realizada conserva su constancia.</p>
+            <footer><button name="action_apply" type="object" string="Revertir parte" class="btn-primary"/><button string="Descartar" special="cancel"/></footer></form></field></record>
+</odoo>

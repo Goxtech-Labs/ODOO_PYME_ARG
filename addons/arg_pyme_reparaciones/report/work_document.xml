@@ -1,0 +1,13 @@
+<odoo>
+    <record id="action_report_worklog" model="ir.actions.report"><field name="name">Parte de trabajo ARG</field><field name="model">arg.pyme.repair.intervention</field><field name="report_type">qweb-pdf</field><field name="report_name">arg_pyme_reparaciones.work_document</field></record>
+    <template id="work_document"><t t-call="web.html_container"><t t-foreach="docs" t-as="o"><t t-set="access_checked" t-value="o._arg_check_document_access()"/>
+        <t t-set="commercial_access_checked" t-value="o.case_id._commercial_check()"/>
+        <t t-call="web.external_layout"><div class="page"><h2>Trabajo <span t-field="o.arg_number"/></h2>
+            <p t-if="o.arg_demo"><strong>DATOS DE EJEMPLO</strong></p><p>Estado: <span t-field="o.state"/></p>
+            <p>Fecha: <span t-field="o.date"/></p><p>Cliente: <span t-field="o.partner_id"/></p><p>Reparación: <span t-field="o.case_id"/></p>
+            <p>Servicio: <span t-field="o.order_line_id"/></p><p>Cantidad: <span t-field="o.quantity"/> <span t-field="o.unit_id"/></p>
+            <p t-if="o.technician_id">Realizado por: <span t-field="o.technician_id"/></p><p t-field="o.notes" style="white-space:pre-wrap"/>
+            <p t-if="o.state == 'reversed'">Revertido el <span t-field="o.reversed_on"/>: <span t-field="o.reversal_reason"/></p>
+            <p>Parte de gestión; no es factura ni recibo de cobro.</p><p>Odoo Pymes ARG · Gonzalo Sarubilo / GoxtechLabs.</p>
+        </div></t></t></t></template>
+</odoo>

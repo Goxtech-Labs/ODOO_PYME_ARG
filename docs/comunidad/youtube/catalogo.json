@@ -253,5 +253,22 @@
     "reviewer": "Gonzalo Sarubilo",
     "review_date": null,
     "replacement_id": null
+  },
+  {
+    "feature": "018-reparaciones",
+    "addon": "addons/arg_pyme_reparaciones",
+    "title": "Reparaciones ARG · Presupuesto y trabajo autorizado",
+    "url": null,
+    "status": "planeado",
+    "version": "20.0",
+    "manual": "docs/usuario/018-reparaciones.md",
+    "id": "arg-018-reparaciones-trabajo",
+    "task": "trabajo-autorizado",
+    "version_min": "20.0",
+    "version_max": "20.0",
+    "language": "es-AR",
+    "reviewer": "Gonzalo Sarubilo",
+    "review_date": null,
+    "replacement_id": null
   }
 ]

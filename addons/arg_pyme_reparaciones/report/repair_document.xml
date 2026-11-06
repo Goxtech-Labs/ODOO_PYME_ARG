@@ -19,6 +19,8 @@
             <table class="table table-sm" t-if="o.event_ids"><thead><tr><th>Fecha</th><th>Hecho</th><th>Registrado por</th></tr></thead>
                 <tbody><tr t-foreach="o.event_ids.sorted('id')" t-as="event"><td t-field="event.effective_date"/><td t-field="event.kind"/><td t-field="event.actor_id"/></tr></tbody></table>
             <t t-foreach="o.event_ids.filtered(lambda event: event.kind == 'return')" t-as="event"><p>Retira: <span t-out="event.evidence.get('recipient', '')"/></p><p>Motivo / constancia: <span t-out="event.evidence.get('reason', '')"/></p></t>
+            <t t-foreach="o.event_ids.filtered(lambda event: event.kind == 'deliver')" t-as="event"><p>Entrega del equipo reparado: <span t-field="event.effective_date"/></p><p>Retira: <span t-out="event.evidence.get('recipient', '')"/></p></t>
+            <p t-if="o.state == 'delivered' and o.event_ids.filtered(lambda event: event.kind == 'work_correction')">Hay correcciones de trabajo registradas. La constancia de entrega física se conserva; consultar partes y documentos vinculados.</p>
             <p>Constancia de gestión y custodia. No es factura ni autorización de trabajo.</p>
             <p>Odoo Pymes ARG · Impulsado por Gonzalo Sarubilo / GoxtechLabs.</p>
         </div></t></t></t></template>

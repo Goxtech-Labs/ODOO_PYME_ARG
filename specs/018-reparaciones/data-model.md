@@ -11,7 +11,7 @@ Consumir/devolver repuestos mediante stock nativo; mano de obra como servicio; f
 - Cada consumo, devolución y factura conserva su origen por línea.
 - Garantía y presupuesto aceptado son condiciones explícitas; no se inventan por fecha.
 
-Identificación documental: REP para parte propio; PTM reservado como propuesta para intervención futura, sin asignación aún; PRE/PED/REM/FAC existentes. Compañía obligatoria en transacciones; relaciones
+Identificación documental: REP para parte propio, PTM para trabajo de servicios; PRE/PED/REM/FAC existentes. Compañía obligatoria en transacciones; relaciones
 compatibles con compañías permitidas. Cantidades/importes usan precisión monetaria/unidad nativa.
 Fechas iniciales usan contexto de usuario; las históricas y externas conservan origen. Eventos incluyen
 actor/fecha/origen, clave idempotente y efecto nativo; no almacenar residuales alternativos.
@@ -33,3 +33,20 @@ arg.pyme.repair.event: parte/compañía, kind receive/diagnose/cancel/return, fe
 momento de registro y evidencia. Un hecho por parte/tipo, inmutable; la devolución conserva quién
 retira y motivo. Diagnóstico aún en edición se distingue del registrado. Sin cantidades de stock,
 asientos ni importes de factura en estos modelos. Las siguientes etapas extienden el contrato.
+
+## Ampliación1.1
+
+REP agrega estados authorized/in_progress/ready/delivered. quotation_root_id enlaza una única
+familia PRE; cada revisión conserva arg_repair_case_id. PED deriva el vínculo y su evento order
+conserva Many2one real. authorization_ids y worklog_ids son relaciones protegidas, no formularios
+alternativos de contabilidad. Facturas/REC conservan sus modelos y origen nativos.
+
+arg.pyme.repair.authorization: una por PED, fecha/autoriza/constancia/cobertura/actor y términos
+congelados. Garantía declarada no altera precios. arg.pyme.repair.intervention identifica PTM,
+fecha/caso/línea de servicio/cantidad/unidad/persona/nota y estado draft/confirmed/reversed/canceled;
+confirmación/reversión preservan actor/fecha/motivo y actualizan cumplimiento nativo con trazabilidad.
+
+Eventos agregan order/authorize/start/ready/resume/deliver/work_correction y request_key único por
+caso. Migración conserva los anteriores con clave legacy-id y retira unicidad caso/tipo, para
+permitir ready/resume repetibles sin reejecutar solicitudes antiguas. No duplica efectos de stock
+ni de cobro; repuestos desde movimientos reales actuales, servicios desde PTM vigentes.

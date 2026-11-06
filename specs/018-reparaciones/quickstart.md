@@ -24,3 +24,19 @@ por RPC y default_*; rechazar la inyección. Fecha futura sólo borrador; devolu
 último hecho. Revisar compañía/rol y menú de receptor sin capacidades de venta/stock. PDF conserva
 marca de ejemplo, borrador, diagnóstico en preparación y persona que retira; textos escapados.
 Estas verificaciones pertenecen al QA posterior y no se acreditan con un parseo XML/Python.
+
+## Trabajo1.1: escenarios preparados, no ejecutados
+
+PRE con un repuesto y dos horas → aceptar → generar PED distinto → constancia de autorización →
+confirmar PED → iniciar → salida nativa de un repuesto → PTM2horas → listo → entrega con quién
+retira → preparar factura desde PED → REC por Administración. Cada paso una vez, con origen.
+Reintentar autorización/PTM y viejos diálogos listo/retomar; no duplicar ni actuar sobre nueva etapa.
+Devolver repuesto desde movimiento original y revertir horas con motivo; factura/cobro no cambian
+implícitamente. Después de entrega la corrección conserva la constancia física y muestra pendientes.
+
+Intentar qty_delivered/percent/método/flags por RPC/defaults/ir.default; no afirmar repuesto sin
+movimiento ni servicio sin PTM. Un accrual_entry_date pasado no limita controles actuales. Retorno
+oculto o compañía distinta exige rechazo/desconocido, no completo. PRE muestra ejes antes del PED.
+Probar pedidos parciales, cantidades de PRE aceptadas sin PED, pedidos cancelados sin liberar,
+distintas unidades/monedas y permisos combinados. Migrar1.0 con evidencia no vacía y conservarla.
+Validar impresión y UX de ambas fichas en la fase posterior; ninguno de estos casos fue ejecutado.

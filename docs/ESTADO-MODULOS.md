@@ -19,7 +19,7 @@
 | 014-rubros | Preparados | Pendiente | Pendiente |
 | 015-documentos | Preparados | Desarrollado e instalado demo | Pendiente |
 | 017-cartera-valores | Preparados | REC con cheque papel y operaciones básicas sólo en aislado; cartera ampliada pendiente | Pendiente |
-| 018-reparaciones | Preparados | Recepción/diagnóstico/devolución sin reparar en código; no instalado; resto del circuito pendiente | Pendiente |
+| 018-reparaciones | Preparados | Recepción, PRE/PED, autorización, PTM/repuestos y entrega en código; no instalado; correcciones/reportes pendientes | Pendiente |
 
 Integraciones y rubros son etapas posteriores. Las tareas generales resumen el producto y no se suman como entregas duplicadas a las tareas de módulo.
 
@@ -44,3 +44,6 @@ anteriores ni acredita QA o promoción.
 
 [Reparaciones1.0](entregas/018-reparaciones.md): fuente de recepción/custodia y diagnóstico,
 sin instalación acreditada. No habilita todavía intervenciones, repuestos ni facturación.
+
+[Trabajo autorizado1.1](entregas/018-trabajo-autorizado.md) amplía esa fuente; ningún incremento
+de Reparaciones está instalado todavía. No sumar su código como disponibilidad en la demo.

@@ -2,6 +2,10 @@
 
 ## Desarrollo de especializaciones — 2026-11-05
 
+- Reparaciones20.0.1.1.0 en fuente: PRE/PED/autorización, PTM de servicios, repuestos nativos,
+  listo/retomar/entrega, correcciones de trabajo y hechos por origen. Sin instalación/QA acreditadas.
+- [Entrega de trabajo autorizado](docs/entregas/018-trabajo-autorizado.md).
+
 - Reparaciones ARG20.0.1.0.0: primer código REP de recepción, diagnóstico y devolución sin reparar;
   equipo ajeno sin existencias propias, hechos conservados, rol e impresión de custodia.
 - Manual, contrato y catálogo tutorial preparados. Instalación y QA pendientes; presupuesto,

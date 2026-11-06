@@ -46,3 +46,8 @@ la misma acción no duplica el evento; repetir una devolución con distinta cons
 El incremento no permite aún corregir una recepción/diagnóstico confirmado; esa corrección futura
 será explícita y preservará el original. Presupuesto/autorización/intervenciones/stock/factura y
 entrega reparada continúan en el contrato completo; este subcircuito no los sustituye.
+
+## Incremento de trabajo1.1
+
+El código agrega PRE/PED, autorización, repuestos nativos, PTM, listo/retomar/entrega reparada y
+vínculos de factura/cobro. Aplicar [trabajo-autorizado.md](trabajo-autorizado.md), sin atribuir instalación.

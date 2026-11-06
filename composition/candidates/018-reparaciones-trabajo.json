@@ -1,0 +1,23 @@
+{
+  "recorded_at": "2026-11-05",
+  "environment": "development-source",
+  "target_environment": "isolated-development",
+  "edition": "Community",
+  "source_base_commit": "51bc2612f5adc1ec2a408e009e5ef0fb61fa68e6",
+  "versions": {
+    "arg_pyme_reparaciones": "20.0.1.1.0",
+    "arg_pyme_valores": "20.0.1.2.0",
+    "arg_pyme_administracion": "20.0.1.1.4"
+  },
+  "installed": false,
+  "production_deployed": false,
+  "functional_qa": "not executed",
+  "visual_qa": "not executed",
+  "pdf_rendered": false,
+  "pending_installation": "Operator SSH authentication unanswered; last probe terminal255; no new server mutation",
+  "previous_isolated_candidate_sha256": "9a4129a81bb4920ac8a25d020ebfd0389e4d3c1c01282d0f9407a53b61c33b49",
+  "scope": "REP/PRE/PED authorization, native spare fulfillment, PTM manual services, ready/resume/deliver and native invoice/receipt links; reception/diagnosis corrections and full reports remain",
+  "example_loader": "prepared, not executed; spare and hourly service masters only",
+  "artifact_sha256": "e176f6a68f2f461e41c0451dfdeed003de813cd1abaeafbf53ae3e7340eed690",
+  "package_files": 281
+}

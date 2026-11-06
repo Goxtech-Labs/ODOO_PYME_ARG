@@ -22,12 +22,12 @@ Estado: primer código de recepción preparado, sin instalación. Resto del circ
 
 - [ ] T007 [US2] Implementar operaciones y relaciones descritas en contracts/operaciones.md con idempotencia/corrección; destino addons/arg_pyme_reparaciones/models/repair_intervention.py
 - [ ] T008 [US2] Implementar operaciones y relaciones descritas en contracts/operaciones.md con idempotencia/corrección; destino addons/arg_pyme_reparaciones/models/repair_stock_bridge.py
-- [ ] T009 [US2] Hacer cumplir en servidor: Confirmar el diagnóstico no factura ni consume repuestos.; Cada consumo, devolución y factura conserva su origen por línea.; Garantía y presupuesto aceptado son condiciones explícitas; no se inventan por fecha. Destino addons/arg_pyme_reparaciones/models/operaciones.py
+- [ ] T009 [US2] Hacer cumplir en servidor: Confirmar el diagnóstico no factura ni consume repuestos.; Cada consumo, devolución y factura conserva su origen por línea.; Garantía y presupuesto aceptado son condiciones explícitas; no se inventan por fecha. Destino addons/arg_pyme_reparaciones/models/repair_commercial.py y repair_sales_bridge.py
 
 ## US3
 
 - [ ] T010 [US3] Exponer consulta/estados/origen y adaptador de hechos sin doble suma en addons/arg_pyme_reparaciones/models/report_adapter.py
-- [ ] T011 [US3] Crear informe/documento con moneda, estado y evidencia en addons/arg_pyme_reparaciones/report/document.xml
+- [ ] T011 [US3] Crear informe/documento con moneda, estado y evidencia en addons/arg_pyme_reparaciones/report/repair_document.xml y work_document.xml
 
 ## Polish
 
@@ -59,3 +59,10 @@ T009 avanza con recepción y diagnóstico sin efectos físicos/comerciales; falt
 intervención. T010/T011 incluyen ejes/informe de custodia, sin reemplazar informes del circuito completo.
 T012 tiene guía escrita y tutorial pendiente; T013/T014 no realizados. Parent016T015 sigue abierta.
 No se crean productos, quants, asientos ni documentos comerciales desde la recepción.
+
+## Incremento de trabajo20.0.1.1.0
+
+T002/T007/T008/T009 avanzan con PRE/PED/autorización/PTM/stock nativo y entrega reparada; T010/T011
+con ejes por fuente e impresión PTM. No instalados ni validados en circuito real. Correcciones de
+recepción/diagnóstico, reportes completos, ejemplos/tutoría y T013/T014 continúan pendientes.
+No marcar el alcance completo por un paquete estático. Parent016T015 permanece abierta.
