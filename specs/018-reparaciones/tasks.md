@@ -1,21 +1,21 @@
 # Tasks: Reparaciones y servicio técnico ARG
 
-Estado: pendientes; planificación no equivale a código instalado. QA/aceptación posteriores en quickstart.md.
+Estado: primer código de recepción preparado, sin instalación. Resto del circuito pendiente; QA/aceptación posteriores en quickstart.md.
 
 
 ## Setup
 
-- [ ] T001 Inspeccionar candidato nativo, licencia/APIs y hooks de esta composición; registrar decisión en specs/018-reparaciones/research.md
+- [x] T001 Inspeccionar candidato nativo, licencia/APIs y hooks de esta composición; registrar decisión en specs/018-reparaciones/research.md
 
 ## Foundation
 
 - [ ] T002 Fijar identidad, campos y transiciones del contrato en specs/018-reparaciones/data-model.md
-- [ ] T003 Crear manifest/dependencias opcionales sin ciclo ni core modificado en addons/arg_pyme_reparaciones/__manifest__.py
+- [x] T003 Crear manifest/dependencias opcionales sin ciclo ni core modificado en addons/arg_pyme_reparaciones/__manifest__.py
 
 ## US1
 
 - [ ] T004 [US1] Implementar carga básica, valores por contexto y las invariantes: El equipo del cliente no aumenta stock propio ni su valoración. Destino addons/arg_pyme_reparaciones/models/repair_case.py
-- [ ] T005 [US1] Crear roles y reglas multiempresa; sin sudo para operaciones del usuario en addons/arg_pyme_reparaciones/security/ir.model.access.csv
+- [ ] T005 [US1] Crear roles y reglas multiempresa; sin sudo para operaciones del usuario en addons/arg_pyme_reparaciones/security/ir.access.csv
 - [ ] T006 [US1] Presentar fecha/tercero/documento/detalle y secundarios progresivos en addons/arg_pyme_reparaciones/views/repair_views.xml
 
 ## US2
@@ -49,3 +49,13 @@ US1: fichas/roles separados; US2: adaptadores separados sólo tras fijar interfa
 
 Entregas pequeñas completas y composición fijada. Las tareas de implementación permanecen sin marcar hasta evidencia de código/instalación.
 QA funcional/visual y aceptación no forman parte del conteo de implementación; se registran después mediante quickstart.md.
+
+## Incremento de recepción20.0.1.0.0
+
+T004/T005/T006 tienen código de captura, roles y vistas; AST/XML/manifest/ACL y revisión estática
+independiente sin bloqueantes. Instalación y comprobación del registro real aún pendientes.
+T002 conserva el contrato completo y agrega submodelo de recepción; no fija aún todos los puentes.
+T009 avanza con recepción y diagnóstico sin efectos físicos/comerciales; faltan las invariantes de
+intervención. T010/T011 incluyen ejes/informe de custodia, sin reemplazar informes del circuito completo.
+T012 tiene guía escrita y tutorial pendiente; T013/T014 no realizados. Parent016T015 sigue abierta.
+No se crean productos, quants, asientos ni documentos comerciales desde la recepción.

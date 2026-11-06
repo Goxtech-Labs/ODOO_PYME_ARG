@@ -1,5 +1,13 @@
 # Cambios
 
+## Desarrollo de especializaciones — 2026-11-05
+
+- Reparaciones ARG20.0.1.0.0: primer código REP de recepción, diagnóstico y devolución sin reparar;
+  equipo ajeno sin existencias propias, hechos conservados, rol e impresión de custodia.
+- Manual, contrato y catálogo tutorial preparados. Instalación y QA pendientes; presupuesto,
+  autorización, intervención, repuestos, horas y facturación siguen en desarrollo.
+- [Estado de la entrega](docs/entregas/018-reparaciones.md).
+
 ## 0.1.5-dev — 2026-11-05
 
 - Plan de expansión completo:22 capacidades, specs016–024,27 tareas coordinadoras y115 por módulo; conteos de avance no aditivos.

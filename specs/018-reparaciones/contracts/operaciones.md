@@ -30,3 +30,19 @@ Recibir equipo, presupuestar, autorizar, usar un repuesto y dos horas; entregar 
 - [Administración](../../009-administracion/contracts/operaciones.md).
 - [Integraciones](../../012-integraciones/contracts/operaciones.md).
 - [Documento](../../015-documentos/contracts/operaciones.md).
+
+## Subcircuito de recepción implementado en fuente
+
+Nuevo → borrador REP; Recibir registra fecha/cliente/equipo/síntoma/condiciones y entra en received.
+Fecha futura puede guardarse como borrador, pero no afirmar una recepción efectiva. Diagnóstico
+se completa después de recibir; Registrar diagnóstico conserva evidencia y pasa a diagnosed.
+No autoriza trabajo, no genera PRE/PED ni consume existencias. Cancelar sólo afecta draft.
+
+Devolver sin reparar desde received/diagnosed exige fecha efectiva, receptor y motivo. La fecha
+no precede al último hecho ni es futura. Registra return y cierra custodia en returned, sin afirmar
+trabajo terminado ni diagnóstico realizado si falta. Operaciones registradas no se borran. Repetir
+la misma acción no duplica el evento; repetir una devolución con distinta constancia se rechaza.
+
+El incremento no permite aún corregir una recepción/diagnóstico confirmado; esa corrección futura
+será explícita y preservará el original. Presupuesto/autorización/intervenciones/stock/factura y
+entrega reparada continúan en el contrato completo; este subcircuito no los sustituye.

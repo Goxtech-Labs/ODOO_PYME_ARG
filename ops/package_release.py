@@ -1,5 +1,5 @@
 """Package owned addons with syntax controls and a redacted secret scan (no business QA)."""
-import argparse, ast, gzip, hashlib, io, json, os, shutil, subprocess, tarfile
+import argparse, ast, csv, gzip, hashlib, io, json, os, shutil, subprocess, tarfile
 from pathlib import Path
 from lxml import etree
 
@@ -29,6 +29,16 @@ for path in files:
  if path.suffix=='.py':ast.parse(path.read_text())
  if path.suffix=='.xml':etree.fromstring(path.read_bytes())
  if path.suffix=='.js':subprocess.run(['node','--input-type=module','--check'],input=path.read_text(),text=True,check=True)
+ if path.name=='ir.access.csv':
+  # Odoo20 CRUD_SELECTION uses canonical c/r/u/d order (e.g. cr, never rc).
+  with path.open(newline='') as access_file:
+   reader=csv.DictReader(access_file)
+   if not reader.fieldnames or 'operation' not in reader.fieldnames:
+    raise SystemExit('Missing Odoo20 operation column: '+str(path.relative_to(root)))
+   for line,row in enumerate(reader,start=2):
+    operation=row.get('operation','')
+    if None in row or not operation or operation!=''.join(letter for letter in 'crud' if letter in operation):
+     raise SystemExit('Invalid Odoo20 access operation: '+str(path.relative_to(root))+':'+str(line))
 args.output.parent.mkdir(parents=True,exist_ok=True)
 scan=args.output.with_suffix('.gitleaks.json')
 subprocess.run([args.gitleaks,'dir',str(source),'--redact','--no-banner','--exit-code','2','--report-format','json','--report-path',str(scan)],check=True)

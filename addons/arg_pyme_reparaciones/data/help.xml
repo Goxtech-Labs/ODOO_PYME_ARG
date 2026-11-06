@@ -1,0 +1,14 @@
+<odoo noupdate="1"><record id="help_repairs_intake" model="arg.pyme.help.resource">
+    <field name="name">Reparaciones ARG · Recepción y diagnóstico</field><field name="module_key">arg_pyme_reparaciones</field>
+    <field name="task">recepcion-equipos</field><field name="version_min">20.0</field><field name="version_max">20.0</field><field name="state">current</field>
+    <field name="manual_url">https://github.com/Goxtech-Labs/ODOO_PYME_ARG/blob/main/docs/usuario/018-reparaciones.md</field>
+    <field name="manual_text" type="html"><div>
+        <p>Cargá fecha, cliente, equipo y problema informado. Marca, modelo, serie y accesorios son datos adicionales.
+        Guardar asigna REP; Recibir equipo registra la custodia. No crea productos ni aumenta existencias propias.</p>
+        <p>Después de recibir completá y registrá el diagnóstico. Devolver sin reparar pide fecha, quién retira y motivo.
+        Cancelar borrador no equivale a devolver un equipo recibido. Cada hecho conserva su constancia.</p>
+        <p>Primer incremento de código: presupuesto, autorización, intervenciones, repuestos, entrega de trabajo terminado y
+        facturación vinculada continúan pendientes. No se generan movimientos, facturas, cobros ni mensajes desde este incremento.</p>
+        <p>Instalación, revisión funcional y aceptación se registran por separado. Tutorial de YouTube específico pendiente.</p>
+    </div></field>
+</record></odoo>

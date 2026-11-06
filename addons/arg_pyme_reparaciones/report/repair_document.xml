@@ -1,0 +1,25 @@
+<odoo>
+    <record id="action_report_repair" model="ir.actions.report"><field name="name">Parte de recepción ARG</field>
+        <field name="model">arg.pyme.repair.case</field><field name="report_type">qweb-pdf</field>
+        <field name="report_name">arg_pyme_reparaciones.repair_document</field></record>
+    <template id="repair_document"><t t-call="web.html_container"><t t-foreach="docs" t-as="o">
+        <t t-set="access_checked" t-value="o._arg_check_document_access()"/>
+        <t t-call="web.external_layout"><div class="page">
+            <h2>Parte <span t-field="o.arg_number"/></h2>
+            <p t-if="o.arg_demo"><strong>DATOS DE EJEMPLO</strong></p><p t-if="o.state == 'draft'"><strong>BORRADOR · Recepción no registrada</strong></p>
+            <p>Estado: <span t-field="o.state"/></p><p>Fecha de recepción: <span t-field="o.date"/></p>
+            <p t-if="o.arg_reference">Referencia: <span t-field="o.arg_reference"/></p>
+            <p>Cliente: <span t-field="o.partner_id"/></p><h3 t-field="o.equipment"/>
+            <p>Problema informado: <span t-field="o.symptom" style="white-space:pre-wrap"/></p>
+            <p t-if="o.brand">Marca: <span t-field="o.brand"/></p><p t-if="o.model">Modelo: <span t-field="o.model"/></p>
+            <p t-if="o.serial">Serie: <span t-field="o.serial"/></p><p t-if="o.accessories">Accesorios: <span t-field="o.accessories"/></p>
+            <p t-if="o.condition_note">Estado recibido: <span t-field="o.condition_note"/></p>
+            <p t-if="o.diagnosis"><span t-if="not o.event_ids.filtered(lambda event: event.kind == 'diagnose')">Diagnóstico en preparación: </span><span t-else="">Diagnóstico registrado: </span><span t-field="o.diagnosis" style="white-space:pre-wrap"/></p>
+            <p t-if="o.notes" t-field="o.notes" style="white-space:pre-wrap"/>
+            <table class="table table-sm" t-if="o.event_ids"><thead><tr><th>Fecha</th><th>Hecho</th><th>Registrado por</th></tr></thead>
+                <tbody><tr t-foreach="o.event_ids.sorted('id')" t-as="event"><td t-field="event.effective_date"/><td t-field="event.kind"/><td t-field="event.actor_id"/></tr></tbody></table>
+            <t t-foreach="o.event_ids.filtered(lambda event: event.kind == 'return')" t-as="event"><p>Retira: <span t-out="event.evidence.get('recipient', '')"/></p><p>Motivo / constancia: <span t-out="event.evidence.get('reason', '')"/></p></t>
+            <p>Constancia de gestión y custodia. No es factura ni autorización de trabajo.</p>
+            <p>Odoo Pymes ARG · Impulsado por Gonzalo Sarubilo / GoxtechLabs.</p>
+        </div></t></t></t></template>
+</odoo>

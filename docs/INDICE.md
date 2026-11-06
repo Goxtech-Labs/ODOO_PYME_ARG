@@ -81,3 +81,7 @@ REC con cheques en papel está instalado sólo en aislado; no modifica recibos n
 
 [OPA, reservas y cheques propios1.2](entregas/017-opa-cheques.md): código preparado,
 autenticación e instalación pendientes; no habilitado aún en demo.
+
+Reparaciones ARG: [manual de recepción](usuario/018-reparaciones.md),
+[diseño técnico](tecnica/018-reparaciones.md) y [estado de entrega](entregas/018-reparaciones.md).
+Primer código de recepción/diagnóstico/custodia; sin instalación ni circuito completo acreditados.

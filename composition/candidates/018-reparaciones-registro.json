@@ -1,0 +1,21 @@
+{
+  "recorded_at": "2026-11-05",
+  "environment": "development-source",
+  "target_environment": "isolated-development",
+  "edition": "Community",
+  "source_base_commit": "b65c57e23a8e883451a4f27f53b04945d70ff587",
+  "versions": {
+    "arg_pyme_reparaciones": "20.0.1.0.0",
+    "arg_pyme_valores": "20.0.1.2.0",
+    "arg_pyme_administracion": "20.0.1.1.4"
+  },
+  "installed": false,
+  "production_deployed": false,
+  "functional_qa": "not executed",
+  "visual_qa": "not executed",
+  "pending_installation": "Operator SSH authentication renewal; installation controls not yet run",
+  "scope": "REP intake, immutable custody facts, diagnosis and return without repair; full commercial/stock/work circuit remains required",
+  "example_loader": "prepared, not executed; fictitious customer and REP draft only",
+  "artifact_sha256": "9a4129a81bb4920ac8a25d020ebfd0389e4d3c1c01282d0f9407a53b61c33b49",
+  "package_files": 269
+}

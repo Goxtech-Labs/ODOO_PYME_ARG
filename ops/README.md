@@ -49,3 +49,15 @@ Ejemplo, así como los maestros del cargador anterior. Crea perfiles nuevos de s
 obligación, cuenta bancaria ficticia identificada, proveedor y un cheque propio en borrador.
 No crea OPA/pagos/asientos/stock ni cambia cron/correo. Rechaza perfiles ajenos o referencias
 personalizadas, y no restablece borradores que el usuario ya utilizó. Aún no ejecutado en este incremento.
+
+## Ejemplo de recepción de equipo
+
+`seed_repairs_demo.py` requiere Reparaciones ARG instalado, administrador ARG, base arg_demo,
+`ARG_REPAIRS_ACK_EXAMPLES=1` y `ARG_REPAIRS_COMPANY_ID` en modo Ejemplo. Crea un cliente ficticio
+y un REP en borrador, con equipo descriptivo y síntoma; no recibe el equipo ni registra diagnóstico,
+movimiento, factura, pago o mensaje. No cambia configuración/cron/correo ni restablece un parte ya
+utilizado. Referencias arg_demo.repairs_* se conservan; modelo/compañía inconsistentes detienen la
+carga. Está preparado, no ejecutado; no equivale a QA de reparaciones.
+
+El empaquetador valida operaciones canónicas de ir.access.csv de Odoo20, además de manifest,
+AST/XML/JS y secretos. Ese control evita combinaciones como rc; no evalúa permisos en un runtime.

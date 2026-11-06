@@ -19,6 +19,7 @@
 | 014-rubros | Preparados | Pendiente | Pendiente |
 | 015-documentos | Preparados | Desarrollado e instalado demo | Pendiente |
 | 017-cartera-valores | Preparados | REC con cheque papel y operaciones básicas sólo en aislado; cartera ampliada pendiente | Pendiente |
+| 018-reparaciones | Preparados | Recepción/diagnóstico/devolución sin reparar en código; no instalado; resto del circuito pendiente | Pendiente |
 
 Integraciones y rubros son etapas posteriores. Las tareas generales resumen el producto y no se suman como entregas duplicadas a las tareas de módulo.
 
@@ -29,7 +30,8 @@ configurados en demo. [Controles y límites de0.1.2-dev](entregas/CANALES-GOXTEC
 
 El [plan completo](PLAN-EXPANSION-ARG.md) incorpora22 capacidades y specs016–024. Entrega0.1.5-dev
 instala sólo el primer incremento de carga básica. Valores ARG incorpora REC de cheque papel, depósito, acreditación completa y rechazo en aislado;
-las operaciones ampliadas de cartera y los otros siete addons nuevos siguen pendientes de código.
+las operaciones ampliadas de cartera y las especializaciones continúan por entregas. Reparaciones
+ya tiene código de recepción; los otros seis addons nuevos siguen pendientes de código.
 [Controles técnicos](entregas/CARGA-BASICA-ARG.md); revisión funcional/visual y aceptación separadas.
 El POS nativo está instalado, pero su adaptación ARG es una tarea distinta; no contarlo como addon ARG nuevo.
 
@@ -39,3 +41,6 @@ la cartera ampliada ni OPA con valores en la demo. La composición candidata no 
 Desarrollo adicional: [OPA/entregas1.2](entregas/017-opa-cheques.md) preparado en código,
 pendiente de renovación SSH para instalación aislada. No reemplaza las composiciones verificadas
 anteriores ni acredita QA o promoción.
+
+[Reparaciones1.0](entregas/018-reparaciones.md): fuente de recepción/custodia y diagnóstico,
+sin instalación acreditada. No habilita todavía intervenciones, repuestos ni facturación.

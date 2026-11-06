@@ -1,0 +1,7 @@
+<odoo><record id="repair_return_form" model="ir.ui.view">
+    <field name="name">arg.pyme.repair.return.wizard.form</field><field name="model">arg.pyme.repair.return.wizard</field>
+    <field name="arch" type="xml"><form string="Devolución sin reparación"><group>
+        <field name="date"/><field name="case_id"/><field name="recipient"/><field name="reason"/>
+    </group><footer><button name="action_confirm" type="object" string="Registrar devolución" class="btn-primary"/>
+        <button string="Descartar" special="cancel"/></footer></form></field>
+</record></odoo>

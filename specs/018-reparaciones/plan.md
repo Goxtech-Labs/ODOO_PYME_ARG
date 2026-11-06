@@ -10,7 +10,7 @@ Orden global y dependencias en [expansión argentina](../../docs/PLAN-EXPANSION-
 ## Technical Context
 
 **Language/Version**: Python3.12, Odoo20 Community, OWL/XML/SCSS compatibles con revisión instalada.
-**Primary Dependencies**: arg_pyme_ventas, arg_pyme_stock, arg_pyme_documentos. Nativas: repair y product/stock como candidatos Community; verificar composición exacta.
+**Primary Dependencies**: arg_pyme_ventas, arg_pyme_stock, arg_pyme_documentos. repair Community inspeccionado; recepción propia sin dependencia de repair, futuros efectos sobre stock/venta nativos; verificar composición exacta.
 **Storage**: PostgreSQL/filestore nativos; modelos nuevos sólo para hechos sin equivalente.
 **Testing**: controles técnicos de sintaxis/manifest/instalación/arranque; quickstart posterior para QA autorizada.
 **Target Platform**: LXC/Linux propio y navegador, sin Enterprise obligatorio.
@@ -49,3 +49,9 @@ Respaldo consistente y código fijado antes de cada promoción; no restaurar dat
 
 No hay excepción aprobada a la constitución. Una incompatibilidad de hooks, licencia o API detiene sólo
 la promoción del componente afectado y se registra; no se elude con sudo ni con copia de Enterprise.
+
+## Avance de recepción
+
+Primer código opcional20.0.1.0.0: REP, custodia sin inventario propio, diagnóstico y devolución sin
+reparar, rol y evidencia. No instalado. Decisión de candidato nativo en research.md; no instalar repair
+para simular este alcance. El resto de US2/US3 permanece necesario; no cerrar por el subcircuito.

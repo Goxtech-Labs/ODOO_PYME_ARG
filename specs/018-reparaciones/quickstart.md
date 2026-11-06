@@ -12,3 +12,15 @@ desactivados y composición exacta de la entrega, nunca la demo compartida para 
 7. Consultar informe/origen con monedas separadas; registrar esperado/observado/evidencia.
 
 Completar manual y aceptación personal aparte; un arranque exitoso no equivale a estos recorridos.
+
+## Recepción: escenarios preparados, no ejecutados
+
+Abrir REP nuevo con fecha/cliente/equipo/problema y guardar; verificar ausencia de producto/quant,
+asiento o documento comercial generado. Recibir y repetir la acción: una sola constancia. Completar
+diagnóstico sin técnico obligatorio y registrarlo; no generar presupuesto ni consumo implícito.
+Devolver sin reparar con fecha/retira/motivo; repetir constancia idéntica, rechazar otra distinta.
+Mantener los hechos al reintentar recepción/diagnóstico después de devolver. Intentar estado/eventos
+por RPC y default_*; rechazar la inyección. Fecha futura sólo borrador; devolución no anterior al
+último hecho. Revisar compañía/rol y menú de receptor sin capacidades de venta/stock. PDF conserva
+marca de ejemplo, borrador, diagnóstico en preparación y persona que retira; textos escapados.
+Estas verificaciones pertenecen al QA posterior y no se acreditan con un parseo XML/Python.

@@ -24,5 +24,23 @@ configuración versionada; nunca usar una fuente española como normativa argent
 
 ## Límite de certeza
 
-La selección de APIs/clases y dependencias mínimas se cierra al inspeccionar la versión instalada antes
-de programar. Esa tarea técnica tiene salida definida; no autoriza instalar candidatos por anticipado.
+La selección de APIs/clases y dependencias mínimas se cierra al inspeccionar las fuentes fijadas y
+contrastar el runtime antes de instalar. No autoriza instalar candidatos por anticipado.
+
+## Inspección de fuente fijada y decisión de recepción
+
+Revisión pública Odoo bb238af6f0ddd70d7ff91521c6104472583661d1, ya usada en investigación de esta
+composición. Se leyó [manifest repair](https://github.com/odoo/odoo/blob/bb238af6f0ddd70d7ff91521c6104472583661d1/addons/repair/__manifest__.py)
+(LGPL-3, dependencias sale_stock/sale_management), modelos repair/stock_move/sale_order y ACL.
+La inspección de esta fuente no demuestra igualdad de todos los archivos del paquete instalado.
+
+El [modelo nativo](https://github.com/odoo/odoo/blob/bb238af6f0ddd70d7ff91521c6104472583661d1/addons/repair/models/repair.py)
+crea venta/factura por sus acciones y, al completar con producto a reparar, prepara un movimiento
+del producto y evalúa su propietario en existencias. No usar esas acciones como recepción física
+de un equipo libremente descripto ni como sustitución del contrato PRE/PED ARG.
+
+Decisión: parte propio REP sin producto obligatorio ni efectos de stock del equipo; eventos de
+custodia propios. Stock/contabilidad siguen nativos para repuestos y facturación futura. No instalar
+repair como dependencia ni usar sus generadores comerciales en este primer incremento. No es
+rechazo global del candidato: una futura adopción requiere verificar esos efectos y su composición.
+T001 tiene evidencia de fuente; instalación y compatibilidad de los puentes continúan pendientes.

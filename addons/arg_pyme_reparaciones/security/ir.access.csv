@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+repair_operator,Partes ARG,arg.pyme.repair.case,arg_pyme_reparaciones.group_repair,cru,
+repair_company,Partes por compañía ARG,arg.pyme.repair.case,,crud,"[('company_id','in',company_ids)]"
+repair_event_operator,Historial de partes ARG,arg.pyme.repair.event,arg_pyme_reparaciones.group_repair,r,
+repair_event_factory,Creación de constancias de partes ARG,arg.pyme.repair.event,arg_pyme_reparaciones.group_repair,c,
+repair_event_company,Historial de partes por compañía ARG,arg.pyme.repair.event,,crud,"[('company_id','in',company_ids)]"
+repair_return_operator,Devolución sin reparación ARG,arg.pyme.repair.return.wizard,arg_pyme_reparaciones.group_repair,crud,

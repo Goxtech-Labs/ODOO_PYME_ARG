@@ -1,0 +1,6 @@
+<odoo>
+    <record id="privilege_repair" model="res.groups.privilege"><field name="name">Reparaciones ARG</field><field name="category_id" ref="arg_pyme_base.category_arg"/></record>
+    <record id="group_repair" model="res.groups"><field name="name">Operación Reparaciones ARG</field><field name="privilege_id" ref="privilege_repair"/><field name="implied_ids" eval="[(4, ref('arg_pyme_base.group_operator'))]"/></record>
+    <record id="arg_pyme_base.group_admin" model="res.groups"><field name="implied_ids" eval="[(4, ref('group_repair'))]"/></record>
+    <record id="arg_pyme_base.menu_arg_ventas" model="ir.ui.menu"><field name="group_ids" eval="[(4, ref('group_repair'))]"/></record>
+</odoo>
