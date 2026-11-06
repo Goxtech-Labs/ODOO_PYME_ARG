@@ -1,5 +1,11 @@
 # Cambios
 
+## Catálogo1.1.0 / Stock1.0.6 · aislado — 2026-11-06
+
+- Matriz de variantes nativas por atributos opcionales, ejes/fijos paginados y estados explícitos.
+- Cantidades opcionales según Stock/permisos; fichas, precios y preparación de etiquetas nativos.
+- [Instalación y límites](docs/entregas/005-variantes.md). Promoción a demo y QA pendientes.
+
 ## 0.1.6-dev — 2026-11-06
 
 - Valores1.2, Reparaciones1.2, Administración1.1.4 y Compras1.0.6 promovidos a demo.

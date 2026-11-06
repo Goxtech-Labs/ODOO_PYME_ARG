@@ -60,6 +60,19 @@ Rutas propuestas a crear durante implementación:
 - Mantener edición masiva acotada con revisión y control de concurrencia.
 - Agregar talle/color en módulos especializados posteriores, no como columnas obligatorias del núcleo.
 
+## Incremento de variantes · 2026-11-06
+
+Ampliar Catálogo con un AbstractModel de consulta paginada sobre plantillas/PTAV/productos nativos,
+acción OWL y selector de valores paginado. Stock ARG extiende sólo el adaptador de cantidades, sin
+dependencia inversa. Enlazar precios ya implementados con filtro explícito por plantilla y asistente
+nativo de etiquetas con selección acotada. Sin persistencia ni fábricas nuevas de variantes.
+Contrato: [matriz de variantes](contracts/matriz-variantes.md).
+
+Community `product_matrix` en bb238af6f0ddd70d7ff91521c6104472583661d1 declara LGPL-3 y depende de
+account. Su `_get_template_matrix` arma todas las combinaciones sin paginación. No incorporar ese
+comportamiento ni dependencia para la consulta ARG; reutilizar sólo reglas de configuración y datos
+del catálogo nativo. Cinco archivos nativos de product inspeccionados coinciden SHA256 con el runtime consultado el2026-11-06; no se afirma igualdad de todo el core.
+
 ## Entrega y orden
 
 Completar dependencias del catálogo antes de programar este módulo.

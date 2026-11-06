@@ -4,7 +4,7 @@
 
 **Created**: 2026-11-01
 
-**Status**: Desarrollado e instalado técnicamente; QA y aceptación pendientes.
+**Status**: Base20.0.1.0.5 instalada; ampliación1.1 de variantes instalada técnicamente en aislado; promoción y QA pendientes.
 
 **Input**: Gestionar productos y servicios genéricos, listas de precios y atributos opcionales mediante fichas y matrices simples.
 
@@ -66,6 +66,8 @@ Como pyme genérica necesito agregar variantes sólo cuando correspondan.
 - **FR-004**: Aplicar reglas nativas de tarifas y explicitar moneda y vigencia.
 - **FR-005**: Mantener atributos y categorías genéricos sin talles obligatorios.
 - **FR-006**: Separar costo, precio, margen, moneda y unidades en consulta y edición.
+- **FR-007**: Consultar variantes en una matriz paginada por atributos opcionales, con dos ejes elegibles y filtros para los restantes; conservar combinaciones y exclusiones nativas sin generar variantes al consultar.
+- **FR-008**: Distinguir combinación excluida, variante activa visible y variante no determinada; consultar cantidades nativas según permisos y abrir fichas, precios y preparación de etiquetas de las variantes elegidas.
 
 ### Key Entities
 

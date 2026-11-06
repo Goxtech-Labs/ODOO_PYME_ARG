@@ -1,0 +1,33 @@
+{
+  "recorded_at": "2026-11-06",
+  "environment": "source-candidate",
+  "base_commit": "020bf3cea2682907947374f5d1d5fa2df5c44d6a",
+  "package_sha256": "4bd58a7bb465593bc3b8cba1a4f4a9db2b30ef3ced219dc97bdac207b1fbd378",
+  "package_files": 290,
+  "arg_module_versions": {
+    "arg_pyme_ui": "20.0.1.1.5",
+    "arg_pyme_administracion": "20.0.1.1.4",
+    "arg_pyme_compras_stock": "20.0.1.0.2",
+    "arg_pyme_ventas_stock": "20.0.1.0.2",
+    "arg_pyme_informes": "20.0.1.0.2",
+    "arg_pyme_compras": "20.0.1.0.6",
+    "arg_pyme_terceros": "20.0.1.0.0",
+    "arg_pyme_catalogo": "20.0.1.1.0",
+    "arg_pyme_ventas": "20.0.1.0.6",
+    "arg_pyme_documentos": "20.0.1.0.6",
+    "arg_pyme_base": "20.0.1.0.5",
+    "arg_pyme_stock": "20.0.1.0.6",
+    "arg_pyme_valores": "20.0.1.2.0",
+    "arg_pyme_reparaciones": "20.0.1.2.0"
+  },
+  "changed_modules": [
+    "arg_pyme_catalogo",
+    "arg_pyme_stock"
+  ],
+  "installed": false,
+  "production_deployed": false,
+  "business_qa": false,
+  "visual_qa": false,
+  "release_document": "docs/entregas/005-variantes.md",
+  "scope": "Native variant consultation, optional stock quantities and existing price/label actions; extended F19/F17/F22 remain pending"
+}

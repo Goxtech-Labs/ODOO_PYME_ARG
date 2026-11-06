@@ -2,6 +2,7 @@
 <t t-name="arg_pyme_catalogo.PriceMatrix">
 <div class="arg_price_matrix h-100 overflow-auto p-3">
  <div class="d-flex flex-wrap align-items-center gap-2 mb-3"><h2 class="me-auto mb-0">Precios ARG</h2><button class="btn btn-success" t-if="this.state.canEdit" t-att-disabled="!this.dirty || this.state.loading || this.state.saving" t-on-click="this.review">Revisar y guardar (<t t-esc="this.changes.length"/>)</button><button class="btn btn-outline-danger" t-if="this.dirty" t-att-disabled="this.state.saving" t-on-click="this.discard">Descartar</button><button class="btn btn-secondary" t-on-click="this.advanced">Listas y reglas</button></div>
+ <p t-if="this.templateId" class="text-muted">Producto: <strong t-esc="this.templateName"/>. Se conservan las reglas nativas y los cambios pendientes de esta matriz.</p>
  <form class="d-flex flex-wrap align-items-end gap-2 mb-2" t-on-submit.prevent="() => this.load(0)">
   <label>Buscar<input class="form-control" placeholder="Código o nombre" t-att-value="this.state.query" t-on-input="ev => this.state.query = ev.target.value"/></label>
   <label>Tipo<select class="form-select" t-att-value="this.state.kind" t-on-change="ev => this.state.kind = ev.target.value"><option value="">Todos</option><option value="consu">Productos</option><option value="service">Servicios</option></select></label>

@@ -1,7 +1,7 @@
 # Tasks: Catálogo y precios ARG
 
 **Input**: spec.md, plan.md, research.md, data-model.md y contracts/.
-**Estado**: Desarrollado e instalado técnicamente; QA funcional/visual y aceptación pendientes.
+**Estado**: Catálogo previo instalado; incremento de variantes instalado técnicamente en aislado; promoción y QA pendientes.
 **Tests**: Escenarios preparados para QA posterior; controles técnicos durante instalación.
 
 ## Phase 1: Setup
@@ -50,3 +50,16 @@ Mantener secuencial la escritura de modelos/vistas compartidos; no implica deleg
 
 Entregar primero US1 con el caso mínimo; agregar US2 y US3 conservando fuente única.
 Usar ejemplos, resolver controles técnicos y realizar QA funcional/visual en la fase posterior acordada.
+
+## Incremento de variantes FR-007/008 · 2026-11-06
+
+- [x] T011 Implementar consulta paginada, ejes/fijos, exclusiones y acciones autorizadas en addons/arg_pyme_catalogo/models/variant_matrix.py, sin generar variantes ni usar lookup con sudo.
+- [x] T012 Exponer matriz OWL, selector de valores paginado, selección persistente y acceso desde ficha en addons/arg_pyme_catalogo/static/src/variant_matrix.* y views/variant_matrix_views.xml.
+- [x] T013 Agregar adaptador opcional de cantidades nativas en addons/arg_pyme_stock/models/variant_matrix.py; ausencia de permiso es no determinado, nunca cero inventado.
+- [x] T014 Enlazar precios existentes por plantilla y etiquetas nativas con revalidación de selección, sin duplicar maestros ni imprimir automáticamente.
+- [x] T015 Documentar alcance, límites y escenarios pendientes; completar controles estáticos y revisión independiente del delta.
+- [ ] T016 Fijar paquete e instalar en aislado y demo con respaldo recuperable; registrar versión/lectura posterior y QA posterior pendiente.
+
+Orden:T011→T012/T013→T014→T015→T016. Estas tareas amplían las históricas, no reabren ni acreditan de nuevo el catálogo previo. Parent016T008 sigue abierta hasta F19/condiciones; F17/F22 conservan etiquetas/importación ampliadas pendientes.
+
+2026-11-06:T011–T015 tienen fuente/registro/instalación aislada y documentación revisados, sin QA funcional/visual. T016 conserva promoción a demo pendiente. [Entrega](../../docs/entregas/005-variantes.md).

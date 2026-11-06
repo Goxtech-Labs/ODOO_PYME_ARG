@@ -20,3 +20,11 @@ Vincular originales y derivados mediante relaciones verificables, no solamente t
 ## Registro técnico de precios
 
 arg.pyme.price.change.batch guarda la clave/hash del lote y el antes/después de cada celda para idempotencia y auditoría; no constituye otra tarifa ni fuente de existencias. Único compañía/usuario/operación, inmutable y sin creación directa de usuarios.
+
+## Consulta de variantes1.1
+
+`arg.pyme.variant.matrix` es abstracto, sin persistencia: plantilla y líneas/PTAV nativas definen ejes
+y filtros; `product.product.combination_indices` resuelve sólo la página visible. Cada celda distingue
+configuración excluida, variante activa visible y variante no determinada. La selección del navegador
+contiene IDs explícitos, no un catálogo paralelo, y se revalida antes de acciones. El adaptador opcional
+de Stock agrega lecturas actuales por unidad/compañía y permiso, sin saldos ni escrituras nuevas.

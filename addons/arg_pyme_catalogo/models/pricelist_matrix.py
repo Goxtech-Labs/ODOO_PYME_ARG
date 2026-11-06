@@ -154,6 +154,15 @@ class PricelistMatrix(models.AbstractModel):
         day = fields.Date.to_date(date) if date else fields.Date.context_today(self)
         when = fields.Datetime.to_datetime(day)
         domain = [('company_id', 'in', [False, self.env.company.id])]
+        template_id = filters.get('template_id')
+        if template_id:
+            if type(template_id) is not int or template_id <= 0:
+                raise ValidationError(_('Producto de consulta no válido.'))
+            template = self.env['product.template'].browse(template_id).exists()
+            template.check_access('read')
+            if not template or not template.active or (template.company_id and template.company_id != self.env.company):
+                raise AccessError(_('Producto no disponible para la compañía actual.'))
+            domain.append(('product_tmpl_id', '=', template.id))
         query = str(filters.get('query') or '').strip()[:120]
         if query:
             domain += ['|', ('name', 'ilike', query), ('default_code', 'ilike', query)]

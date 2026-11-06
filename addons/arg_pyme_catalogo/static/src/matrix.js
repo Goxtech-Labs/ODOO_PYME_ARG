@@ -28,6 +28,8 @@ export class PriceMatrix extends Component {
         this.orm = useService("orm"); this.dialog = useService("dialog");
         this.notification = useService("notification"); this.action = useService("action");
         this.request = 0; this.operation = null;
+        this.templateId = this.props.action.params?.template_id || false;
+        this.templateName = this.props.action.params?.template_name || "";
         useSetupAction({beforeLeave:() => this.beforeLeave(),
             beforeUnload:event => {if (this.dirty) {event.preventDefault(); event.returnValue = "";}}});
         onWillStart(async () => {
@@ -50,7 +52,8 @@ export class PriceMatrix extends Component {
         try {
             if (!this.state.selected.length) {this.state.rows=[]; this.state.columns=[]; this.state.count=0; return;}
             const data = await this.orm.call("arg.pyme.pricelist.matrix", "page", [[...this.state.selected],
-                {query:this.state.query,kind:this.state.kind,category:this.state.category,sale:this.state.sale,purchase:this.state.purchase},
+                {query:this.state.query,kind:this.state.kind,category:this.state.category,sale:this.state.sale,purchase:this.state.purchase,
+                 template_id:this.templateId},
                 offset,Number(this.state.quantity),this.state.date]);
             if (request !== this.request) return;
             Object.assign(this.state,{rows:data.rows,columns:data.columns,count:data.count,offset:data.offset,limit:data.limit});

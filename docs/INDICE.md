@@ -101,3 +101,6 @@ de REP borrador y catálogo ficticio sólo en aislado. La promoción del código
 [Demo0.1.6-dev](entregas/EXPANSION-PROMOCION.md): Valores1.2, Reparaciones1.2, Administración1.1.4
 y Compras1.0.6 instalados. Esta lectura posterior reemplaza las referencias a promoción pendiente
 de los incrementos anteriores; QA y aceptación continúan pendientes.
+
+[Variantes ARG](entregas/005-variantes.md): Catálogo1.1 y Stock1.0.6 instalados en aislado. Ejes
+opcionales, filtros paginados, cantidades según permisos y acciones nativas. Promoción/QA pendientes.
